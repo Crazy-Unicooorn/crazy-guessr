@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { animated } from "react-spring";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import useBoop from "../../hooks/use-boop";
 import "./Header.css";
@@ -165,7 +166,7 @@ function ButtonBuymeacoffee() {
       >
         <span className="front">
           <animated.span style={currentStyle}>
-            <img src="src\assets\icons\brands\buy-me-a-coffee.png" alt="buymeacoffee" width={24} />
+            <img src="/src/assets/icons/brands/buy-me-a-coffee.png" alt="buymeacoffee" width={24} />
           </animated.span>
           <div style={{ width: `100%`, textAlign: "left" }}>Donate</div>
         </span>
@@ -194,12 +195,12 @@ function Header() {
 
   return (
     <section className="header">
-      <a href="/" style={{ textDecoration: `none` }}>
+      <Link to="/" style={{ textDecoration: `none` }}>
         <BrandTextWrapper>
           <BrandTextCrazy>Crazy&apos;</BrandTextCrazy>
           <BrandTextGuessr>Guessr</BrandTextGuessr>
         </BrandTextWrapper>
-      </a>
+      </Link>
       <Separator />
       <ButtonTwitch />
       <ButtonGithub />
