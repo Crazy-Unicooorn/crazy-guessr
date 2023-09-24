@@ -166,7 +166,7 @@ function ButtonBuymeacoffee() {
       >
         <span className="front">
           <animated.span style={currentStyle}>
-            <img src="/src/assets/icons/brands/buy-me-a-coffee.png" alt="buymeacoffee" width={24} />
+            <img src="src/assets/icons/brands/buy-me-a-coffee.png" alt="buymeacoffee" width={24} />
           </animated.span>
           <div style={{ width: `100%`, textAlign: "left" }}>Donate</div>
         </span>

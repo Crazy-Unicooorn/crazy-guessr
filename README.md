@@ -1,27 +1,16 @@
-# React + TypeScript + Vite
+# CrazyGuessr
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[CrazyGuessr](https://crazy-unicooorn.github.io/crazy-guessr/) is a set of tips and tools to help you get better at [GeoGuessR](geoguessr.com/).
 
-Currently, two official plugins are available:
+It takes a new approach by offering _Recall Training_ and linking to practice maps for each tip section.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is to make the learning process as optimal as can be.
 
-## Expanding the ESLint configuration
+**The project is hosted on Github Pages, which is a free service for static websites. This means that we are trying to keep the website simple and will not include features that would require a server, such as leaderboards.**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Contributing
 
-- Configure the top-level `parserOptions` property like this:
+Anyone is free to contribute, coding knowledge is not required.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [Create an issue](https://github.com/Crazy-Unicooorn/crazy-guessr/issues) if you would like to see your tips included, make a suggestion, or report a bug.
+- [Create a pull request](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls) if you know how to code and would like to improve the code.
