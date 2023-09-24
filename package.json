@@ -16,9 +16,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
+    "react-spring": "^9.7.2",
     "styled-components": "^6.0.8"
   },
   "devDependencies": {
+    "@react-spring/types": "^9.7.3",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/styled-components": "^5.1.27",
