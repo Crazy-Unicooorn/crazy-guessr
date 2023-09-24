@@ -15,7 +15,6 @@ export const StyledButton = styled.button<StyledButtonProps>`
   outline-offset: 4px;
   transition: filter 250ms;
 
-  font-family: "Quicksand", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;

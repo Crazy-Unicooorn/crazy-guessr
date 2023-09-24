@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  height: var(--header-height);
+  width: 100vw;
+  padding: 16px;
+  align-items: center;
+  gap: 8px;
+
+  flex-direction: row;
+
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  background: var(--dark-purple);
+  backdrop-filter: blur(16px);
+
+  color: white;
+}
