@@ -12,5 +12,5 @@ _The project is hosted on Github Pages, which is a free service for static websi
 
 Anyone is free to contribute, coding knowledge is not required.
 
-- [Create an issue](/issues) if you would like to see your tips included, make a suggestion, or report a bug.
-- [Create a pull request](/pulls) if you know how to code and would like to improve the code.
+- [Create an issue](https://github.com/Crazy-Unicooorn/crazy-guessr/issues) if you would like to see your tips included, make a suggestion, or report a bug.
+- [Create a pull request](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls) if you know how to code and would like to improve the code.
