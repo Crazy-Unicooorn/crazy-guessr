@@ -40,6 +40,15 @@ const Separator = styled.div`
   align-self: stretch;
 `;
 
+const CollapsingText = styled.div`
+  width: 100%;
+  text-align: left;
+
+  @media (max-width: 740px) {
+    display: none;
+  }
+`;
+
 function ButtonTwitch() {
   const [styleHovering, triggerHovering] = useBoop({
     scale: 1.1,
@@ -78,7 +87,7 @@ function ButtonTwitch() {
           <animated.span style={currentStyle}>
             <TwitchIcon size={24} />
           </animated.span>
-          <div style={{ width: `100%`, textAlign: "left" }}>Catch me live</div>
+          <CollapsingText>Catch me live</CollapsingText>
         </span>
       </StyledButton>
     </a>
@@ -123,7 +132,7 @@ function ButtonGithub() {
           <animated.span style={currentStyle}>
             <GithubIcon fill="black" size={24} />
           </animated.span>
-          <div style={{ width: `100%`, textAlign: "left" }}>Contribute on Github</div>
+          <CollapsingText>Contribute on Github</CollapsingText>
         </span>
       </StyledButton>
     </a>
@@ -166,9 +175,9 @@ function ButtonBuymeacoffee() {
       >
         <span className="front">
           <animated.span style={currentStyle}>
-            <img src="src/assets/icons/brands/buy-me-a-coffee.png" alt="buymeacoffee" width={24} />
+            <img src="src/assets/icons/brands/buy-me-a-coffee.png" alt="" width={24} />
           </animated.span>
-          <div style={{ width: `100%`, textAlign: "left" }}>Donate</div>
+          <CollapsingText>Donate</CollapsingText>
         </span>
       </StyledButton>
     </a>
@@ -179,6 +188,10 @@ const LastUpdateText = styled.span`
   font-size: 12px;
   margin-left: 32px;
   white-space: pre-line;
+
+  @media (max-width: 840px) {
+    display: none;
+  }
 `;
 
 function Header() {

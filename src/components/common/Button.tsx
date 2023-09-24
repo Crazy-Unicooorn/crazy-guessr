@@ -21,7 +21,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
   line-height: 24px;
 
   width: fit-content;
-  min-width: 128px;
+  min-width: 48px;
 
   -webkit-tap-highlight-color: transparent;
 

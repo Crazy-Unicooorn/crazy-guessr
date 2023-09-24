@@ -2,7 +2,7 @@
 
 [CrazyGuessr](https://crazy-unicooorn.github.io/crazy-guessr/) is a set of tips and tools to help you get better at [GeoGuessr](https://geoguessr.com/).
 
-It takes a new approach by offering **Recall Training** and linking to practice maps for each tip section.
+It takes a new approach by offering **Recall Training** games and linking to practice maps for each tip section.
 
 This is to make the learning process as optimal as can be.
 

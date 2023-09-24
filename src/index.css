@@ -2,6 +2,7 @@
 
 :root {
   --header-height: 80px;
+  --mobile-width: 400px;
   --dark-purple: rgba(56, 47, 91, 0.9);
   --pastel-pink: #dea4c0;
   --pastel-orange: #eccaaa;
@@ -9,14 +10,25 @@
   --pastel-green: #ade1d4;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   text-decoration: none;
   transition: all 0.27s ease-out;
   font-family: "Quicksand", sans-serif;
 }
+
+/* Supposed to make these "responsive"? Try if necessary */
+/* img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+} */
 
 body {
   background-color: #d8dbfa;
