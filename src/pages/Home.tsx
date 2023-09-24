@@ -9,9 +9,9 @@ function ButtonTest() {
     scale: 1.1,
     timing: 200,
     springConfig: { tension: 100, friction: 5 },
-  });
+  }) as [never, () => void];
 
-  const [currentStyle, setCurrentStyle] = useState(() => styleHovering);
+  const [currentStyle, setCurrentStyle] = useState<React.CSSProperties>(() => styleHovering);
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
