@@ -7,6 +7,7 @@ import "./Header.css";
 import { StyledButton } from "./Button";
 import GithubIcon from "../../assets/icons/brands/github";
 import TwitchIcon from "../../assets/icons/brands/twitch";
+import coffeeImg from "../../assets/icons/brands/buy-me-a-coffee.png";
 
 const BrandTextWrapper = styled.div`
   display: flex;
@@ -44,7 +45,7 @@ const CollapsingText = styled.div`
   width: 100%;
   text-align: left;
 
-  @media (max-width: 740px) {
+  @media (max-width: 640px) {
     display: none;
   }
 `;
@@ -132,7 +133,7 @@ function ButtonGithub() {
           <animated.span style={currentStyle}>
             <GithubIcon fill="black" size={24} />
           </animated.span>
-          <CollapsingText>Contribute on Github</CollapsingText>
+          <CollapsingText>Contribute</CollapsingText>
         </span>
       </StyledButton>
     </a>
@@ -175,7 +176,7 @@ function ButtonBuymeacoffee() {
       >
         <span className="front">
           <animated.span style={currentStyle}>
-            <img src="src/assets/icons/brands/buy-me-a-coffee.png" alt="" width={24} />
+            <img src={coffeeImg} alt="" width={24} />
           </animated.span>
           <CollapsingText>Donate</CollapsingText>
         </span>
