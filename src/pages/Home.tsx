@@ -1,8 +1,9 @@
+import HomeMap from "../components/common/HomeMap";
+
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
-      <p>Home page content</p>
+      <HomeMap />
     </div>
   );
 }
