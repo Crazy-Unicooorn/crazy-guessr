@@ -4,6 +4,7 @@
   --header-height: 80px;
   --mobile-width: 400px;
   --dark-purple: rgba(56, 47, 91, 0.9);
+  --background-color: #d8dbfa;
   --pastel-pink: #dea4c0;
   --pastel-orange: #eccaaa;
   --pastel-yellow: #f7edc3;
@@ -33,5 +34,28 @@
 } */
 
 body {
-  background-color: #d8dbfa;
+  background-color: var(--background-color);
+}
+
+/* Changing the look of the scrollbar */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--dark-purple);
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--pastel-purple);
+  cursor: pointer;
+}
+
+*::selection {
+  background-color: var(--pastel-purple);
 }

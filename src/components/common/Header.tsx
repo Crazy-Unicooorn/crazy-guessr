@@ -202,7 +202,7 @@ function Header() {
     fetch("https://api.github.com/repos/Crazy-Unicooorn/crazy-guessr")
       .then((response) => response.json())
       .then((data) => {
-        const date = new Date(data.updated_at);
+        const date = new Date(data.pushed_at);
         setLastUpdate(`updated\n ${date.toLocaleDateString()}`);
       });
   }, []);

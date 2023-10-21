@@ -4,6 +4,7 @@ function Home() {
   return (
     <div>
       <HomeMap />
+      <HomeMap />
     </div>
   );
 }
