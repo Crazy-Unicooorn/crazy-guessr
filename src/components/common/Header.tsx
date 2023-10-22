@@ -7,7 +7,8 @@ import "./Header.css";
 import { StyledButton } from "./Button";
 import GithubIcon from "../../assets/icons/brands/github";
 import TwitchIcon from "../../assets/icons/brands/twitch";
-import coffeeImg from "../../assets/icons/brands/buy-me-a-coffee.png";
+// import coffeeImg from "../../assets/icons/brands/buy-me-a-coffee.png";
+import HeartIcon from "../../assets/icons/general/heart";
 
 const BrandTextWrapper = styled.div`
   display: flex;
@@ -164,7 +165,7 @@ function ButtonBuymeacoffee() {
   }, [isAnimating, styleHovering]);
 
   return (
-    <a href="https://www.buymeacoffee.com/crazyunicorn" target="_blank" rel="noreferrer">
+    <a href="https://ko-fi.com/crazy_unicorn" target="_blank" rel="noreferrer">
       <StyledButton
         type="button"
         backgroundColor="var(--pastel-yellow, #f7edc3);"
@@ -176,7 +177,8 @@ function ButtonBuymeacoffee() {
       >
         <span className="front">
           <animated.span style={currentStyle}>
-            <img src={coffeeImg} alt="" width={24} />
+            {/* <img src={coffeeImg} alt="" width={24} /> */}
+            <HeartIcon size={24} fill="#000" />
           </animated.span>
           <CollapsingText>Donate</CollapsingText>
         </span>

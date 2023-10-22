@@ -13,7 +13,7 @@
   right: 0px;
   top: 0px;
 
-  background: var(--dark-purple);
+  background: rgba(56, 47, 91, 0.9);
   backdrop-filter: blur(16px);
 
   color: white;
