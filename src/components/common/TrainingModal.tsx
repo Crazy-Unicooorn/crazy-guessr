@@ -267,6 +267,11 @@ function TrainingModal() {
     setBack(!back);
   };
 
+  const onClose = () => {
+    setBack(false);
+    setModal(false);
+  };
+
   const onCorrect = () => {
     setCountCorrect(countCorrect + 1);
     setCountTotal(countTotal + 1);
@@ -294,7 +299,7 @@ function TrainingModal() {
               <div>
                 <span style={{ color: "green" }}>{countCorrect}</span>/{countTotal}
               </div>
-              <ButtonClose onClick={toggleModal} />
+              <ButtonClose onClick={onClose} />
             </Heading>
             <h1 style={{ width: "100%", textAlign: "center" }}>.{front}</h1>
             {back && (
