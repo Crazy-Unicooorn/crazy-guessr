@@ -292,7 +292,7 @@ function TrainingModal() {
       </TipH1>
       {modal && (
         <>
-          <Overlay onClick={toggleModal} />
+          <Overlay onClick={onClose} />
           <Modal>
             <Heading>
               <div style={{ flexGrow: 1 }}>Recall the answer</div>
