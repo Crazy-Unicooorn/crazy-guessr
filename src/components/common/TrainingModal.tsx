@@ -181,7 +181,7 @@ function randomCard() {
   return { randomFront, randomBack };
 }
 
-const Heading = styled.h2`
+const Heading = styled.div`
   text-transform: uppercase;
 
   display: flex;
@@ -295,10 +295,10 @@ function TrainingModal() {
           <Overlay onClick={onClose} />
           <Modal>
             <Heading>
-              <div style={{ flexGrow: 1 }}>Recall the answer</div>
-              <div>
+              <h2 style={{ flexGrow: 1 }}>Recall the answer</h2>
+              <h1>
                 <span style={{ color: "green" }}>{countCorrect}</span>/{countTotal}
-              </div>
+              </h1>
               <ButtonClose onClick={onClose} />
             </Heading>
             <h1 style={{ width: "100%", textAlign: "center" }}>.{front}</h1>

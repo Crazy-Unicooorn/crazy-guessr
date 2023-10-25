@@ -65,12 +65,12 @@ body {
 
 h1 {
   @media (max-width: 640px) {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 }
 
 h2 {
   @media (max-width: 640px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }

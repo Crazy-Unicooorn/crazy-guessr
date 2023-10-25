@@ -113,7 +113,7 @@ const ContentContainer = styled.div`
   position: fixed;
   content: " ";
   // top: var(--header-height);
-  padding: calc(var(--header-height) + 24px) 24px 24px 24px;
+  padding: calc(var(--header-height) + 24px) 32px;
   width: 100%;
   height: 100vh;
   z-index: -1;
