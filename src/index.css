@@ -62,3 +62,15 @@ body {
 *::selection {
   background-color: var(--pastel-purple);
 }
+
+h1 {
+  @media (max-width: 640px) {
+    font-size: 1.8rem;
+  }
+}
+
+h2 {
+  @media (max-width: 640px) {
+    font-size: 1.2rem;
+  }
+}

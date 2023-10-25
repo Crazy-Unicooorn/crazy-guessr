@@ -193,7 +193,7 @@ const Heading = styled.h2`
 const Modal = styled.div`
   display: flex;
   max-width: 600px;
-  width: 100%;
+  width: 95%;
   padding: 16px;
   flex-direction: column;
   align-items: center;
