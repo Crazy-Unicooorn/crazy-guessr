@@ -3879,31 +3879,36 @@ function HomeMap() {
           />
         </g>
       </Link>
-      <g id="gm">
+      <g id="gm" fill={colorNone}>
         <path
-          d="M1143.63 643.894c1.41-1.109 1.21-1.047 1.92.515.54 1.183 2.21-.407 3.05.206-1.8-.925 3.69-1.469 4.03-1.656-1.42-.09-3.12-.03-4.44.547-1.14.498-1.79.828-2.5-.486-.64-1.171.64-1.188 1.45-1.126 2.14.161 4.31.06 6.45.06.55 0 .32-1.731 1.59-1.371 1.02.29 2.01-.961 3.06-.41.53.279.66.966 1.18 1.278.51.301.98-.245 1.51 0 .56.266.39 1.111 1.01 1.374.66.279 1.49-.246 2.1-.43.73-.218 2.48-.07 2.37 1.05-.11 1.029-1.76 1.395-2.57 1.512-3.41.492-7.03-3.443-7.52-2.504-.58 1.089-.72 1.455-2.84 1.423-.75-.01-2.81.44-2.36 1.578.1.222-6.68-.54-6.96 1.065-.41-.796-.69-1.745-.53-2.629"
           className="landxx gm"
-          id="gm-"
+          d="M1143.63 643.894c1.41-1.109 1.21-1.047 1.92.515.54 1.183 2.21-.407 3.05.206-1.8-.925 3.69-1.469 4.03-1.656-1.42-.09-3.12-.03-4.44.547-1.14.498-1.79.828-2.5-.486-.64-1.171.64-1.188 1.45-1.126 2.14.161 4.31.06 6.45.06.55 0 .32-1.731 1.59-1.371 1.02.29 2.01-.961 3.06-.41.53.279.66.966 1.18 1.278.51.301.98-.245 1.51 0 .56.266.39 1.111 1.01 1.374.66.279 1.49-.246 2.1-.43.73-.218 2.48-.07 2.37 1.05-.11 1.029-1.76 1.395-2.57 1.512-3.41.492-7.03-3.443-7.52-2.504-.58 1.089-.72 1.455-2.84 1.423-.75-.01-2.81.44-2.36 1.578.1.222-6.68-.54-6.96 1.065-.41-.796-.69-1.745-.53-2.629"
         />
         <circle cx="1154.42" cy="643.481" r="6" className="circlexx gm" id="gm_" />
       </g>
-      <g id="qa">
+      <Link to="/qa">
+        <g
+          id="qa"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("qa", true)}
+          onMouseOut={() => handleHover("qa", false)}
+        >
+          <title>Qatar</title>
+          <path
+            className="landxx qa"
+            d="M1649.79 540.79c0-.39-.61-2.786.5-1.656-.1-.388-.32-2.542.37-.72 0-1.816.7-6.609 3.2-3.966.63.663 1.83 1.128 1.84 2.168 0 .726-.36 1.186-.52 1.849-.15.574.21 1.32.26 1.893.1.573.67.584.83 1.08.26.809.1 1.543-.26 2.29-.57 1.293-.38 2.237-1.8 2.662-1.18.354-2.24 1.291-3.03-.439-.72-1.578-1.02-3.477-1.39-5.161"
+          />
+          <circle cx="1652.49" cy="541.99" r="6" className="circlexx qa" />
+        </g>
+      </Link>
+      <g id="jm" fill={colorNone}>
         <path
-          d="M1649.79 540.79c0-.39-.61-2.786.5-1.656-.1-.388-.32-2.542.37-.72 0-1.816.7-6.609 3.2-3.966.63.663 1.83 1.128 1.84 2.168 0 .726-.36 1.186-.52 1.849-.15.574.21 1.32.26 1.893.1.573.67.584.83 1.08.26.809.1 1.543-.26 2.29-.57 1.293-.38 2.237-1.8 2.662-1.18.354-2.24 1.291-3.03-.439-.72-1.578-1.02-3.477-1.39-5.161"
-          className="landxx qa"
-          id="qa-"
-        />
-        <circle cx="1652.49" cy="541.99" r="6" className="circlexx qa" id="qa_" />
-      </g>
-      <g id="jm">
-        <path
-          d="M681.459 601.558c2.002-2.64 5.708-2.221 8.568-1.656 1.76.348 3.123 1.409 4.791 1.915 1.728.524 1.831 1.294 2.697 2.766-.766.363-1.585.432-2.42.432-.772 0-1.151-.796-1.972-.647 1.063-.18-.258-.39-.555-.126-.313.278-.588.83-1.061.85-.926.04-2.135-.132-1.336 1.22-.957 0-1.083-1.154-1.988-1.071-.874.08-2.392-.01-2.868-.884-.294-.54-.788-1.049-1.195-1.504-.701-.784-2.112-.32-2.661-1.295"
           className="landxx coastxx jm"
-          id="jm-"
+          d="M681.459 601.558c2.002-2.64 5.708-2.221 8.568-1.656 1.76.348 3.123 1.409 4.791 1.915 1.728.524 1.831 1.294 2.697 2.766-.766.363-1.585.432-2.42.432-.772 0-1.151-.796-1.972-.647 1.063-.18-.258-.39-.555-.126-.313.278-.588.83-1.061.85-.926.04-2.135-.132-1.336 1.22-.957 0-1.083-1.154-1.988-1.071-.874.08-2.392-.01-2.868-.884-.294-.54-.788-1.049-1.195-1.504-.701-.784-2.112-.32-2.661-1.295"
         />
-        <circle cx="690.414" cy="602.468" r="6" className="circlexx jm" id="jm_" />
+        <circle cx="690.414" cy="602.468" r="6" className="circlexx jm" />
       </g>
-      <g id="cy">
+      <g id="cy" fill={colorNone}>
         <path
           d="M1507.59 456.766c-.1-.264-.2-.528-.29-.792.98.968 2.43-.875 3.55-.799 1.73.117.43-1.62 2.04-1.582 1.72.04 3.25.349 4.98-.116 1.94-.522 3.67-2.54 5.71-2.544-1.29.81-2.44 2.705-3.88 3.154-1.56.49 0 1.988.63 2.678-.67.08-2.19-.05-2.7.411-.57.514-.77 1.243-1.55 1.513-.68.235-3.37.524-2.95 1.748-2.26-1.14-4.48-.802-5.54-3.671"
           className="landxx coastxx eu cy"
@@ -3912,30 +3917,37 @@ function HomeMap() {
         <g id="xc" />
         <circle cx="1509.51" cy="458.549" r="6" className="circlexx eu cy" id="cy_" />
       </g>
-      <g id="pr">
-        <path
-          d="M774.765 604.15c-2.428-.178-5.551.681-7.873-.02-.527-.158-1.663.243-1.316-.989a3.37 3.37 0 0 0 .409-1.083c-.05-.604-.808-.844-.72-1.512.304-2.305 7.748-.937 8.943-.506.965.348 3.245-.388 3.227 1.298-.01.973-1.837 2.504-2.67 2.808"
-          className="landxx coastxx pr"
-          id="pr-"
-        />
-        <circle cx="769.009" cy="600.858" r="6" className="circlexx pr" id="pr_" />
-      </g>
-      <g id="bn">
-        <g className="landxx bn" id="bn-">
+      <Link to="/pr">
+        <g
+          id="pr"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("pr", true)}
+          onMouseOut={() => handleHover("pr", false)}
+        >
+          <title>Puerto Rico</title>
+          <path
+            className="landxx coastxx pr"
+            d="M774.765 604.15c-2.428-.178-5.551.681-7.873-.02-.527-.158-1.663.243-1.316-.989a3.37 3.37 0 0 0 .409-1.083c-.05-.604-.808-.844-.72-1.512.304-2.305 7.748-.937 8.943-.506.965.348 3.245-.388 3.227 1.298-.01.973-1.837 2.504-2.67 2.808"
+          />
+          <circle cx="769.009" cy="600.858" r="6" className="circlexx pr" />
+        </g>
+      </Link>
+      <g id="bn" fill={colorNone}>
+        <g className="landxx bn">
           <path d="M2141.62 719.85c2.9-.07 3.9-2.64 6.33-3.582 1.08-.419.6 1.018.14 1.391-1.07.865-1.28 1.026-1.09 2.528 0 .121.7 5.564-1.03 4.357-.65-.456-2.11-1.464-2.55-2.173-.64-1.021-.34-2.209-1.8-2.521" />
           <path d="M2148.61 718.63c-.22-1.323.49-.438.86-1.512 1.05 1.343 1.5 3.288 1.37 4.968-1.66-.373-2.14-1.943-2.23-3.456" />
         </g>
-        <circle cx="2145.69" cy="720.99" r="6" className="circlexx bn" id="bn_" />
+        <circle cx="2145.69" cy="720.99" r="6" className="circlexx bn" />
       </g>
-      <g id="tt">
-        <g className="landxx coastxx tt" id="tt-">
+      <g id="tt" fill={colorNone}>
+        <g className="landxx coastxx tt">
           <path d="M799.83 672.69c.842-1.256 3.108-1.125 3.625-2.606.318-.911.113-3.013-1.245-2.938.962-.973 2.597-1.168 3.887-1.287 2.629-.241.408 1.407.573 2.943.154 1.428 1.032 2.739-.816 3.417-1.948.713-4.084-.293-6.024.471" />
           <path d="M808.83 663.19c.152-.903.964-1.459 1.8-1.655.06.971-1.195 1.214-1.8 1.655" />
         </g>
-        <circle cx="804.488" cy="668.188" r="6" className="circlexx tt" id="tt_" />
+        <circle cx="804.488" cy="668.188" r="6" className="circlexx tt" />
       </g>
-      <g id="cv">
-        <g className="landxx coastxx cv" id="cv-">
+      <g id="cv" fill={colorNone}>
+        <g className="landxx coastxx cv">
           <path d="M1080.7 613.22c.73.06 2.4-1.029 2.05-1.917-.58-1.472-3.22.447-2.05 1.917" />
           <path d="M1082.79 614.37c2.1-.18-.79-1.91 0 0" />
           <path d="M1086.61 631.44c.55-.204 1.11-1.422.45-1.822-1.14-.691-1.55 1.195-.45 1.822" />
@@ -3945,10 +3957,10 @@ function HomeMap() {
           <path d="M1099.06 621.29c2.04-.813.27-1.866-.72-2.232 0 .894-.83 2.248.72 2.232" />
           <path d="M1098.34 616.03c.47-.693.32-1.477.15-2.231-.8.642-.16 1.435-.15 2.231" />
         </g>
-        <circle cx="1088.73" cy="620.542" r="6" className="circlexx cv" id="cv_" />
+        <circle cx="1088.73" cy="620.542" r="6" className="circlexx cv" />
       </g>
-      <g id="pf">
-        <g className="landxx coastxx pf" id="pf-">
+      <g id="pf" fill={colorNone}>
+        <g className="landxx coastxx pf">
           <path d="M128.07 903.89c.313-.719.1-.958-.648-.72.196.258.412.498.648.72" />
           <path d="M128.64 905.83c.54-.703.396-.943-.432-.721l.432.721" />
           <path d="M141.89 911.59c.229-.648.167-1.237-.72-.5l.72.5" />
@@ -3958,208 +3970,251 @@ function HomeMap() {
           <path d="m207.77 837 .72-.5c-.709-.469-.949-.302-.72.5" />
           <path d="M212.81 844.85c.201-.669 1.18-.487 1.584-1.01-.711.09-1.274-.443-1.973-.09-.769.385-.199 1.065.389 1.103" />
         </g>
-        <circle cx="153.417" cy="894.428" r="6" className="circlexx pf" id="pf_" />
+        <circle cx="153.417" cy="894.428" r="6" className="circlexx pf" />
       </g>
-      <g id="ws">
-        <g className="landxx coastxx ws" id="ws-">
+      <g id="ws" fill={colorNone}>
+        <g className="landxx coastxx ws">
           <path d="M2691.78 876.46c-.45.217-.9.24-1.37.07.44 1.529 1.8 3.133 3.49 2.119.74-.44.85-1.316.43-2.016-.58-.968-1.74-.331-2.55-.172" />
           <path d="M2699.62 881.21c.43-2.068-3.23-2.401-4.39-1.511.94 1.527 2.85 1.324 4.39 1.511" />
         </g>
-        <circle cx="2694.51" cy="877.049" r="6" className="circlexx ws" id="ws_" />
+        <circle cx="2694.51" cy="877.049" r="6" className="circlexx ws" />
       </g>
-      <g id="lu">
-        <path
-          d="M1318.75 329.58c0-.218.55.126 0-.02.48-1.267.59-1.79 1.57-2.109 1.12-.365.7.681 1.08 1.263.5.78 1.56 1.038 2.13 1.769.62.793-.5 1.993-.39 2.909-.7-.342-3.47-.372-4.41-.666 1.28-.881.43-1.622 0-2.575"
-          className="landxx eu lu"
-          id="lu-"
-        />
-        <circle cx="1320.91" cy="331.71" r="6" className="circlexx eu lu" id="lu_" />
-      </g>
-      <g id="km">
-        <g className="landxx coastxx km" id="km-">
+      <Link to="/lu">
+        <g
+          id="lu"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("lu", true)}
+          onMouseOut={() => handleHover("lu", false)}
+        >
+          <title>Luxembourg</title>
+          <path
+            className="landxx eu lu"
+            d="M1318.75 329.58c0-.218.55.126 0-.02.48-1.267.59-1.79 1.57-2.109 1.12-.365.7.681 1.08 1.263.5.78 1.56 1.038 2.13 1.769.62.793-.5 1.993-.39 2.909-.7-.342-3.47-.372-4.41-.666 1.28-.881.43-1.622 0-2.575"
+          />
+          <circle cx="1320.91" cy="331.71" r="6" className="circlexx eu lu" />
+        </g>
+      </Link>
+      <g id="km" fill={colorNone}>
+        <g className="landxx coastxx km">
           <path d="M1600.98 862.85c.44-.406.17-1.176 0-1.62-.45-1.128-.17-2.17-.5-3.281-1.38-.04-.78 1.778-1.09 2.567-.48 1.241 1 1.571 1.6 2.334" />
           <path d="M1603.86 866.74c-.24-.695-.88-1.248-1.66-1.091 0 .997.95.94 1.66 1.091" />
           <path d="M1608.9 866.66c.85-2.194-.84-1.376-2.16-1.73.74.545 1.55 1.021 2.16 1.73" />
         </g>
-        <circle cx="1603.83" cy="862.799" r="6" className="circlexx km" id="km_" />
+        <circle cx="1603.83" cy="862.799" r="6" className="circlexx km" />
       </g>
-      <g id="mu">
+      <g id="mu" fill={colorNone}>
         <path
-          d="M1704.15 932.618c-.53.555-3.04 4.262-1.29 4.473 2.78.335 3.13-4.871 1.29-4.473"
           className="landxx coastxx mu"
-          id="mu-"
+          d="M1704.15 932.618c-.53.555-3.04 4.262-1.29 4.473 2.78.335 3.13-4.871 1.29-4.473"
         />
-        <circle cx="1700.8" cy="933.356" r="6" className="circlexx mu" id="mu_" />
+        <circle cx="1700.8" cy="933.356" r="6" className="circlexx mu" />
       </g>
-      <g id="fo">
-        <g className="landxx coastxx fo" id="fo-">
-          <path d="M1243.93 231.12c.33-.204.66-.396 1-.576-1.39-.669-2.27.444-1 .576" />
-          <path d="M1246.09 230.11c-.31-.05-1.81-1.677-2.01-.974-.32 1.109 1.91 2.336 2.73 2.63.14-.559-.12-.661-.51-.912-.25-.18-.32-.428-.21-.744.74.673.86.577.36-.288.22.371.48.707.79 1.008.95-1.023-1.15-1.809-1.8-2.088-.32.63 0 1.152.65 1.368" />
-          <path d="M1246.09 230.11c-.61-.216-.97-.738-.65-1.368.65.279 2.75 1.064 1.8 2.088a4.816 4.816 0 0 1-.79-1.008c.5.865.38.961-.36.288" />
-          <path d="M1246.59 236.09c.21-.965-.87-1.515-1.51-1.944.14.861.73 1.573 1.51 1.944" />
-          <path d="M1246.95 233.28c.3-.638.19-1.302-.72-.648.21.241.45.457.72.648" />
-          <path d="M1248.18 229.97c.66-.462.68-1.073-.1-1.44 0 .482 0 .963.1 1.44" />
+      <Link to="/fo">
+        <g
+          id="fo"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("fo", true)}
+          onMouseOut={() => handleHover("fo", false)}
+        >
+          <title>Faroe Islands</title>
+          <g className="landxx coastxx fo">
+            <path d="M1243.93 231.12c.33-.204.66-.396 1-.576-1.39-.669-2.27.444-1 .576" />
+            <path d="M1246.09 230.11c-.31-.05-1.81-1.677-2.01-.974-.32 1.109 1.91 2.336 2.73 2.63.14-.559-.12-.661-.51-.912-.25-.18-.32-.428-.21-.744.74.673.86.577.36-.288.22.371.48.707.79 1.008.95-1.023-1.15-1.809-1.8-2.088-.32.63 0 1.152.65 1.368" />
+            <path d="M1246.09 230.11c-.61-.216-.97-.738-.65-1.368.65.279 2.75 1.064 1.8 2.088a4.816 4.816 0 0 1-.79-1.008c.5.865.38.961-.36.288" />
+            <path d="M1246.59 236.09c.21-.965-.87-1.515-1.51-1.944.14.861.73 1.573 1.51 1.944" />
+            <path d="M1246.95 233.28c.3-.638.19-1.302-.72-.648.21.241.45.457.72.648" />
+            <path d="M1248.18 229.97c.66-.462.68-1.073-.1-1.44 0 .482 0 .963.1 1.44" />
+          </g>
+          <circle cx="1245.14" cy="231.957" r="6" className="circlexx fo" />
         </g>
-        <circle cx="1245.14" cy="231.957" r="6" className="circlexx fo" id="fo_" />
-      </g>
-      <g id="st">
-        <g className="landxx coastxx st" id="st-">
+      </Link>
+      <g id="st" fill={colorNone}>
+        <g className="landxx coastxx st">
           <path d="M1327.03 746.35c.31-.489.34-.992.1-1.512-.6.418-.63 1.032-.1 1.512" />
           <path d="M1320.34 759.379c.68-.37 1.4-.951 1.64-1.723.12-.4.1-1.731-.69-1.523-1.73.479-1.15 2.004-.95 3.246" />
         </g>
-        <circle cx="1323.02" cy="751.576" r="6" className="circlexx st" id="st_" />
+        <circle cx="1323.02" cy="751.576" r="6" className="circlexx st" />
       </g>
-      <g id="vi">
-        <g className="landxx coastxx vi" id="vi-">
-          <path d="M778.086 603.071c.324-.483.856-.77 1.44-.577a1.871 1.871 0 0 1-1.44.577" />
-          <path d="M782.406 606.598c-.05-1.521 1.58-.414 2.37-.72-.689.531-1.553.575-2.37.72" />
+      <Link to="/vi">
+        <g
+          id="vi"
+          fill={colorLHD}
+          onMouseOver={() => handleHover("vi", true)}
+          onMouseOut={() => handleHover("vi", false)}
+        >
+          <title>United States Virgin Islands</title>
+          <g className="landxx coastxx vi">
+            <path d="M778.086 603.071c.324-.483.856-.77 1.44-.577a1.871 1.871 0 0 1-1.44.577" />
+            <path d="M782.406 606.598c-.05-1.521 1.58-.414 2.37-.72-.689.531-1.553.575-2.37.72" />
+          </g>
+          <circle cx="778.383" cy="608.82" r="6" className="circlexx vi" />
         </g>
-        <circle cx="778.383" cy="608.82" r="6" className="circlexx vi" id="vi_" />
-      </g>
-      <g id="cw">
+      </Link>
+      <Link to="/cw">
+        <g
+          id="cw"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("cw", true)}
+          onMouseOut={() => handleHover("cw", false)}
+        >
+          <title>Curaçao</title>
+          <path
+            className="landxx coastxx cw"
+            d="M748.996 655.414c-1.237-.304-2.921-1.372-2.95-2.809.665.1 2.768 2.149 2.95 2.809"
+          />
+          <circle cx="749.112" cy="648.783" r="6" className="circlexx cw" />
+        </g>
+      </Link>
+      <g id="sx" fill={colorNone}>
         <path
-          d="M748.996 655.414c-1.237-.304-2.921-1.372-2.95-2.809.665.1 2.768 2.149 2.95 2.809"
-          className="landxx coastxx cw"
-          id="cw-"
-        />
-        <circle cx="749.112" cy="648.783" r="6" className="circlexx cw" id="cw_" />
-      </g>
-      <g id="sx">
-        <path
-          d="M796.82 603.35c-.135.385-.213.131-.277.236-.05.08-.194-.08-.288-.129-.09-.05.02-.113-.05-.171"
           className="landxx sx"
-          id="sx-"
+          d="M796.82 603.35c-.135.385-.213.131-.277.236-.05.08-.194-.08-.288-.129-.09-.05.02-.113-.05-.171"
         />
-        <circle cx="789.602" cy="604.114" r="6" className="circlexx sx" id="sx_" />
+        <circle cx="789.602" cy="604.114" r="6" className="circlexx sx" />
       </g>
-      <g id="dm">
+      <g id="dm" fill={colorNone}>
         <path
-          d="M807.096 628.054c-.111-1.142-1.084-2.53-.5-3.672 1.517.388 2.312 3.116.5 3.672"
           className="landxx coastxx dm"
-          id="dm-"
+          d="M807.096 628.054c-.111-1.142-1.084-2.53-.5-3.672 1.517.388 2.312 3.116.5 3.672"
         />
-        <circle cx="812.704" cy="625.194" r="6" className="circlexx dm" id="dm_" />
+        <circle cx="812.704" cy="625.194" r="6" className="circlexx dm" />
       </g>
-      <g id="to">
-        <g className="landxx coastxx to" id="to-">
+      <g id="to" fill={colorNone}>
+        <g className="landxx coastxx to">
           <path d="M2656.64 943.559c.29-.42.61-.827.94-1.22-.74.904-1.31-.256-2.17-.08.3.532.71.966 1.23 1.3" />
           <path d="M2657.86 945.219c0-.28-.1-.547-.21-.8.1.267.14.533.21.8" />
         </g>
-        <circle cx="2657.31" cy="942.448" r="6" className="circlexx to" id="to_" />
+        <circle cx="2657.31" cy="942.448" r="6" className="circlexx to" />
       </g>
-      <g id="ki">
-        <g className="landxx coastxx ki" id="ki-">
+      <g id="ki" fill={colorNone}>
+        <g className="landxx coastxx ki">
           <path d="M68.955 744.838c.144-.05.288-.1.432-.145-.548-.608-1.13-2.463-2.088-2.52.364.886.538 1.59-.576 1.368.608.668 1.578.697 2.232 1.297" />
           <path d="M2600.31 742.384c.23-.648.17-1.237-.72-.5l.72.5" />
         </g>
-        <circle cx="2597.54" cy="743.234" r="6" className="circlexx ki" id="ki_" />
+        <circle cx="2597.54" cy="743.234" r="6" className="circlexx ki" />
       </g>
-      <g id="fm">
+      <g id="fm" fill={colorNone}>
         <path
           d="M2477.21 700.918c1.31-.308.32-1.855-.72-1.513 0 .605.27 1.109.72 1.513"
           className="landxx coastxx fm"
-          id="fm-"
         />
-        <circle cx="2477.97" cy="695.964" r="6" className="circlexx fm" id="fm_" />
+        <circle cx="2477.97" cy="695.964" r="6" className="circlexx fm" />
       </g>
-      <g id="bh">
+      <g id="bh" fill={colorNone}>
         <path
-          d="M1646.91 533.086c.23.479.32.982.29 1.512-.14.691.7 1.188.86 1.8.29-.76.33-4.892-1.15-3.312"
           className="landxx coastxx bh"
-          id="bh-"
+          d="M1646.91 533.086c.23.479.32.982.29 1.512-.14.691.7 1.188.86 1.8.29-.76.33-4.892-1.15-3.312"
         />
-        <circle cx="1645.59" cy="531.454" r="6" className="circlexx bh" id="bh_" />
+        <circle cx="1645.59" cy="531.454" r="6" className="circlexx bh" />
       </g>
-      <g id="ad">
-        <path
-          d="M1287.49 391.318c.55-.716 1.85-.365 2.3.288-.49.647-1.31.987-2.09 1.08 0-.461-.11-.917-.21-1.368"
-          className="landxx ad"
-          id="ad-"
-        />
-        <circle cx="1287.89" cy="391.84" r="6" className="circlexx ad" id="ad_" />
-      </g>
-      <g id="mp">
-        <path
-          d="M2373.82 628.989c.21-.462.26-.941.15-1.439-.5.388-.58.962-.15 1.439"
-          className="landxx coastxx mp"
-          id="mp-"
-        />
-        <circle cx="2370.23" cy="627.145" r="6" className="circlexx mp" id="mp_" />
-      </g>
-      <g id="pw">
+      <Link to="/ad">
+        <g
+          id="ad"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("ad", true)}
+          onMouseOut={() => handleHover("ad", false)}
+        >
+          <title>Andorra</title>
+          <path
+            className="landxx ad"
+            d="M1287.49 391.318c.55-.716 1.85-.365 2.3.288-.49.647-1.31.987-2.09 1.08 0-.461-.11-.917-.21-1.368"
+          />
+          <circle cx="1287.89" cy="391.84" r="6" className="circlexx ad" />
+        </g>
+      </Link>
+      <Link to="/mp">
+        <g
+          id="mp"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("mp", true)}
+          onMouseOut={() => handleHover("mp", false)}
+        >
+          <title>Northern Mariana Islands</title>
+          <path d="M2373.82 628.989c.21-.462.26-.941.15-1.439-.5.388-.58.962-.15 1.439" className="landxx coastxx mp" />
+          <circle cx="2370.23" cy="627.145" r="6" className="circlexx mp" />
+        </g>
+      </Link>
+      <g id="pw" fill={colorNone}>
         <path
           d="M2296.14 695.95c.57-.779 1.04-2.01.57-2.952-.63.75-1.31 2.033-.57 2.952"
           className="landxx coastxx pw"
-          id="pw-"
         />
-        <circle cx="2292.37" cy="691.098" r="6" className="circlexx pw" id="pw_" />
+        <circle cx="2292.37" cy="691.098" r="6" className="circlexx pw" />
       </g>
-      <g id="sc">
-        <path d="M1694.5 801c.1-.7-.19-1.573-1.08-1.37.53.28.95.774 1.08 1.37" className="landxx coastxx sc" id="sc-" />
-        <circle cx="1695.24" cy="795.022" r="6" className="circlexx sc" id="sc_" />
+      <g id="sc" fill={colorNone}>
+        <path d="M1694.5 801c.1-.7-.19-1.573-1.08-1.37.53.28.95.774 1.08 1.37" className="landxx coastxx sc" />
+        <circle cx="1695.24" cy="795.022" r="6" className="circlexx sc" />
       </g>
-      <g id="io">
-        <path
-          d="M1812 823c.21-.462.26-.941.15-1.439-.5.388-.58.962-.15 1.439"
-          className="antxx landxx coastxx io"
-          id="io-"
-        />
-      </g>
-      <g id="ag">
-        <g className="landxx coastxx ag" id="ag-">
+      <Link to="/io">
+        <g
+          id="io"
+          fill={colorTrekker}
+          onMouseOver={() => handleHover("io", true)}
+          onMouseOut={() => handleHover("io", false)}
+        >
+          <title>British Indian Ocean Territory</title>
+          <path d="M1812 823c.21-.462.26-.941.15-1.439-.5.388-.58.962-.15 1.439" className="antxx landxx coastxx io" />
+          <circle cx="1800" cy="800" r="6" className="circlexx" />
+        </g>
+      </Link>
+      <g id="ag" fill={colorNone}>
+        <g className="landxx coastxx ag">
           <path d="M805.656 612.575c-.94.04-1.243-1.335-.21-1.441.927-.1.575 1.051.21 1.441" />
           <path d="M806.096 607.822c-.578-.111-.923-.563-.87-1.151.839-.296 1.103.496.87 1.151" />
         </g>
-        <circle cx="810.745" cy="604.909" r="6" className="circlexx ag" id="ag_" />
+        <circle cx="810.745" cy="604.909" r="6" className="circlexx ag" />
       </g>
-      <g id="bb">
+      <g id="bb" fill={colorNone}>
         <path
           d="M819.556 646.63c-.959-.41-.79-1.311-.79-2.16.802.298 2.27 1.636.79 2.16"
           className="landxx coastxx bb"
-          id="bb-"
         />
-        <circle cx="821.843" cy="646.013" r="6" className="circlexx bb" id="bb_" />
+        <circle cx="821.843" cy="646.013" r="6" className="circlexx bb" />
       </g>
-      <g id="tc">
-        <g className="landxx coastxx tc" id="tc-">
+      <g id="tc" fill={colorNone}>
+        <g className="landxx coastxx tc">
           <path d="m731.216 571.462-.36-.721c.49.306.994.33 1.51.07-.371.24-.754.456-1.15.649" />
           <path d="m735.815 571.462-.72-.433c.843-.698.957-.209.72.433" />
           <path d="M737.116 572.182a8.154 8.154 0 0 1-.72-.72c.661-.05.605.204.72.72" />
         </g>
-        <circle cx="735.598" cy="568.058" r="6" className="circlexx tc" id="tc_" />
+        <circle cx="735.598" cy="568.058" r="6" className="circlexx tc" />
       </g>
-      <g id="vc">
+      <g id="vc" fill={colorNone}>
         <path
           d="M807.026 645.982c-1.021-.618-.314-1.585.22-2.231.528.735.282 1.573-.22 2.231"
           className="landxx coastxx vc"
-          id="vc-"
         />
-        <circle cx="810.2" cy="648.654" r="6" className="circlexx vc" id="vc_" />
+        <circle cx="810.2" cy="648.654" r="6" className="circlexx vc" />
       </g>
-      <g id="lc">
+      <g id="lc" fill={colorNone}>
         <path
           d="M809.185 640.942c-1.39-.555-.666-1.98 0-2.808 1.025.543.674 2.138 0 2.808"
           className="landxx coastxx lc"
-          id="lc-"
         />
-        <circle cx="804.065" cy="637.635" r="6" className="circlexx lc" id="lc_" />
+        <circle cx="804.065" cy="637.635" r="6" className="circlexx lc" />
       </g>
-      <g id="gd">
+      <g id="gd" fill={colorNone}>
         <path
           d="M802.486 655.702c-.768-.732-.124-1.668.65-2.017.29.759.06 1.587-.65 2.017"
           className="landxx coastxx gd"
-          id="gd-"
         />
-        <circle cx="800.456" cy="655.891" r="6" className="circlexx gd" id="gd_" />
+        <circle cx="800.456" cy="655.891" r="6" className="circlexx gd" />
       </g>
-      <g id="mt">
-        <path
-          d="M1379.36 449.854c-.8-.08-1.55-.824-1.15-1.655.58.34 1.94.768 1.15 1.655"
-          className="landxx coastxx eu mt"
-          id="mt-"
-        />
-        <circle cx="1380" cy="450.232" r="6" className="circlexx eu mt" id="mt_" />
-      </g>
+      <Link to="/mt">
+        <g
+          id="mt"
+          fill={colorLHD}
+          onMouseOver={() => handleHover("mt", true)}
+          onMouseOut={() => handleHover("mt", false)}
+        >
+          <title>Malta</title>
+          <path
+            d="M1379.36 449.854c-.8-.08-1.55-.824-1.15-1.655.58.34 1.94.768 1.15 1.655"
+            className="landxx coastxx eu mt"
+          />
+          <circle cx="1380" cy="450.232" r="6" className="circlexx eu mt" />
+        </g>
+      </Link>
       <g id="mv">
         <path
           d="M1815.09 736.359c.1-.7-.19-1.573-1.08-1.37.53.28.95.774 1.08 1.37"

@@ -108,6 +108,16 @@ import Swaziland from "./pages/countries/sz";
 import Vanuatu from "./pages/countries/vu";
 import FalklandIslands from "./pages/countries/fk";
 import SouthGeorgia from "./pages/countries/gs";
+import Qatar from "./pages/countries/qa";
+import PuertoRico from "./pages/countries/pr";
+import Luxembourg from "./pages/countries/lu";
+import FaroeIslands from "./pages/countries/fo";
+import USVirginIslands from "./pages/countries/vi";
+import Curaçao from "./pages/countries/cw";
+import Andorra from "./pages/countries/ad";
+import NothernMarianaIslands from "./pages/countries/mp";
+import BritishIdianOceanTerritory from "./pages/countries/io";
+import Malta from "./pages/countries/mt";
 
 const ContentContainer = styled.div`
   position: fixed;
@@ -137,6 +147,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="ad" element={<Andorra />} />
             <Route path="ae" element={<UnitedArabEmirates />} />
             <Route path="af" element={<Afghanistan />} />
             <Route path="al" element={<Albania />} />
@@ -158,6 +169,7 @@ function App() {
             <Route path="cn" element={<China />} />
             <Route path="co" element={<Colombia />} />
             <Route path="cr" element={<CostaRica />} />
+            <Route path="cw" element={<Curaçao />} />
             <Route path="cz" element={<CzechRepublic />} />
             <Route path="de" element={<Germany />} />
             <Route path="dk" element={<Denmark />} />
@@ -168,6 +180,7 @@ function App() {
             <Route path="es" element={<Spain />} />
             <Route path="fi" element={<Finland />} />
             <Route path="fk" element={<FalklandIslands />} />
+            <Route path="fo" element={<FaroeIslands />} />
             <Route path="fr" element={<France />} />
             <Route path="gb" element={<UnitedKingdom />} />
             <Route path="gh" element={<Ghana />} />
@@ -182,6 +195,7 @@ function App() {
             <Route path="ie" element={<Ireland />} />
             <Route path="il" element={<Israel />} />
             <Route path="in" element={<India />} />
+            <Route path="io" element={<BritishIdianOceanTerritory />} />
             <Route path="iq" element={<Iraq />} />
             <Route path="is" element={<Iceland />} />
             <Route path="it" element={<Italy />} />
@@ -196,6 +210,7 @@ function App() {
             <Route path="lk" element={<SriLanka />} />
             <Route path="ls" element={<Lesotho />} />
             <Route path="lt" element={<Lithuania />} />
+            <Route path="lu" element={<Luxembourg />} />
             <Route path="lv" element={<Latvia />} />
             <Route path="mg" element={<Madagascar />} />
             <Route path="me" element={<Montenegro />} />
@@ -203,7 +218,9 @@ function App() {
             <Route path="ml" element={<Mali />} />
             <Route path="mn" element={<Mongolia />} />
             <Route path="mo" element={<Macao />} />
+            <Route path="mp" element={<NothernMarianaIslands />} />
             <Route path="mq" element={<Martinique />} />
+            <Route path="mt" element={<Malta />} />
             <Route path="mx" element={<Mexico />} />
             <Route path="my" element={<Malaysia />} />
             <Route path="na" element={<Namibia />} />
@@ -217,7 +234,9 @@ function App() {
             <Route path="ph" element={<Philippines />} />
             <Route path="pk" element={<Pakistan />} />
             <Route path="pl" element={<Poland />} />
+            <Route path="pr" element={<PuertoRico />} />
             <Route path="pt" element={<Portugal />} />
+            <Route path="qa" element={<Qatar />} />
             <Route path="re" element={<Reunion />} />
             <Route path="ro" element={<Romania />} />
             <Route path="rs" element={<Serbia />} />
@@ -238,6 +257,7 @@ function App() {
             <Route path="ug" element={<Uganda />} />
             <Route path="us" element={<UnitedStates />} />
             <Route path="uy" element={<Uruguay />} />
+            <Route path="vi" element={<USVirginIslands />} />
             <Route path="vn" element={<Vietnam />} />
             <Route path="vu" element={<Vanuatu />} />
             <Route path="xv" element={<Svalbard />} />
