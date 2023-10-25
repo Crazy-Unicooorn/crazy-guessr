@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { animated } from "react-spring";
-import { StyledButton } from "../components/common/Button";
-import useBoop from "../hooks/use-boop";
-import ArrowLeft from "../assets/icons/directional/arrow_left";
+import useBoop from "../../hooks/use-boop";
+import { StyledButton } from "./Button";
+import CloseIcon from "../../assets/icons/actions/close";
 
-function ButtonHome() {
+interface ButtonProps {
+  onClick: () => void;
+}
+
+function ButtonClose({ onClick }: ButtonProps) {
   const [styleHovering, triggerHovering] = useBoop({
-    x: -8,
-    timing: 200,
+    rotation: 180,
+    scale: 0.72,
+    timing: 500,
     springConfig: { tension: 100, friction: 5 },
   }) as [never, () => void];
 
@@ -22,7 +27,7 @@ function ButtonHome() {
     const timeoutId = setTimeout(() => {
       setIsAnimating(false);
       setCurrentStyle(() => styleHovering);
-    }, 220);
+    }, 520);
     return () => {
       clearTimeout(timeoutId);
     };
@@ -32,32 +37,22 @@ function ButtonHome() {
     <Link to="/">
       <StyledButton
         type="button"
-        backgroundColor="var(--pastel-pink)"
+        backgroundColor="var(--pastel-black)"
         shadow="dark"
         onMouseEnter={() => {
           setCurrentStyle(() => styleHovering);
           triggerHovering();
         }}
+        onClick={onClick}
       >
         <span className="front">
           <animated.span style={currentStyle}>
-            <ArrowLeft size={24} fill="black" />
+            <CloseIcon size={24} fill="var(--pastel-pink)" />
           </animated.span>
-          Back to Home
         </span>
       </StyledButton>
     </Link>
   );
 }
 
-function NotFound() {
-  return (
-    <>
-      <h1>404</h1>
-      <p>Page not found</p>
-      <ButtonHome />
-    </>
-  );
-}
-
-export default NotFound;
+export default ButtonClose;

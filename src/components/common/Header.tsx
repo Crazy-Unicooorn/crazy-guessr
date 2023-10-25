@@ -7,7 +7,6 @@ import "./Header.css";
 import { StyledButton } from "./Button";
 import GithubIcon from "../../assets/icons/brands/github";
 import TwitchIcon from "../../assets/icons/brands/twitch";
-// import coffeeImg from "../../assets/icons/brands/buy-me-a-coffee.png";
 import HeartIcon from "../../assets/icons/general/heart";
 
 const BrandTextWrapper = styled.div`
@@ -141,7 +140,7 @@ function ButtonGithub() {
   );
 }
 
-function ButtonBuymeacoffee() {
+function ButtonDonate() {
   const [styleHovering, triggerHovering] = useBoop({
     scale: 1.1,
     timing: 200,
@@ -220,7 +219,7 @@ function Header() {
       <Separator />
       <ButtonTwitch />
       <ButtonGithub />
-      <ButtonBuymeacoffee />
+      <ButtonDonate />
       <LastUpdateText>{lastUpdate}</LastUpdateText>
     </section>
   );
