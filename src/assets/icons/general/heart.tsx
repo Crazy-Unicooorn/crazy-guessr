@@ -1,6 +1,6 @@
 type SvgProps = {
-  fill: string;
-  size: number;
+  fill?: string;
+  size?: number;
 };
 
 function HeartIcon({ fill, size }: SvgProps) {
@@ -23,5 +23,10 @@ function HeartIcon({ fill, size }: SvgProps) {
     </svg>
   );
 }
+
+HeartIcon.defaultProps = {
+  fill: "black",
+  size: 24,
+};
 
 export default HeartIcon;

@@ -11,15 +11,15 @@ function useBoop({
     tension: 300,
     friction: 10,
   },
-  size = "24px",
+  size = 24,
 }) {
   // const prefersReducedMotion = usePrefersReducedMotion();
 
   const [isBooped, setIsBooped] = React.useState(false);
   const style = useSpring({
     display: "inline-block",
-    width: `${size}`,
-    height: `${size}`,
+    width: `${size}px`,
+    height: `${size}px`,
     backfaceVisibility: "hidden",
     transform: isBooped
       ? `translate(${x}px, ${y}px)

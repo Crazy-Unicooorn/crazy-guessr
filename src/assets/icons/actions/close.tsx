@@ -1,6 +1,6 @@
 type SvgProps = {
-  fill: string;
-  size: number;
+  fill?: string;
+  size?: number;
 };
 
 function CloseIcon({ fill, size }: SvgProps) {
@@ -23,5 +23,10 @@ function CloseIcon({ fill, size }: SvgProps) {
     </svg>
   );
 }
+
+CloseIcon.defaultProps = {
+  fill: "black",
+  size: 24,
+};
 
 export default CloseIcon;

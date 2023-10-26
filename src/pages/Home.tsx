@@ -1,11 +1,11 @@
 import HomeMap from "../components/common/HomeMap";
-import TrainingModal from "../components/common/TrainingModal";
+import InternetDomains from "../components/tips/world/InternetDomains";
 
 function Home() {
   return (
     <>
       <HomeMap />
-      <TrainingModal />
+      <InternetDomains />
     </>
   );
 }

@@ -17,4 +17,8 @@
   backdrop-filter: blur(16px);
 
   color: white;
+
+  @media (max-height: 360px) {
+   display: none;
+  }
 }

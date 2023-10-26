@@ -1,6 +1,6 @@
 type SvgProps = {
-  fill: string;
-  size: number;
+  fill?: string;
+  size?: number;
 };
 
 function ArrowRight({ fill, size }: SvgProps) {
@@ -23,5 +23,10 @@ function ArrowRight({ fill, size }: SvgProps) {
     </svg>
   );
 }
+
+ArrowRight.defaultProps = {
+  fill: "black",
+  size: 24,
+};
 
 export default ArrowRight;

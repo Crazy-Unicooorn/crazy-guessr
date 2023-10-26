@@ -30,10 +30,14 @@
 }
 
 /* Supposed to make these "responsive"? Try if necessary */
-/* img, picture, svg, video {
+img, picture, video {
   display: block;
   max-width: 100%;
-} */
+}
+
+.tipimg {
+  border-radius: 8px;
+}
 
 body {
   background-color: var(--background-color);
@@ -64,6 +68,8 @@ body {
 }
 
 h1 {
+  font-size: 2.4rem;
+
   @media (max-width: 640px) {
     font-size: 1.6rem;
   }

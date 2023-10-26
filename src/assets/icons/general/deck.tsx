@@ -1,6 +1,6 @@
 type SvgProps = {
-  fill: string;
-  size: number;
+  fill?: string;
+  size?: number;
 };
 
 function DeckIcon({ fill, size }: SvgProps) {
@@ -23,5 +23,10 @@ function DeckIcon({ fill, size }: SvgProps) {
     </svg>
   );
 }
+
+DeckIcon.defaultProps = {
+  fill: "black",
+  size: 24,
+};
 
 export default DeckIcon;

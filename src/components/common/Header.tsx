@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
-import { animated } from "react-spring";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import useBoop from "../../hooks/use-boop";
 import "./Header.css";
-import { StyledButton } from "./Button";
 import GithubIcon from "../../assets/icons/brands/github";
 import TwitchIcon from "../../assets/icons/brands/twitch";
 import HeartIcon from "../../assets/icons/general/heart";
+import Button from "./Button";
 
 const BrandTextWrapper = styled.div`
   display: flex;
@@ -41,151 +39,6 @@ const Separator = styled.div`
   align-self: stretch;
 `;
 
-const CollapsingText = styled.div`
-  width: 100%;
-  text-align: left;
-
-  @media (max-width: 640px) {
-    display: none;
-  }
-`;
-
-function ButtonTwitch() {
-  const [styleHovering, triggerHovering] = useBoop({
-    scale: 1.1,
-    timing: 200,
-    springConfig: { tension: 100, friction: 5 },
-  }) as [never, () => void];
-
-  const [currentStyle, setCurrentStyle] = useState<React.CSSProperties>(() => styleHovering);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    if (!isAnimating) {
-      return;
-    }
-    const timeoutId = setTimeout(() => {
-      setIsAnimating(false);
-      setCurrentStyle(() => styleHovering);
-    }, 220);
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [isAnimating, styleHovering]);
-
-  return (
-    <a href="https://www.twitch.tv/crazyquirkyunicorn" target="_blank" rel="noreferrer">
-      <StyledButton
-        type="button"
-        backgroundColor="#e1cdff"
-        shadow="light"
-        onMouseEnter={() => {
-          setCurrentStyle(() => styleHovering);
-          triggerHovering();
-        }}
-      >
-        <span className="front">
-          <animated.span style={currentStyle}>
-            <TwitchIcon size={24} />
-          </animated.span>
-          <CollapsingText>Catch me live</CollapsingText>
-        </span>
-      </StyledButton>
-    </a>
-  );
-}
-
-function ButtonGithub() {
-  const [styleHovering, triggerHovering] = useBoop({
-    scale: 1.1,
-    timing: 200,
-    springConfig: { tension: 100, friction: 5 },
-  }) as [never, () => void];
-
-  const [currentStyle, setCurrentStyle] = useState<React.CSSProperties>(() => styleHovering);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    if (!isAnimating) {
-      return;
-    }
-    const timeoutId = setTimeout(() => {
-      setIsAnimating(false);
-      setCurrentStyle(() => styleHovering);
-    }, 220);
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [isAnimating, styleHovering]);
-
-  return (
-    <a href="https://github.com/Crazy-Unicooorn/crazy-guessr" target="_blank" rel="noreferrer">
-      <StyledButton
-        type="button"
-        backgroundColor="var(--pastel-orange, #eccaaa);"
-        shadow="light"
-        onMouseEnter={() => {
-          setCurrentStyle(() => styleHovering);
-          triggerHovering();
-        }}
-      >
-        <span className="front">
-          <animated.span style={currentStyle}>
-            <GithubIcon fill="black" size={24} />
-          </animated.span>
-          <CollapsingText>Contribute</CollapsingText>
-        </span>
-      </StyledButton>
-    </a>
-  );
-}
-
-function ButtonDonate() {
-  const [styleHovering, triggerHovering] = useBoop({
-    scale: 1.1,
-    timing: 200,
-    springConfig: { tension: 100, friction: 5 },
-  }) as [never, () => void];
-
-  const [currentStyle, setCurrentStyle] = useState<React.CSSProperties>(() => styleHovering);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    if (!isAnimating) {
-      return;
-    }
-    const timeoutId = setTimeout(() => {
-      setIsAnimating(false);
-      setCurrentStyle(() => styleHovering);
-    }, 220);
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [isAnimating, styleHovering]);
-
-  return (
-    <a href="https://ko-fi.com/crazy_unicorn" target="_blank" rel="noreferrer">
-      <StyledButton
-        type="button"
-        backgroundColor="var(--pastel-yellow, #f7edc3);"
-        shadow="light"
-        onMouseEnter={() => {
-          setCurrentStyle(() => styleHovering);
-          triggerHovering();
-        }}
-      >
-        <span className="front">
-          <animated.span style={currentStyle}>
-            {/* <img src={coffeeImg} alt="" width={24} /> */}
-            <HeartIcon size={24} fill="#000" />
-          </animated.span>
-          <CollapsingText>Donate</CollapsingText>
-        </span>
-      </StyledButton>
-    </a>
-  );
-}
-
 const LastUpdateText = styled.span`
   font-size: 12px;
   margin-left: 32px;
@@ -198,6 +51,7 @@ const LastUpdateText = styled.span`
 
 function Header() {
   const [lastUpdate, setLastUpdate] = useState("");
+  const boopConfig = { scale: 1.1, timing: 200, springConfig: { tension: 100, friction: 5 } };
 
   useEffect(() => {
     fetch("https://api.github.com/repos/Crazy-Unicooorn/crazy-guessr")
@@ -217,9 +71,39 @@ function Header() {
         </BrandTextWrapper>
       </Link>
       <Separator />
-      <ButtonTwitch />
-      <ButtonGithub />
-      <ButtonDonate />
+      <Button
+        hasLink
+        boop={boopConfig}
+        externalLink="https://www.twitch.tv/crazyquirkyunicorn"
+        text="Catch me live"
+        collapseText
+        backgroundColor="#e1cdff"
+        shadow="light"
+        hasIconLeft
+        iconLeft={<TwitchIcon size={24} />}
+      />
+      <Button
+        hasLink
+        boop={boopConfig}
+        externalLink="https://github.com/Crazy-Unicooorn/crazy-guessr"
+        text="Contribute"
+        collapseText
+        backgroundColor="var(--pastel-orange, #eccaaa);"
+        shadow="light"
+        hasIconLeft
+        iconLeft={<GithubIcon size={24} />}
+      />
+      <Button
+        hasLink
+        boop={boopConfig}
+        externalLink="https://ko-fi.com/crazy_unicorn"
+        text="Donate"
+        collapseText
+        backgroundColor="var(--pastel-yellow, #f7edc3);"
+        shadow="light"
+        hasIconLeft
+        iconLeft={<HeartIcon size={24} />}
+      />
       <LastUpdateText>{lastUpdate}</LastUpdateText>
     </section>
   );

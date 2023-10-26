@@ -1,6 +1,6 @@
 type SvgProps = {
   // fill: string;
-  size: number;
+  size?: number;
 };
 
 function TwitchIcon({ size }: SvgProps) {
@@ -19,5 +19,10 @@ function TwitchIcon({ size }: SvgProps) {
     </svg>
   );
 }
+
+TwitchIcon.defaultProps = {
+  // fill: "black",
+  size: 24,
+};
 
 export default TwitchIcon;

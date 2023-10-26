@@ -1,6 +1,6 @@
 type SvgProps = {
-  fill: string;
-  size: number;
+  fill?: string;
+  size?: number;
 };
 
 function GithubIcon({ fill, size }: SvgProps) {
@@ -15,5 +15,10 @@ function GithubIcon({ fill, size }: SvgProps) {
     </svg>
   );
 }
+
+GithubIcon.defaultProps = {
+  fill: "black",
+  size: 24,
+};
 
 export default GithubIcon;
