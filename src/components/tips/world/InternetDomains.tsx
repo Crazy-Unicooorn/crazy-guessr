@@ -5,11 +5,20 @@ import Separator from "../../common/Separator";
 import Button from "../../common/Button";
 import LocationIcon from "../../../assets/icons/general/location";
 
-function InternetDomainsCard() {
-  interface Card {
-    [key: string]: string;
-  }
+interface Card {
+  [key: string]: string;
+}
 
+function generateRandomCard(source: Card) {
+  const keys = Object.keys(source);
+  const randomIndex = Math.floor(Math.random() * keys.length);
+  const randomFront = keys[randomIndex];
+  const randomBack = source[randomFront];
+
+  return { randomFront, randomBack };
+}
+
+function InternetDomainsCard() {
   const internetDomains: Card = {
     ad: "Andorra",
     ae: "United Arab Emirates",
@@ -17,11 +26,13 @@ function InternetDomainsCard() {
     al: "Albania",
     aq: "Antarctica",
     ar: "Argentina",
+    as: "American Samoa",
     at: "Austria",
     au: "Australia",
     bd: "Bangladesh",
     be: "Belgium",
     bg: "Bulgaria",
+    bm: "Bermuda",
     bo: "Bolivia",
     br: "Brazil",
     bt: "Bhutan",
@@ -50,21 +61,25 @@ function InternetDomainsCard() {
     uk: "United Kingdom",
     "co.uk": "United Kingdom",
     gh: "Ghana",
+    gi: "Gibraltar",
     gl: "Greenland",
     gr: "Greece",
     gs: "South Georgia and the South Sandwich Islands",
     gt: "Guatemala",
+    gu: "Guam",
     hk: "Hong Kong",
     hr: "Croatia",
     hu: "Hungary",
     id: "Indonesia",
     ie: "Ireland",
     il: "Israel",
+    im: "Isle of Man",
     in: "India",
     io: "British Indian Ocean Territory",
     iq: "Iraq",
     is: "Iceland",
     it: "Italy",
+    je: "Jersey",
     jo: "Jordan",
     jp: "Japan",
     ke: "Kenya",
@@ -78,6 +93,7 @@ function InternetDomainsCard() {
     lt: "Lithuania",
     lu: "Luxembourg",
     lv: "Latvia",
+    mc: "Monaco",
     mg: "Madagascar",
     me: "Montenegro",
     mk: "North Macedonia",
@@ -100,6 +116,8 @@ function InternetDomainsCard() {
     ph: "Philippines",
     pk: "Pakistan",
     pl: "Poland",
+    pm: "Saint Pierre and Miquelon",
+    pn: "Pitcairn",
     pr: "Puerto Rico",
     pt: "Portugal",
     qa: "Qatar",
@@ -109,8 +127,10 @@ function InternetDomainsCard() {
     ru: "Russia",
     rw: "Rwanda",
     se: "Sweden",
+    sg: "Singapore",
     si: "Slovenia",
     sk: "Slovakia",
+    sm: "San Marino",
     sn: "Senegal",
     sy: "Syria",
     sz: "Eswatini / Swaziland",
@@ -130,12 +150,7 @@ function InternetDomainsCard() {
     za: "South Africa",
   };
 
-  const keys = Object.keys(internetDomains);
-  const randomIndex = Math.floor(Math.random() * keys.length);
-  const randomFront = keys[randomIndex];
-  const randomBack = internetDomains[randomFront];
-
-  return { randomFront, randomBack };
+  return generateRandomCard(internetDomains);
 }
 
 const Tip = styled.div`
@@ -144,6 +159,7 @@ const Tip = styled.div`
   align-items: center;
   gap: 16px;
   margin-bottom: 32px;
+  max-width: 100%;
 `;
 
 const Head = styled.div`
@@ -157,7 +173,7 @@ function InternetDomains() {
   return (
     <Tip>
       <Head>
-        <h1>Internet Domains</h1>
+        <h1 className="singleline-text">Internet Domains</h1>
         <Separator />
         <Button
           hasLink

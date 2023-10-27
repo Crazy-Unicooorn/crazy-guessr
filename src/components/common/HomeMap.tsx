@@ -1,14 +1,23 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { styled } from "styled-components";
+import TrekkerIcon from "../../assets/icons/general/trekker";
+import RightDriveIcon from "../../assets/icons/general/rightDrive";
+import LeftDriveIcon from "../../assets/icons/general/leftDrive";
+import UpcomingIcon from "../../assets/icons/general/upcoming";
+import StopIcon from "../../assets/icons/general/stop";
 
-function HomeMap() {
+interface SVGMapProps {
+  colorLHD: string;
+  colorRHD: string;
+  colorTrekker: string;
+  colorUpcoming: string;
+  colorNone: string;
+}
+
+// https://geo.emily.bz/coverage-dates
+function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: SVGMapProps) {
   const mapRef = useRef<SVGSVGElement>(null);
-
-  const colorLHD = "var(--pastel-purple, #c09fcc)";
-  const colorRHD = "var(--pastel-orange, #eccaaa)";
-  const colorTrekker = "var(--pastel-green, #ade1d4)";
-  const colorUpcoming = "var(--pastel-yellow, #f7edc3)";
-  const colorNone = "white";
 
   const handleHover = (countryCode: string, isHovering: boolean) => {
     const country = mapRef.current?.querySelector<SVGElement>(`#${countryCode}`);
@@ -23,7 +32,7 @@ function HomeMap() {
       ref={mapRef}
       xmlns="http://www.w3.org/2000/svg"
       id="svg10618"
-      width="90vw"
+      width="95%"
       viewBox="-30 61 2754 1398"
       version="1.1"
     >
@@ -31,6 +40,8 @@ function HomeMap() {
         className="oceanxx"
         id="ocean"
         fill="var(--pastel-blue)"
+        strokeWidth="1px"
+        stroke="rgba(0, 0, 0)"
         d="M2148.51 83.652c23.09 8.443 46.07 17.268 68.69 26.918 23.28 9.936 46.25 20.423 68.65 32.235 21.09 11.126 41.93 23.021 61.97 35.957 21.08 13.605 41.89 27.571 62.36 42.079 19.52 13.829 38.78 28.187 57.4 43.192 19.26 15.516 38.42 31.313 56.44 48.281 17.81 16.784 34.69 34.399 50.88 52.763 16.31 18.496 32.21 37.27 46.51 57.382 13.9 19.544 27 40.009 38.14 61.259 11.54 21.996 21.52 44.679 29.03 68.373 3.63 11.456 6.72 23.097 9.94 34.672 3.22 11.531 6.37 23.097 8.9 34.802 5.17 23.881 9.21 47.954 11.66 72.272 2.45 24.396 4.06 48.767 3.86 73.294-.19 23.564-2.29 47.347-5.21 70.721-3.03 24.259-7.25 48.35-13.13 72.089-2.96 11.943-6.24 23.795-9.6 35.631-3.29 11.603-6.48 23.303-10.64 34.63-8.31 22.638-18.23 44.718-30.26 65.638-12.14 21.11-25.29 41.69-39.9 61.17-15.07 20.1-31.57 38.97-48.34 57.66-16.07 17.9-33.01 35.1-51.03 51.03-18.79 16.6-37.97 32.65-57.71 48.11-18.86 14.76-38.19 28.96-57.84 42.65-20.62 14.37-41.56 28.19-62.84 41.56-10.07 6.32-20.47 12.15-30.84 17.97-10.6 5.96-21.25 12.07-32.19 17.39-22.71 11.06-45.67 21.39-69.06 30.93-22.6 9.22-45.32 18-68.36 26.06-18.62 6.52-37.43 12.13-56.48 17.19H614.952l-9.824-2.61c-5.977-1.59-11.899-3.39-17.82-5.17-22.914-6.91-45.542-15.04-67.838-23.73-23.659-9.22-47.12-18.92-70.278-29.33-22.408-10.07-44.015-21.63-65.428-33.64-20.646-11.59-40.753-24.21-60.384-37.44-21.088-14.21-41.901-28.75-62.326-43.9-18.703-13.87-37.317-28.07-55-43.23-19.066-16.35-38.229-32.7-55.7-50.78-17.375-17.98-34.02-36.63-50.196-55.69-15.804-18.63-30.07-38.53-43.255-59.08-12.855-20.03-24.808-40.78-34.432-62.58-4.953-11.212-10.061-22.574-13.768-34.279-3.636-11.479-7.102-23.018-10.295-34.63-6.417-23.337-12.462-46.647-16.641-70.51-4.257-24.312-6.66-48.722-8.71-73.299-2.003-24.036-1.885-48.22-.281-72.273 1.577-23.65 3.862-47.424 7.95-70.784 4.257-24.313 9.89-48.113 16.434-71.903 6.41-23.309 13.325-46.313 23.107-68.463 10.055-22.769 22.053-44.289 35.237-65.382 13.01-20.813 27.606-40.549 43.184-59.499 15.048-18.306 31.003-36.065 47.465-53.109 17.623-18.246 36.494-35.063 55.744-51.56 18.438-15.804 37.658-30.664 57.064-45.252 19.468-14.636 39.434-28.563 59.596-42.22 20.714-14.032 41.923-27.256 63.595-39.75 21.315-12.29 43.164-23.438 65.454-33.833 21.981-10.25 44.545-19.417 67.141-28.218 22.703-8.843 45.633-17.18 68.889-24.46 6.059-1.898 12.166-3.639 18.274-5.366 2.722-.77 5.452-1.504 8.186-2.23l5.039-1.333h1464.836c23.32 6.205 45.87 13.337 68.54 21.625z"
       />
       <path
@@ -4215,220 +4226,387 @@ function HomeMap() {
           <circle cx="1380" cy="450.232" r="6" className="circlexx eu mt" />
         </g>
       </Link>
-      <g id="mv">
-        <path
-          d="M1815.09 736.359c.1-.7-.19-1.573-1.08-1.37.53.28.95.774 1.08 1.37"
-          className="landxx coastxx mv"
-          id="mv-"
-        />
-        <circle cx="1814.22" cy="730.374" r="6" className="circlexx mv" id="mv_" />
+      <g id="mv" fill={colorNone}>
+        <path d="M1815.09 736.359c.1-.7-.19-1.573-1.08-1.37.53.28.95.774 1.08 1.37" className="landxx coastxx mv" />
+        <circle cx="1814.22" cy="730.374" r="6" className="circlexx mv" />
       </g>
-      <g id="ky">
+      <g id="ky" fill={colorNone}>
         <path
           d="M660.003 592.342c.73.04 1.437-.166 2.16-.216-.65.448-1.412.838-2.232.72.02-.168.05-.336.07-.504"
           className="landxx coastxx ky"
-          id="ky-"
         />
-        <circle cx="662.261" cy="591.693" r="6" className="circlexx ky" id="ky_" />
+        <circle cx="662.261" cy="591.693" r="6" className="circlexx ky" />
       </g>
-      <g id="kn">
-        <g className="landxx coastxx kn" id="kn-">
+      <g id="kn" fill={colorNone}>
+        <g className="landxx coastxx kn">
           <path d="M798.886 610.63a21.63 21.63 0 0 1-1.44-1.368c.858-.412 1.487.631 1.44 1.368" />
           <path d="m799.326 611.71-.15-.792c.354.344.37.432.15.792" />
         </g>
-        <circle cx="790.219" cy="616.652" r="6" className="circlexx kn" id="kn_" />
+        <circle cx="790.219" cy="616.652" r="6" className="circlexx kn" />
       </g>
-      <g id="ms">
+      <g id="ms" fill={colorNone}>
         <path
           d="M801.601 615.398c-.05-.264.111-.153.06-.417.177.172.259.274.27.378.01.104-.05.156-.159.336"
           className="landxx coastxx ms"
-          id="ms-"
         />
-        <circle cx="801.372" cy="621.706" r="6" className="circlexx ms" id="ms_" />
+        <circle cx="801.372" cy="621.706" r="6" className="circlexx ms" />
       </g>
-      <g id="bl">
-        <path
-          d="M797.92 604.471c-.258 0-.516.02-.775.02.45.335.399.08.775-.02"
-          className="landxx coastxx bl"
-          id="bl-"
-        />
-        <circle cx="799.963" cy="609.917" r="6" className="circlexx bl" id="bl_" />
+      <g id="bl" fill={colorNone}>
+        <path d="M797.92 604.471c-.258 0-.516.02-.775.02.45.335.399.08.775-.02" className="landxx coastxx bl" />
+        <circle cx="799.963" cy="609.917" r="6" className="circlexx bl" />
       </g>
-      <g id="nu">
-        <path
-          d="M2671.98 920.229c-.62.08-.98.525-.8 1.15.38-.305.64-.688.8-1.15"
-          className="landxx coastxx nu"
-          id="nu-"
-        />
-        <circle cx="2672.96" cy="917.02" r="6" className="circlexx nu" id="nu_" />
+      <g id="nu" fill={colorNone}>
+        <path d="M2671.98 920.229c-.62.08-.98.525-.8 1.15.38-.305.64-.688.8-1.15" className="landxx coastxx nu" />
+        <circle cx="2672.96" cy="917.02" r="6" className="circlexx nu" />
       </g>
-      <g id="pm">
-        <path
-          d="M898.616 353.302c-.185.775-.644 1.447-.8 2.232-.06-.777.205-1.528.15-2.305.216.03.433.05.65.07"
-          className="landxx coastxx pm"
-          id="pm-"
-        />
-        <circle cx="896.524" cy="354.302" r="6" className="circlexx pm" id="pm_" />
-      </g>
-      <g id="ck">
-        <g className="landxx coastxx ck" id="ck-">
+      <Link to="/pm">
+        <g
+          id="pm"
+          fill={colorTrekker}
+          onMouseOver={() => handleHover("pm", true)}
+          onMouseOut={() => handleHover("pm", false)}
+        >
+          <title>Saint Pierre and Miquelon</title>
+          <path
+            d="M898.616 353.302c-.185.775-.644 1.447-.8 2.232-.06-.777.205-1.528.15-2.305.216.03.433.05.65.07"
+            className="landxx coastxx pm"
+          />
+          <circle cx="896.524" cy="354.302" r="6" className="circlexx pm" />
+        </g>
+      </Link>
+      <g id="ck" fill={colorNone}>
+        <g className="landxx coastxx ck">
           <path d="M-.796 869.861c.313-.719.097-.958-.648-.72.196.258.412.498.648.72" />
           <path d="M26.277 917.311c.23-.648.167-1.237-.72-.5l.72.5" />
         </g>
-        <circle cx="10.217" cy="903.464" r="6" className="circlexx ck" id="ck_" />
+        <circle cx="10.217" cy="903.464" r="6" className="circlexx ck" />
       </g>
-      <g id="wf">
-        <path
-          d="M2670.51 875.35c-.62.08-.98.525-.8 1.15.38-.305.64-.688.8-1.15"
-          className="landxx coastxx wf"
-          id="wf-"
-        />
-        <circle cx="2671.22" cy="875.659" r="6" className="circlexx wf" id="wf_" />
+      <g id="wf" fill={colorNone}>
+        <path d="M2670.51 875.35c-.62.08-.98.525-.8 1.15.38-.305.64-.688.8-1.15" className="landxx coastxx wf" />
+        <circle cx="2671.22" cy="875.659" r="6" className="circlexx wf" />
       </g>
-      <g id="as">
-        <path
-          d="M2704.37 883.939c.33-.336.67-.673 1.01-1.01-.55.07-.94.466-1.01 1.01"
-          className="landxx coastxx as"
-          id="as-"
-        />
-        <circle cx="2702.58" cy="886.994" r="6" className="circlexx as" id="as_" />
-      </g>
-      <g id="mh">
+      <Link to="/as">
+        <g
+          id="as"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("as", true)}
+          onMouseOut={() => handleHover("as", false)}
+        >
+          <title>American Samoa</title>
+          <path
+            d="M2704.37 883.939c.33-.336.67-.673 1.01-1.01-.55.07-.94.466-1.01 1.01"
+            className="landxx coastxx as"
+          />
+          <circle cx="2702.58" cy="886.994" r="6" className="circlexx as" />
+        </g>
+      </Link>
+      <g id="mh" fill={colorNone}>
         <path
           d="M2577.82 701.785c.2-.32.17-.633-.1-.936-.27.198-.48.438-.65.72.24.07.48.143.72.216"
           className="landxx coastxx mh"
-          id="mh-"
         />
-        <circle cx="2574.14" cy="700.737" r="6" className="circlexx mh" id="mh_" />
+        <circle cx="2574.14" cy="700.737" r="6" className="circlexx mh" />
       </g>
-      <g id="aw">
+      <g id="aw" fill={colorNone}>
         <path
           d="m739.776 651.526-.36-.72c.795-.313 1.129.837 1.229 1.368a4.624 4.624 0 0 1-.869-.648"
           className="landxx coastxx aw"
-          id="aw-"
         />
-        <circle cx="737.109" cy="647.107" r="6" className="circlexx aw" id="aw_" />
+        <circle cx="737.109" cy="647.107" r="6" className="circlexx aw" />
       </g>
-      <g id="li">
-        <path d="M1343.36 353.374c0-.628.16-1.228.43-1.799.46.645.94 2.092-.43 1.799" className="landxx li" id="li-" />
-        <circle cx="1343.18" cy="352.921" r="6" className="circlexx li" id="li_" />
+      <g id="li" fill={colorNone}>
+        <path d="M1343.36 353.374c0-.628.16-1.228.43-1.799.46.645.94 2.092-.43 1.799" className="landxx li" />
+        <circle cx="1343.18" cy="352.921" r="6" className="circlexx li" />
       </g>
-      <g id="vg">
-        <g className="landxx coastxx vg" id="vg-">
+      <g id="vg" fill={colorNone}>
+        <g className="landxx coastxx vg">
           <path d="M783.126 601.126c-.24-.1-.48-.192-.72-.288.698-.319.939-.223.72.288" />
           <path d="M788.015 597.814c-.24-.1-.48-.192-.72-.288.537-.161.401.07.72.288" />
         </g>
-        <circle cx="779.894" cy="596.524" r="6" className="circlexx vg" id="vg_" />
+        <circle cx="779.894" cy="596.524" r="6" className="circlexx vg" />
       </g>
-      <g id="sh">
-        <path
-          d="M1220.33 908.358c.31-.488.34-.992.1-1.512-.6.418-.63 1.032-.1 1.512"
-          className="landxx coastxx sh"
-          id="sh-"
-        />
-        <circle cx="1220.78" cy="905.166" r="6" className="circlexx sh" id="sh_" />
+      <g id="sh" fill={colorNone}>
+        <path d="M1220.33 908.358c.31-.488.34-.992.1-1.512-.6.418-.63 1.032-.1 1.512" className="landxx coastxx sh" />
+        <circle cx="1220.78" cy="905.166" r="6" className="circlexx sh" />
       </g>
-      <g id="je">
-        <path
-          d="M1266.39 335.59c.1-.216.14-.433.22-.648-.58-.204-.92.05-.94.648h.72"
-          className="landxx coastxx je"
-          id="je-"
-        />
-        <circle cx="1268.22" cy="338.912" r="6" className="circlexx je" id="je_" />
-      </g>
-      <g id="ai">
+      <Link to="/je">
+        <g
+          id="je"
+          fill={colorLHD}
+          onMouseOver={() => handleHover("je", true)}
+          onMouseOut={() => handleHover("je", false)}
+        >
+          <title>Jersey</title>
+          <path d="M1266.39 335.59c.1-.216.14-.433.22-.648-.58-.204-.92.05-.94.648h.72" className="landxx coastxx je" />
+          <circle cx="1268.22" cy="338.912" r="6" className="circlexx je" />
+        </g>
+      </Link>
+      <g id="ai" fill={colorNone}>
         <path
           d="M795.866 602.422c.461-.342.941-.654 1.44-.937-.331.489-.849.854-1.44.937"
           className="landxx coastxx ai"
-          id="ai-"
         />
-        <circle cx="790.604" cy="592.17" r="6" className="circlexx ai" id="ai_" />
+        <circle cx="790.604" cy="592.17" r="6" className="circlexx ai" />
       </g>
-      <g id="mf">
-        <path d="M796.359 603.311c.595-.673.597-.345.461.04" className="landxx coastxx eu mf" id="mf-" />
-        <circle cx="800.548" cy="598.111" r="6" className="circlexx eu mf" id="mf_" />
+      <g id="mf" fill={colorNone}>
+        <path d="M796.359 603.311c.595-.673.597-.345.461.04" className="landxx coastxx eu mf" />
+        <circle cx="800.548" cy="598.111" r="6" className="circlexx eu mf" />
       </g>
-      <g id="gg">
-        <path d="M1263.19 333.112c.46-.199.63-.196.5-.8-.17.266-.33.533-.5.8" className="landxx coastxx gg" id="gg-" />
-        <circle cx="1258.46" cy="332.143" r="6" className="circlexx gg" id="gg_" />
+      <g id="gg" fill={colorNone}>
+        <path d="M1263.19 333.112c.46-.199.63-.196.5-.8-.17.266-.33.533-.5.8" className="landxx coastxx gg" />
+        <circle cx="1258.46" cy="332.143" r="6" className="circlexx gg" />
       </g>
-      <g id="sm">
-        <path d="m1363.24 381.462.47-.69.68.536-.56.595-.59-.441z" className="landxx sm" id="sm-" />
-        <circle cx="1364.44" cy="380.693" r="6" className="circlexx sm" id="sm_" />
+      <Link to="/sm">
+        <g
+          id="sm"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("sm", true)}
+          onMouseOut={() => handleHover("sm", false)}
+        >
+          <title>San Marino</title>
+          <path d="m1363.24 381.462.47-.69.68.536-.56.595-.59-.441z" className="landxx sm" />
+          <circle cx="1364.44" cy="380.693" r="6" className="circlexx sm" />
+        </g>
+      </Link>
+      <Link to="/bm">
+        <g
+          id="bm"
+          fill={colorLHD}
+          onMouseOver={() => handleHover("bm", true)}
+          onMouseOut={() => handleHover("bm", false)}
+        >
+          <title>Bermuda</title>
+          <path d="M802.056 480.454c.25-.174.517-.318.8-.433l-.8.433" className="landxx coastxx bm" />
+          <circle cx="801.674" cy="478.566" r="6" className="circlexx bm" />
+        </g>
+      </Link>
+      <g id="tv" fill={colorNone}>
+        <path d="M2630.34 832.243c-.63.08-.98.525-.81 1.15.39-.305.65-.688.81-1.15" className="landxx coastxx tv" />
+        <circle cx="2628.55" cy="830.452" r="6" className="circlexx tv" />
       </g>
-      <g id="bm">
-        <path d="M802.056 480.454c.25-.174.517-.318.8-.433l-.8.433" className="landxx coastxx bm" id="bm-" />
-        <circle cx="801.674" cy="478.566" r="6" className="circlexx bm" id="bm_" />
-      </g>
-      <g id="tv">
-        <path
-          d="M2630.34 832.243c-.63.08-.98.525-.81 1.15.39-.305.65-.688.81-1.15"
-          className="landxx coastxx tv"
-          id="tv-"
-        />
-        <circle cx="2628.55" cy="830.452" r="6" className="circlexx tv" id="tv_" />
-      </g>
-      <g id="nr">
+      <g id="nr" fill={colorNone}>
         <path
           d="M2531.1 743.146c.22-.1.43-.193.65-.29-.24-.597-.75-.852-1.3-.43.19.265.4.505.65.72"
           className="landxx coastxx nr"
-          id="nr-"
         />
-        <circle cx="2532.7" cy="741.483" r="6" className="circlexx nr" id="nr_" />
+        <circle cx="2532.7" cy="741.483" r="6" className="circlexx nr" />
       </g>
-      <g id="gi">
-        <path d="M1237.11 447.071c-.2.868-.44.887-.71.06l.71-.06" className="landxx eu gi" id="gi-" />
-        <circle cx="1236.27" cy="447.542" r="6" className="circlexx eu gi" id="gi_" />
+      <Link to="/gi">
+        <g
+          id="gi"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("gi", true)}
+          onMouseOut={() => handleHover("gi", false)}
+        >
+          <title>Gibraltar</title>
+          <path d="M1237.11 447.071c-.2.868-.44.887-.71.06l.71-.06" className="landxx eu gi" />
+          <circle cx="1236.27" cy="447.542" r="6" className="circlexx eu gi" />
+        </g>
+      </Link>
+      <Link to="/pn">
+        <g
+          id="pn"
+          fill={colorTrekker}
+          onMouseOver={() => handleHover("pn", true)}
+          onMouseOut={() => handleHover("pn", false)}
+        >
+          <title>Pitcairn Islands</title>
+          <path d="M404.796 987.837c.313-.719.1-.958-.648-.72.196.258.412.498.648.72" className="landxx coastxx pn" />
+          <circle cx="405.319" cy="986.761" r="6" className="circlexx pn" />
+        </g>
+      </Link>
+      <Link to="/mc">
+        <g
+          id="mc"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("mc", true)}
+          onMouseOut={() => handleHover("mc", false)}
+        >
+          <title>Monaco</title>
+          <path d="M1328.89 381.67c-.12-.144.15-.405.39-.45.22-.04-.1.553-.39.45" className="landxx mc" />
+          <circle cx="1327.15" cy="381.304" r="6" className="circlexx mc" />
+        </g>
+      </Link>
+      <g id="va" fill={colorNone}>
+        <path d="m1364.48 398.712-.1.03-.11-.04.1-.08.11-.02" className="landxx va" />
+        <circle cx="1364.53" cy="398.096" r="6" className="circlexx va" />
       </g>
-      <g id="pn">
-        <path
-          d="M404.796 987.837c.313-.719.1-.958-.648-.72.196.258.412.498.648.72"
-          className="landxx coastxx pn"
-          id="pn-"
-        />
-        <circle cx="405.319" cy="986.761" r="6" className="circlexx pn" id="pn_" />
-      </g>
-      <g id="mc">
-        <path d="M1328.89 381.67c-.12-.144.15-.405.39-.45.22-.04-.1.553-.39.45" className="landxx mc" id="mc-" />
-        <circle cx="1327.15" cy="381.304" r="6" className="circlexx mc" id="mc_" />
-      </g>
-      <g id="va">
-        <path d="m1364.48 398.712-.1.03-.11-.04.1-.08.11-.02" className="landxx va" id="va-" />
-        <circle cx="1364.53" cy="398.096" r="6" className="circlexx va" id="va_" />
-      </g>
-      <g id="im">
-        <path
-          d="M1251.85 294.982c.89-.203 2.61-.724 3.03-1.626.28-.611-.67-.963-1.12-.78-.93.378-1.46 1.593-1.91 2.406"
-          className="landxx coastxx im"
-          id="im-"
-        />
-        <circle cx="1252.44" cy="294.52" r="6" className="circlexx im" id="im_" />
-      </g>
-      <g id="gu">
-        <path
-          d="M2368.42 645.046c.25-.289 1.27-2.729 1.23-3.168-1.52.02-2.25 2.121-1.23 3.168"
-          className="landxx coastxx gu"
-          id="gu-"
-        />
-        <circle cx="2367.79" cy="642.091" r="6" className="circlexx gu" id="gu_" />
-      </g>
-      <g id="sg">
-        <path
-          d="M2063.43 747.214c-.96.252.51 2.079 1.8.359a3.693 3.693 0 0 0-1.8-.359"
-          className="landxx coastxx sg"
-          id="sg-"
-        />
-        <circle cx="2065.06" cy="748.1" r="6" className="circlexx sg" id="sg_" />
-      </g>
-      <g id="tk">
-        <path
-          d="M2707.92 843.766c-.12-.1.18-.08-.11-.14-.16-.03-.27.139.1.203"
-          className="landxx coastxx tk"
-          id="tk-"
-        />
-        <circle cx="2708.51" cy="840.579" r="6" className="circlexx tk" id="tk_" />
+      <Link to="/im">
+        <g
+          id="im"
+          fill={colorLHD}
+          onMouseOver={() => handleHover("im", true)}
+          onMouseOut={() => handleHover("im", false)}
+        >
+          <title>Isle of Man</title>
+          <path
+            d="M1251.85 294.982c.89-.203 2.61-.724 3.03-1.626.28-.611-.67-.963-1.12-.78-.93.378-1.46 1.593-1.91 2.406"
+            className="landxx coastxx im"
+          />
+          <circle cx="1252.44" cy="294.52" r="6" className="circlexx im" />
+        </g>
+      </Link>
+      <Link to="/gu">
+        <g
+          id="gu"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("gu", true)}
+          onMouseOut={() => handleHover("gu", false)}
+        >
+          <title>Guam</title>
+          <path
+            d="M2368.42 645.046c.25-.289 1.27-2.729 1.23-3.168-1.52.02-2.25 2.121-1.23 3.168"
+            className="landxx coastxx gu"
+          />
+          <circle cx="2367.79" cy="642.091" r="6" className="circlexx gu" />
+        </g>
+      </Link>
+      <Link to="/sg">
+        <g
+          id="sg"
+          fill={colorLHD}
+          onMouseOver={() => handleHover("sg", true)}
+          onMouseOut={() => handleHover("sg", false)}
+        >
+          <title>Singapore</title>
+          <path
+            d="M2063.43 747.214c-.96.252.51 2.079 1.8.359a3.693 3.693 0 0 0-1.8-.359"
+            className="landxx coastxx sg"
+          />
+          <circle cx="2065.06" cy="748.1" r="6" className="circlexx sg" />
+        </g>
+      </Link>
+      <g id="tk" fill={colorNone}>
+        <path d="M2707.92 843.766c-.12-.1.18-.08-.11-.14-.16-.03-.27.139.1.203" className="landxx coastxx tk" />
+        <circle cx="2708.51" cy="840.579" r="6" className="circlexx tk" />
       </g>
     </svg>
+  );
+}
+
+const MapContainer = styled.div`
+position: relative;
+
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: center;
+
+border-radius: 16px;
+background: var(--pastel-blue, #A7BBE1);
+
+box-shadow: var(--elevation-5);
+}
+`;
+
+const Legend = styled.div`
+  display: flex;
+  max-width: 216px;
+  width: 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+
+  border-radius: 8px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  @media (max-width: 640px) {
+    flex-direction: row;
+  }
+`;
+
+interface LegendItemProps {
+  color: string;
+  icon: React.ReactNode;
+  text: string;
+}
+
+function LegendItem({ color, icon, text }: LegendItemProps) {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 640);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const content = (
+    <div
+      style={{
+        display: "flex",
+        padding: "4px",
+        alignItems: "left",
+        gap: "8px",
+        alignSelf: "stretch",
+        width: "100%",
+        borderRadius: "4px",
+        backgroundColor: `${color}`,
+        boxShadow: "var(--shadow-flat)",
+      }}
+    >
+      {icon}
+      <span className="singleline-text">{text}</span>
+    </div>
+  );
+
+  const smallScreenContent = (
+    <div
+      style={{
+        display: "flex",
+        padding: "4px",
+        alignItems: "left",
+        gap: "8px",
+        borderRadius: "4px",
+        backgroundColor: `${color}`,
+        boxShadow: "var(--shadow-flat)",
+      }}
+    >
+      {icon}
+      {/* <span className="singleline-text">{text}</span> */}
+    </div>
+  );
+
+  return isSmallScreen ? smallScreenContent : content;
+}
+
+function HomeMap() {
+  const colorLHD = "var(--pastel-purple, #c09fcc)";
+  const colorRHD = "var(--pastel-orange, #eccaaa)";
+  const colorTrekker = "var(--pastel-green, #ade1d4)";
+  const colorUpcoming = "var(--pastel-yellow, #f7edc3)";
+  const colorNone = "white";
+
+  return (
+    <MapContainer>
+      <Legend>
+        <LegendItem color={`${colorLHD}`} icon={<LeftDriveIcon size={24} />} text="Left Side Driving" />
+        <LegendItem color={`${colorRHD}`} icon={<RightDriveIcon size={24} />} text="Right Side Driving" />
+        <LegendItem color={`${colorTrekker}`} icon={<TrekkerIcon size={24} />} text="Trekkers only" />
+        <LegendItem color={`${colorUpcoming}`} icon={<UpcomingIcon size={24} />} text="Upcoming Streetview" />
+        <LegendItem color={`${colorNone}`} icon={<StopIcon size={24} />} text="No Streetview" />
+      </Legend>
+      <SVGMap
+        colorLHD={colorLHD}
+        colorRHD={colorRHD}
+        colorTrekker={colorTrekker}
+        colorNone={colorNone}
+        colorUpcoming={colorUpcoming}
+      />
+    </MapContainer>
   );
 }
 

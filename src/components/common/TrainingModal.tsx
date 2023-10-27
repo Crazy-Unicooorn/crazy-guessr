@@ -144,7 +144,9 @@ function TrainingModal({ cardSource }: TrainingModalProps) {
           <Overlay onClick={onClose} />
           <Modal>
             <Heading>
-              <h2 style={{ flexGrow: 1 }}>Recall the answer</h2>
+              <h2 className="singleline-text" style={{ flexGrow: 1 }}>
+                Recall the answer
+              </h2>
               <h2>
                 <span style={{ color: "green" }}>{countCorrect}</span>/{countTotal}
               </h2>

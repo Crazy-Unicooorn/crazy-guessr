@@ -23,8 +23,8 @@ const StyledButton = styled.button<StyledButtonProps>`
 
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
 
   width: fit-content;
   min-width: 48px;
@@ -164,7 +164,11 @@ function Button({
         >
           <span className="front">
             {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
-            {hasText && <TextComponent style={{ flexGrow: 1, textAlign: "left" }}>{text}</TextComponent>}
+            {hasText && (
+              <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left" }}>
+                {text}
+              </TextComponent>
+            )}
             {hasIconRight && <animated.span style={currentStyle}>{iconRight}</animated.span>}
           </span>
         </StyledButton>
@@ -186,7 +190,11 @@ function Button({
         >
           <span className="front">
             {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
-            {hasText && <TextComponent style={{ flexGrow: 1, textAlign: "left" }}>{text}</TextComponent>}
+            {hasText && (
+              <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left" }}>
+                {text}
+              </TextComponent>
+            )}
             {hasIconRight && <animated.span style={currentStyle}>{iconRight}</animated.span>}
           </span>
         </StyledButton>
@@ -207,7 +215,11 @@ function Button({
     >
       <span className="front">
         {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
-        {hasText && <TextComponent style={{ flexGrow: 1, textAlign: "left" }}>{text}</TextComponent>}
+        {hasText && (
+          <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left" }}>
+            {text}
+          </TextComponent>
+        )}
         {hasIconRight && <animated.span style={currentStyle}>{iconRight}</animated.span>}
       </span>
     </StyledButton>

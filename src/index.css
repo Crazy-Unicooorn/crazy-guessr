@@ -2,7 +2,9 @@
 
 :root {
   --header-height: 80px;
-  --mobile-width: 400px;
+  --mobile-width: 640px;
+  --elevation-5: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  --shadow-flat: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   --dark-purple: rgba(56, 47, 91, 0.9);
   --background-color: #d8dbfa;
   --pastel-pink: #dea4c0;
@@ -30,17 +32,16 @@
 }
 
 /* Supposed to make these "responsive"? Try if necessary */
-img, picture, video {
+img,
+picture,
+video {
   display: block;
   max-width: 100%;
 }
 
 .tipimg {
-  border-radius: 8px;
-}
-
-body {
-  background-color: var(--background-color);
+  border-radius: 16px;
+  box-shadow: var(--elevation-5);
 }
 
 /* Changing the look of the scrollbar */
@@ -64,7 +65,11 @@ body {
 }
 
 *::selection {
-  background-color: var(--pastel-purple);
+  background-color: #b399f0;
+}
+
+body {
+  background-color: var(--background-color);
 }
 
 h1 {
@@ -79,4 +84,11 @@ h2 {
   @media (max-width: 640px) {
     font-size: 1.1rem;
   }
+}
+
+.singleline-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* flex: 1; */
 }
