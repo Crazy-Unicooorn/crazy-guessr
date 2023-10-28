@@ -18,7 +18,9 @@
 
   color: white;
 
-  @media (max-height: 360px) {
-   display: none;
+  @media (max-height: 640px) {
+    padding: 8px;
+    height: calc(var(--header-height) - 16px);
+    /* display: none; */
   }
 }

@@ -4492,7 +4492,7 @@ width: 100%;
 justify-content: center;
 align-items: center;
 
-border-radius: 16px;
+border-radius: 8px;
 background: var(--pastel-blue, #A7BBE1);
 
 box-shadow: var(--elevation-5);
@@ -4520,6 +4520,8 @@ const Legend = styled.div`
 
   @media (max-width: 640px) {
     flex-direction: row;
+    left: 0.5rem;
+    bottom: 0.5rem;
   }
 `;
 
@@ -4530,6 +4532,7 @@ interface LegendItemProps {
 }
 
 function LegendItem({ color, icon, text }: LegendItemProps) {
+  const [isMobile, setIsMobile] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -4542,6 +4545,10 @@ function LegendItem({ color, icon, text }: LegendItemProps) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+
+  useEffect(() => {
+    setIsMobile(window.screen.width <= 640 || window.innerWidth <= 640);
   }, []);
 
   const content = (
@@ -4580,7 +4587,7 @@ function LegendItem({ color, icon, text }: LegendItemProps) {
     </div>
   );
 
-  return isSmallScreen ? smallScreenContent : content;
+  return isSmallScreen || isMobile ? smallScreenContent : content;
 }
 
 function HomeMap() {

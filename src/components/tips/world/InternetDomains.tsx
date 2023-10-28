@@ -157,7 +157,7 @@ const Tip = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   margin-bottom: 32px;
   max-width: 100%;
 `;
@@ -166,7 +166,7 @@ const Head = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 `;
 
 function InternetDomains() {
@@ -176,10 +176,10 @@ function InternetDomains() {
         <h1 className="singleline-text">Internet Domains</h1>
         <Separator />
         <Button
+          text="GeoGuessr Map"
           hasLink
           externalLink="https://www.geoguessr.com/maps/604657abb3894900011da5bc"
           backgroundColor="var(--pastel-green)"
-          text="GeoGuessr Map"
           hasIconRight
           iconRight={<LocationIcon size={24} />}
           collapseText

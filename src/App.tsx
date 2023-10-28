@@ -134,12 +134,16 @@ const ContentContainer = styled.div`
   position: fixed;
   content: " ";
   // top: var(--header-height);
-  padding: calc(var(--header-height) + 24px) 32px;
+  padding: calc(var(--header-height) + 24px) 24px;
   width: 100%;
   height: 100vh;
   z-index: -1;
 
   overflow-y: scroll;
+
+  @media (max-width: 640px) {
+    padding: calc(var(--header-height) + 8px) 8px;
+  }
 `;
 
 const MainContent = styled.div`

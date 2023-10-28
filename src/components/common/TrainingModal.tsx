@@ -25,6 +25,7 @@ const Overlay = styled.div`
   height: 100vh;
 
   background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
 `;
 
 const ModalContainer = styled.div`
@@ -59,6 +60,8 @@ const Modal = styled.div`
   background: var(--pastel-white);
 
   position: relative;
+
+  box-shadow: var(--elevation-5);
 `;
 
 const Front = styled.h1`
