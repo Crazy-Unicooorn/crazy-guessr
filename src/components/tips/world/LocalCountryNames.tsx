@@ -195,7 +195,7 @@ function LocalCountryNames() {
         English ones. If you think some information is irrelevant for GeoGuessr, or if you spot any error please report
         that on Github.
       </p>
-      <img src={nativeCountryNames} alt="World map of Internet domains" className="tipimg" />
+      <img src={nativeCountryNames} alt="World map of country names in their own languages" className="tipimg" />
     </Tip>
   );
 }
