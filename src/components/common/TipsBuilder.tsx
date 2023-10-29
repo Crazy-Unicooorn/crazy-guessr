@@ -16,6 +16,11 @@ export const Head = styled.div`
   gap: 8px;
 `;
 
+// export interface Card {
+//   [key: string]: string;
+// }
+
 export interface Card {
-  [key: string]: string;
+  front: string | JSX.Element;
+  back: string;
 }

@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { styled } from "styled-components";
 import Button from "./Button";
 import CloseIcon from "../../assets/icons/actions/close";
 import DeckIcon from "../../assets/icons/general/deck";
 import ArrowRight from "../../assets/icons/directional/arrow_right";
+import { Card } from "./TipsBuilder";
 
 const Heading = styled.div`
   text-transform: uppercase;
@@ -82,26 +83,176 @@ const Feedback = styled.div`
   align-self: stretch;
 `;
 
-interface TrainingModalProps {
-  cardSource: () => { randomFront: string; randomBack: string };
-}
+// interface TrainingModalProps {
+//   cardSource: () => { randomFront: string; randomBack: string };
+// }
 
-function TrainingModal({ cardSource }: TrainingModalProps) {
+// function TrainingModal({ cardSource }: TrainingModalProps) {
+//   const [modal, setModal] = useState(false);
+//   const [back, setBack] = useState(false);
+
+//   const [front, setFront] = useState("");
+//   const [answer, setAnswer] = useState("");
+
+//   const [countCorrect, setCountCorrect] = useState(0);
+//   const [countTotal, setCountTotal] = useState(0);
+
+//   useEffect(() => {
+//     const { randomFront, randomBack } = cardSource();
+
+//     setFront(randomFront);
+//     setAnswer(randomBack);
+//   }, [modal, countTotal, cardSource]);
+
+//   const toggleModal = () => {
+//     setModal(!modal);
+//   };
+
+//   const toggleBack = () => {
+//     setBack(!back);
+//   };
+
+//   const onClose = () => {
+//     setBack(false);
+//     setModal(false);
+//   };
+
+//   const onCorrect = () => {
+//     setCountCorrect(countCorrect + 1);
+//     setCountTotal(countTotal + 1);
+//     toggleBack();
+//   };
+
+//   const onWrong = () => {
+//     setCountTotal(countTotal + 1);
+//     toggleBack();
+//   };
+
+//   return (
+//     <>
+//       <Button
+//         text="Recall Training"
+//         collapseText
+//         onClick={toggleModal}
+//         hasIconRight
+//         iconRight={<DeckIcon size={24} fill="#000" />}
+//         backgroundColor="var(--pastel-pink)"
+//         boop={{
+//           x: 4,
+//           y: -4,
+//           rotation: -27,
+//           timing: 200,
+//           springConfig: { tension: 100, friction: 5 },
+//         }}
+//       />
+//       {modal && (
+//         <ModalContainer>
+//           <Overlay onClick={onClose} />
+//           <Modal>
+//             <Heading>
+//               <h2 className="singleline-text" style={{ flexGrow: 1 }}>
+//                 Recall the answer
+//               </h2>
+//               <h2>
+//                 <span style={{ color: "green" }}>{countCorrect}</span>/{countTotal}
+//               </h2>
+//               <Button
+//                 onClick={onClose}
+//                 text=""
+//                 hasIconLeft
+//                 iconLeft={<CloseIcon size={24} fill="var(--pastel-pink)" />}
+//                 backgroundColor="var(--pastel-black)"
+//                 boop={{
+//                   rotation: 180,
+//                   scale: 0.72,
+//                   timing: 500,
+//                   springConfig: { tension: 100, friction: 5 },
+//                 }}
+//               />
+//             </Heading>
+//             <Front>{front}</Front>
+//             {back && (
+//               <>
+//                 <h1
+//                   id="back"
+//                   style={{
+//                     borderRadius: "8px",
+//                     border: "2px solid var(--pastel-pink, #DEA4C0)",
+//                     width: "100%",
+//                     padding: "8px",
+//                     textAlign: "center",
+//                   }}
+//                 >
+//                   {answer}
+//                 </h1>
+//                 <Feedback>
+//                   <Button
+//                     onClick={onWrong}
+//                     text="Wrong"
+//                     hasIconRight
+//                     iconRight={<ArrowRight fill="black" size={24} />}
+//                     boop={{
+//                       x: 8,
+//                       timing: 200,
+//                       springConfig: { tension: 300, friction: 10 },
+//                     }}
+//                     style={{ width: "100%" }}
+//                   />
+//                   <Button
+//                     onClick={onCorrect}
+//                     backgroundColor="var(--pastel-green)"
+//                     text="Correct"
+//                     hasIconRight
+//                     iconRight={<ArrowRight fill="black" size={24} />}
+//                     boop={{
+//                       x: 8,
+//                       timing: 200,
+//                       springConfig: { tension: 300, friction: 10 },
+//                     }}
+//                     style={{ width: "100%" }}
+//                   />
+//                 </Feedback>
+//               </>
+//             )}
+//             {!back && (
+//               <Button
+//                 onClick={toggleBack}
+//                 backgroundColor="var(--pastel-pink)"
+//                 text="Reveal the answer"
+//                 hasIconRight
+//                 iconRight={<ArrowRight fill="black" size={24} />}
+//                 boop={{
+//                   x: 8,
+//                   timing: 200,
+//                   springConfig: { tension: 300, friction: 10 },
+//                 }}
+//                 style={{ width: "100%" }}
+//               />
+//             )}
+//           </Modal>
+//         </ModalContainer>
+//       )}
+//     </>
+//   );
+// }
+
+function TrainingModal({ cards }: { cards: Card[] }) {
   const [modal, setModal] = useState(false);
   const [back, setBack] = useState(false);
-
-  const [front, setFront] = useState("");
-  const [answer, setAnswer] = useState("");
 
   const [countCorrect, setCountCorrect] = useState(0);
   const [countTotal, setCountTotal] = useState(0);
 
-  useEffect(() => {
-    const { randomFront, randomBack } = cardSource();
+  const getRandomCard = useCallback(() => {
+    const randomIndex = Math.floor(Math.random() * cards.length);
+    return cards[randomIndex];
+  }, [cards]);
 
-    setFront(randomFront);
-    setAnswer(randomBack);
-  }, [modal, countTotal, cardSource]);
+  const [randomCard, setRandomCard] = useState(getRandomCard());
+
+  useEffect(() => {
+    setRandomCard(getRandomCard());
+  }, [modal, countTotal, cards, getRandomCard]);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -169,7 +320,7 @@ function TrainingModal({ cardSource }: TrainingModalProps) {
                 }}
               />
             </Heading>
-            <Front>{front}</Front>
+            <Front>{randomCard.front}</Front>
             {back && (
               <>
                 <h1
@@ -182,7 +333,7 @@ function TrainingModal({ cardSource }: TrainingModalProps) {
                     textAlign: "center",
                   }}
                 >
-                  {answer}
+                  {randomCard.back}
                 </h1>
                 <Feedback>
                   <Button
