@@ -38,6 +38,8 @@ const ModalContainer = styled.div`
   justify-content: center;
   align-items: center;
 
+  z-index: 9999;
+
   @media (min-height: 360px) {
     top: calc(var(--header-height) / 2);
   }
@@ -167,7 +169,7 @@ function TrainingModal({ cardSource }: TrainingModalProps) {
                 }}
               />
             </Heading>
-            <Front>.{front}</Front>
+            <Front>{front}</Front>
             {back && (
               <>
                 <h1
