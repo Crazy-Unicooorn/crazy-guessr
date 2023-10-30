@@ -1,9 +1,7 @@
 import InternetDomainsImg from "../../../assets/img/world/world_countries_iso.gif";
 import TrainingModal from "../../common/TrainingModal";
 import Separator from "../../common/Separator";
-import Button from "../../common/Button";
-import LocationIcon from "../../../assets/icons/general/location";
-import { Card, Head, Tip } from "../../common/TipsBuilder";
+import { Card, Head, MapButton, Tip } from "../../common/TipsBuilder";
 
 function InternetDomains() {
   const InternetDomain: Card[] = [
@@ -144,23 +142,15 @@ function InternetDomains() {
         <h1 className="singleline-text">Internet Domains</h1>
         <Separator />
         <TrainingModal cards={InternetDomain} />
-        <Button
-          text="GeoGuessr Map"
-          hasLink
-          externalLink="https://www.geoguessr.com/maps/604657abb3894900011da5bc"
-          backgroundColor="var(--pastel-green)"
-          hasIconRight
-          iconRight={<LocationIcon size={24} />}
-          collapseText
-          boop={{
-            y: -4,
-            timing: 200,
-            springConfig: { tension: 300, friction: 10 },
-          }}
-          // style={{ zIndex: -1 }}
-        />
+        <MapButton url="https://www.geoguessr.com/maps/604657abb3894900011da5bc" />
       </Head>
-      <img src={InternetDomainsImg} alt="World map of Internet domains" className="tipimg" />
+      <img
+        src={InternetDomainsImg}
+        loading="lazy"
+        decoding="async"
+        alt="World map of Internet domains"
+        className="tipimg"
+      />
     </Tip>
   );
 }

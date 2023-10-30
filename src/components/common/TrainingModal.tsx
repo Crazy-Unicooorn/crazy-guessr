@@ -83,162 +83,9 @@ const Feedback = styled.div`
   align-self: stretch;
 `;
 
-// interface TrainingModalProps {
-//   cardSource: () => { randomFront: string; randomBack: string };
-// }
-
-// function TrainingModal({ cardSource }: TrainingModalProps) {
-//   const [modal, setModal] = useState(false);
-//   const [back, setBack] = useState(false);
-
-//   const [front, setFront] = useState("");
-//   const [answer, setAnswer] = useState("");
-
-//   const [countCorrect, setCountCorrect] = useState(0);
-//   const [countTotal, setCountTotal] = useState(0);
-
-//   useEffect(() => {
-//     const { randomFront, randomBack } = cardSource();
-
-//     setFront(randomFront);
-//     setAnswer(randomBack);
-//   }, [modal, countTotal, cardSource]);
-
-//   const toggleModal = () => {
-//     setModal(!modal);
-//   };
-
-//   const toggleBack = () => {
-//     setBack(!back);
-//   };
-
-//   const onClose = () => {
-//     setBack(false);
-//     setModal(false);
-//   };
-
-//   const onCorrect = () => {
-//     setCountCorrect(countCorrect + 1);
-//     setCountTotal(countTotal + 1);
-//     toggleBack();
-//   };
-
-//   const onWrong = () => {
-//     setCountTotal(countTotal + 1);
-//     toggleBack();
-//   };
-
-//   return (
-//     <>
-//       <Button
-//         text="Recall Training"
-//         collapseText
-//         onClick={toggleModal}
-//         hasIconRight
-//         iconRight={<DeckIcon size={24} fill="#000" />}
-//         backgroundColor="var(--pastel-pink)"
-//         boop={{
-//           x: 4,
-//           y: -4,
-//           rotation: -27,
-//           timing: 200,
-//           springConfig: { tension: 100, friction: 5 },
-//         }}
-//       />
-//       {modal && (
-//         <ModalContainer>
-//           <Overlay onClick={onClose} />
-//           <Modal>
-//             <Heading>
-//               <h2 className="singleline-text" style={{ flexGrow: 1 }}>
-//                 Recall the answer
-//               </h2>
-//               <h2>
-//                 <span style={{ color: "green" }}>{countCorrect}</span>/{countTotal}
-//               </h2>
-//               <Button
-//                 onClick={onClose}
-//                 text=""
-//                 hasIconLeft
-//                 iconLeft={<CloseIcon size={24} fill="var(--pastel-pink)" />}
-//                 backgroundColor="var(--pastel-black)"
-//                 boop={{
-//                   rotation: 180,
-//                   scale: 0.72,
-//                   timing: 500,
-//                   springConfig: { tension: 100, friction: 5 },
-//                 }}
-//               />
-//             </Heading>
-//             <Front>{front}</Front>
-//             {back && (
-//               <>
-//                 <h1
-//                   id="back"
-//                   style={{
-//                     borderRadius: "8px",
-//                     border: "2px solid var(--pastel-pink, #DEA4C0)",
-//                     width: "100%",
-//                     padding: "8px",
-//                     textAlign: "center",
-//                   }}
-//                 >
-//                   {answer}
-//                 </h1>
-//                 <Feedback>
-//                   <Button
-//                     onClick={onWrong}
-//                     text="Wrong"
-//                     hasIconRight
-//                     iconRight={<ArrowRight fill="black" size={24} />}
-//                     boop={{
-//                       x: 8,
-//                       timing: 200,
-//                       springConfig: { tension: 300, friction: 10 },
-//                     }}
-//                     style={{ width: "100%" }}
-//                   />
-//                   <Button
-//                     onClick={onCorrect}
-//                     backgroundColor="var(--pastel-green)"
-//                     text="Correct"
-//                     hasIconRight
-//                     iconRight={<ArrowRight fill="black" size={24} />}
-//                     boop={{
-//                       x: 8,
-//                       timing: 200,
-//                       springConfig: { tension: 300, friction: 10 },
-//                     }}
-//                     style={{ width: "100%" }}
-//                   />
-//                 </Feedback>
-//               </>
-//             )}
-//             {!back && (
-//               <Button
-//                 onClick={toggleBack}
-//                 backgroundColor="var(--pastel-pink)"
-//                 text="Reveal the answer"
-//                 hasIconRight
-//                 iconRight={<ArrowRight fill="black" size={24} />}
-//                 boop={{
-//                   x: 8,
-//                   timing: 200,
-//                   springConfig: { tension: 300, friction: 10 },
-//                 }}
-//                 style={{ width: "100%" }}
-//               />
-//             )}
-//           </Modal>
-//         </ModalContainer>
-//       )}
-//     </>
-//   );
-// }
-
 function TrainingModal({ cards }: { cards: Card[] }) {
-  const [modal, setModal] = useState(false);
-  const [back, setBack] = useState(false);
+  const [displayModal, setDisplayModal] = useState(false);
+  const [displayAnswer, setDisplayAnswer] = useState(false);
 
   const [countCorrect, setCountCorrect] = useState(0);
   const [countTotal, setCountTotal] = useState(0);
@@ -252,19 +99,19 @@ function TrainingModal({ cards }: { cards: Card[] }) {
 
   useEffect(() => {
     setRandomCard(getRandomCard());
-  }, [modal, countTotal, cards, getRandomCard]);
+  }, [displayModal, countTotal, getRandomCard]);
 
   const toggleModal = () => {
-    setModal(!modal);
+    setDisplayModal(!displayModal);
   };
 
   const toggleBack = () => {
-    setBack(!back);
+    setDisplayAnswer(!displayAnswer);
   };
 
   const onClose = () => {
-    setBack(false);
-    setModal(false);
+    setDisplayModal(false);
+    setDisplayAnswer(false);
   };
 
   const onCorrect = () => {
@@ -295,7 +142,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
           springConfig: { tension: 100, friction: 5 },
         }}
       />
-      {modal && (
+      {displayModal && (
         <ModalContainer>
           <Overlay onClick={onClose} />
           <Modal>
@@ -321,7 +168,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
               />
             </Heading>
             <Front>{randomCard.front}</Front>
-            {back && (
+            {displayAnswer && (
               <>
                 <h1
                   id="back"
@@ -364,7 +211,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
                 </Feedback>
               </>
             )}
-            {!back && (
+            {!displayAnswer && (
               <Button
                 onClick={toggleBack}
                 backgroundColor="var(--pastel-pink)"

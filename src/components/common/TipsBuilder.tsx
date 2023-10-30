@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+import Button from "./Button";
+import LocationIcon from "../../assets/icons/general/location";
 
 export const Tip = styled.div`
   display: flex;
@@ -16,11 +18,26 @@ export const Head = styled.div`
   gap: 8px;
 `;
 
-// export interface Card {
-//   [key: string]: string;
-// }
-
 export interface Card {
   front: string | JSX.Element;
   back: string;
+}
+
+export function MapButton({ url }: { url: string }) {
+  return (
+    <Button
+      text="GeoGuessr Map"
+      hasLink
+      externalLink={url}
+      backgroundColor="var(--pastel-green)"
+      hasIconRight
+      iconRight={<LocationIcon size={24} />}
+      collapseText
+      boop={{
+        y: -4,
+        timing: 200,
+        springConfig: { tension: 300, friction: 10 },
+      }}
+    />
+  );
 }
