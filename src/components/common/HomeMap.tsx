@@ -80,6 +80,61 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
     }
   }, []);
 
+  const [isDragging, setIsDragging] = useState(false);
+  const [preventClick, setPreventClick] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [startY, setStartY] = useState(0);
+
+  function handleMouseDown(mouseEvent: React.MouseEvent<SVGSVGElement>) {
+    mouseEvent.preventDefault();
+    setIsDragging(true);
+    setStartX(mouseEvent.clientX);
+    setStartY(mouseEvent.clientY);
+  }
+
+  function handleMouseUp() {
+    const svg = document.getElementById("svg10618");
+
+    if (svg) {
+      svg.style.cursor = "grab";
+    }
+    setIsDragging(false);
+
+    setTimeout(() => {
+      setPreventClick(false);
+    }, 1);
+  }
+
+  function handleMouseMove(mouseEvent: React.MouseEvent<SVGSVGElement>) {
+    if (isDragging) {
+      mouseEvent.preventDefault();
+
+      const svg = document.getElementById("svg10618");
+
+      if (svg) {
+        svg.style.cursor = "grabbing";
+
+        const [viewBoxX, viewBoxY, viewBoxWidth, viewBoxHeight] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+
+        const deltaX = (mouseEvent.clientX - startX) * (viewBoxWidth / svg.clientWidth);
+        const deltaY = (mouseEvent.clientY - startY) * (viewBoxHeight / svg.clientHeight);
+
+        if (deltaX !== 0 || deltaY !== 0) {
+          setPreventClick(true);
+        }
+
+        const newViewBoxX = viewBoxX - deltaX;
+        const newViewBoxY = viewBoxY - deltaY;
+
+        const scaledViewBox = [newViewBoxX, newViewBoxY, viewBoxWidth, viewBoxHeight].join(" ");
+        svg.setAttribute("viewBox", scaledViewBox);
+
+        setStartX(mouseEvent.clientX);
+        setStartY(mouseEvent.clientY);
+      }
+    }
+  }
+
   return (
     <svg
       ref={mapRef}
@@ -88,6 +143,10 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
       width="95%"
       viewBox="-30 61 2754 1398"
       version="1.1"
+      style={{ cursor: "grab" }}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
     >
       <path
         className="oceanxx"
@@ -123,6 +182,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("pe", true)}
           onMouseOut={() => handleHover("pe", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Peru</title>
           <path
@@ -147,6 +211,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("by", true)}
           onMouseOut={() => handleHover("by", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Belarus</title>
           <path
@@ -161,6 +230,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("pk", true)}
           onMouseOut={() => handleHover("pk", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Pakistan</title>
           <path
@@ -373,6 +447,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("mg", true)}
           onMouseOut={() => handleHover("mg", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Madagascar</title>
           <path d="M1595.35 950.388c.57 2.403-.64 5.333 1.06 7.432.84 1.027.82 2.18 1.25 3.368.39 1.094 1.49 1.266.41 2.508-1.07 1.218-.9 5.173-.21 6.615.64 1.311 1.27 2.284 1.62 3.737.45 1.888 1.68 2.417 3.07 3.56-1.75-1.016-.24.343.2.479.64.2 1.32.132 1.97.297 1.57.401 2.43 2.137 3.99 2.483 2.71.599 5.54-2.861 8.03-3.593.92-.269 1.88.277 2.73-.03.66-.246 1.24-.69 1.95-.826 1-.19 1.6-1.375 1.98-2.198.52-1.108.87-2.287 1.19-3.464.44-1.63 1.44-2.953 1.95-4.518.93-2.89 1.93-5.683 2.72-8.648 1.13-4.221 2.83-7.991 4.29-12.081 1.19-3.315 1.86-6.705 3.33-9.914.43-.937 1.24-2.42.81-3.486.5 0 1.08-2.029 1.2-2.365.85-2.244 1.3-4.616 2.22-6.828 1.34-3.232 2.55-5.983 3.25-9.448.52-2.585-1.25-6.358 1.9-8.055.61-.333 1.29-2.285 1.37-3.055.1-.719-.1-1.427 0-2.146.17-.971-1.03-.859-1.01-1.789 0-.706-.72-6.181 1.04-5.435 1.5.64.99 3.759 2.44 4.27 1.63.571 2.69-3.823 2.87-4.787.26-1.391-.67-2.085-1.05-3.32-.69-2.267-.63-4.47-.71-6.805-.16-4.288-1.18-8.833-2.91-12.668a8.63 8.63 0 0 0-.71.51c.19-.583-.1-.699-.41-1.056-.58-.581.32-.947-.2-1.582-.49-.605-.81-2.883-2.06-2.122-.1-.259-.1-.522-.1-.79 2.17.208-.99-3.076-.63-.322.14 1.083-2.09 3.083-3.12 3.061 1.93.969.68 3.823.29 5.11-.57 1.897-.54 3.109-2.88 3.17.28 1.373-.15.287-.81 1.079-.47.575-.49 1.399-.7 2.081-.59-.02-2.73-4.402-3.04-1.302-.11 1.108.27 1.83.67 2.823.35.893-.28 3.338-.44 1.579-.16.859-2.82.961-1.77 2.938.55 1.049 2.68.638 1.84 2.322.29-1.31-1.07-1.43-1.88-.805-1.13.876-1.03 2.844-2.58 3.324-.2-1.109.87-1.96.65-3.1-1.11.244-.85 1.009-1.3 1.8-.43.767-1.69 1.183-1.87 2.09-.13.629.53 1.334.8 1.847.51 1.002-1.3 1.213-1.88 1.684.12-.692 1.38-2.702-.4-2.657-1.02.03-1.84 1.298-2.61 1.829-.52.354-1.92 1.089-1.77 1.893.1.408-.27.922-.12 1.306.21.534.93.436 1.09 1.079-.8-.05-1.63.111-1.77-1.013-.18-1.415-1.57-1.391-1.62.08-.33-.552-1.93-.711-2.49-.438-.7.345-.43 1.527-.96 2.018 0-1.494-1.71-.318-1.81.58a7.585 7.585 0 0 0-.86-1.3c-.86.597-1.52 1.627-2.52 2-.94.35-2.61-.41-3.37.303-.38.349-.1 3.195-.37 2.887.27 1.152-.55 2.48-1.11 3.417-.93 1.565-3.93 4.483-2.78 6.372.8 1.303.11 3.654.23 5.172.15 1.725 1.39 3.162 1.38 4.858 0 1.579-.11 2.58.75 3.981.91 1.504.39 2.181-.1 3.646-.32 1.053 1 1.379.38 2.51-.67 1.205-1.54 2.353-2.26 3.532-.78 1.267-1.74 2.533-2.3 3.917-.42 1.071-.1 2.857-1.43 3.332-1.63.57-2.02.602-2.18 2.477-.13 1.56-1.54 2.99-1.93 4.589" />
@@ -387,6 +466,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("bo", true)}
           onMouseOut={() => handleHover("bo", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Bolivia</title>
           <path d="M742.086 854.279c1.907.124 3.823.289 5.725.432.872.06.425.21.555.73.235.94 1.591-.02 1.972-.188.44-.191 1.315-.373 1.598-.819.435-.686.574-1.656 1.226-2.193 1.444-1.189 2.594.728 3.379-1.189.683-1.669 2.805-1.748 4.116-2.673 1.221-.862 1.84-2.643 3.356-3.085 1.809-.527 3.83-1.384 5.75-1.117 2.125.296 1.655.488 3.064-.838 3.055 2.112-.221 6.135.667 8.849.222.68.784 1.069 1.02 1.67.264.673-.384 1.367-.541 1.979-.467 1.827 1.316 2.811 1.72 4.172.291.98.199.866 1.043 1.585.523.446.392 1.557.875 1.837.65.377 1.011.04 1.704.61.663.543 1.302.858 2.07 1.478.104.08.527 1.006.7 1.195.514.565 1.045.717 1.762.885.974.229 1.738.627 2.695.09.785-.436 1.349-.23 2.062.267.579.403 1.061.93 1.659 1.309.826.522.985-.562 1.645-.37 1.245.362 1.281 2.699 2.896 2.88 1.411.158 2.392 1.276 3.791 1.352 1.94.105 2.224 2.98 3.845 3.397 1.333.343 2.614.118 3.927-.08 1.865-.285 3.751 1.198 5.298 2.074 2.533 1.435.914 2.8 1.828 4.877 1.007 2.289 1.39 4.308 1.885 6.743-.625-.02-1.249 0-1.87.07.08 1.774 2.339 2.8 2.637 4.707.223 1.425.07 3.097.692 4.424.791 1.681 3.87 1.109 5.384 1.259 2.849.282 5.806.696 8.637.05.04 1.269-.701 2.044-.797 3.189-.08.945.305 2.141.55 3.054.388 1.442 2.072 3.687 3.64 3.979.799.149 1.219-.384 1.58.624.274.765.638 1.469.943 2.225.803 1.986 1.844 3.092 1.384 5.246-.231 1.083-1.139 2.945-.765 4.054.526 1.561-.588 2.89-1.192 4.393-.815 2.026-.857 2.954.791 4.344 1.225 1.033-.74 1.674-1.594 2.303.591-1.953-1.869-4.153-3.402-5.131-1.609-1.027-3.424-1.829-5.278-2.226-5.134-1.098-10.488 1.768-15.377 2.273-2.394.247-3.587.483-3.971 3.063-.32 2.144-1.869 3.321-2.218 5.401-.328 1.958.513 3.867.113 5.889-.567 2.868-.71 5.99-1.404 8.83-2.188-1.402-1.27-2.35-3.257-2.265-1.545.07-3.426-.306-4.871.178-1.724.577-1.623-.761-2.54 1.573-.785 1.997-1.066 3.709-1.285 5.817-2.188-3.046-1.827-5.995-6.033-6.667-1.713-.274-4.219.543-5.744-.199-1.335-.65-2.108-2.269-3.633-2.574-.211 2.168-.09 2.851-2.267 3.642-1.091.397-2.283 2.491-2.889 3.529-.899 1.542-1.248 2.21-3.339 2.498-.762.105-1.973-.276-2.331-.723-1.346-3.504-1.731-5.621-3.243-8.442-1.306-2.327-1.111-4.23-2.126-5.803-.593-.92-1.659-1.677-2.195-2.574-.703-1.176.374-2.349-.09-2.307-.882.08-1.467-.848-1.87-1.652-.451-.9.611-1.512-.603-2.637 2.14-1.293 1.964-1.091.457-3.124-.219-.296.657-1.545.764-1.821.446-1.149-.08-1.692-1.059-2.526-1.942-1.657-2.836-3.045-3.487-5.493-.294-1.108-2-3.941-.924-4.966-3.609-.736-3.64-6.181-5.11-6.479.121-.666.613-1.022 1.123-1.386.782-.557 1.03-1.467 1.57-2.229.468-.661.807-1.265 1.44-1.774.1-.08-.1-1.176.08-1.079.562.293 1.946.58.553-1.057.443.287 2.111-1.579 2.078-1.064-.113-1.873-3.027 1.231-1.887-3.092-1.816-.305-.285-.76-4.223-3.348.198-1.03 1.466-2.112.949-3.185-.812-1.688-2.081-2-1.029-4.091.678-1.35 1.381-2.363 1.835-3.7.539-1.586.86-1.522-.07-3.201-.856-1.543-.224-2.783-.377-4.438-.124-1.334-.937-4.07.07-5.203 1-1.126 1.922-1.892 1.059-3.363-2.443-4.166-5.041-8.384-7.276-12.655" />
@@ -399,6 +483,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("rs", true)}
           onMouseOut={() => handleHover("rs", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Serbia</title>
           <path
@@ -426,6 +515,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ch", true)}
           onMouseOut={() => handleHover("ch", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Switzerland</title>
           <path
@@ -446,6 +540,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("mk", true)}
           onMouseOut={() => handleHover("mk", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>North Macedonia</title>
           <path
@@ -460,6 +559,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("bw", true)}
           onMouseOut={() => handleHover("bw", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Botswana</title>
           <path
@@ -474,6 +578,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("ke", true)}
           onMouseOut={() => handleHover("ke", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Kenya</title>
           <path
@@ -488,6 +597,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("jo", true)}
           onMouseOut={() => handleHover("jo", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Jordan</title>
           <path
@@ -503,6 +617,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("mx", true)}
           onMouseOut={() => handleHover("mx", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Mexico</title>
           <path d="M467.685 543.261c.104.538.296 1.042.576 1.513.01-.905-.481-1.73-1.152-2.305l.576.792" />
@@ -532,6 +651,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ae", true)}
           onMouseOut={() => handleHover("ae", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>United Arab Emirates</title>
           <path d="M1673.14 550.82c.5.03.88-.159 1.15-.576-.66-.54-1.48-.413-1.87.36.24.07.47.144.72.216" />
@@ -555,6 +679,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("br", true)}
           onMouseOut={() => handleHover("br", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Brazil</title>
           <path d="M975.94 876.96c1.08-2.827-1.86-.525 0 0" />
@@ -614,6 +743,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ml", true)}
           onMouseOut={() => handleHover("ml", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Mali</title>
           <path
@@ -636,6 +770,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("it", true)}
           onMouseOut={() => handleHover("it", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Italy</title>
           <path d="m1361.24 441.739-.51-.72c.76-.09.93.146.51.72" />
@@ -661,6 +800,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("af", true)}
           onMouseOut={() => handleHover("af", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Afghanistan</title>
           <path
@@ -676,6 +820,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("bd", true)}
           onMouseOut={() => handleHover("bd", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Bangladesh</title>
           <path d="M1947.58 557.42c-.21-.02-.43-.05-.64-.07.38.294.81.486 1.29.576-.22-.168-.43-.336-.65-.504" />
@@ -701,6 +850,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("do", true)}
           onMouseOut={() => handleHover("do", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Dominican Republic</title>
           <path
@@ -729,6 +883,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("gh", true)}
           onMouseOut={() => handleHover("gh", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Ghana</title>
           <path
@@ -743,6 +902,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("at", true)}
           onMouseOut={() => handleHover("at", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Austria</title>
           <path
@@ -758,6 +922,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("se", true)}
           onMouseOut={() => handleHover("se", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Sweden</title>
           <path d="m1357.47 260.93-1.44.72c.41.562 2.04.83 2.36-.01.2-.525-.45-1.396-.92-.706" />
@@ -784,6 +953,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("tr", true)}
           onMouseOut={() => handleHover("tr", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Turkey</title>
           <path d="M1459.24 407.052c.75-.356 1.78-1.377 2-2.188.35-1.264-.62-2.213 1.14-3.004.95-.433.6-.439.36-1.446-.14-.591-.37-1.182-1.01-1.39-2.3-.751.54-1.113.41-2.033 0-.256 2.45-.967 2.86-1.099 1.32-.431 2.1-.875 3.06.215.9 1.017 1.4.365 2.54.252.53-.05 1.15 0 1.58.359.73.606-.36.816.15 1.481 1.93 2.481 4.18 3.559 7.24 4.477 1.18.354.2 2.077-.53 2.348-1.4.518-3.43-.838-4.86-.921-.7-.04-1.13.45-1.71.748-.72.366-1.47-.269-2.29-.02-.99.298-1.4 1.368-2.08 2.113-1.12 1.21-2.61 1.552-3.89 2.486-1.09.792-2.14 3.002-3.31 3.457-.36-1.402.24-2.86 1.62-3.351.24-.09 2.89-.889 2.02-1.607-1.42-1.167-4.61 1.96-5.3-.874" />
@@ -797,6 +971,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("ug", true)}
           onMouseOut={() => handleHover("ug", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Uganda</title>
           <path
@@ -821,6 +1000,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("jp", true)}
           onMouseOut={() => handleHover("jp", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Japan</title>
           <path d="M2194.18 548.42c-.23.353-.37.737-.43 1.153.5.04.98-.03 1.44-.218-.1-.555-.45-.895-1.01-.935" />
@@ -869,6 +1053,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("nz", true)}
           onMouseOut={() => handleHover("nz", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>New Zealand</title>
           <path d="M2379.51 1195.27c-.5-.84-4.19 1.38-4.03 2.3.53-.25 1.44.14 1.77-.3.7-.95 1.18-1.41 2.26-2" />
@@ -917,6 +1106,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("pt", true)}
           onMouseOut={() => handleHover("pt", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Portugal</title>
           <path
@@ -938,6 +1132,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("co", true)}
           onMouseOut={() => handleHover("co", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Colombia</title>
           <path
@@ -964,6 +1163,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("de", true)}
           onMouseOut={() => handleHover("de", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Germany</title>
           <path d="M1337.74 289.87c.16-.763-.1-.811-.72-.145.24.05.48.1.72.145" />
@@ -983,6 +1187,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("th", true)}
           onMouseOut={() => handleHover("th", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Thailand</title>
           <path d="M2019.66 688.75c-.37 1.208-.16 2.515.28 3.672 1.07-.862.95-2.997-.28-3.672" />
@@ -1043,6 +1252,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("iq", true)}
           onMouseOut={() => handleHover("iq", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Iraq</title>
           <path
@@ -1058,6 +1272,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("hr", true)}
           onMouseOut={() => handleHover("hr", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Croatia</title>
           <path
@@ -1093,6 +1312,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("gl", true)}
           onMouseOut={() => handleHover("gl", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Greenland</title>
           <path d="M991.855 170.998c.602.14 1.175.355 1.72.647-1.201-.211-3.085-.878-3.31.937.602 0 1.157.313 1.51.792-.91-.356-2.182-.984-2.95 0 1.412 1.196 3.546.996 5.26.936-1.906.724.471.3.79.216-1.935.934 1.729-.502 2.229-.432-.66.02-2.217.709-.72 1.008-1.536 0-3.079-.102-4.61.07-.08 2.55 6.884.65 7.976.492 1.24-.18 6-.791 5.95-2.64 0-1.199-2.15-1.279-2.95-1.528-1.7-.527-2.52-2.108-4.432-2.281-1.791-.162-3.4-.724-5.169-.09-.672.242-2.926 1.192-1.294 1.868" />
@@ -1256,6 +1480,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("dk", true)}
           onMouseOut={() => handleHover("dk", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Denmark</title>
           <path d="M1345.01 286.92c.5.328.98 2.094 1.95 1.439 1.01-.679-1.24-1.851-1.95-1.439" />
@@ -1285,6 +1514,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           className="landxx eu lv"
           onMouseOver={() => handleHover("lv", true)}
           onMouseOut={() => handleHover("lv", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Latvia</title>
           <path d="M1416.29 274.966c.1.24.19.479.29.72-.1-1.25-.39-2.567.48-3.628.38-.455 1.05-.777 1.21-1.392.19-.772 0-1.44.38-2.202.79-1.471 1.76-2.147 3.34-2.538.77-.188 2.82-1.412 3.42-.681.95 1.16 1.99 1.665 3.07 2.659 1.23 1.129 1.73 2.626 3.46 3.177 1.35.435 2.68-.133 3.79-.919 1.6-1.138 1.37-2.502.69-4.136-.27-.646-.55-1.358-.4-2.076.61.174 1.23-.27 1.71-.553.97-.562 2.84-1.369 3.86-.723.67.428 1.97.305 2.85.794 1.32.729 2.43.93 3.6 1.987.95.864 1.84 1.379 3.05.761 1.36-.689 2.87.345 4.3.395 1 .04 3.65 2.164 3.45 2.963-.12.439-.72 2.159-1.07 2.511 2.14-.259 1.29.624 2.23.981 1.11.42 2.13 4.267 2.33 5.31-.44.198-1.14-.503-1.91-.108-.59.3-1.07 1.049-1.44 1.567-.22.292-.13.764-.49.961-1.15.631-2.59-.726-3.88-.08-1.48.747-2.17 1.492-3.9.536-1.42-.786-2.7-1.805-4.04-2.721-1.28-.884-2.91-.437-4.18-1.234-1.1-.697-1.33-2.193-2.83-1.307-1.31.77-1.76.74-3.2.88-1.29.125-2.83-.718-4.24-.697-1.46.02-1.68.268-3.11-.225-.86-.298-3.12-.06-4.05-.06-1.46 0-2.75.233-4.15.574-.9.216-2.32.422-2.71 1.422-.25.657-.99.985-1.44.429-.79-.964-.55-2.198-.47-3.348" />
@@ -1297,6 +1531,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ro", true)}
           onMouseOut={() => handleHover("ro", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Romania</title>
           <path d="M1416.73 361.366c.78-.536 1.38-.491 2.17-.287.76.198.81-.793 1.43-1.009.68-.237 1.41-.06 2.09-.279.99-.31.8-1.505 1.27-2.245.44-.704 1.03-1.295 1.53-1.958.64-.853.56-1.616 1.13-2.387.51-.68 1.09-1.479 1.37-2.292.32-.946-.1-1.386.62-1.744.66-.353.86-.592 1.32-1.179.72-.918 2.03-.264 2.9-.987.71-.597 1.2-1.435 1.99-1.949 1.08-.712 2.31.188 3.42.333 1.06.138 2.1.36 3.16.468 1.27.129 2.87-.43 4.01.306 2.16 1.394 2.36 2.235 4.37.317 1.26-1.201 3.88-.59 5.47-.857 1.05-.176.86-.938 1.46-1.601.65-.714 1.89-.76 2.78-.659 1.98.225 3.11 2.312 3.94 3.889.92 1.748 2.22 3.272 3.63 4.625 2.06 1.978 3.02 3.436 3.85 6.155.3.995-.29 2.004-.52 2.944-.25 1.081.22 2.229.31 3.32.13 1.813.57 2.551 2 3.56.55.387 1.86 1.332 2.69.855.91-.529 5.58-3.111 6.22-.391.83 3.453-1.02 4.742-4.21 4.716.39-.314.73-2.209-.1-2.181-.99.03-.46 2.319-1.19 2.901.47-.111.95-.183 1.44-.216-.73.316-2.02.413-1.15 1.367.26-.222.5-.462.72-.72-.31 1.139-1.53 1.764-1.73 2.952-.22 1.267.74 3.342-.1 4.525-.48-.408-1.55.04-2.03-.207-.38-.198-1.77-1.215-2.52-1.899-1.02-.316-1.99.17-3.36-.488-1.11-.531-3.01-1.224-5.14-.363-4.67.46-5.68 3.087-7.82 3.572-1.31.298-3.13-.342-5.03-.585-2.28-.293-3.5.354-4.76.324-1.05-.02-2.34-1.088-4.18-1.16-.94-.04-3.96.759-4.6-.261-.94-1.495 2.81-1.559-.64-2.806-.85-.308-1.14-.26-2.27-1.845-.98-1.379 1.32-1.04 1.8-1.275-.54-.664-1.69-1.369-2.56-1.059-.6.213-.76 1.796-1.47 1.641-.72-.155-1.75-1.342-2.67-1.606-1-.287-2.16-.548-2.92-1.331.83-.243 1.03-1.313 0-1.439.96-.901.44-1.529-.69-1.926-1.53-.535-2.69-1.432-4.01-2.322 1.18-2.338-2.09-3.755-3.43-5.257" />
@@ -1346,6 +1585,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("gt", true)}
           onMouseOut={() => handleHover("gt", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Guatemala</title>
           <path d="M572.81 633.67c.814-.969.676-1.992.968-3.154.142-.566.936-.958.766-1.583-.316-1.161-.304-1.355.375-2.486 1.02-1.698 1.884-3.882 2.588-5.323.718-1.468 3.466-.63 4.921-.63.835 0 5.219.523 5.65-.18.143-.232.519-2.937.402-3.038-.503-.438-1.187-.24-1.343-1.05-.18-.926-.389-1.428-1.252-1.951-1.654-1-2.683-2.642-4-4.005 1 0 2.784.469 3.386-.645.621-1.147-.137-2.897.718-3.896.916-1.07 5.02-.355 6.333-.355h7.563c-.638 2.723-.702 5.537-1.224 8.279-.534 2.807-1.148 5.6-1.584 8.425 1.337-.138 4.18-.2 4.392 1.655.218-.481.441-1.056 1.008-1.224a7.965 7.965 0 0 0-.576-.72c1.002.363 1.683 1.213 2.592 1.728-2.43 1.016-3.934 3.462-6.173 4.783-1.042.615-2.397 1.349-2.098 2.787.211 1.018.439 1.713-.397 2.483-.791.728-3.033 1.173-2.816 2.33.129.684-.379.542-.865.968-.1.08-.932 1.199-.81 1.144-.985.445-3.47.6-2.969 2.641-1.174-.511-2.23-1.366-3.52-1.588-1.315-.226-2.714.196-4.058.04-3.326-.396-5.75-3.205-7.976-5.431" />
@@ -1364,6 +1608,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("cz", true)}
           onMouseOut={() => handleHover("cz", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Czech Republic</title>
           <path d="M1360.78 325.942c.74 0 1.33.618 1.51 1.296.26-2.592 4-1.925 4.72-2.477 2.59-1.972 5.96-2.961 8.75-3.93-.23-.223-.48-.438-.72-.648.63-.146 1.36-.374 1.85.182.43.494.82 1.424 1.61 1.15.54-.188 1.22-.08 1.33-.711.12-.759.44-.608.94-.48.84.214 1.07.342 1.31 1.133.71 1.901 4.53-.178 4.62 2.11.37-.398 1.3-.537 1.85-.429 1.79.355 0 1.42-.62 1.942 1.25.434 1.68 1.1 2.39 2.097.88 1.22 2.3-.208 3.08-.729a2.137 2.137 0 0 1-.79-1.512c1.86.487 3.59 1.903 5.61 1.296 0 .93-.11 2.478.96 2.395 1.14-.09 1.55-.298 2.76.269 1.29.607 1.59.169 2.25 1.572-1.13-.768 1.35.242 2.37 2.503-1.31.486-3.28.722-4.44 1.591-.84.625-.84 2.005-1.72 2.44-.89.443-2 1.585-3.96 1.55-1.29-.02-2.22 0-2.97 1.648-.66-2.401-3.99-.683-5.49-1.2-1.23-.426-2.45-.918-3.69-1.322-1.02-.327-2.95-.864-4-.79.1.685-.21 1.333-.14 2.016-1.02-.141-1.79.668-1.8 1.656-1.51-.603-1.54.05-3.03-.09-.99-.09-1.81-1.152-2.58-1.674-1-.67-2.06-1.232-3.1-1.835-.97-.563-2.07-1.96-3.1-2.365-1.72-.674-2.12-3.059-3.67-3.9 2.18-1.92-1.89-2.045-2.09-4.754" />
@@ -1382,6 +1631,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("al", true)}
           onMouseOut={() => handleHover("al", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Albania</title>
           <path d="M1412.26 408.094c.39-.666.72-1.45.44-2.231 1.05.169.51-2.251.73-3.035.17-.605-.77-.635-.43-1.406a9.49 9.49 0 0 0 .59-1.806c.22-1.056 0-2.229-1.33-1.89-.52-1.598-.5-3.742.51-5.09.83-1.095.97-2.839 2.13-.798.73 1.293 1.85-1.526 2.94.559.23.433.19.748.55 1.094.69.667 1.15-.02 2.2 1.443.17.247.46 1.795.39 3.002-1.14.724.26 1.875-.92 2.436.1.435.43.769.62 1.137 0 .317.13.484-.1.752-.14.695.43 1.615.9 1.988.55.438.39 1.528 1.4 1.41.99-.116.93.481 1.24 1.177 1.21 2.702-.72 2.071-1.41 3.781-.23.575-.82 1.905-1.47 2.249-1.67.887-1.61.818-.95 2.427-1.5-.179.46.899-1.52 1.225-1.15.189-1.47-.443-1.61-1.361-.38-2.39-3.56-3.246-4.94-5.12.48.08.82.339 1.01.792.72-.833-.67-1.36.1-1.656-.44-.279-.8-.64-1.08-1.079" />
@@ -1394,6 +1648,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("fi", true)}
           onMouseOut={() => handleHover("fi", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Finland</title>
           <path d="M1405.49 244.58c-.57.634-.57.765.29.936 0-.339-.11-.651-.29-.936" />
@@ -1427,6 +1686,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("sy", true)}
           onMouseOut={() => handleHover("sy", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Syria</title>
           <path d="M1532.79 471.67c.63-.795 1.83-2.448 2.95-2.664-1.7-1.588.73-2.587 2.16-2.16-1.26-1.526.61-1.712 1.05-3.17.24-.808-.77-2.443-1.69-2.615-1.06-.195.95-1.711-.69-1.252-2.72.765-2.92-.974-3.05-2.385-.12-1.283.71-3.625-.44-4.569-.92-.757-.2-2.77-.24-3.877 0-.831 1.52.475 1.82.622 0 .11.38-.738 1.03-1.134.81-.49.26-1.591.41-2.356.7.17 1.45-.03 2.16-.07-.57-1.157-.94-1.457-1.1-2.849-.1-.507 0-1.938.7-2.115.53-.134 1.07-.139 1.49.09 1.15.603 1.38 1.627 2.56 1.443 1.44-.225 2.39-.396 3.77-.99 1.41-.609 2.44-1.455 4.02-1.228 1.17.167 1.86.998 2.85 1.461 1.13.528 3.33.308 4.55.203 3.11-.268 5.34-2.047 8.16-3.174 2.85-1.14 5.96.459 8.89-.709 1.49-.596 3.68-2.878 3.9.691 0 .831-1.98 2.516-2.56 3.094-1.06 1.049-2.24.975-3.43 1.675-2.56 1.503.12 4.757.32 6.553.12 1.062-.52 2.365-.6 3.463-.11 1.635 0 4.279 0 5.898 0 3.788-15.97 11.033-24.06 16.573-2.2 1.508-5.77 5.137-8.64 3.131-1.04-.729-1.79-1.29-2.87-2.029-1.86-1.284-2.7-.323-3.01-.368-.1-.235.67-4.707-.4-5.177" />
@@ -1439,6 +1703,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("kg", true)}
           onMouseOut={() => handleHover("kg", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Kyrgyzstan</title>
           <path d="M1766.32 413.06c1.13-1.973 3.36-1.433 4.51-.924.49.217 3.2 1.08 2.15 2.005 1.13-.259 2.28-1.985 2.89-2.51 1.16-1.011 1.4-1.24 2.99-.551.41.179.79.616 1.18.757.63.226.54-.913 1.12.02.34.549 1.5-.405 2.19-.383-2.16-1.149 2.02-1.397 2.45-1.368-.28-.544-.58-1.014-.51-1.655 1.19.512 2.08.817 2.72-.587.15-.344 2.16-.984 1.4-1.441-.39-.238-1.74-.359-2.24-.349-1.64.03-2.62-2.139-4.39-1.079-.1-1.806-1.14-1.011-2.15-1.91-1.05-.927-2.4-1.809-2.97-2.842.11.597.43 1.389.12 1.978-.21.32-.52.477-.91.469.19.409.19.817 0 1.225-1.27-1.192-3.95.297-4.76-1.699-.42-1.054-.9-1.173-1.94-.857-.84.257-1.8-.808-2.66-.828.36-2.445 4.48-4.353 6.05-5.832-2.12-1.098-3.49.06-2.27-2.646.32-.716 0-1.26.83-1.729.85-.487 1.98-.213 2.71-.697 1.53-1.014 5.37.423 6.91.906.55.119 1.04.345 1.48.677.91.667 1.34.357 2.36.465 1.02.106 1.97 1.363 3.03 1.008-1.05-.986-2.01-4.613-.42-5.481.38-.21 3.44-.943 3.08-1.574 2.1.688 4.18 1.799 6.15 2.786.77.382 4.29 1.633 5.23 1.174.72-.354.1-1.224 1.08-1.224 1.44 0 2.9.543 4.33.357 1.04-.136 2.01-.646 3.08-.646 1.12 0 2.06.829 3.2.487 1.02-.304 2.19.01 3.2.191 1.31.231 2.58-.03 3.89.06 2.19.14 5.43.95 7.14 2.36.74.605 1.03 1.42 2.14 1.379.94-.04 1.52-.02 2.34.45 1.01.583 2.64 1.486 3.12 2.627.14.334-2.67 1.285-3.22 1.738-1.75 1.456-4.48 2.1-6.45 3.4-.91.604-1.43.949-1.41 2.024 0 .921-.74 1.986-1.99 1.879-1.07-.09-1.94.207-3.02.33-1.21.138-2.32-.23-3.51-.267-1.58-.05-1.52 1.885-1.71 3.233-.51 3.483-2.3 2.234-4.33 2.816-2.33.668-1.96-1.586-2.99-2.421-.59-.48-1.59 1.014-2.05 1.283-1.07.636-1.83-.09-2.99-.329-.11.497-.1.977.15 1.44-.94.02-1.51.864-2.01 1.535-.72.987-2.22.39-2.97 1.434-1.07 1.484 1.66 3.32-.18 4.461-.76.47-1.72-.393-2.53.261-.95.773-2.16.625-3.33.484-1.32-.161-4.17-.436-4.46 1.618-1.69-1.645-2.93-.518-3.95-1.413-.1.246-.1-.537-.46-.909-.39.03-.95-.11-1.33-.183-.44-.28-.18-.744-.61-.988-.31-.178-2.99 2.003-4.12 1.832-.84-.128-.97-.355-1.51-1.033-.75-.947-2.11-.55-3.07-.186 0-.264-.1-.527-.1-.792-.58.423-1.42.531-2.37.412-2.24-.283-2.83.874-3.75.278-1.01-.656-1.31-4.952.1-3.21 0-.518.22-1.034.29-1.241" />
@@ -1488,6 +1757,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("pa", true)}
           onMouseOut={() => handleHover("pa", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Panama</title>
           <path
@@ -1507,6 +1781,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ar", true)}
           onMouseOut={() => handleHover("ar", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Argentina</title>
           <path d="M837.41 1097.5c.118-.5-.119-.57-.71-.22.236.1.473.15.71.22" />
@@ -1529,6 +1808,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("gb", true)}
           onMouseOut={() => handleHover("gb", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>United Kingdom</title>
           <path
@@ -1568,6 +1852,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("cr", true)}
           onMouseOut={() => handleHover("cr", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Costa Rica</title>
           <path
@@ -1598,6 +1887,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("ie", true)}
           onMouseOut={() => handleHover("ie", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Ireland</title>
           <path d="M1228.59 287.28c.14.11-.1.476.18.144.26-.336 0-.03-.18-.144" />
@@ -1615,6 +1909,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ng", true)}
           onMouseOut={() => handleHover("ng", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Nigeria</title>
           <path d="M1325.36 721.65c.91-.06 1.24-.624.5-1.224-.31.349-.48.756-.5 1.224" />
@@ -1632,6 +1931,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("tn", true)}
           onMouseOut={() => handleHover("tn", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Tunisia</title>
           <path
@@ -1648,6 +1952,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("pl", true)}
           onMouseOut={() => handleHover("pl", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Poland</title>
           <path d="M1373.89 304.846c0-1.717 2.51-2.166 1.57-4.167-.33-.693-1.09-1.726-.8-2.564.13-.388 1.47.108 1.75.107-.14-.566 0-1.07.36-1.512-.1.119-.15.239-.22.36a2.685 2.685 0 0 0-1.51-.648c.3.764-.88.331-.94-.36 1.66.623 4.31-.813 5.82-1.418 1.8-.727 6.2-.529 7.33-2.034 1.39-1.838 4.65-2.685 6.84-3.262 2.73-.722 6.49-1.302 8.81.666-.63-.431-1.37-.872-2.16-.576.95.893 1.19 2.609 2.57 3.009 1.67.481 3.9-.241 5.5-.705-.7.424-1.56.535-2.25 1-.99.67 1.11.286 1.49.09 2.57-1.315 4.83-.258 7.89-.301 4.04-.06 9.73.941 13.74.35 3-.44 3.71.963 4.46 3.706.77 2.82 4.24 6.134 3.24 9.234-.5 1.569-2.48 1.006-3.31 2.209-.84 1.204-1.56 2.116.47 2.492 3.25.602.54 3.785 1.51 5.54 1.01 1.847 1.37 4.061 4.15 5.412-.4.204-.81.396-1.22.576 1.23 1.088 1.55 2.323-.2 2.973-1.77.653-3.35 2.363-4.56 3.747-1.04 1.195-3.27 2.751-2.58 4.598.29.773.2 1.594.49 2.361.23.609.92.4.8 1.225-1.2-.845-3-.83-4.36-1.313-1.34-.476-1.99-1.5-3.37-1.868-1.35-.363-2.86-.575-4.19-.02-1.71.715-1.91.06-3.57-.14-1.28-.157-1.75.09-2.68.885-.41.342-.93.779-1.49.826-.95.08-.64-.931-1.01-1.392-.4-.496-1.32-.907-1.83-1.519-.82-.986-2.82 1.178-3.71 1.303.23-.774-3.08-4.249-4.19-4.553-1.24-.34-1.85-.853-3.06-.468-1.27.401-1.39-1.718-1.25-2.468-2.02.607-3.75-.809-5.61-1.296 0 .613.32 1.117.79 1.512-.78.522-2.2 1.949-3.08.729-.71-.997-1.14-1.663-2.39-2.097.33-.286 1.57-.948 1.3-1.537-.35-.771-2.09-.443-2.53.02-.1-1.972-3.69-.558-4.45-1.698-.72-1.085 0-.904-1.63-1.564-1.25-.509-.23 1.414-1.84 1.102 1.12-2.794 1.86-3.69-.28-5.146-.93-.627-.2-1.332-.92-1.976-.95-.839.1-1.231.26-2.126.1-.55-.12-1.542-.19-2.101-.1-.563-1.23-.422-1.01-1.362.15-.616.92-1.227.1-1.729a16.445 16.445 0 0 1-2.83-2.118" />
@@ -1660,6 +1969,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorUpcoming}
           onMouseOver={() => handleHover("na", true)}
           onMouseOut={() => handleHover("na", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Namibia</title>
           <path d="M1360.14 908.849c1.06-.165 1.89-1.097 3.02-.896.97.171 1.84.902 2.86.707 2.12-.406 3.58-2.884 6-2.224 1.93.526 2.95 2.692 4.89 3.334 1.09.365 4.47.223 6.27.239 8.21.07 16.44.234 24.65-.1 2.17-.09 2.9-.247 3.93 1.67 1.3 2.439 3.25 1.9 5.6 2.158 3.07.337 6.34.197 9.22 1.207 1.11.388 2.1.528 3.08-.06.86-.524 1.69-.336 2.94-.03 1.26.308 2.01.1 2.85-.1 5.12-1.189 10.92-2.392 16.36-3.42 1.05-.2 2.12-.682 3.21-.515.65.1 1.62.721 2.26.401 2.05-1.02 2.99 1.138 4.34 2.064-.98-.256-2.13.318-3.06.681-1.16.451-1.5 2.182-2.61 1.159-1.79-1.646-5.29 3.747-6.61 4.381-.64-1.236-1.33-3.988-3.16-4.161-2.36-.223-5.3.967-7.59 1.454-2.71.573-5.9.683-8.59 1.185l-1 31.899-6.8-.1-1.47 54.378c.17 2.48-1.96 1.44-3.14 2.56-.59.56-.54 1.1-1.71 1.5-.8.28-1.17.61-.52 1.35-1.79.53-1.71-.14-3.38-.39-1.75-.26-3.25.69-5.32.24-3.29-.7-5.24-1.92-5.39-2.52-.41-1.68 0-.99 0-2.32-.1-.53-.64-.39-1.04-.8-.57-.6-1.06-1.86-1.67-1.48-1.9 1.21-1.37 3-2.04 3.52-.94.73-2.12 1.7-3.11.46-1.3-1.64-3.04-2.94-4.2-4.69-1.03-1.56-1.86-3.228-2.69-4.895-.44-.885-.48-1.837-.64-2.792-.15-.986-.83-1.5-1.02-2.398-.35-1.647.38-2.252-.84-3.77-.48-.606-.32-.997-.3-1.771 0-1.251-.41-2.334-.54-3.554-.1-.869 0-1.749-.27-2.599-.36-1.202.25-2.365 0-3.567-.4-2.072-1.39-3.963-2.14-5.918-.85-2.207-.21-4.07-.43-6.304-.15-1.516-.38-3.414-.24-4.197.1-.367.99-4.049.58-3.96-.1-1.983-1.09-3.925-2.22-5.516-.63-.895-1.36-1.729-1.89-2.693-.49-.886-.59-1.97-1.23-2.777-2.94-3.719-3.57-8.234-5.75-12.264-1.99-3.694-2.66-8.768-5.9-11.674-3.49-3.125-3.9-7.688-3.6-12.097" />
@@ -1672,6 +1986,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("za", true)}
           onMouseOut={() => handleHover("za", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>South Africa</title>
           <path d="M1471.88 1016.06c.95.94.87 2.3 1.64 3.27.67.85.44 1.96 1.14 2.66.88.87 3.18 3.81 4.7 2.57.67-.54 1.23-2.34 1.7-3.12.74-1.24 1.99-.99 3.19-1.33.88-.24 2.75-.98 3.12-1.9.48-1.18.53-1.85 1.37-2.89.32-.39 1.32-1.46 1.15-2.04-.52-1.82-1.28-1.93-2.49-3.19-.94-.99-1.95-1.91-2.88-2.9-.8-.86-2.19.49-2.92.81-.81.35-1.2.73-2 1.17-.93.51-1.91.33-2.65 1.28-.8 1.03-1.2 2.31-1.92 3.4-.82 1.24-2.02 1.38-3.15 2.21m-77.11-9.21c.75-.71 1.89-.56 2.03-1.68.13-.94.79-2.58 1.79-2.89 1.31-.43 1.15 1.41 2.05 1.67 1.55.45 0 2 .72 2.94 1.32 1.66 3.36 1.81 5.31 2.43 1.77.56 3.2-.23 4.93-.19 1.55 0 2.16.92 3.76.45-.96-1.09.23-1.26.88-1.52.89-.35.95-1.5 2.08-1.83.72-.21 2.23-.31 2.32-1.32l.69-31.111c.85 1.2 2.32 1.768 3.11 3.018.9 1.427 1.46 3.324 2.05 4.905.59 1.596 1.12 3.331.35 4.976-1 2.105-1.72 3.256-.75 5.602 1.71-1.98 5.96 1.029 7.83-.782.3-.3.1-1.068.52-1.199.51-.147.95-.04 1.45-.325 1.29-.738 1.56-2.433 2.9-3.232 1.48-.878 2.43-1.844 2.76-3.606.3-1.534.25-2.809 1.51-3.955 1.1-.998 2.53-1.199 3.87-.593 1.11.5 2.71 2.852 3.76 2.823 2.37-.06 5.15 2.79 7.39 1.017 1-.794 2.51.31 3.76-.621 1.33-.995 1.82-2.657 2.39-4.158.31-.795.58-1.614.71-2.458.21-1.372-.45-1.271.95-1.666.8-.229 3.17-.631 3.61-1.389.79-1.355 2.37-1.963 3.03-3.396.72-1.561.41-3.174 1.48-4.645.91-1.259 1.93-1.371 3.12-2.195 1.21-.845 2.75-2.146 3.68-3.311.78-.993 1.31-2.516 2.49-3.118 1.19-.602 2.59-.657 3.83-1.109 1.18-.433 1.15-.958 1.73-1.877.49-.78 1.83-1.033 2.65-1.204 3.34-.7 5.38 1.499 8.63 1.522 2.9.02 5.53-1.095 6.48 2.456.53 1.981.98 4 1.04 6.06 0 1.874 1.19 3.483 1.87 5.166 1.45 3.604 1.1 7.026.91 10.831-.1 1.463 0 3.255-.52 4.801-.26.754-.37.708-.1 2.88.12.06-.88-1.076-1.88-1.418-.94-.325-1.79-.203-2.56-.194-.63 1.243-1.6.988-2.33 2.563-.87 1.899-1.66 4.817-1.93 4.606 1.41 1.272 1.89 2.289 2.76 3.29 1.42 1.629 3.47 2.495 5.03.953.42-.422-.22-.649 1.33-2.807l1.29.03 4.53.157c-.85 3.791-1.94 7.135-2.95 10.893-.52 1.94-1.55 5.89-4.22 5.7.42.95-.82.92-1.4 1.03-.71.15-1.32 1.05-1.78 1.55-1.61 1.8-3.25 3.93-3.99 6.21-.42 1.28-1.55 2.09-2.19 3.24-1 1.77-2.04 3.52-3.2 5.18-2.09 2.99-4.33 5.01-7.12 7.3-2.32 1.92-3.7 4.71-6.02 6.62-2.95 2.43-5.85 4.94-8.89 7.25-2.4 1.82-5.14 4-8.23 4.41-1.48.21-2.95-.61-4.41-.16-1.06.32-2.54 1.6-1.08 2.52-1.74.77-3.66-1.44-5.29-.33-1.9 1.3-2.3 2.07-4.9 1.08-1.96-.74-4.46-1.54-6.52-.75-.93.35-.46.95-1.86.45-.83-.3-2.26.21-2.68-.74v.36c-2.12-.34-5.5.63-6.59 2.6-.94 1.72-5.67-.1-7.17.59-.9.39-1.85.13-2.7.53-1.02.48-2.16 1.47-3.06 2.17-1.14.88-.69.71-2 .37-.57-.15-1.22.18-1.73-.24-.58-.48-1.13-1.05-1.87-1.27 1.31-1.8-2.72-1.87-3.6-2.02.54-1.4 0-2.65-1.69-2.34-1.13.21-.72 1.54-.69 2.34-2.06-.8-.43-3.24-.23-4.49.17-1.08-.42-2.2-.97-3.09-.31-.51-2.87-4.06-1.17-2.42-.73-.73-.41-1.53-1.49-1.52-.91 0 .1-2.27.19-2.59 2.33 1.37 2.92-1.31 2.97-3.1.1-3.07-.78-5.66-2.37-8.29-2.36-3.92-4.45-7.79-5.81-12.19-.63-2.06-1.04-4.17-1.8-6.19-.76-2.02-2.59-3.81-2.78-6.01" />
@@ -1684,6 +2003,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("eg", true)}
           onMouseOut={() => handleHover("eg", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Egypt</title>
           <path d="M1455.39 499.966c-1.43-2.281 1.51-4.671 1.15-7.01-.39-2.512-2.68-4.265.94-7.246.1 1.83 2.21 1.175 3.31.846 2.02-.601 3.68.07 5.69.271 2.2.22 4.3.709 6.43 1.276.9.24 1.04 1.218 1.96 1.5.81.25 1.42.149 2.23.06.54-.06.79.786 1.4.912.66.138 1.34.141 2.02.208 2.16.214 3.6 1.571 5.63 1.91 1.97.328 3.84-.993 5.25-2.193.73-.622 1.41-1.298 2.08-1.985.57.447 1 .907 1.73.792-.42-.208-.33-.327-.87-.288.71-.376 1.41-1.059 1.59-1.872 1.22.732 2.37-.583 3.6-.574-.82.378-1.61.848-2.24 1.511.22-.128 5.18-1.628 2.81-1.8 1.75-.58 2.89 1.427 4.57 1.188.81-.114 1.57-.909 2.42-.611.79.276 1.17 1.425 1.87 1.871-.71-.498-1.44-1.592-2.38-1.655.28.746-.75 2.157.46 2.447 1.32.315.7.642 1.56 1.44 0-.294 2.35-1.288.65-2.088 1.81.422 2.42 2.096 4.54 1.91.69-.06 2.73-1.334 2.37.178 1.32-.838 2.8-.349 4.21-.776 1.25-.375 2.5-.864 3.5-1.733l6.08 16.049c-1.54 1.955-1.19 5.571-2.17 7.887-.57 1.354-.55 2.198-.53 3.629 0 1.224-1.55 2.408-1.16 3.601-.75-.687-1.74-.997-2.56-1.571-1.04-.729-1.77-1.791-2.48-2.818-.9-1.302-3.55-2.152-3.16-4.107.38-1.97-1.52-3.336-2.49-4.724-1.34-1.917-2.3-4.15-2.84-6.436-.9.969-1.86 3.083-.92 4.189 1.61 1.895 1.44 4.221 2.79 6.179 1.17 1.696 2.35 3.772 3.81 5.219.65.64 1.38 1.191 1.97 1.888.31.365 1.58 2.457.1 1.316 1.24.966.21 2.196 1 2.992 1.05 1.068 1.61 2.2 2.16 3.546.27.662.72 1.229 1.11 1.824.29.455-.29 1.035-.32 1.48 0 .595.94 1.478 1.2 1.991.61 1.174 1.27 2.32 1.89 3.492 2.02 3.85 4.06 7.632 5.97 11.541.75 1.529 1.84 2.624 2.78 3.998.88 1.279 2.41 1.675 3.22 2.976-.77.04-1.54-.09-2.23-.432-.5 2.089-.26 5.278.81 6.51 1.01 1.172-1.33 3.526-2.76 3.596-.71.03-.98-.481-1.69.314-.56.627-.86 1.703-1.12 2.507-.29.929-.73 1.75-1.75 1.989-.83.193-2.33.02-2.77.975-.8 1.743-.31 3.777-2.77 3.582-2.86-.228-4.32-2.548-5.83-2.485-4.96.208-7.82.661-11.71 0 .11-.391.56-1.218.28-1.62-.7-1.017-1.24.827-1.47 1.16-.93 1.334-5.6.532-7.09.532l-40.09-.09-1.43-54.185c-.15-2.533-.1-5.19-.44-7.699-.3-2.158-.85-5.35-1.82-7.295" />
@@ -1696,6 +2020,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("tz", true)}
           onMouseOut={() => handleHover("tz", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Tanzania</title>
           <path d="M1569.66 811.66c.28 1.799.54 2.441 1.96 3.677.99.857 1.27-3.488-.31-2.167.26-1.105-.1-2.917-.65-3.891-.24.776-1.24 1.488-1 2.381" />
@@ -1724,6 +2053,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("vn", true)}
           onMouseOut={() => handleHover("vn", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Vietnam</title>
           <path d="M2078.19 675.21c.24.767.69 1.553 1.51 1.8-.58-.527-1.11-1.123-1.51-1.8" />
@@ -1748,6 +2082,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ru", true)}
           onMouseOut={() => handleHover("ru", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Russia</title>
           <path d="M1496.29 208.15c.26.118.52.118.79 0-.25-1.295-1.06-1.47-2.23-1.224.42.482.9.89 1.44 1.224" />
@@ -1964,6 +2303,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("in", true)}
           onMouseOut={() => handleHover("in", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>India</title>
           <path d="M1977.82 654.19c-.2.342-.35.237 0 .72v-.72" />
@@ -1990,6 +2334,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ca", true)}
           onMouseOut={() => handleHover("ca", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Canada</title>
           <path d="M450.34 289.22c-.613-.07-1.141.125-1.584.576a5.97 5.97 0 0 0 1.584-.576" />
@@ -2301,6 +2650,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("be", true)}
           onMouseOut={() => handleHover("be", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Belgium</title>
           <path d="M1297.72 319.634c1.78-.926 3.93-1.86 5.88-2.377-.92.981 1.28.744 2.03.928.64.154.96.427 1.66.238.87-.234 1.86-1.694 2.16-.33-.11-.307-.21-.619-.29-.937.66.145 1.46.109 1.37-.791.52.396 1.38.634 1.8-.07.35.863 1.61.584 2.08 0 .55 2.027 3.52 2.021 5.26 2.735-.93 1.09-1.91 2.409-.25 3.24.57.282.93.147 1.32.07-.29.726 2.09 1.015 1.09 2.02.99-.167.94.978 1.23 1.584-1.15.208-1.04.843-1.75 1.434-.29.239-1.02-.37-1.67.654-.55.866-.99 1.291-.85 2.048.17.77 1.34 1.739 0 2.658-.27-.03-1.11-.01-1.98-.11-.11-.186-.62-1.015-1.18-1.344-.75-.449-2.29-.577-2.77-1.163-.32-.39-.1-2.324-.14-2.881-.67.264-.86.822-1.33 1.284-.87.849-2.24.474-3.28.3.22-.879.62-2.263-.11-2.735-.87-.562-2.23-.539-2.84-.145.11-1.356-.78-1.038-1.77-1.453-1.16-.491-.86-.513-1.51-1.525-.23-.369-2.43-.304-2.9-.586-1.34-.813-.16-2.373-1.24-2.754" />
@@ -2320,6 +2674,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("ls", true)}
           onMouseOut={() => handleHover("ls", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Lesotho</title>
           <path d="M1471.88 1016.06c.95.94.87 2.3 1.64 3.27.67.85.44 1.96 1.14 2.66.88.87 3.18 3.81 4.7 2.57.67-.54 1.23-2.34 1.7-3.12.74-1.24 1.99-.99 3.19-1.33.88-.24 2.75-.98 3.12-1.9.48-1.18.53-1.85 1.37-2.89.32-.39 1.32-1.46 1.15-2.04-.52-1.82-1.28-1.93-2.49-3.19-.94-.99-1.95-1.91-2.88-2.9-.8-.86-2.19.49-2.92.81-.81.35-1.2.73-2 1.17-.93.51-1.91.33-2.65 1.28-.8 1.03-1.2 2.31-1.92 3.4-.82 1.24-2.02 1.38-3.15 2.21" />
@@ -2332,6 +2691,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("bg", true)}
           onMouseOut={() => handleHover("bg", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Bulgaria</title>
           <path d="M1432.35 381.238c0-1.177.96-2.787 1.69-3.668.24-.282 2.22.676 2.34.933.32.702-1.05 1.401-.64 2.116.61 1.043 3.95.05 4.98.264 1.69.352 3.54 1.543 5.26.926 1.38-.497 3.12-.111 4.59 0 2.17.173 3.33 1.146 5.33-.379 1.55-1.18 2.62-2.131 4.61-2.475 1.81-.314 3.75-1.323 5.52-.398 1.13.589 2.75 1.064 4.01.832.44-.08 2.07 1.68 2.7 1.93.84.337 2.33-.34 2.48.876.15 1.313.34 2.322-1.25 2.199-1.59-.123-2.32 1.041-2.96 2.353-.56 1.13 0 2.394-.64 3.632-.21.379-.46.741-.68 1.111-.37.599-1.11.194-1.48.905 1.96.445 2.33 1.859 3.59 3.17 1.55 1.614-1.86 1.596-2.88 1.309-1.1-.311-1.21-1.443-2.6-1.044-1.03.297-1.85.581-2.92.924-1.6.517-.53.712-.88.896-.6.311-1.82.895-1.16 1.368-4.9-.97.74 2.113-2.19 3.202-1.31.49-.97-.337-4.74.469-1.09.233-1.96-.941-2.93-.886-1.26.07-1.36.522-2.55-1.012-.69-.899-1.46-.717-2.48-.553-1.4.228-2.28 1.865-3.77 1.833-1.94-.04-2.8-.09-3.4.431-.33.287-1.33.01-2.23-.261.73-.816 0-2.012 0-3.242.1-1.238-1.21-2.407-2.08-3.12-.88-.524-1.64-1.744-2.34-2.467 3.32-.985-.1-1.764.83-4.051.32-.789 1.09-.229 1.62-.568.66-.416 1.5-1.817 1.81-2.518-1.93-.614-4.34-3.182-4.61-5.043" />
@@ -2372,6 +2736,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("my", true)}
           onMouseOut={() => handleHover("my", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Malaysia</title>
           <path
@@ -2404,6 +2773,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ph", true)}
           onMouseOut={() => handleHover("ph", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Philippines</title>
           <path d="M2219.67 650.81c.19.178.34.153.43-.07-.15.02-.29.05-.43.07" />
@@ -2472,6 +2846,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("uy", true)}
           onMouseOut={() => handleHover("uy", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Uruguay</title>
           <path d="M849.656 1023.77c.649-.92 1.859-1.74 1.36-3.03.963.7 1.947 1.23 3.138.62.655-.34.671-1.37 1.519-1.48 1.556-.21 3.089 1.69 4.133 2.59 1.37 1.18 3.983 2.19 4.227 4.22.09.73-.05 1.95.993 1.69.752-.19 2.08-.89 1.62-1.88 1.269.33 3.718 4.31 4.747 3.94.961-.34 1.144.42 1.923.9 1.035.65 2.058.65 2.979 1.59.672.69 1.236 1.52 2.053 2.06 1.064.69 2.363.81 3.349 1.66 1.808 1.56 2.354 3.56 4.615 4.68 2.558 1.27 1.338 2.01.122 3.9-.885 1.38-.267 4.98 1.112 5.87.882.57-.571 3.94-1.167 4.95-.499.84-2.151 4.37-3.612 3.07.771.98-.94 1.49-1.567 1.75-1.785.72-2.388.77-4.31.37-1.536-.33-3.18-1.11-4.686-.35-.639.32-1.337.74-2.069.8-1.115.1-1.047-.67-1.768-1.06-1.249-.67-2.829-.43-4.035-1.16-1.663-1.01-2.32-2.04-4.445-1.94-1.366.1-2.459.65-3.463-.46-1.347-1.5-3.388-2.49-4.469-4.21-.754-1.19-1.942-6.3-.229-6.78 1.771-.48.456-2.54-.06-3.47-.368-.67-.643-1.4-.934-2.1-.245-.59.542-1.08.251-1.9-.253-.72-1.534-2.82-.914-3.54 1.375-1.59-.404-2.55.182-3.62.407-.75-.107-4.23.06-4.35 1.263-.9-.371-2.15-.657-3.33" />
@@ -2490,6 +2869,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ee", true)}
           onMouseOut={() => handleHover("ee", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Estonia</title>
           <path d="M1421.84 263.66c1.11-.414.82-1.347 1.44-2.088.43-.518 1.26-.344 1.82-.573.34.02.66.07.99.141.32-.232.63-.486.92-.761.67-.365 1.23-1.186 2.1-.896-1.23-1.163-2.39-1.349-4.03-1.224-.88.07-1.38-.124-2.1.533-.56.51-1.77.1-2.44.187.93.75-.11 1.493 1.14 2.291 1.46.929-.72 1.502.16 2.39" />
@@ -2510,6 +2894,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("rw", true)}
           onMouseOut={() => handleHover("rw", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1491.18 781.129c-.53-1.091 2.22-2.957 2.19-4.411 0-2.555 1.1-3.663 3.28-4.93.27-.158 1.58-.983 1.92-.718.46.357.63 1.59 1.37.771.58-.643 2.49-3.474 3.55-3.102-.5 1.465.76 3.314 1.43 4.4.83 1.357 1.68 3.691 1.46 5.249-.28 1.96-1.4 2.215-3.05 1.586-1.88-.714-2.34.989-3.95-.436-.23 1.769-.1 3.699-2.22 4.143-1.09.226-2.11.368-2.64-.723-.59-1.2-2.15-1.104-2.27.33-.68-.634-1.01-1.22-1.07-2.159"
         />
       </Link>
@@ -2527,6 +2916,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("sn", true)}
           onMouseOut={() => handleHover("sn", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1140.03 632.086c-.44-.01-.82.133-1.15.432-.13-1.227 2.17-1.612 2.88-2.319 1.55-1.543 2.79-3.616 3.69-5.587.44-.944 2.53-9.94 4.73-7.875.99.929 6.24 0 7.09-.987 1.3-1.516 6.4.185 7.48 1.472 1.45 1.738 1.64 2.443 4.02 2.686 1.3.132 2.74 2.669 2.46 3.924-.12.581 1.77 1.605 2.1 2.219.41.767.62 1.659 1.22 2.315.59.643 1.79.721 2.18 1.512.58 1.156 2.31 1.797 2.47 3.146.1.604-.93 1.312-.23 1.931.57.514.98.849 1.07 1.732.1.934.91 3.195.15 3.901-.79.172-.86.556-.21 1.153.15.44.41.81.75 1.108.69.386 0 1.134.99 1.407.52-2.044 2.16 1.506 2.45 2.067.42.837.66 1.468.42 2.439-.27 1.1.46 2.513.1 3.413-1.24-.535-2.6.302-3.91.07-1.38-.239-2.17.562-3.46.739-1.33.18-3.45-2.172-4.56-1.435-.87.576-.55-1.049-.74-1.104-1.17-.347-.78-.552-1.76-.554l-12.65-.02c-1.65 0-2.34.1-3.59 1.081-1.09.863-2.59.783-4.22.726-1.41-.05-2.39.79-3.71 1-.65.106-1.35-.114-1.93.289-.13-.326-.83-1.034-.46-1.43.9-.996 1.42-1.489 2.62-.728.9.575 2.03-.317 2.99-.336.7-.01 1.05.528 1.77.3.56-.177.82-.06 1.34.109.92.299.85-2.018 1.89-2.379-1.54.111-.65 1.419-1.59 2.088-.81.576-2.98-.192-3.24-1.152-.56 2.417-5.39.658-4.32-.576-.45.649-.42 1.734-1.36 1.944-.16-.593 0-1.072.5-1.439-1.29.283-.57-1.648-.29-2.509.42-1.289 1.88-1.367 3.03-1.37l4.12-.01c.76.423-.87-.271.47-1.153 1.17-.771 2.38-.244 3.53-.57 1.28-.363.6-2.185 2.3-1.129 2.37 1.477 4.74 3.02 7.49 2.107 1.05-.35 2.22-1.374.88-2.092-1.68-.897-2.03.385-3.34.324-1.34-.06-.99-2.059-2.53-1.446-.58.232-1.11-.574-1.3-.962-.39-.802-1.63-.523-2.38-.06-1.07.656-1.3-.377-1.86.205-.41.425-.26.966-.79 1.257l-7.5-.04c.31-.618-.29-1.036-1.04-1.116.12-.597.51-.838 1.08-.576-.13-.614-.1-1.214.14-1.8-.44.825-.97 1.441-1.94 1.584-.26-.801 2.07-2.857 2.88-2.952-.88-.373-3.25 1.759-3.24 2.592 0-2.366-1.45-6.651-3.96-7.565"
         />
       </Link>
@@ -2543,6 +2937,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("es", true)}
           onMouseOut={() => handleHover("es", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Spain</title>
           <path d="M1140.18 520.41c-1.08-.715-.22-1.846.86-1.513a5.79 5.79 0 0 1-.86 1.513" />
@@ -2577,6 +2976,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("hu", true)}
           onMouseOut={() => handleHover("hu", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1388.29 354.958c.68-.722 1.55-1.31 2.59-1.08-.33-.873-.56-2.045-.28-2.96.24-.775 1.22-1.029 1.47-1.812.2-.646-2.13-.883-.85-1.366.98-.366 2.01 1.269 2.73.06.51-.852.96-2.007 1.39-2.403.42-.397.81-.04 1.98.87 2.89 2.237 5.82 1.104 9.18.694-1.86-1.482.8-1.54 1.94-1.65.55-.05 1.99-.547 2.14-1.243.24-1.189 1.23-.247 2.09.09 1.17.459 3.01-.02 3.85-.827.62-.587.39-2.249 1.15-2.553 1.5-.59 3.31.274 4.82.42.65-1.038 1.56-.345 2.15.259.88.906 1.75 1.26 2.93.771 2.05-.851 3.06 1.603 4.99 2.288 2.15.759.67 1.918.12 2.421-.9.825-2.4.08-3.02 1.04-.48.734-1.79 1.738-1.81 2.454 0 .764-1.55 3.246-2.63 5.149-.48.849-1.47 1.587-1.72 2.562-.19.754 0 1.458-1.64 1.883-.82.216-1.52-.18-2.05.597-.59.878-1.32.198-2.06.442-1.1.356-2.37.05-3.47-.06-.78-.08-2.02-.528-2.67.09-.75.708-.97 1.307-2.09 1.359-1.03.05-2.13.152-3.09.552-.89.374-1.14 1.261-2.21 1.396-1.78.225-4.08-.216-5.55-1.149-.84-.535-1.63-.416-2.3-1.328-.83-1.13-2-1.787-3.16-2.548-1.05-.698-1.88-1.31-2.52-2.404-.52-.865-1.17-2.238-2.4-2.019"
         />
       </Link>
@@ -2599,6 +3003,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("kh", true)}
           onMouseOut={() => handleHover("kh", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Cambodia</title>
           <path d="M2061.92 669.24c-.32.455-.75.695-1.3.721.97.748 1.07 2.032 1.8 2.951-.36-1.23.68-2.687-.5-3.672" />
@@ -2617,6 +3026,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("kr", true)}
           onMouseOut={() => handleHover("kr", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>South Korea</title>
           <path d="M2175.82 432.5c-.79.479.37 2.223 1.23 1.439-.23-.604-.65-1.134-1.23-1.439" />
@@ -2648,6 +3062,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("is", true)}
           onMouseOut={() => handleHover("is", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1151.05 205.054c1.05-.04 2.56-.354 3.6-.576.57-.122.37-1.023 1.12-.574 1 .606 1.81-1.216 1.97.43.53-.216 1.04-.48 1.52-.792.11 1.09 1.47.802 2.23.144-.46.372-.97.66-1.52.864.68.561.9-.07 1.46-.308.38-.16 1.53.672 2.29.451-1.88.456-3.98.906-5.47 2.232.76-.06 1.48.213 2.23.288.75.08 1.49-.368 2.23-.07-1.56 2.498-6.51-.947-8.21 1.584-.17-1.32-.73-.298-1.48-.122-.9.212-1.84.122-2.75.122-1.86 0-.82 1.821.55 1.328 1.45-.525 2.33-.637 3.93-.469.77.08 1.51.05 2.28.05.78 0 1.71.992 2.44.53-.57.169-1.09.576-1.29 1.151.55.09.89.45.93 1.008 1.04-.868 2.67-1.504 4.03-1.512-.34.581-1.17.63-1.75.761-.69.156-2.36 1.697-.62 1.255-.56.03-1.07.223-1.51.576 1.31.287 2.36-1.08 3.67-.504-.66.08-3.86.822-1.95 1.584-.56.122-1.17-.163-1.72.07.12 1.181-.83.886-1.8 1.08-.45.289-.89.326-1.32.11-.14-.21-.33-.367-.56-.469-.91.308-.78 1.257-.86 2.016 1.67-.09 3.69-.106 5.33-.432.79-.158 1.59.164 2.39.09.88-.08 1.22-.944 2.22-.738a5.6 5.6 0 0 0-.37.792c.44.08 1.27.561 1.71.211.8-.644 1.19.485-.1.365.79.563 1.66-.06 2.23-.576.2.264.34.552.44.864-.34.05-.68.119-1.01.216.79 1.571 2.46 1.053 3.87 1.303 1.68.299 3.19.914 4.92.989 1.31.06 2.65.02 3.93-.273.59-.132 1.17-.319 1.68-.626 1.28-.759-.2-.767 1.08-1.105-1.81-.361 1.77-.667 2.33-.696.99-.05 2.78-.05 3.14-1.248.1 1.837 3.19-.1 4.13-.587 1.81-.931 3.69-1.61 5.44-2.613 1.02-.586 2.05.759 3.14.345.61-.23 4.18-2.212 2.34-2.33.61-.701 2.11-.321 1.15-1.439.94 1.456 2.18-.304 3.38-.145-1.36-.685 1.27-.904-.65-.936.52.03 1.02-.01 1.52-.144-.7-.282-1.4-.603-2.16-.72 1.28-.864 2.44 1.213 3.64-.298.76-.952-1.79-.927-2.2-.927.76-.08 1.54-.06 2.16-.576-.78-.193-1.59-.176-2.38-.07.79-.159 2.51-.769 2.23-1.871-.86.271-1.78-.559-2.59-.721-1.1-.223-1.8.339-2.66.937.59-.627 1.98-1.059 1.73-2.16-1.02.07-2 .379-3.03.432.21-.775 1.34-.965 1.63-1.697.26-.681-2.28-.816-2.64-1.398.89.04.77-.245.96-.88.22-.745 1.85-.667 2.43-.919-1.37.267-4.35.03-4.83 1.8-.48-.462-1.85-.898-1.6-1.657.39-1.21-2.26-1.311-2.81-1.028-.56.284-1.71-.409-1.5.692.27 1.406-.93 1.346-1.07 2.354-.24-.264-2.56-.973-2.95-.937-1.26.12-1.95 1.629-2.88 2.304-.33-.854-3.08-3.042-3.98-1.804-.28.375 0 1.192.28 1.486.67.675.46 1.519.24 2.334-1.03-1.313-1.68-4.61-3.96-4.104-.66.146-.73.777-1.22.885-.58.128-1.1-.264-1.69.02-.81.391-.15 1.726-.78 2.352-1.06 1.042-2.58-2.196-3.23-2.672-1.16-.838-2.06.767-1.72 1.734.28.792-.64 3.221-1.29 2.221-.22 1.788-.91-.354-1.53-.475-1.67-.325-1.51 3.251-2.36 1.482 0 .81-.66 1.408-.51 2.232-.4-1.017 0-2.915-1.73-2.232 2.31-.371-.86-1.646-.93-2.448 1.77 2.184 3.62-1.853 1.51-1.439 1.37-.463.43-.634-.17-.82-.82-.255-.59-.749-1.22-1.218-.66-.485-1.63-.119-2.04-.943-.2-.394-1.14-.694-1.54-.763-.3-.05-3.58.513-2.96.917.86.561 2.61.67 3.61.595-.95.257-2.35-.379-2.95.721.59.278 2.08.498 2.2 1.334.1.581-1.24.801-1.48 1.258 1.28-1.748-.25-1.476-1.37-.936.46-.861.27-.981-.57-.36.16-.23.31-.47.43-.72-.6-.327-1.25-.681-1.94-.764-.55-.07-1.97.285-.44.691-.96.217-.96.504 0 .863-.65-.408-1.42-.5-2.16-.647-.36 1.294 1.4 1.298 2.16 1.656-.9-.09-2.28-.782-2.95.216.92.541 1.96.36 2.95.648-.51.03-1.01.1-1.51.216.38.198.79.294 1.22.288-1.39.954-2.95-1.228-4.46-.721.19.525.61.932 1.15 1.08-.96.163-.96.403 0 .721-1.19-.359-2.74-1.219-3.53.287 1.06 0 2.13-.03 3.03.649"
         />
       </Link>
@@ -2664,6 +3083,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("cl", true)}
           onMouseOut={() => handleHover("cl", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Chile</title>
           <path d="M841.37 1235.66a.994.994 0 0 0-.71-.43c.236.15.473.29.71.43" />
@@ -2864,6 +3288,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("sk", true)}
           onMouseOut={() => handleHover("sk", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1393.47 340.198c.78-2.03 1.76-1.671 3.63-1.691.72 0 3.75-1.504 3.83-2.167.31-2.546 6.35-4.498 5.79-2.623.79-.109 2.43-1.844 3.28-1.526 1.34.495 2.72 1.911 2.41 2.462 1.15.913 1.55.342 2.85-.613.45-.329 1.68-.732 2.33-.498 2.39.856 3.37-.152 5.18-.132 2.04.02 3.01 0 4.73 1.645.68.643 2.41.836 2.96 1.039.44.07.36-.01-.17 1.548-.47 1.363-1.75 2.699-1.94 3.893 0 .236.48.639-.31.573-2.57 1.382-3.92-1.427-4.48-1.253-.59.183-.68.481-1.38.346-.83-.161-1.77-.479-2.61-.563-1.99-.199-2.44.192-2.64 2.091-.13 1.27-3.22 2.036-4.28 1.457-2.6-1.417-1.48-.286-2.57.654-.95.827-5.84.322-3.52 2.156-1.58.193-3.18.755-4.88.636-.58-.04-1.62.09-2.45-.127-.75-.194-1.56-.844-2.27-1.193-1.07-.532-2.44-1.44-3.03-2.524-.25-.46 0-1.037-.17-1.534-.29-.927-.12-1.215-.29-2.056"
         />
       </Link>
@@ -2875,6 +3304,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("lt", true)}
           onMouseOut={() => handleHover("lt", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1416.8 278.493c1.02.164 1.26-.896 1.94-1.367.75-.514 2.07-.683 2.93-.884 2.24-.522 4.86-.543 7.15-.413 1.35.592 3.01.08 4.24.44 1.49.127 4.66.811 6.09-.114 1.95-1.264 2.03.11 3.24 1.07.73.583 1.69.474 2.58.608 1.2.179 2.27.687 3.04 1.564.49.548 3.55 2.568 4.24 2.195-.49 2.157-.32 2.717 1.63 3.237-1.2.588-.32 1.577-1.99 1.248-1.28-.253-1.43.964-2.36 1.505-2.29 1.32-.94 2.912-2.85 4.952.48.196 1.45.275 1.58.935.15.796-.91.964-1.44.792.55-1.475-1.72-1.035-1.84-.738-.57 1.378-2.31.401-2.98 1.794-.23.486-1.44.493-1.95.775-.87.476-2.48-.05-3.45.04-.48.04-2.62.332-2.78-.48-.2-.965-1.18-2.284-2.12-2.71-1.3-3.425-.36-3.152.15-4.497.1-.282-1.82-1.81-2.14-1.818-.77-.02-4.77.215-6.05-.811-1.41-1.118-3.39-1.503-3.64-.404 0-1.067-1.71-2.458-2.25-3.364-.67-1.107-.57-2.366-.97-3.555"
         />
       </Link>
@@ -2891,6 +3325,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("lk", true)}
           onMouseOut={() => handleHover("lk", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Sri Lanka</title>
           <path d="M1877.74 680.83c.22.51 1.04.828 1.44 1.151-.16-.684-.72-1.183-1.44-1.151" />
@@ -2904,6 +3343,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("il", true)}
           onMouseOut={() => handleHover("il", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Israel</title>
           <path
@@ -2921,6 +3365,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("la", true)}
           onMouseOut={() => handleHover("la", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M2022.82 583.486c.29-1.167-.1-2.838 1.01-3.672.63-.478 2.34.06 2.45-1.008-1.48.878-.3-1.761-.11-2.24.31-.792.3-1.223 1.16-1.605.72-.322 2.12-1.06 1.9-2.059.99.694.68 3.819 2.53 2.925 1.25-.598 1.2.511 2.39.596 1.31.09-.13-1.91-.17-2.032-.3-1.003.63-1.385.25-1.948-.78-1.127-.92-1.889-1.5-2.546-.8-.918-.93-2.027-1.09-2.607-.21-.764.12-2.699 1.28-2.352.47.142.28.601.51.571 2.62-.341 1.04-.227 2.16.14.14.03.27.693 1.01 1.451.89.904 1.8 1.726 2.75 2.579.73.653.77 2.132 1.76 2.431.71-.716.15-1.696.38-1.289.49 1.003.9.584 1.28 1.554.23.608-.27 1.558.1 3.201.36 1.618 2.45 3.914 3.87 3.866 1.31-.04 1.77.535 3.03 1.308.62-.844.47-1.67 1.54-2.216 1.3-.663 2.22.08 3.31.908.62.468 1.64.927 1.75 1.78.12.88-1.22.757-1.41 1.472.67.272 2.08.08 2.3.963.22.846.6.831 1.08.909 2.7.437 1.59 2.691.29 3.024 1.48.424-1.38 2.181-2.44 2.021-.25-.04-2.83-.827-3.03-.293-.24.652 1.4 1.581.86 2.034-.51.425-2 .857-.54 1.589 1.02.512.66.126 1.7.755 1.05.63 3.24 2.362 4.12 2.979.7.487 4.83.932 3.94 1.759-.27.255-.65.573.46 2.188.52.753 1.44 1.613 2.05 1.661.75.06 1.22 1.327 1.48 1.862.59 1.225 1.38 2.13 2.31 3.101.54.558 3.04 2.725 3.54 2.864.97.272 1.99 2.566 2.16 2.793.67.912.5 2.289 1.03 3.057.18.263.67 1.251 1.02 1.306.43.07.8-.287 1.22-.05.84.489.46.929 1.54 1.201.41.103 1.78 1.886 3.42 2.432-.38.86-1.62 1.154-1.95 2.044-.35.967 2.27 2.117 2.8 2.72.94 1.072 1.91 1.488 1.4 3.086-.17.544-.94.99-.94 1.311 0 .391.24.178.65 1.396.45 1.361-1.43 3.135-3.88 3.753-1.97.498-2.94-1.536-3.76-1.678-.62-.107-.25.589-.66.762-.41.172-1.32-.119-1.31.324 0 .61-.59.825-1.12.557-.1-.04-.67.59-.49.899.49.825 1.8 1.774.84 2.754-.54.55-1.68.26-2.27-.61-.36-.532-1.96-.913-2.97-.851-1.1.07-2.33-1.321-1.41-2.088.68-.571 1.79-1.228 1.68-2.29-.11-.987.27-2.247-.1-3.031-.19-.399-.82-.616-.78-1.387 0-.584.5-1.114.72-1.621-.28.136-.53.12-.75-.05-.15-.808 1.73-1.865.5-3.106-.66-.672-3.29-1.468-1.62-2.606-2.78-1.089-5.66-2.972-6.1-6.262-.35-2.555.57-6.118-2.05-7.675-2.68-1.588-3.53-5.707-6.63-6.376-.4-.09-5.6-1.378-4.01.586-.88.175-.98 2.436-1.78 2.472-.22.01-1.06.297-1.63.744-1.01.787-1.62-.568-1.95-.608-1.58-.193-2.11-1.267-3.07-1.879-1.05-.681-1.28 2.101-2.59 1.143-.1 1.979-2.47 3.357-3.62 4.728-.53.633-1.28.283-1.86-.316-.64-.667-.12-1.896.16-2.597.45-1.093.59-1.831.42-3.017-.1-.708-.8-1.924-.71-2.542.18-.358.41-.685.68-.979.37-.613.1-.632 0-1.254-.1-1.362.54-2.149-.14-3.452-.97-1.838 0-4.632-3.08-3.778-.37 0-.65.144-.83.441-.3.698-.39.09-.98.21-1.03.206-1.73-.48-2.24-1.473-.72-1.413 1.26-2.823.43-3.872-.34-.431-1.36-1.753-1.79-2.014-.67-.392-.95.618-1.73.833-.1-.241-.1-.481-.15-.721"
         />
       </Link>
@@ -2937,6 +3386,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("gr", true)}
           onMouseOut={() => handleHover("gr", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Greece</title>
           <path
@@ -2993,6 +3447,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ec", true)}
           onMouseOut={() => handleHover("ec", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Ecuador</title>
           <path d="M571.16 763.85c.885-.185 1.098-1.681.133-1.912-1.718-.413-1.089 1.423-.133 1.912" />
@@ -3024,6 +3483,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("si", true)}
           onMouseOut={() => handleHover("si", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1371 362.582c-.13-.618.46-1.373.87-1.72-.68-.151-1.27-.527-1.87-.864 1.51-1.646.79-2.65 2.67-2.199.7.169 4.89 1.645 5.49 1.113 1.19-1.06 2.26-2.229 3.99-2.121.91.06 2.01.507 2.87-.02.88-.536 1.94-.584 2.84-.02-.77-.967.43-2.487 1.48-1.65.81.651 1.81 2.283 2.42 3.162-.81-.123-3.45-.799-2.03.864-.8-.03-1.25-.559-1.58.367-.19.517-2.18.986-2.77 1.342-.45.277.39 1.643.35 2.233-.1.921-2.2.99-3.06 1.745.35.116.65.423 1.01.504-.64.131-.18 2.439-1.41 1.648-1.42-.908-2.79-.491-4.14-1.792-.46 1.104-2.05 2.049-3.26 1.504-.5-.224-.49-.239-.89.153-.6.595-1.86.09-2.54-.07.76-.667 2.31-.919 1.73-1.944-.46-.811-2.54-.598-1.51-1.943"
         />
       </Link>
@@ -3035,6 +3499,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
             fill={colorTrekker}
             onMouseOver={() => handleHover("xv", true)}
             onMouseOut={() => handleHover("xv", false)}
+            onClick={(event) => {
+              if (preventClick) {
+                event.preventDefault();
+              }
+            }}
           >
             <title>Svalbard</title>
             <path d="M1352.58 109.01c.2 1.164 2.07.337 2.66.07-.2-.252-.42-.492-.65-.72.79.388 1.66-.137 2.3.648-.61.221-1.18.509-1.72.864l1.87.576c-1.3.911-2.89-.781-4.18.215 1.35.277 1.78 1.761 3.07 2.083 1.57.392 3.26.118 4.85.581-1.08.129-2.23-.131-3.24.36 1.57.94 3.31 1.614 5.13 1.562 1.26-.04 2.42-.102 3.66-.409.93-1.026 1.74-.394 2.95-.864-.51-.252-1.04-.468-1.58-.648.67-.131.8-.583.35-1.08 1.54-.512 3.26 1.208 4.11-.936 1.04.36.77 1.583-.29 1.584.76 1.124 2.36.867 3.47.542a7.67 7.67 0 0 0 1.92-.873c1.09-.678 1.31-.169 2.46-.174-.81.295-1.62.663-2.16 1.368 1.34-.136 2.69.123 4.03.216-2.24.693-4.88-.487-7.01.627-.93.487-1.84.247-2.73.692-1.7.849-3.26.285-5.02.769.2.252.42.492.65.721-.85-.372-2.65-.971-3.51-.416-1.66 1.064 2.22 1.928 2.68 1.91 2.21-.09 4.38-.57 6.59-.7 1.35-.08 2.69.1 4.04-.03 1.17-.106 2.5-.737 3.66-.551-.46.529-.56.928.43.936-1.87-.518-3.79.144-5.68.144-2.02 0-4.07.188-6.05.648 2.5.844 5.27.203 7.7 1.368-2.35.05-4.88-1.3-7.29-.61-.99.281-1.86-.363-2.85-.276-1.89.166-1.24 1.267-.1 1.963 1.57.933 3.83 1.229 5.6 1.643 1.3.305 2.02-.245 3.22-.372 1.02-.107 2 .414 2.97.605-1.53.637-3.26-.146-4.75.72 1.37.326 3.15.923 4.31 1.772 1.22.897 5.19-.907 2.81-1.412.48-.274 1.13-.379 1.52-.792-.1-.24-.19-.48-.29-.72.32-.142.61-.33.86-.565.54-1.459 1.55-2.315 3.14-2.315 1.06 0 2.15-1.537 1.36-2.397-.89-.956 3.04-1.342 3.35-1.563-.26-.147-.52-.292-.79-.432 1.13-.02.46-1.174.21-1.728 2.5-.267 4.69-1.21 7.25-1.099 1.22.05 4.36.387 4.78-1.278-2.64-.556-6.14-.264-8.54-1.469-.9-.454-1.65-.695-2.67-.557-1.36.183-1.94-.621-3.12-.638 2.1-.442-.71-1.874-1.47-2.104-.84-.249-1.53.49-2.18.864-.35.2-.73.294-1.03-.05-.68-.786.62-1.115 1.08-1.731-1.05-.325-2.03-.847-3.11-1.098-.91-.209-1.54.278-2.36.162-.84-.118-3.45-1.642-3.03.288-3.68-1.096 2.35 5.462 2.38 5.904-1.36-.424-2.14-1.949-3.74-1.439.74-1.193-2.88-3.208-3.61-3.58-1.13-.568-1.91-.494-2.86.286-.65.535-1.4.376-2.04.839-.3.216.36 1.268.3 1.59-1.05-1.475-2.48-.616-3.89-1.152.14-.266.28-.53.43-.792-1.34-.05-2.71.458-4.03.07 1.24.02 2.35-.648 3.59-.648 1.1 0 2.26 0 3.32-.359-.25-1.378-2.78-.632-3.64-.532-.91.105-1.8.358-2.71.441-.59.05-3.21-1.068-2.29.45-.94.312-1.32-.814-2.16-.936-.64-.09-3.44.818-1.65 1.296-.4.01-3.84.345-1.52.432-.6-.05-1.18.04-1.73.288.77-.01.67.148.57.683-.13.607 1.27.925 1.6 1.263" />
@@ -3134,6 +3603,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
             fill={colorRHD}
             onMouseOver={() => handleHover("no", true)}
             onMouseOut={() => handleHover("no", false)}
+            onClick={(event) => {
+              if (preventClick) {
+                event.preventDefault();
+              }
+            }}
           >
             <title>Norway</title>
             <path
@@ -3162,6 +3636,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ua", true)}
           onMouseOut={() => handleHover("ua", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Ukraine</title>
           <path
@@ -3181,6 +3660,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("np", true)}
           onMouseOut={() => handleHover("np", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1862.91 508.894c.39-1.179 1.3-1.776.7-3.026-.37-.789-.29-.903 0-1.717.61-1.593.63-1.161 1.28-2.207 1-1.586 1.6-4.724 3.37-3.391.31.236.78 1.011 1.29.617.81-.619.89-1.233.75-2.155.91.349 1.07-.938 1.68-.742 1.06.345 2.03.269 3.08 1.11 2.25 1.817 4.52 3.683 6.6 4.774 1.71.903 3.08.982 4.3 2.396 1.25 1.446 2.03 3.327 3.65 1.971.8-.667 1.86-.109 2.64.489.94.728 1.07 2.281 1.53 2.652 1.32 1.057 3.87 2.551 5.11 2.546.85 0 1.48-.941 2 .276.29.66-.82 1.045.1 1.76.69.545 3.32 1.111 4.11.12.46 1.406 2.06 1.852 2.71 3.107.85 1.613.78-1.33 1.11-1.595 0 .883 2.32 2.736 2.97 1.489.24-.464.4-1.167 1.21-.764.72.355.97.206 1.62.626 1.99 1.275 2.38 1.133 3.85 1.219 1.29.08 3.64-.557 5.12-.07 1.05.346 0 4.489.17 5.67.3 2.252 2.37 3.189 1.84 5.722-.43 2.051-2.08 1.067-3.96 1.297-1.48.18-3.55.617-3.82-1.44-1.35.451-1.79 1.648-3.31.736-.73-.436-4.02-1.594-4.8-1.29-1.55.612-1.28-.162-2.11-1.03-1.27-1.325-2.21.653-3.53 0-.66-.328-1.69-1.679-2.95-1.908-1.54-.278-1.36-.938-1.97-2.167-.62-1.232-6.98-3.075-6.24-1.108-.83-.366-2-1.333-2.97-.854-1.33.666-1.65.816-3.21.125-.85-.378-2.04-.432-2.44-1.406-.57-1.405-1.66-.372-2.8-1.061-1.06-.643-2.11-1.811-3.11-1.557-1.5.379-2.9-1.002-4.44-1.708-1.33-.615-2.11-1.988-3.39-2.765-1.34-.817-2.81-1.393-4.14-2.223 0 1.325-1.46.1-2.25-.408-.56-.356-1.97-1.275-1.35-2.113"
         />
       </Link>
@@ -3198,6 +3682,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("us", true)}
           onMouseOut={() => handleHover("us", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>United States</title>
           <path d="M453.51 350.57c-.04-.381.04-.741.216-1.08-.498.291-.865.788-.936 1.368.24-.1.48-.193.72-.288" />
@@ -3379,6 +3868,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fillRule="evenodd"
           onMouseOver={() => handleHover("aq", true)}
           onMouseOut={() => handleHover("aq", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Antarctica</title>
           <path d="M1012.88 1278.14c-1.07-2-3.9-1.9-5.83-1.8.53 1.35 4.65 1.02 5.83 1.8" />
@@ -3514,6 +4008,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("mn", true)}
           onMouseOut={() => handleHover("mn", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1865.98 335.542c1.7.145 1.05-.968 1.39-1.982.72-2.173 4.53.402 4.3-1.042 1.18.07 1.53.617 2.23.07a21.03 21.03 0 0 0-.43-.72c1.27-.2 1.88-.481 3.1-.937-.57-.348-.94-.964-1.16-1.584.32-.224 2.43-.43 2.21-1.002-.29-.738.7-.716 1.21-1.046.69-.456 1.9-.346 2.37-.71.55-.428 1.18-1.334 2.3-1.782.7-.278 1.42-.02 2.02-.769.45-.558.61-1.046 1.35-1.153.85-.123 3.54.07 2.8-1.503 1.44-.02 2.04 1.662 2.92 1.293.24-.104 1.17-1.046 1.48-.701.68.75.69 1.526 1.87 1.551 1.56.03 3.2 0 4.75-.05 1.72-.06 3.11.186 4.19 1.664 2.03 2.799 4.24 3.017 7.4 3.733 1.72.389 2.47-.423 4.02-.432.15 0 1.71.141 1.88.173 1.68.312 3.78.63 5.74.9 1.33.183 3.38 1.766 3.99.686.63-1.116 1.11-1.158 2.25-1.421 1.1-.251 1.02-1.876.96-2.745-.1-1.193-.85-1.813-1.86-2.247-1.56-.667-2.03-2.073-3.34-2.992-.94-.658-2.16-5.112 0-4.405-.48-1.021-.66-2.115.66-2.512 1.31-.394 1.04-2.109.78-3.104 1.61.394 3 1.07 4.7 1.662 1.63.568 3.22 1.336 4.95 1.578 1.77.246 3.12.565 4.92.803 1.62.217 4.06 1.64 5.6 1.233 3.02-.798 6.02 1.663 6.48 3.615.3 1.264 1.8 2.102 2.53 3.128.91 1.272 3.01 2.027 3.92 2.528 1.06.587 2.66.107 4.06 1.323.49.426 2.48.714 3.5.358 1.43-.497 1.55.201 3.52-.557 1.51-.583 3-1.103 4.51-1.477 2.99-.741 7.15.278 10.21.57 1.53.146 2.69 1.305 3.95 2.081 2.01 1.236 3.6.793 5.78 1.243 1.12.232 1.72 1.265 2.41 2.038.88.98 1.95 1.375 3.08 2.035 1.64.962 3.18 1.22 4.54 1.132 2.3-.149 3.79.437 5.82.854 1.62.332 3.05.249 4.68.32 1.19.05 2.77.617 3.48-.1 1.15-1.161 1.96-1.448 4.2-1.618.94-.07 3.67-1.091 5.33-.917 1.48.156 2.36-.15 2.73-1.595.41-1.561 1.47-2.34 2.77-3.231 1.24-.845 1.76-1.099 3.36-1.323 1.42-.2 2.88-.306 4.66.918 1.23.844 2.93 1.842 4.42 2.086 1.32.214 2.11-.231 3.24-.743 1.67-.754 4.3.502 4.99 1.26l.87 12.358c1.39 1.15-1.03 1.686-.24 2.744.77 1.032 2.42 2.106 3.26 2.54 1.2.619 1.66-1.153 3.01-1.042 1.73.141 3.34-.411 5.01.375 1.36.636 2.23 1.273 3.33-.155.94-1.24 1.55-1.891 3.21-1.778 2.84.194 6.35 2.31 8.72 3.822 2.74 1.745 5.68 3.294 7.95 5.695 2.66 2.82-1.74 2.647-3.51 2.35-1.18-.198-2.36-1.341-3.25-.499-.29.272-1.84-.208-2.26-.181-1.28.08-2.14.729-3.23 1.288-.77.391-2.4-.666-2.63.257-.25 1.006-.19 1.499-1.44 1.421-1.46-.09-2.9-.281-3.57 1.306a5.28 5.28 0 0 0-.4 1.879c0 .689.84 1.36.69 1.909-.15.588-2.11 2.014-2.64 2.456-.98.822-2.72.843-3.93.815-.9-.02-2.42-.818-2.96.251-.51 1-.64 2.202-1.49 3.03-.56.547-1.23.411-1.67 1.126-.33.541-.59 1.046-1.3.985-1.53-.131-3.15-.421-4.64-.737-2.52-.533-5.42-3.57-8.06-1.551-1.02.775-.96 2.09-.52 3.171.27.677-.2 1.304 0 1.974.21.705.82.767 1.29 1.224.91.896 6.87 4.213 4.37 5.3-.63.277-1.55 1.315-2.06 1.817-.69.688-2 .803-2.38 1.822-.54 1.484-1.06 3.184-2.3 4.258-1.01.871-2.78 1.261-3.98 1.986-1.36.823-3.83.587-5.38.66-2 .1-3.71-.346-5.7-.03-4.15.661-7.68 1.098-11.51 3.049-1.56.791-3.15 1.559-4.51 2.665-1.23 1.002-1.01 1.164-2.46 1.031-.89-.08-1.85 0-2.58-.592-1.42-1.155-1.54-1.195-3.54-.982-3.65.386-7.26-1.5-10.8-2.14-1.66-.299-3.46-.61-4.99-1.343-1.67-.799-2.7-2.429-4.62-2.778-1.69-.307-3.41-.04-5.11-.392-1.48-.302-2.98-.542-4.47-.774-1.74-.272-2.98.701-4.68.882-2.21.233-4.59-.386-6.81-.458-3.74-.121-7.42-1.628-11.16-1.223-1.06.114-2.91.668-3.95.213-.48-.215-.77-.787-.99-1.23-.36-.727-1.37-1.172-2.03-1.549-2.9-1.646-4.23-4.789-6.63-6.94-.92-.826-2.38-.98-2.54-2.431-.15-1.427-3.19-.788-4.51-1.402-1.52-.709-3.13-1.458-4.55-2.36-1.28-.815-2.75-.741-3.99-1.726-2.84-2.246-6.69-1.291-10-1.622-2.74-.275-5.55-.753-8.26-1.127-2.38-.329-5.52-1.965-5.84-4.68-.15-1.289 1.51-2.528.59-3.63-1.17-1.397-.56-3.183-1.59-4.466-1.33-1.64-2.41-2.893-4.18-4.07-1.62-1.081-2.09-2.559-3.32-3.941-.82-.916-2.35-1.457-3.36-2.26-.93-.75-.31.26-1.12.277-.65.01-1.27-.516-1.78-.849-1.35-.881-1.5-.6-2.95-.504-1.84.121-3.7-1.177-5.08-2.236-1.07-.816-2.16-1.76-3.51-2.085-1.28-.31-1.9-.239-1.85-1.467 0-.895-2.18-1.042-2.56-1.894-.14-.292.3-.302.4-.481.29-.506-.81-1.387-1.01-1.771"
         />
       </Link>
@@ -3525,6 +4024,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("bt", true)}
           onMouseOut={() => handleHover("bt", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
           d="M1929.56 524.719c0-.587.11-.719.47-1.027.55-.463.22-1.425.81-1.859 1.28-.934 1.78-3.116 2.67-4.409.98-1.416 2.34-2.746 4.19-2.713.45 0 1.94.203 2.13.726.16.475-.28 1.147.37 1.354 1.12.358 2.45.225 3.62.225.7 0 1.08 1.134 1.85.445.63-.559.79-.812 1.7-.537 1.18.361 2.66.665 2.64 2.086 0 1.598 0 3.218 2.14 3.094 2.08-.119 1.7 1.684 1.56 2.867 0 .488 1.24 1.819.68 2.094-1.33.651-2.61.783-3.93.285-.55-.206-1.77.53-2.42.57-.98.06-2.01.08-2.99.05-1.5-.04-2.62-1.408-4-.594-1.06.633-2.58 1.705-3.93 1.209-1.17-.428-1.81-1.395-3.25-1.277-2.54.208-3.33-1.179-4.31-2.592"
         />
       </Link>
@@ -3535,6 +4039,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("au", true)}
           onMouseOut={() => handleHover("au", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Australia</title>
           <path d="M2372.74 919.58c.95-.581.16-1.505-.1-2.23-.83.637-.44 1.545.1 2.23" />
@@ -3587,6 +4096,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("cn", true)}
           onMouseOut={() => handleHover("cn", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>China</title>
           <g className="landxx coastxx cn cnx" id="cnx">
@@ -3622,6 +4136,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("hk", true)}
           onMouseOut={() => handleHover("hk", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Hong Kong</title>
           <g className="landxx coastxx cn hk">
@@ -3641,6 +4160,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("mo", true)}
           onMouseOut={() => handleHover("mo", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Macao</title>
           <path
@@ -3658,6 +4182,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("tw", true)}
           onMouseOut={() => handleHover("tw", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Taiwan</title>
           <path d="M2153.73 547.335c-.26.216-.54.384-.86.504.45.267.93.339 1.44.217-.17-.26-.36-.5-.58-.721" />
@@ -3672,6 +4201,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
             fill={colorRHD}
             onMouseOver={() => handleHover("fr", true)}
             onMouseOut={() => handleHover("fr", false)}
+            onClick={(event) => {
+              if (preventClick) {
+                event.preventDefault();
+              }
+            }}
           >
             <title>France</title>
             <path d="M1258.54 351.43a5.095 5.095 0 0 0-1.08-.864c.1.566.47.961 1.08.864" />
@@ -3705,6 +4239,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
             fill={colorTrekker}
             onMouseOver={() => handleHover("mq", true)}
             onMouseOut={() => handleHover("mq", false)}
+            onClick={(event) => {
+              if (preventClick) {
+                event.preventDefault();
+              }
+            }}
           >
             <title>Martinique</title>
             <path
@@ -3720,6 +4259,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
             fill={colorRHD}
             onMouseOver={() => handleHover("re", true)}
             onMouseOut={() => handleHover("re", false)}
+            onClick={(event) => {
+              if (preventClick) {
+                event.preventDefault();
+              }
+            }}
           >
             <title>Reunion</title>
             <path
@@ -3746,6 +4290,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
             fill={colorRHD}
             onMouseOver={() => handleHover("nl", true)}
             onMouseOut={() => handleHover("nl", false)}
+            onClick={(event) => {
+              if (preventClick) {
+                event.preventDefault();
+              }
+            }}
           >
             <title>Netherlands</title>
             <path d="M1306.49 314.13c-.24.02-.47.05-.71.07.76.317 1.67 1.39 2.51.576-.49-.436-1.13-.728-1.8-.648" />
@@ -3778,6 +4327,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("lb", true)}
           onMouseOut={() => handleHover("lb", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Lebanon</title>
           <path
@@ -3793,6 +4347,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("me", true)}
           onMouseOut={() => handleHover("me", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Montenegro</title>
           <path
@@ -3808,6 +4367,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("sz", true)}
           onMouseOut={() => handleHover("sz", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Swaziland</title>
           <path
@@ -3887,6 +4451,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("vu", true)}
           onMouseOut={() => handleHover("vu", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Vanuatu</title>
           <g className="landxx coastxx vu">
@@ -3914,6 +4483,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("fk", true)}
           onMouseOut={() => handleHover("fk", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Falkland Islands</title>
           <g className="landxx coastxx fk">
@@ -3935,6 +4509,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("gs", true)}
           onMouseOut={() => handleHover("gs", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>South Georgia and the South Sandwich Islands</title>
           <path
@@ -3956,6 +4535,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("qa", true)}
           onMouseOut={() => handleHover("qa", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Qatar</title>
           <path
@@ -3987,6 +4571,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("pr", true)}
           onMouseOut={() => handleHover("pr", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Puerto Rico</title>
           <path
@@ -4049,6 +4638,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("lu", true)}
           onMouseOut={() => handleHover("lu", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Luxembourg</title>
           <path
@@ -4079,6 +4673,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("fo", true)}
           onMouseOut={() => handleHover("fo", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Faroe Islands</title>
           <g className="landxx coastxx fo">
@@ -4105,6 +4704,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("vi", true)}
           onMouseOut={() => handleHover("vi", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>United States Virgin Islands</title>
           <g className="landxx coastxx vi">
@@ -4120,6 +4724,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("cw", true)}
           onMouseOut={() => handleHover("cw", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Curaçao</title>
           <path
@@ -4177,6 +4786,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("ad", true)}
           onMouseOut={() => handleHover("ad", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Andorra</title>
           <path
@@ -4192,6 +4806,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("mp", true)}
           onMouseOut={() => handleHover("mp", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Northern Mariana Islands</title>
           <path d="M2373.82 628.989c.21-.462.26-.941.15-1.439-.5.388-.58.962-.15 1.439" className="landxx coastxx mp" />
@@ -4215,6 +4834,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("io", true)}
           onMouseOut={() => handleHover("io", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>British Indian Ocean Territory</title>
           <path d="M1812 823c.21-.462.26-.941.15-1.439-.5.388-.58.962-.15 1.439" className="antxx landxx coastxx io" />
@@ -4270,6 +4894,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("mt", true)}
           onMouseOut={() => handleHover("mt", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Malta</title>
           <path
@@ -4318,6 +4947,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("pm", true)}
           onMouseOut={() => handleHover("pm", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Saint Pierre and Miquelon</title>
           <path
@@ -4344,6 +4978,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("as", true)}
           onMouseOut={() => handleHover("as", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>American Samoa</title>
           <path
@@ -4388,6 +5027,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("je", true)}
           onMouseOut={() => handleHover("je", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Jersey</title>
           <path d="M1266.39 335.59c.1-.216.14-.433.22-.648-.58-.204-.92.05-.94.648h.72" className="landxx coastxx je" />
@@ -4415,6 +5059,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("sm", true)}
           onMouseOut={() => handleHover("sm", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>San Marino</title>
           <path d="m1363.24 381.462.47-.69.68.536-.56.595-.59-.441z" className="landxx sm" />
@@ -4427,6 +5076,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("bm", true)}
           onMouseOut={() => handleHover("bm", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Bermuda</title>
           <path d="M802.056 480.454c.25-.174.517-.318.8-.433l-.8.433" className="landxx coastxx bm" />
@@ -4450,6 +5104,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("gi", true)}
           onMouseOut={() => handleHover("gi", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Gibraltar</title>
           <path d="M1237.11 447.071c-.2.868-.44.887-.71.06l.71-.06" className="landxx eu gi" />
@@ -4462,6 +5121,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorTrekker}
           onMouseOver={() => handleHover("pn", true)}
           onMouseOut={() => handleHover("pn", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Pitcairn Islands</title>
           <path d="M404.796 987.837c.313-.719.1-.958-.648-.72.196.258.412.498.648.72" className="landxx coastxx pn" />
@@ -4474,6 +5138,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("mc", true)}
           onMouseOut={() => handleHover("mc", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Monaco</title>
           <path d="M1328.89 381.67c-.12-.144.15-.405.39-.45.22-.04-.1.553-.39.45" className="landxx mc" />
@@ -4490,6 +5159,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("im", true)}
           onMouseOut={() => handleHover("im", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Isle of Man</title>
           <path
@@ -4505,6 +5179,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorRHD}
           onMouseOver={() => handleHover("gu", true)}
           onMouseOut={() => handleHover("gu", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Guam</title>
           <path
@@ -4520,6 +5199,11 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           fill={colorLHD}
           onMouseOver={() => handleHover("sg", true)}
           onMouseOut={() => handleHover("sg", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
         >
           <title>Singapore</title>
           <path
