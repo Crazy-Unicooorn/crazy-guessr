@@ -126,7 +126,7 @@ function LocalCountryNames() {
     { front: "Nijeriya", back: "Nigeria (Hausa)" },
     { front: "Naigeria", back: "Nigeria (Igbo)" },
     { front: "Nàìjíríà", back: "Nigeria (Yoruba)" },
-    { front: "Nederland", back: "Nederland" },
+    { front: "Nederland", back: "Netherlands" },
     { front: "Nederlân", back: "Netherlands (Frisian)" },
     { front: "Norge", back: "Norway" },
     { front: "नेपाल", back: "Nepal" },

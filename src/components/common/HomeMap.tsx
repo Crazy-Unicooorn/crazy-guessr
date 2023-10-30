@@ -7,6 +7,51 @@ import LeftDriveIcon from "../../assets/icons/general/leftDrive";
 import UpcomingIcon from "../../assets/icons/general/upcoming";
 import StopIcon from "../../assets/icons/general/stop";
 
+function mouseWheel(wheelEvent: WheelEvent) {
+  wheelEvent.stopPropagation();
+  wheelEvent.preventDefault();
+  const zoomX = wheelEvent.offsetX;
+  const zoomY = wheelEvent.offsetY;
+
+  const zoomDirection = wheelEvent.deltaY < 0 ? 1 : -1;
+  const svg = document.getElementById("svg10618");
+
+  let newViewBoxX;
+  let newViewBoxY;
+  let newViewBoxWidth;
+  let newViewBoxHeight;
+
+  const zoomLeftFraction = zoomX / svg!.clientWidth;
+  const zoomTopFraction = zoomY / svg!.clientHeight;
+
+  if (svg) {
+    const [viewBoxX, viewBoxY, viewBoxWidth, viewBoxHeight] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+
+    newViewBoxWidth = viewBoxWidth;
+    newViewBoxHeight = viewBoxHeight;
+
+    if (zoomDirection > 0) {
+      newViewBoxWidth /= 1.1;
+      newViewBoxHeight /= 1.1;
+
+      newViewBoxX = viewBoxX + (viewBoxWidth - newViewBoxWidth) * zoomLeftFraction;
+      newViewBoxY = viewBoxY + (viewBoxHeight - newViewBoxHeight) * zoomTopFraction;
+    }
+
+    if (zoomDirection < 0) {
+      newViewBoxWidth *= 1.1;
+      newViewBoxHeight *= 1.1;
+
+      newViewBoxX = viewBoxX - (newViewBoxWidth - viewBoxWidth) * zoomLeftFraction;
+      newViewBoxY = viewBoxY - (newViewBoxHeight - viewBoxHeight) * zoomTopFraction;
+    }
+
+    const scaledViewBox = [newViewBoxX, newViewBoxY, newViewBoxWidth, newViewBoxHeight].join(" ");
+
+    svg.setAttribute("viewBox", scaledViewBox);
+  }
+}
+
 interface SVGMapProps {
   colorLHD: string;
   colorRHD: string;
@@ -26,6 +71,14 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
       country.style.cursor = isHovering ? "pointer" : "default";
     }
   };
+
+  useEffect(() => {
+    const svg = mapRef.current;
+    if (svg) {
+      svg.addEventListener("wheel", mouseWheel);
+      return () => svg.removeEventListener("wheel", mouseWheel);
+    }
+  }, []);
 
   return (
     <svg
