@@ -31,6 +31,9 @@ function mouseWheel(wheelEvent: WheelEvent) {
     newViewBoxHeight = viewBoxHeight;
 
     if (zoomDirection > 0) {
+      if (viewBoxHeight < 50 || viewBoxWidth < 50) {
+        return;
+      }
       newViewBoxWidth /= 1.1;
       newViewBoxHeight /= 1.1;
 
@@ -39,6 +42,9 @@ function mouseWheel(wheelEvent: WheelEvent) {
     }
 
     if (zoomDirection < 0) {
+      if (viewBoxHeight >= 1398 || viewBoxWidth >= 2754) {
+        return;
+      }
       newViewBoxWidth *= 1.1;
       newViewBoxHeight *= 1.1;
 
@@ -115,6 +121,20 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
         svg.style.cursor = "grabbing";
 
         const [viewBoxX, viewBoxY, viewBoxWidth, viewBoxHeight] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+
+        // -30 61 2754 1398
+        if (viewBoxX < -30 - 2754 / 2 && startX - mouseEvent.clientX < 0) {
+          return;
+        }
+        if (viewBoxX > 2754 - viewBoxWidth + 2754 / 2 && mouseEvent.clientX - startX < 0) {
+          return;
+        }
+        if (viewBoxY < 61 - 1398 / 2 && startY - mouseEvent.clientY < 0) {
+          return;
+        }
+        if (viewBoxY > 1398 - viewBoxHeight + 1398 / 2 && mouseEvent.clientY - startY < 0) {
+          return;
+        }
 
         const deltaX = (mouseEvent.clientX - startX) * (viewBoxWidth / svg.clientWidth);
         const deltaY = (mouseEvent.clientY - startY) * (viewBoxHeight / svg.clientHeight);
