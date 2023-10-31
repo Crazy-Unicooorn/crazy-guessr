@@ -44,6 +44,7 @@ function mouseWheel(wheelEvent: WheelEvent) {
 
     if (zoomDirection < 0) {
       if (viewBoxHeight >= 1398 || viewBoxWidth >= 2754) {
+        svg.setAttribute("viewBox", "-30 61 2754 1398");
         return;
       }
       wheelEvent.preventDefault();
@@ -190,10 +191,10 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
       ref={mapRef}
       xmlns="http://www.w3.org/2000/svg"
       id="svg10618"
-      width="95%"
+      width="100%"
       viewBox="-30 61 2754 1398"
       version="1.1"
-      style={{ cursor: "grab" }}
+      style={{ cursor: "grab", borderRadius: 8 }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
@@ -5285,6 +5286,9 @@ position: relative;
 
 display: flex;
 width: 100%;
+max-width: 100rem;
+margin-bottom: 2rem;
+
 justify-content: center;
 align-items: center;
 
