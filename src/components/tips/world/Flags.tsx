@@ -128,6 +128,7 @@ import vi from "../../../assets/img/vi/flag.png";
 import vn from "../../../assets/img/vn/flag.png";
 import vu from "../../../assets/img/vu/flag.png";
 import za from "../../../assets/img/za/flag.png";
+import ImageMagnifier from "../../common/ImageMagnifier";
 
 function WorldFlags() {
   const style = { maxHeight: "16rem", borderRadius: "0.5rem" };
@@ -272,14 +273,7 @@ function WorldFlags() {
         <TrainingModal cards={WorldFlag} />
         <MapButton url="https://www.geoguessr.com/maps/61a1846aee665b00016680ce" />
       </Head>
-      <img
-        src={flagmap}
-        alt="Flag map of the world"
-        loading="lazy"
-        decoding="async"
-        className="tipimg"
-        style={{ backgroundColor: "var(--pastel-blue)" }}
-      />
+      <ImageMagnifier src={flagmap} alt="Flag map of the world" style={{ backgroundColor: "var(--pastel-blue)" }} />
     </Tip>
   );
 }

@@ -18,6 +18,14 @@ export const Head = styled.div`
   gap: 8px;
 `;
 
+export const Paragraph = styled.div`
+  background-color: var(--pastel-purple);
+
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+`;
+
 export interface Card {
   front: string | JSX.Element;
   back: string;

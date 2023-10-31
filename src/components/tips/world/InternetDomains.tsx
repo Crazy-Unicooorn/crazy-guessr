@@ -2,6 +2,7 @@ import InternetDomainsImg from "../../../assets/img/world/world_countries_iso.gi
 import TrainingModal from "../../common/TrainingModal";
 import Separator from "../../common/Separator";
 import { Card, Head, MapButton, Tip } from "../../common/TipsBuilder";
+import ImageMagnifier from "../../common/ImageMagnifier";
 
 function InternetDomains() {
   const InternetDomain: Card[] = [
@@ -143,13 +144,7 @@ function InternetDomains() {
         <TrainingModal cards={InternetDomain} />
         <MapButton url="https://www.geoguessr.com/maps/604657abb3894900011da5bc" />
       </Head>
-      <img
-        src={InternetDomainsImg}
-        loading="lazy"
-        decoding="async"
-        alt="World map of Internet domains"
-        className="tipimg"
-      />
+      <ImageMagnifier src={InternetDomainsImg} alt="World map of Internet domains" />
     </Tip>
   );
 }

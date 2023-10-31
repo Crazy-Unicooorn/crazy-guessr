@@ -39,11 +39,6 @@ video {
   max-width: 100%;
 }
 
-.tipimg {
-  border-radius: 0.5rem;
-  box-shadow: var(--elevation-5);
-}
-
 /* Changing the look of the scrollbar */
 *::-webkit-scrollbar {
   width: 12px;

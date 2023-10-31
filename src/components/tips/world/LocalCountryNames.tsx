@@ -1,7 +1,8 @@
 import Separator from "../../common/Separator";
-import { Card, Head, Tip } from "../../common/TipsBuilder";
+import { Card, Head, Paragraph, Tip } from "../../common/TipsBuilder";
 import TrainingModal from "../../common/TrainingModal";
 import nativeCountryNames from "../../../assets/img/world/native_country_names.webp";
+import ImageMagnifier from "../../common/ImageMagnifier";
 
 function LocalCountryNames() {
   const localCountryNames: Card[] = [
@@ -185,18 +186,12 @@ function LocalCountryNames() {
         <Separator />
         <TrainingModal cards={localCountryNames} />
       </Head>
-      <p>
+      <Paragraph>
         Names of countries in their own languages. Recall Training only includes names that are different than the
         English ones. If you think some information is irrelevant for GeoGuessr, or if you spot any error please report
         that on Github.
-      </p>
-      <img
-        src={nativeCountryNames}
-        alt="World map of country names in their own languages"
-        loading="lazy"
-        decoding="async"
-        className="tipimg"
-      />
+      </Paragraph>
+      <ImageMagnifier src={nativeCountryNames} alt="World map of country names in their own languages" />
     </Tip>
   );
 }
