@@ -22,6 +22,8 @@ const Magnifier = styled.div`
   height: 400px;
   max-width: calc(100vw / 2);
   max-height: calc(100vh / 2);
+
+  border-radius: 0.25rem;
   border: 2px solid #fff;
 `;
 
@@ -48,6 +50,7 @@ function ImageMagnifier({ src, alt, style }: MagnifierProps) {
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     e.preventDefault();
+    e.stopPropagation();
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
 
     const x = ((e.touches[0].clientX - left) / width) * 100;
@@ -75,7 +78,9 @@ function ImageMagnifier({ src, alt, style }: MagnifierProps) {
           position: "absolute",
           left: cursorPosition.x - 200,
           top: cursorPosition.y - 200,
+          zIndex: 9998,
           pointerEvents: "none",
+          touchAction: "none",
           display: showMagnifier ? "block" : "none",
         }}
       >
