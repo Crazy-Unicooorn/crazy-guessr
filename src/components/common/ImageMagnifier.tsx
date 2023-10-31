@@ -20,6 +20,8 @@ const Container = styled.div`
 const Magnifier = styled.div`
   width: 400px;
   height: 400px;
+  max-width: calc(100vw / 2);
+  max-height: calc(100vh / 2);
   border: 2px solid #fff;
 `;
 
