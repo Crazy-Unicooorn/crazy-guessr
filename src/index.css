@@ -40,7 +40,7 @@ video {
 }
 
 .tipimg {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   box-shadow: var(--elevation-5);
 }
 

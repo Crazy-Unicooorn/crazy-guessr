@@ -6,7 +6,6 @@ import { Card, Head, MapButton, Tip } from "../../common/TipsBuilder";
 function InternetDomains() {
   const InternetDomain: Card[] = [
     { front: ".ad", back: "Andorra" },
-    { front: ".ad", back: "Andorra" },
     { front: ".ae", back: "United Arab Emirates" },
     { front: ".af", back: "Afghanistan" },
     { front: ".al", back: "Albania" },

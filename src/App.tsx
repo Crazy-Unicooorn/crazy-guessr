@@ -48,7 +48,7 @@ import Syria from "./pages/countries/sy";
 import Kyrgyzstan from "./pages/countries/kg";
 import Panama from "./pages/countries/pa";
 import Argentina from "./pages/countries/ar";
-import UnitedKingdom from "./pages/countries/gb";
+import UnitedKingdom from "./pages/countries/uk";
 import CostaRica from "./pages/countries/cr";
 import Ireland from "./pages/countries/ie";
 import Nigeria from "./pages/countries/ng";
@@ -199,7 +199,7 @@ function App() {
             <Route path="fk" element={<FalklandIslands />} />
             <Route path="fo" element={<FaroeIslands />} />
             <Route path="fr" element={<France />} />
-            <Route path="gb" element={<UnitedKingdom />} />
+            <Route path="uk" element={<UnitedKingdom />} />
             <Route path="gh" element={<Ghana />} />
             <Route path="gi" element={<Gibraltar />} />
             <Route path="gl" element={<Greenland />} />

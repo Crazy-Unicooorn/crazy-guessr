@@ -1860,13 +1860,13 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           <path d="M869.96 1231.13c.981-1.21 3.125-.88 4.46-1.37-1.813-.46-3.503.15-5.18.79.219.22.46.42.72.58" />
         </g>
       </Link>
-      <Link to="/gb">
+      <Link to="/uk">
         <g
-          className="landxx coastxx eu gb"
-          id="gb"
+          className="landxx coastxx eu uk"
+          id="uk"
           fill={colorLHD}
-          onMouseOver={() => handleHover("gb", true)}
-          onMouseOut={() => handleHover("gb", false)}
+          onMouseOver={() => handleHover("uk", true)}
+          onMouseOut={() => handleHover("uk", false)}
           onClick={(event) => {
             if (preventClick) {
               event.preventDefault();
@@ -1876,7 +1876,7 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           <title>United Kingdom</title>
           <path
             d="M1230.61 291.96c.61-.97 1.98-.951 2.88-1.512a8.719 8.719 0 0 1-.94-.793c1.85.577 2.56-1.489 3.44-2.5.84-.961 2.58.303 2.83-1.46 1.63.755 3.67-1.128 5.3 0 .66.456 1.05 1.522 1.36 2.209-.1-.124 1.21 1.35 1.18 1.088 0 .278-1.39.974-1.58 1.168.5-.05 1.99-.688 2.32-.03.34.668.98 2.028-.16 2.334.18-.708-.1-1.652-1.01-1.44.56.331.49.913.14 1.368.29-.154.54-.133.75.06.1.493-1.05 1.131-1.43 1.171-.98.103-.98 1.739-2.17 1.386-1-.297-1.18-.609-2.04-.05-.72.476-1.91-.01-1.59-.986-.4.02-3.15-3.046-3.34-1.078-.32 3.479-4.59.188-5.94-.939"
-            className="landxx eu gb"
+            className="landxx eu uk"
           />
           <path d="M1238.89 270.21c-.95-.34-.4-1.306.43-1.584-1.22-2.379-2.44 2.04-.43 1.584" />
           <path d="M1239.25 266.97c0-.219 1.33-1.103.74-1.279-.66-.198-2.24-.322-2.18.775a2.12 2.12 0 0 1 1.44.504" />
