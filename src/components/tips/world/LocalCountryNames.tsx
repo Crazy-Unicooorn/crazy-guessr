@@ -192,9 +192,9 @@ function LocalCountryNames() {
       </p>
       <img
         src={nativeCountryNames}
+        alt="World map of country names in their own languages"
         loading="lazy"
         decoding="async"
-        alt="World map of country names in their own languages"
         className="tipimg"
       />
     </Tip>

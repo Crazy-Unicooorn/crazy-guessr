@@ -1,6 +1,7 @@
 import Separator from "../../common/Separator";
 import { Tip, Head, Card, MapButton } from "../../common/TipsBuilder";
 import TrainingModal from "../../common/TrainingModal";
+import flagmap from "../../../assets/img/world/flagmap.png";
 import ad from "../../../assets/img/ad/flag.png";
 import ae from "../../../assets/img/ae/flag.webp";
 import af from "../../../assets/img/af/flag.png";
@@ -271,6 +272,14 @@ function WorldFlags() {
         <TrainingModal cards={WorldFlag} />
         <MapButton url="https://www.geoguessr.com/maps/61a1846aee665b00016680ce" />
       </Head>
+      <img
+        src={flagmap}
+        alt="Flag map of the world"
+        loading="lazy"
+        decoding="async"
+        className="tipimg"
+        style={{ backgroundColor: "var(--pastel-blue)" }}
+      />
     </Tip>
   );
 }
