@@ -98,6 +98,13 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
     setStartY(mouseEvent.clientY);
   }
 
+  function handleTouchStart(touchEvent: React.TouchEvent<SVGSVGElement>) {
+    touchEvent.preventDefault();
+    setIsDragging(true);
+    setStartX(touchEvent.touches[0].clientX);
+    setStartY(touchEvent.touches[0].clientY);
+  }
+
   function handleMouseUp() {
     const svg = document.getElementById("svg10618");
 
@@ -155,6 +162,50 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
     }
   }
 
+  function handleTouchMove(touchEvent: React.TouchEvent<SVGSVGElement>) {
+    if (isDragging) {
+      touchEvent.preventDefault();
+
+      const svg = document.getElementById("svg10618");
+
+      if (svg) {
+        svg.style.cursor = "grabbing";
+
+        const [viewBoxX, viewBoxY, viewBoxWidth, viewBoxHeight] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+
+        // -30 61 2754 1398
+        if (viewBoxX < -30 - 2754 / 2 && startX - touchEvent.touches[0].clientX < 0) {
+          return;
+        }
+        if (viewBoxX > 2754 - viewBoxWidth + 2754 / 2 && touchEvent.touches[0].clientX - startX < 0) {
+          return;
+        }
+        if (viewBoxY < 61 - 1398 / 2 && startY - touchEvent.touches[0].clientY < 0) {
+          return;
+        }
+        if (viewBoxY > 1398 - viewBoxHeight + 1398 / 2 && touchEvent.touches[0].clientY - startY < 0) {
+          return;
+        }
+
+        const deltaX = (touchEvent.touches[0].clientX - startX) * (viewBoxWidth / svg.clientWidth);
+        const deltaY = (touchEvent.touches[0].clientY - startY) * (viewBoxHeight / svg.clientHeight);
+
+        if (deltaX !== 0 || deltaY !== 0) {
+          setPreventClick(true);
+        }
+
+        const newViewBoxX = viewBoxX - deltaX;
+        const newViewBoxY = viewBoxY - deltaY;
+
+        const scaledViewBox = [newViewBoxX, newViewBoxY, viewBoxWidth, viewBoxHeight].join(" ");
+        svg.setAttribute("viewBox", scaledViewBox);
+
+        setStartX(touchEvent.touches[0].clientX);
+        setStartY(touchEvent.touches[0].clientY);
+      }
+    }
+  }
+
   return (
     <svg
       ref={mapRef}
@@ -167,6 +218,9 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleMouseUp}
+      onTouchMove={handleTouchMove}
     >
       <path
         className="oceanxx"
