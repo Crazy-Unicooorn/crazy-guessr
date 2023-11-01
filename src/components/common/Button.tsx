@@ -7,7 +7,7 @@ import ArrowRight from "../../assets/icons/directional/arrow_right";
 import ArrowLeft from "../../assets/icons/directional/arrow_left";
 
 interface StyledButtonProps {
-  backgroundColor?: string;
+  bgcolor?: string;
   shadow?: "light" | "dark";
 }
 
@@ -47,7 +47,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     position: relative;
     border-radius: 8px;
     color: black;
-    background-color: ${(props) => props.backgroundColor || "red"};
+    background-color: ${(props) => props.bgcolor || "red"};
     will-change: transform;
     transform: translateY(-4px);
     transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
@@ -91,7 +91,7 @@ interface ButtonProps {
   hasIconRight?: boolean;
   iconRight?: React.ReactNode;
   text?: string;
-  backgroundColor?: string;
+  bgcolor?: string;
   shadow?: "light" | "dark";
   style?: React.CSSProperties;
   collapseText?: boolean;
@@ -120,7 +120,7 @@ function Button({
   iconLeft,
   hasIconRight,
   iconRight,
-  backgroundColor,
+  bgcolor,
   shadow,
   style,
   collapseText,
@@ -154,7 +154,7 @@ function Button({
       <a href={externalLink} target="_blank" rel="noreferrer">
         <StyledButton
           type="button"
-          backgroundColor={backgroundColor}
+          bgcolor={bgcolor}
           shadow={shadow}
           onMouseEnter={() => {
             setCurrentStyle(() => styleHovering);
@@ -180,7 +180,7 @@ function Button({
       <Link to={`/${internalLink}`}>
         <StyledButton
           type="button"
-          backgroundColor={backgroundColor}
+          bgcolor={bgcolor}
           shadow={shadow}
           onMouseEnter={() => {
             setCurrentStyle(() => styleHovering);
@@ -204,7 +204,7 @@ function Button({
   return (
     <StyledButton
       type="button"
-      backgroundColor={backgroundColor}
+      bgcolor={bgcolor}
       shadow={shadow}
       onMouseEnter={() => {
         setCurrentStyle(() => styleHovering);
@@ -232,7 +232,7 @@ Button.defaultProps = {
   hasLink: false,
   externalLink: "",
   text: "Default Text",
-  backgroundColor: "var(--pastel-purple)",
+  bgcolor: "var(--pastel-purple)",
   shadow: "dark",
   style: {},
   hasIconLeft: false,

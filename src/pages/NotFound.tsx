@@ -9,7 +9,7 @@ function NotFound() {
         hasIconLeft
         hasInternalLink
         text="Back to Home"
-        backgroundColor="var(--pastel-pink)"
+        bgcolor="var(--pastel-pink)"
         boop={{ x: -8, springConfig: { tension: 300, friction: 10 } }}
       />
     </>

@@ -77,7 +77,7 @@ function Header() {
         externalLink="https://www.twitch.tv/crazyquirkyunicorn"
         text="Catch me live"
         collapseText
-        backgroundColor="#e1cdff"
+        bgcolor="#e1cdff"
         shadow="light"
         hasIconLeft
         iconLeft={<TwitchIcon size={24} />}
@@ -88,7 +88,7 @@ function Header() {
         externalLink="https://github.com/Crazy-Unicooorn/crazy-guessr"
         text="Contribute"
         collapseText
-        backgroundColor="var(--pastel-orange, #eccaaa);"
+        bgcolor="var(--pastel-orange, #eccaaa);"
         shadow="light"
         hasIconLeft
         iconLeft={<GithubIcon size={24} />}
@@ -99,7 +99,7 @@ function Header() {
         externalLink="https://ko-fi.com/crazy_unicorn"
         text="Donate"
         collapseText
-        backgroundColor="var(--pastel-yellow, #f7edc3);"
+        bgcolor="var(--pastel-yellow, #f7edc3);"
         shadow="light"
         hasIconLeft
         iconLeft={<HeartIcon size={24} />}

@@ -11,9 +11,6 @@ const Container = styled.div`
     height: 100%;
     border-radius: 0.5rem;
     box-shadow: var(--elevation-5);
-
-    loading: lazy;
-    decoding: async;
   }
 `;
 
@@ -69,10 +66,10 @@ function ImageMagnifier({ src, alt, style }: MagnifierProps) {
       onTouchMove={handleTouchMove}
       onMouseLeave={() => setShowMagnifier(false)}
       style={{
-        cursor: showMagnifier ? "none" : "zoom-in",
+        cursor: showMagnifier ? "crosshair" : "zoom-in",
       }}
     >
-      <img className="magnifier-img" src={src} alt={alt} style={style} />
+      <img className="magnifier-img" src={src} alt={alt} style={style} loading="lazy" decoding="async" />
       <div
         style={{
           position: "absolute",
@@ -85,7 +82,11 @@ function ImageMagnifier({ src, alt, style }: MagnifierProps) {
         }}
       >
         <Magnifier
-          style={{ ...style, backgroundImage: `url(${src})`, backgroundPosition: `${position.x}% ${position.y}%` }}
+          style={{
+            ...style,
+            backgroundImage: showMagnifier ? `url(${src})` : "",
+            backgroundPosition: `${position.x}% ${position.y}%`,
+          }}
         />
       </div>
     </Container>

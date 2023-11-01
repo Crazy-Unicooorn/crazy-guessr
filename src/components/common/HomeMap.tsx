@@ -198,6 +198,7 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseUp}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleMouseUp}
       onTouchMove={handleTouchMove}

@@ -37,7 +37,7 @@ export function MapButton({ url }: { url: string }) {
       text="GeoGuessr Map"
       hasLink
       externalLink={url}
-      backgroundColor="var(--pastel-green)"
+      bgcolor="var(--pastel-green)"
       hasIconRight
       iconRight={<LocationIcon size={24} />}
       collapseText

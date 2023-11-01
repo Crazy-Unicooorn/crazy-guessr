@@ -133,7 +133,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
         onClick={toggleModal}
         hasIconRight
         iconRight={<DeckIcon size={24} fill="#000" />}
-        backgroundColor="var(--pastel-pink)"
+        bgcolor="var(--pastel-pink)"
         boop={{
           x: 4,
           y: -4,
@@ -158,7 +158,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
                 text=""
                 hasIconLeft
                 iconLeft={<CloseIcon size={24} fill="var(--pastel-pink)" />}
-                backgroundColor="var(--pastel-black)"
+                bgcolor="var(--pastel-black)"
                 boop={{
                   rotation: 180,
                   scale: 0.72,
@@ -197,7 +197,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
                   />
                   <Button
                     onClick={onCorrect}
-                    backgroundColor="var(--pastel-green)"
+                    bgcolor="var(--pastel-green)"
                     text="Correct"
                     hasIconRight
                     iconRight={<ArrowRight fill="black" size={24} />}
@@ -214,7 +214,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
             {!displayAnswer && (
               <Button
                 onClick={toggleBack}
-                backgroundColor="var(--pastel-pink)"
+                bgcolor="var(--pastel-pink)"
                 text="Reveal the answer"
                 hasIconRight
                 iconRight={<ArrowRight fill="black" size={24} />}
