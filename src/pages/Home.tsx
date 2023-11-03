@@ -7,6 +7,7 @@ function Home() {
   return (
     <>
       <HomeMap />
+      {/* <Currencies /> */}
       <WorldFlags />
       <InternetDomains />
       <LocalCountryNames />

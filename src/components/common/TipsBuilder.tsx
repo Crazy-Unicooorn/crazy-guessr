@@ -24,11 +24,12 @@ export const Paragraph = styled.div`
   padding: 1rem;
   border-radius: 0.5rem;
   font-weight: 500;
+  margin-top: 0.5rem;
 `;
 
 export interface Card {
   front: string | JSX.Element;
-  back: string;
+  back: string | JSX.Element;
 }
 
 export function MapButton({ url }: { url: string }) {
