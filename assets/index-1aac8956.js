@@ -332,9 +332,10 @@ box-shadow: var(--elevation-5);
 
   @media (max-width: 1000px) {
     font-size: 2.5rem;
+    gap: 1rem;
   }
   @media (max-width: 640px) {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 `;function d3({flagmap:e,flagAlt:n,title:a,coat:s,coatAlt:r}){const[i,l]=B.useState(!1),[c,A]=B.useState(!1);B.useEffect(()=>{const p=()=>{A(window.innerWidth<=640)};return window.addEventListener("resize",p),()=>{window.removeEventListener("resize",p)}},[]),B.useEffect(()=>{l(window.screen.width<=640||window.innerWidth<=640)},[]);const o={maxHeight:"12rem"},f={maxHeight:"4rem"};return t.jsxs(sf,{children:[t.jsx("img",{src:e,alt:n,style:c||i?f:o}),t.jsx("div",{children:a}),t.jsx("img",{src:s,alt:r,style:c||i?f:o})]})}const K2=Y.div`
   display: flex;
