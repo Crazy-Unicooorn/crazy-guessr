@@ -25,9 +25,10 @@ const PageTitle = styled.h1`
 
   @media (max-width: 1000px) {
     font-size: 2.5rem;
+    gap: 1rem;
   }
   @media (max-width: 640px) {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 `;
 

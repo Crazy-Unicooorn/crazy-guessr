@@ -42,6 +42,9 @@ video {
 /* Changing the look of the scrollbar */
 *::-webkit-scrollbar {
   width: 12px;
+  @media (max-width: 640px) {
+    width: 4px;
+  }
 }
 
 *::-webkit-scrollbar-track {
