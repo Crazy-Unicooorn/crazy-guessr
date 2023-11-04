@@ -2,7 +2,7 @@ import ImageMagnifier from "../../common/ImageMagnifier";
 import Separator from "../../common/Separator";
 import { Card, Head, MapButton, Tip } from "../../common/TipsBuilder";
 import TrainingModal from "../../common/TrainingModal";
-import countryCallingCodeMap from "../../../assets/img/world/Country_calling_codes_map.svg";
+import countryCallingCodeMap from "../../../assets/img/world/Country_calling_codes_map.png";
 
 function WorldCallingCodes() {
   const CallingCodes: Card[] = [
@@ -151,7 +151,7 @@ function WorldCallingCodes() {
       <ImageMagnifier
         src={countryCallingCodeMap}
         alt="World map of calling codes"
-        style={{ backgroundColor: "var(--pastel-blue)" }}
+        style={{ backgroundColor: "#ecfbff" }}
       />
     </Tip>
   );
