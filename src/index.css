@@ -67,6 +67,10 @@ body {
   background-color: var(--background-color);
 }
 
+a {
+  text-decoration: underline;
+}
+
 h1 {
   font-size: 2.4rem;
 

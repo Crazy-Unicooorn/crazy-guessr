@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
-import TrekkerIcon from "../../assets/icons/general/trekker";
-import RightDriveIcon from "../../assets/icons/general/rightDrive";
-import LeftDriveIcon from "../../assets/icons/general/leftDrive";
-import UpcomingIcon from "../../assets/icons/general/upcoming";
-import StopIcon from "../../assets/icons/general/stop";
+import TrekkerIcon from "../assets/icons/general/trekker";
+import RightDriveIcon from "../assets/icons/general/rightDrive";
+import LeftDriveIcon from "../assets/icons/general/leftDrive";
+import UpcomingIcon from "../assets/icons/general/upcoming";
+import StopIcon from "../assets/icons/general/stop";
 
 function mouseWheel(wheelEvent: WheelEvent) {
   wheelEvent.stopPropagation();

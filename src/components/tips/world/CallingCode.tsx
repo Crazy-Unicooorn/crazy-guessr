@@ -1,0 +1,160 @@
+import ImageMagnifier from "../../common/ImageMagnifier";
+import Separator from "../../common/Separator";
+import { Card, Head, MapButton, Tip } from "../../common/TipsBuilder";
+import TrainingModal from "../../common/TrainingModal";
+import countryCallingCodeMap from "../../../assets/img/world/Country_calling_codes_map.svg";
+
+function WorldCallingCodes() {
+  const CallingCodes: Card[] = [
+    { front: "", back: "Andorra" },
+    { front: "", back: "United Arab Emirates" },
+    { front: "", back: "Afghanistan" },
+    { front: "", back: "Albania" },
+    { front: "", back: "Antarctica" },
+    { front: "", back: "Argentina" },
+    { front: "", back: "American Samoa" },
+    { front: "", back: "Austria" },
+    { front: "", back: "Australia" },
+    { front: "", back: "Bangladesh" },
+    { front: "", back: "Belgium" },
+    { front: "", back: "Bulgaria" },
+    { front: "", back: "Bermuda" },
+    { front: "", back: "Bolivia" },
+    { front: "", back: "Brazil" },
+    { front: "", back: "Bhutan" },
+    { front: "", back: "Botswana" },
+    { front: "", back: "Belarus" },
+    { front: "", back: "Canada" },
+    { front: "", back: "Switzerland" },
+    { front: "", back: "Chile" },
+    { front: "", back: "China" },
+    { front: "", back: "Colombia" },
+    { front: "", back: "Costa Rica" },
+    { front: "", back: "Curaçao" },
+    { front: "", back: "Czech Republic" },
+    { front: "", back: "Germany" },
+    { front: "", back: "Denmark" },
+    { front: "", back: "Dominican Republic" },
+    { front: "", back: "Ecuador" },
+    { front: "", back: "Estonia" },
+    { front: "", back: "Egypt" },
+    { front: "", back: "Spain" },
+    { front: "", back: "Finland" },
+    { front: "", back: "Falkland Islands" },
+    { front: "", back: "Faroe Islands" },
+    { front: "", back: "France" },
+    { front: "", back: "Ghana" },
+    { front: "", back: "Gibraltar" },
+    { front: "", back: "Greenland" },
+    { front: "", back: "Greece" },
+    {
+      front: "",
+      back: "South Georgia and the South Sandwich Islands",
+    },
+    { front: "", back: "Guatemala" },
+    // Blurr Guam?
+    { front: "", back: "Guam" },
+    { front: "", back: "Hong Kong" },
+    { front: "", back: "Croatia" },
+    { front: "", back: "Hungary" },
+    { front: "", back: "Indonesia" },
+    { front: "", back: "Ireland" },
+    { front: "", back: "Israel" },
+    { front: "", back: "Isle of Man" },
+    { front: "", back: "India" },
+    { front: "", back: "British Indian Ocean Territory" },
+    { front: "", back: "Iraq" },
+    { front: "", back: "Iceland" },
+    { front: "", back: "Italy" },
+    { front: "", back: "Jersey" },
+    { front: "", back: "Jordan" },
+    { front: "", back: "Japan" },
+    { front: "", back: "Kenya" },
+    { front: "", back: "Kyrgyzstan" },
+    { front: "", back: "Cambodia" },
+    { front: "", back: "South Korea" },
+    { front: "", back: "Laos" },
+    { front: "", back: "Lebanon" },
+    { front: "", back: "Sri Lanka" },
+    { front: "", back: "Lesotho" },
+    { front: "", back: "Lithuania" },
+    { front: "", back: "Luxembourg" },
+    { front: "", back: "Latvia" },
+    { front: "", back: "Monaco" },
+    { front: "", back: "Montenegro" },
+    { front: "", back: "Madagascar" },
+    { front: "", back: "North Macedonia" },
+    { front: "", back: "Mali" },
+    { front: "", back: "Mongolia" },
+    { front: "", back: "Macao" },
+    { front: "", back: "Northern Mariana Islands" },
+    { front: "", back: "Martinique" },
+    { front: "", back: "Malta" },
+    { front: "", back: "Mexico" },
+    { front: "", back: "Malaysia" },
+    { front: "", back: "Namibia" },
+    { front: "", back: "Nigeria" },
+    { front: "", back: "Netherlands" },
+    { front: "", back: "Norway" },
+    { front: "", back: "Nepal" },
+    { front: "", back: "New Zealand" },
+    { front: "", back: "Panama" },
+    { front: "", back: "Peru" },
+    { front: "", back: "Peru" },
+    { front: "", back: "Philippines" },
+    { front: "", back: "Pakistan" },
+    { front: "", back: "Poland" },
+    { front: "", back: "Saint Pierre and Miquelon" },
+    { front: "", back: "Pitcairn" },
+    { front: "", back: "Puerto Rico" },
+    { front: "", back: "Portugal" },
+    { front: "", back: "Qatar" },
+    { front: "", back: "Reunion" },
+    { front: "", back: "Romania" },
+    { front: "", back: "Serbia" },
+    { front: "", back: "Russia" },
+    { front: "", back: "Rwanda" },
+    { front: "", back: "Sweden" },
+    { front: "", back: "Singapore" },
+    { front: "", back: "Slovenia" },
+    { front: "", back: "Slovakia" },
+    { front: "", back: "San Marino" },
+    { front: "", back: "Senegal" },
+    { front: "", back: "Syria" },
+    { front: "", back: "Eswatini / Swaziland" },
+    { front: "", back: "Thailand" },
+    { front: "", back: "Tunisia" },
+    { front: "", back: "Turkey" },
+    { front: "", back: "Taiwan" },
+    { front: "", back: "Tanzania" },
+    { front: "", back: "Ukraine" },
+    { front: "", back: "Uganda" },
+    { front: "", back: "United Kingdom" },
+    { front: "", back: "United States" },
+    { front: "", back: "Uruguay" },
+    { front: "", back: "U.S. Virgin Islands" },
+    { front: "", back: "Vietnam" },
+    { front: "", back: "Vanuatu" },
+    { front: "", back: "Svalbard" },
+    { front: "", back: "South Africa" },
+  ];
+  return (
+    <Tip>
+      <Head>
+        <h1 className="singleline-text">Calling Codes</h1>
+        <Separator />
+        <div style={{ display: "none" }}>
+          <TrainingModal cards={CallingCodes} />
+          <MapButton url="" />
+        </div>
+      </Head>
+      <ImageMagnifier
+        src={countryCallingCodeMap}
+        alt="World map of calling codes"
+        style={{ backgroundColor: "var(--pastel-blue)" }}
+      />
+    </Tip>
+  );
+}
+
+export default WorldCallingCodes;
