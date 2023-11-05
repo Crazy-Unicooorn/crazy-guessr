@@ -1,5 +1,29 @@
+import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import flagmap from "../../assets/img/cz/flagmap.png";
+import coat from "../../assets/img/cz/coat.svg";
+
 function CzechRepublic() {
-  return <h1>Czech Republic placeholder</h1>;
+  return (
+    <>
+      <PageHeader
+        flagmap={flagmap}
+        flagAlt="Czech Republic shaped flag"
+        title="Czech Republic"
+        coat={coat}
+        coatAlt="Coat of Arms of Czech Republic"
+      />
+      <CountrySummary
+        capital="Prague"
+        largestCities="Prague, Brno, Ostrava, Plzeň, Liberec"
+        lang="Czech"
+        currencies="CZK"
+        iso="CZ"
+        tld="cz"
+        callingCode="420"
+        drivingSide="R"
+      />
+    </>
+  );
 }
 
 export default CzechRepublic;

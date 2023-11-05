@@ -98,7 +98,9 @@ function TrainingModal({ cards }: { cards: Card[] }) {
   const [randomCard, setRandomCard] = useState(getRandomCard());
 
   useEffect(() => {
-    setRandomCard(getRandomCard());
+    if (displayModal) {
+      setRandomCard(getRandomCard());
+    }
   }, [displayModal, countTotal, getRandomCard]);
 
   const toggleModal = () => {

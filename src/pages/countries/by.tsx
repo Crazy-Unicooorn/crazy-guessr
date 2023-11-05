@@ -1,5 +1,29 @@
+import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import flagmap from "../../assets/img/by/flagmap.png";
+import coat from "../../assets/img/by/coat.svg";
+
 function Belarus() {
-  return <h1>Belarus placeholder</h1>;
+  return (
+    <>
+      <PageHeader
+        flagmap={flagmap}
+        flagAlt="Belarus shaped flag"
+        title="Belarus"
+        coat={coat}
+        coatAlt="Coat of Arms of Belarus"
+      />
+      <CountrySummary
+        capital="Minsk"
+        largestCities="Minsk, Gomel, Mogilev, Vitebsk, Grodno, Brest"
+        lang="Belarusian, Russian"
+        currencies="BrBYN"
+        iso="by"
+        tld="by & .бел"
+        callingCode="375"
+        drivingSide="R"
+      />
+    </>
+  );
 }
 
 export default Belarus;

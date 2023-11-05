@@ -1,5 +1,4 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
-import Footer from "../../components/common/Footer";
 import flamap from "../../assets/img/ad/flagmap.png";
 import coat from "../../assets/img/ad/coat.svg";
 
@@ -23,7 +22,6 @@ function Andorra() {
         callingCode={376}
         drivingSide="R"
       />
-      <Footer />
     </>
   );
 }

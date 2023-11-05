@@ -1,5 +1,4 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
-import Footer from "../../components/common/Footer";
 import flagmap from "../../assets/img/as/flagmap.png";
 import coat from "../../assets/img/as/coat.svg";
 
@@ -23,7 +22,6 @@ function AmericanSamoa() {
         callingCode="1-684"
         drivingSide="R"
       />
-      <Footer />
     </>
   );
 }

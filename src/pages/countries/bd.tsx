@@ -1,5 +1,29 @@
+import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import flagmap from "../../assets/img/bd/flagmap.png";
+import coat from "../../assets/img/bd/coat.svg";
+
 function Bangladesh() {
-  return <h1>Bangladesh placeholder</h1>;
+  return (
+    <>
+      <PageHeader
+        flagmap={flagmap}
+        flagAlt="Bangladesh shaped flag"
+        title="Bangladesh"
+        coat={coat}
+        coatAlt="Coat of Arms of Bangladesh"
+      />
+      <CountrySummary
+        capital="Dhaka"
+        largestCities="Dhaka, Chittagong, Khulna, Rajshahi, Sylhet"
+        lang="Bengali"
+        currencies="৳BDT"
+        iso="BD"
+        tld="bd and .বাংলা"
+        callingCode="880"
+        drivingSide="R"
+      />
+    </>
+  );
 }
 
 export default Bangladesh;

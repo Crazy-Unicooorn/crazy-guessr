@@ -1,5 +1,4 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
-import Footer from "../../components/common/Footer";
 import flamap from "../../assets/img/af/flagmap.png";
 import coat from "../../assets/img/af/coat.svg";
 
@@ -21,7 +20,6 @@ function Afghanistan() {
         iso="AF"
         tld="af"
       />
-      <Footer />
     </>
   );
 }

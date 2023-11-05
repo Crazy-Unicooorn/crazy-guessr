@@ -129,6 +129,7 @@ import Monaco from "./pages/countries/mc";
 import IsleOfMan from "./pages/countries/im";
 import Guam from "./pages/countries/gu";
 import Singapore from "./pages/countries/sg";
+import Footer from "./components/common/Footer";
 
 const ContentContainer = styled.div`
   position: fixed;
@@ -289,6 +290,7 @@ function App() {
             <Route path="xv" element={<Svalbard />} />
             <Route path="za" element={<SouthAfrica />} />
           </Routes>
+          <Footer />
         </MainContent>
       </ContentContainer>
     </>

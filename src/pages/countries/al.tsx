@@ -1,5 +1,4 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
-import Footer from "../../components/common/Footer";
 import flamap from "../../assets/img/al/flagmap.png";
 import coat from "../../assets/img/al/coat.svg";
 
@@ -23,7 +22,6 @@ function Albania() {
         callingCode={355}
         drivingSide="R"
       />
-      <Footer />
     </>
   );
 }

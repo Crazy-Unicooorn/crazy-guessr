@@ -84,7 +84,7 @@ export default PageHeader;
 
 const SummaryItem = styled.div`
   display: flex;
-  max-width: 40rem;
+  max-width: 100%;
   // width: 100%;
   padding: 0.5rem;
   justify-content: flex-end;
@@ -133,6 +133,9 @@ export function CountrySummary({
     fontWeight: "bold",
     flexGrow: 1,
   };
+
+  const finalISO = iso?.toUpperCase();
+
   return (
     <Summary>
       <SummaryItem>
@@ -147,7 +150,7 @@ export function CountrySummary({
       </SummaryItem>
       <SummaryItem>
         <img src={langIcon} alt="" />
-        Official Languages
+        Main Languages
         <div style={data}>{lang}</div>
       </SummaryItem>
       <SummaryItem>
@@ -158,7 +161,7 @@ export function CountrySummary({
       <SummaryItem>
         <img src={isoIcon} alt="" />
         ISO 3166 Code
-        <div style={data}>{iso}</div>
+        <div style={data}>{finalISO}</div>
       </SummaryItem>
       <SummaryItem>
         <img src={internetIcon} alt="" />

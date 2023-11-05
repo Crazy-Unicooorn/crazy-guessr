@@ -1,5 +1,4 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
-import Footer from "../../components/common/Footer";
 import flagmap from "../../assets/img/ar/flagmap.png";
 import coat from "../../assets/img/ar/coat.svg";
 
@@ -23,7 +22,6 @@ function Argentina() {
         callingCode={54}
         drivingSide="R"
       />
-      <Footer />
     </>
   );
 }

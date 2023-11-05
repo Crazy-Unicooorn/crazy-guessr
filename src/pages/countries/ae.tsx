@@ -1,5 +1,4 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
-import Footer from "../../components/common/Footer";
 import flamap from "../../assets/img/ae/flagmap.png";
 import coat from "../../assets/img/ae/coat.svg";
 
@@ -23,7 +22,6 @@ function UnitedArabEmirates() {
         callingCode={971}
         drivingSide="R"
       />
-      <Footer />
     </>
   );
 }

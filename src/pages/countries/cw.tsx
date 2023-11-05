@@ -1,5 +1,29 @@
+import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import flagmap from "../../assets/img/cw/flagmap.png";
+import coat from "../../assets/img/cw/coat.svg";
+
 function Curaçao() {
-  return <h1>Curaçao placeholder</h1>;
+  return (
+    <>
+      <PageHeader
+        flagmap={flagmap}
+        flagAlt="Curaçao shaped flag"
+        title="Curaçao"
+        coat={coat}
+        coatAlt="Coat of Arms of Curaçao"
+      />
+      <CountrySummary
+        capital="Willemstad"
+        largestCities="Willemstad, Sint Michiel Liber, Barber, Dorp Soto, Lagun"
+        lang="Dutch, Papiamento, English"
+        currencies="ƒANG"
+        iso="CW"
+        tld="cw"
+        callingCode="599"
+        drivingSide="R"
+      />
+    </>
+  );
 }
 
 export default Curaçao;
