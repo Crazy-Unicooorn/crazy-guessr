@@ -8,12 +8,12 @@ function Austria() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Austria shaped flag"
-        title="Austria"
+        title="Austria (Österreich)"
         coat={coat}
         coatAlt="Coat of Arms of Austria"
       />
       <CountrySummary
-        capital="Vienna"
+        capital="Vienna (Wien)"
         largestCities="Vienna"
         lang="Austrian German"
         currencies="€EUR"

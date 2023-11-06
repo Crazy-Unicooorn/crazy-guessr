@@ -8,7 +8,7 @@ function Germany() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Germany shaped flag"
-        title="Germany"
+        title="Germany (Deutschland)"
         coat={coat}
         coatAlt="Coat of Arms of Germany"
       />

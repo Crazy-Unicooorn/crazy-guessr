@@ -8,12 +8,12 @@ function DominicanRepublic() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Dominican Republic shaped flag"
-        title="Dominican Republic"
+        title="Dominican Republic (República Dominicana)"
         coat={coat}
         coatAlt="Coat of Arms of Dominican Republic"
       />
       <CountrySummary
-        capital="Santo Domingo"
+        capital="Santo Domingo (Ciudad Trujillo)"
         largestCities="Santo Domingo, Santiago de los Caballeros"
         lang="Spanish"
         currencies="DOP"

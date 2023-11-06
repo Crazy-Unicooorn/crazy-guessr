@@ -213,7 +213,7 @@ function WorldFlags() {
     { front: <img src={mk} alt="Drapeau d'un pays" style={style} />, back: "North Macedonia" },
     { front: <img src={ml} alt="Drapeau d'un pays" style={style} />, back: "Mali" },
     { front: <img src={mn} alt="Drapeau d'un pays" style={style} />, back: "Mongolia" },
-    { front: <img src={mo} alt="Drapeau d'un pays" style={style} />, back: "Macao" },
+    { front: <img src={mo} alt="Drapeau d'un pays" style={style} />, back: "Macau" },
     { front: <img src={mp} alt="Drapeau d'un pays" style={style} />, back: "Northern Mariana Islands" },
     { front: <img src={mq} alt="Drapeau d'un pays" style={style} />, back: "Martinique" },
     { front: <img src={mt} alt="Drapeau d'un pays" style={style} />, back: "Malta" },

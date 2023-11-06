@@ -8,12 +8,12 @@ function Bangladesh() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Bangladesh shaped flag"
-        title="Bangladesh"
+        title="Bangladesh (বাংলাদেশ)"
         coat={coat}
         coatAlt="Coat of Arms of Bangladesh"
       />
       <CountrySummary
-        capital="Dhaka"
+        capital="Dhaka (ঢাকা)"
         largestCities="Dhaka, Chittagong, Khulna, Rajshahi, Sylhet"
         lang="Bengali"
         currencies="৳BDT"

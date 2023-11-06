@@ -8,12 +8,12 @@ function Belarus() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Belarus shaped flag"
-        title="Belarus"
+        title="Belarus (Беларусь)"
         coat={coat}
         coatAlt="Coat of Arms of Belarus"
       />
       <CountrySummary
-        capital="Minsk"
+        capital="Minsk (Мінск)"
         largestCities="Minsk, Gomel, Mogilev, Vitebsk, Grodno, Brest"
         lang="Belarusian, Russian"
         currencies="BrBYN"

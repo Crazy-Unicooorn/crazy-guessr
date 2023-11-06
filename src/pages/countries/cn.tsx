@@ -8,12 +8,12 @@ function China() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="China shaped flag"
-        title="China"
+        title="China (中国)"
         coat={coat}
         coatAlt="Coat of Arms of China"
       />
       <CountrySummary
-        capital="Beijing"
+        capital="Beijing (北京)"
         largestCities="Shanghai, Beijing, Guangzhou, Shenzhen, Chengdu, Tianjin"
         lang="Standard Chinese"
         currencies="¥CNY"

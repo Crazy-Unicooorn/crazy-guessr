@@ -8,12 +8,12 @@ function Bhutan() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Bhutan shaped flag"
-        title="Bhutan"
+        title="Bhutan (འབྲུག་ཡུལ་)"
         coat={coat}
         coatAlt="Coat of Arms of Bhutan"
       />
       <CountrySummary
-        capital="Thimphu"
+        capital="Thimphu (ཐིམ་ཕུ་)"
         largestCities="Thimphu"
         lang="Dzongkha"
         currencies="NuBTN & ₹INR"

@@ -13,7 +13,7 @@ function CzechRepublic() {
         coatAlt="Coat of Arms of Czech Republic"
       />
       <CountrySummary
-        capital="Prague"
+        capital="Prague (Praha)"
         largestCities="Prague, Brno, Ostrava, Plzeň, Liberec"
         lang="Czech"
         currencies="CZK"

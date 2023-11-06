@@ -8,12 +8,12 @@ function Belgium() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Belgium shaped flag"
-        title="Belgium"
+        title="Belgium (België)"
         coat={coat}
         coatAlt="Coat of Arms of Belgium"
       />
       <CountrySummary
-        capital="Brussels"
+        capital="Brussels (Bruxelles)"
         largestCities="Brussels"
         lang="Dutch, French, German"
         currencies="€EUR"

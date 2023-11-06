@@ -8,12 +8,12 @@ function Albania() {
       <PageHeader
         flagmap={flamap}
         flagAlt="Albania shaped flag"
-        title="Albania"
+        title="Albania (Shqipëria)"
         coat={coat}
         coatAlt="Coat of Arms of Albania"
       />
       <CountrySummary
-        capital="Tirana"
+        capital="Tirana (Tiranë)"
         largestCities="Tirana"
         lang="Albanian"
         currencies="Lek (ALL)"

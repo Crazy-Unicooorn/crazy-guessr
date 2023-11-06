@@ -116,7 +116,7 @@ function LocalCountryNames() {
     { front: "Северна Македонија", back: "North Macedonia" },
     // ml: "Mali",
     { front: "Монгол Улс", back: "Mongolia" },
-    // mo: "Macao",
+    // mo: "Macau",
     // mp: "Northern Mariana Islands",
     // mq: "Martinique",
     // mt: "Malta",

@@ -4227,7 +4227,7 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
             }
           }}
         >
-          <title>Macao</title>
+          <title>Macau</title>
           <path
             d="M2121.1 567.502c.13-.08.24.421.15-.145.12.278.14.566.1.864-.1-.239-.15-.479-.22-.719"
             className="landxx cn mo"

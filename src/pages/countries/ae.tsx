@@ -8,12 +8,12 @@ function UnitedArabEmirates() {
       <PageHeader
         flagmap={flamap}
         flagAlt="U.A.E. shaped flag"
-        title="United Arab Emirates"
+        title="United Arab Emirates (الإمارات العربية المتحدة)"
         coat={coat}
         coatAlt="Coat of Arms of U.A.E."
       />
       <CountrySummary
-        capital="Abu Dhabi"
+        capital="Abu Dhabi (أبو ظبي)"
         largestCities="Dubai"
         lang="Arabic"
         currencies="UAE dirham (AED)"

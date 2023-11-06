@@ -1,5 +1,29 @@
+import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import flagmap from "../../assets/img/lt/flagmap.png";
+import coat from "../../assets/img/lt/coat.svg";
+
 function Lithuania() {
-  return <h1>Lithuania placeholder</h1>;
+  return (
+    <>
+      <PageHeader
+        flagmap={flagmap}
+        flagAlt="Lithuania shaped flag"
+        title="Lithuania (Lietuva)"
+        coat={coat}
+        coatAlt="Coat of Arms of Lithuania"
+      />
+      <CountrySummary
+        capital="Vilnius (Vilniaus miestas)"
+        largestCities="Vilnius, Kaunas, Klaipėda"
+        lang="Lithuanian"
+        currencies="€EUR"
+        iso="lt"
+        tld="lt"
+        callingCode="370"
+        drivingSide="R"
+      />
+    </>
+  );
 }
 
 export default Lithuania;

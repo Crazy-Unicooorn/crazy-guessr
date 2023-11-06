@@ -113,7 +113,7 @@ function WorldCallingCodes() {
     { front: "82", back: "South Korea" },
     { front: "84", back: "Vietnam" },
     { front: "852", back: "Hong Kong" },
-    { front: "853", back: "Macao" },
+    { front: "853", back: "Macau" },
     { front: "855", back: "Cambodia" },
     { front: "856", back: "Laos" },
     { front: "86", back: "China" },

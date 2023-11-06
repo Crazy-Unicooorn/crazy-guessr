@@ -1,5 +1,29 @@
+import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import flagmap from "../../assets/img/mk/flagmap.png";
+import coat from "../../assets/img/mk/coat.svg";
+
 function NorthMacedonia() {
-  return <h1>North Macedonia placeholder</h1>;
+  return (
+    <>
+      <PageHeader
+        flagmap={flagmap}
+        flagAlt="North Macedonia shaped flag"
+        title="North Macedonia (Република Северна Македонија)"
+        coat={coat}
+        coatAlt="Coat of Arms of North Macedonia"
+      />
+      <CountrySummary
+        capital="Skopje (Скопје)"
+        largestCities="Skopje, Bitola, Kumanovo, Prilep, Tetovo, Ohrid"
+        lang="Macedonian, Albanian"
+        currencies="denMKD"
+        iso="mk"
+        tld="mk"
+        callingCode="389"
+        drivingSide="R"
+      />
+    </>
+  );
 }
 
 export default NorthMacedonia;

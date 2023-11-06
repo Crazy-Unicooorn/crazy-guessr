@@ -96,7 +96,7 @@ import Bhutan from "./pages/countries/bt";
 import Australia from "./pages/countries/au";
 import China from "./pages/countries/cn";
 import HongKong from "./pages/countries/hk";
-import Macao from "./pages/countries/mo";
+import Macau from "./pages/countries/mo";
 import Taiwan from "./pages/countries/tw";
 import France from "./pages/countries/fr";
 import Martinique from "./pages/countries/mq";
@@ -240,7 +240,7 @@ function App() {
             <Route path="mk" element={<NorthMacedonia />} />
             <Route path="ml" element={<Mali />} />
             <Route path="mn" element={<Mongolia />} />
-            <Route path="mo" element={<Macao />} />
+            <Route path="mo" element={<Macau />} />
             <Route path="mp" element={<NothernMarianaIslands />} />
             <Route path="mq" element={<Martinique />} />
             <Route path="mt" element={<Malta />} />

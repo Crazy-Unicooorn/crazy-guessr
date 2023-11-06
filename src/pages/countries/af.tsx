@@ -8,12 +8,12 @@ function Afghanistan() {
       <PageHeader
         flagmap={flamap}
         flagAlt="Afghanistan shaped flag"
-        title="Afghanistan"
+        title="Afghanistan (افغانستان)"
         coat={coat}
         coatAlt="Coat of Arms of Afghanistan"
       />
       <CountrySummary
-        capital="Kabul"
+        capital="Kabul (کابل)"
         largestCities="Kabul"
         lang="Pashto & Dari"
         currencies="افغانی (AFN)"

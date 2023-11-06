@@ -8,12 +8,12 @@ function Curaçao() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Curaçao shaped flag"
-        title="Curaçao"
+        title="Curaçao (Kòrsou)"
         coat={coat}
         coatAlt="Coat of Arms of Curaçao"
       />
       <CountrySummary
-        capital="Willemstad"
+        capital="Willemstad (Punda)"
         largestCities="Willemstad, Sint Michiel Liber, Barber, Dorp Soto, Lagun"
         lang="Dutch, Papiamento, English"
         currencies="ƒANG"

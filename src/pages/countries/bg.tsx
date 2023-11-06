@@ -8,12 +8,12 @@ function Bulgaria() {
       <PageHeader
         flagmap={flagmap}
         flagAlt="Bulgaria shaped flag"
-        title="Bulgaria"
+        title="Bulgaria (България)"
         coat={coat}
         coatAlt="Coat of Arms of Bulgaria"
       />
       <CountrySummary
-        capital="Sofia"
+        capital="Sofia (София)"
         largestCities="Sofia, Plovdiv, Varna, Burgas"
         lang="Bulgarian"
         currencies="лвBGN"
