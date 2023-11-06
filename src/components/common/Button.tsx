@@ -14,7 +14,7 @@ interface StyledButtonProps {
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
   border: none;
-  background-color: ${(props) => (props.shadow === "dark" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)")};
+  background-color: ${(props) => (props.shadow === "dark" ? "rgba(0, 50, 200, 0.1)" : "rgba(80, 200, 255, 0.2)")};
   border-radius: 8px;
   padding: 0;
   cursor: pointer;

@@ -25,6 +25,10 @@ export const Paragraph = styled.div`
   border-radius: 0.5rem;
   font-weight: 500;
   margin-top: 0.5rem;
+
+  &::selection {
+    background-color: var(--background-color);
+  }
 `;
 
 export interface Card {

@@ -2,7 +2,6 @@ import LicensePlate from "../../components/tips/us/LicensePlate";
 import flagmap from "../../assets/img/us/flagmap.png";
 import coat from "../../assets/img/us/coat.svg";
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
-import Footer from "../../components/common/Footer";
 
 function UnitedStates() {
   return (
@@ -25,7 +24,6 @@ function UnitedStates() {
         drivingSide="R"
       />
       <LicensePlate />
-      <Footer />
     </>
   );
 }
