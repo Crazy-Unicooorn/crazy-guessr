@@ -5,6 +5,7 @@ import flagmap from "../../../assets/img/world/flagmap.png";
 import ad from "../../../assets/img/ad/flag.png";
 import ae from "../../../assets/img/ae/flag.webp";
 import af from "../../../assets/img/af/flag.png";
+import af2 from "../../../assets/img/af/flag2.svg";
 import al from "../../../assets/img/al/flag.png";
 import aq from "../../../assets/img/aq/flag.png";
 import ar from "../../../assets/img/ar/flag.png";
@@ -136,6 +137,7 @@ function WorldFlags() {
     { front: <img src={ad} alt="Drapeau d'un pays" style={style} />, back: "Andorra" },
     { front: <img src={ae} alt="Drapeau d'un pays" style={style} />, back: "United Arab Emirates" },
     { front: <img src={af} alt="Drapeau d'un pays" style={style} />, back: "Afghanistan" },
+    { front: <img src={af2} alt="Drapeau d'un pays" style={style} />, back: "Afghanistan" },
     { front: <img src={al} alt="Drapeau d'un pays" style={style} />, back: "Albania" },
     { front: <img src={aq} alt="Drapeau d'un pays" style={style} />, back: "Antarctica" },
     { front: <img src={ar} alt="Drapeau d'un pays" style={style} />, back: "Argentina" },

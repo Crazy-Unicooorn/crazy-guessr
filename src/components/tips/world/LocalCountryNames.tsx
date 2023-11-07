@@ -78,7 +78,7 @@ function LocalCountryNames() {
     { front: "ভারত", back: "India (Bengali)" },
     { front: "ભારત", back: "India (Gujarati)" },
     { front: "भारत", back: "India (Hindi / Kannada / Malayalam / Marthi / Nepalese)" },
-    { front: "ಭಾರತ", back: "India (Konkai)" },
+    { front: "ಭಾರತ", back: "India (Konkani)" },
     { front: "ഭാരതം", back: "India (Malayalam)" },
     { front: "ଭାରତ", back: "India (Oriya)" },
     { front: "ਭਾਰਤ", back: "India (Punjabi)" },

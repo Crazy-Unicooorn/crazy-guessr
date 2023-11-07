@@ -130,7 +130,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
   return (
     <>
       <Button
-        text="Recall Training"
+        text="Training Cards"
         collapseText
         onClick={toggleModal}
         hasIconRight
