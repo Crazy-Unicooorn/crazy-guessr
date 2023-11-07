@@ -5,7 +5,7 @@ import LocationIcon from "../../assets/icons/general/location";
 export const Tip = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   gap: 8px;
   margin-bottom: 32px;
   width: 100%;

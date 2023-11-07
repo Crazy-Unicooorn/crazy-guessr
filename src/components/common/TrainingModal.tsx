@@ -6,15 +6,6 @@ import DeckIcon from "../../assets/icons/general/deck";
 import ArrowRight from "../../assets/icons/directional/arrow_right";
 import { Card } from "./TipsBuilder";
 
-const Heading = styled.div`
-  text-transform: uppercase;
-
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  align-self: stretch;
-`;
-
 const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -57,7 +48,7 @@ const Modal = styled.div`
 
   max-height: 560px;
   height: 90%;
-  overflow: hidden;
+  // overflow: hidden;
 
   border-radius: 8px;
   background: var(--pastel-white);
@@ -67,12 +58,34 @@ const Modal = styled.div`
   box-shadow: var(--elevation-5);
 `;
 
+const Heading = styled.div`
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+`;
+
 const Front = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 0;
+  // height: 100%;
+  flex-grow: 9999;
+`;
+
+const Back = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  flex-grow: 1;
 `;
 
 const Feedback = styled.div`
@@ -83,7 +96,12 @@ const Feedback = styled.div`
   align-self: stretch;
 `;
 
-function TrainingModal({ cards }: { cards: Card[] }) {
+interface ModalProps {
+  cards: Card[];
+  displayFrontOnFrontSideOnly?: boolean;
+}
+
+function TrainingModal({ cards, displayFrontOnFrontSideOnly }: ModalProps) {
   const [displayModal, setDisplayModal] = useState(false);
   const [displayAnswer, setDisplayAnswer] = useState(false);
 
@@ -169,17 +187,22 @@ function TrainingModal({ cards }: { cards: Card[] }) {
                 }}
               />
             </Heading>
-            <Front>{randomCard.front}</Front>
+            {(displayFrontOnFrontSideOnly && displayAnswer) || <Front>{randomCard.front}</Front>}
             {displayAnswer && (
-              <>
+              <Back>
                 <h1
                   id="back"
                   style={{
+                    display: "flex",
+                    justifyContent: "center",
                     borderRadius: "8px",
                     border: "2px solid var(--pastel-pink, #DEA4C0)",
                     width: "100%",
+                    maxHeight: "100%",
+                    minHeight: "0",
                     padding: "8px",
                     textAlign: "center",
+                    flexGrow: 1,
                   }}
                 >
                   {randomCard.back}
@@ -211,7 +234,7 @@ function TrainingModal({ cards }: { cards: Card[] }) {
                     style={{ width: "100%" }}
                   />
                 </Feedback>
-              </>
+              </Back>
             )}
             {!displayAnswer && (
               <Button
@@ -234,5 +257,9 @@ function TrainingModal({ cards }: { cards: Card[] }) {
     </>
   );
 }
+
+TrainingModal.defaultProps = {
+  displayFrontOnFrontSideOnly: false,
+};
 
 export default TrainingModal;

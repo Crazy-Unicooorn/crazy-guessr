@@ -187,7 +187,7 @@ function LocalCountryNames() {
         <TrainingModal cards={localCountryNames} />
       </Head>
       <Paragraph>
-        Names of countries in their own languages. Recall Training only includes names that are different than the
+        Names of countries in their own languages. Training Cards only includes names that are different than the
         English ones. If you think some information is irrelevant for GeoGuessr, or if you spot any error please report
         that on Github.
       </Paragraph>
