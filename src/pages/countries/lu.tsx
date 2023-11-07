@@ -16,7 +16,7 @@ function Luxembourg() {
         capital="Luxembourg City"
         largestCities="Luxembourg City, Esch-sur-Alzette, Differdange, Dudelange"
         lang="Luxembourgish, French, German"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="lu"
         tld="lu"
         callingCode="352"

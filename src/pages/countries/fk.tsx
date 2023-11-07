@@ -16,7 +16,7 @@ function FalklandIslands() {
         capital="Stanley"
         largestCities="Stanley, Mount Pleasant, Fox Bay, Port Howard, Port Stephens"
         lang="English"
-        currencies="£FKP"
+        currencies="£ FKP"
         iso="FK"
         tld="fk"
         callingCode="500"

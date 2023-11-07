@@ -16,7 +16,7 @@ function IsleOfMan() {
         capital="Douglas"
         largestCities="Douglas, Ramsey, Peel, Castletown, Port Erin"
         lang="English, Manx"
-        currencies="£GBP"
+        currencies="£ GBP"
         iso="im"
         tld="im"
         callingCode="44"

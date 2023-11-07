@@ -16,7 +16,7 @@ function Australia() {
         capital="Canberra"
         largestCities="Sydney, Melbourne, Brisbane, Perth, Adelaide"
         lang="English"
-        currencies="$AUD"
+        currencies="$ AUD"
         iso="AU"
         tld="au"
         callingCode="61"

@@ -16,7 +16,7 @@ function Ghana() {
         capital="Accra"
         largestCities="Accra, Kumasi, Tamale, Sekondi-Takoradi, Ashiaman"
         lang="English"
-        currencies="₵GHS"
+        currencies="₵ GHS"
         iso="gh"
         tld="gh"
         callingCode="233"

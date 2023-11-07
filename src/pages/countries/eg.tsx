@@ -16,7 +16,7 @@ function Egypt() {
         capital="Cairo (القاهرة)"
         largestCities="Cairo, Alexandria, Giza"
         lang="Arabic"
-        currencies="E£EGP"
+        currencies="E£ EGP"
         iso="eg"
         tld="eg | مصر."
         callingCode="20"

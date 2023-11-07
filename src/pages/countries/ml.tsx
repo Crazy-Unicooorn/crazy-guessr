@@ -16,7 +16,7 @@ function Mali() {
         capital="Bamako"
         largestCities="Bamako, Sikasso, Mopti, Koutiala, Ségou"
         lang="French"
-        currencies="₣XOF"
+        currencies="₣ XOF"
         iso="ml"
         tld="ml"
         callingCode="223"

@@ -16,7 +16,7 @@ function France() {
         capital="Paris"
         largestCities="Paris, Marseille, Lyon, Toulouse, Nice"
         lang="French"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="fr"
         tld="fr"
         callingCode="33"

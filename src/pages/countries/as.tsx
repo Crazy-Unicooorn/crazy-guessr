@@ -15,8 +15,8 @@ function AmericanSamoa() {
       <CountrySummary
         capital="Pago Pago"
         largestCities="Tafuna"
-        lang="Samoan & English"
-        currencies="$USD"
+        lang="Samoan, English"
+        currencies="$ USD"
         iso="AS"
         tld="as"
         callingCode="1-684"

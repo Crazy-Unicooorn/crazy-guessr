@@ -16,7 +16,7 @@ function Japan() {
         capital="Tokyo (東京都)"
         largestCities="Tokyo, Yokohama, Osaka, Nagoya, Sapporo"
         lang="Japanese"
-        currencies="¥JPY"
+        currencies="¥ JPY"
         iso="jp"
         tld="jp"
         callingCode="81"

@@ -16,7 +16,7 @@ function Bangladesh() {
         capital="Dhaka (ঢাকা)"
         largestCities="Dhaka, Chittagong, Khulna, Rajshahi, Sylhet"
         lang="Bengali"
-        currencies="৳BDT"
+        currencies="৳ BDT"
         iso="BD"
         tld="bd and .বাংলা"
         callingCode="880"

@@ -16,7 +16,7 @@ function Brazil() {
         capital="Brasília"
         largestCities="São Paulo, Rio de Janeiro, Brasília, Fortaleza, Salvador"
         lang="Portuguese"
-        currencies="R$BRL"
+        currencies="R$ BRL"
         iso="br"
         tld="br"
         callingCode="55"

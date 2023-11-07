@@ -16,7 +16,7 @@ function Denmark() {
         capital="Copenhagen (København)"
         largestCities="Copenhagen, Aarhus, Odense, Aalborg, Frederiksberg"
         lang="Danish"
-        currencies="krDKK"
+        currencies="kr DKK"
         iso="DK"
         tld="dk"
         callingCode="45"

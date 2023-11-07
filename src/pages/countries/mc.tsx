@@ -12,7 +12,7 @@ function Monaco() {
         coat={coat}
         coatAlt="Coat of Arms of Monaco"
       />
-      <CountrySummary lang="French, Italian" currencies="€EUR" iso="mc" tld="mc" callingCode="377" drivingSide="R" />
+      <CountrySummary lang="French, Italian" currencies="€ EUR" iso="mc" tld="mc" callingCode="377" drivingSide="R" />
     </>
   );
 }

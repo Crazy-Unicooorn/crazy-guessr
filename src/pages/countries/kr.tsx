@@ -16,7 +16,7 @@ function SouthKorea() {
         capital="Seoul (서울)"
         largestCities="Seoul (서울), Busan (부산), Incheon (인천), Daegu (대구)"
         lang="Korean"
-        currencies="₩KRW"
+        currencies="₩ KRW"
         iso="kr"
         tld="kr | .한국"
         callingCode="82"

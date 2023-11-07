@@ -16,7 +16,7 @@ function India() {
         capital="New Delhi (नई दिल्ली)"
         largestCities="Mumbai (मुंबई), Delhi (दिल्ली), Bangalore (ಬೆಂಗಳೂರು), Hyderabad (హైదరాబాద్), Ahmedabad (અમદાવાદ)"
         lang="Hindi, English"
-        currencies="₹INR"
+        currencies="₹ INR"
         iso="in"
         tld="in"
         callingCode="91"

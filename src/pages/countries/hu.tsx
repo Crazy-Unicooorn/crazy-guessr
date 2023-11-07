@@ -16,7 +16,7 @@ function Hungary() {
         capital="Budapest"
         largestCities="Budapest, Debrecen, Szeged, Miskolc, Pécs"
         lang="Hungarian"
-        currencies="FtHUF"
+        currencies="Ft HUF"
         iso="hu"
         tld="hu"
         callingCode="36"

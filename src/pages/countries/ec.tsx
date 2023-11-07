@@ -16,7 +16,7 @@ function Ecuador() {
         capital="Quito"
         largestCities="Guayaquil, Quito, Cuenca"
         lang="Spanish"
-        currencies="$USD"
+        currencies="$ USD"
         iso="ec"
         tld="ec"
         callingCode="593"

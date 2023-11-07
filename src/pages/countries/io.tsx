@@ -16,7 +16,7 @@ function BritishIndianOceanTerritory() {
         capital="Diego Garcia"
         largestCities="Diego Garcia"
         lang="English"
-        currencies="$USD, £GBP"
+        currencies="$ USD, £GBP"
         iso="io"
         tld="io"
         callingCode="246"

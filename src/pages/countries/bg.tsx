@@ -16,7 +16,7 @@ function Bulgaria() {
         capital="Sofia (София)"
         largestCities="Sofia, Plovdiv, Varna, Burgas"
         lang="Bulgarian"
-        currencies="лвBGN"
+        currencies="лв BGN"
         iso="bg"
         tld="bg and .бг"
         callingCode="359"

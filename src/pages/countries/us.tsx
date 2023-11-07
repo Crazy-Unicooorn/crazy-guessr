@@ -17,7 +17,7 @@ function UnitedStates() {
         capital="Washington, D.C."
         largestCities="New York City"
         lang="None at the federal level"
-        currencies="$USD"
+        currencies="$ USD"
         iso="US"
         tld="us"
         callingCode={1}

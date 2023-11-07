@@ -16,7 +16,7 @@ function Israel() {
         capital="Jerusalem (יְרוּשָׁלַיִם)"
         largestCities="Jerusalem, Tel Aviv, Haifa, Rishon LeZion, Petah Tikva"
         lang="Hebrew, Arabic, English"
-        currencies="₪ILS"
+        currencies="₪ ILS"
         iso="il"
         tld="il"
         callingCode="972"

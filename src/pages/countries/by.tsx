@@ -16,7 +16,7 @@ function Belarus() {
         capital="Minsk (Мінск)"
         largestCities="Minsk, Gomel, Mogilev, Vitebsk, Grodno, Brest"
         lang="Belarusian, Russian"
-        currencies="BrBYN"
+        currencies="Br BYN"
         iso="by"
         tld="by & .бел"
         callingCode="375"

@@ -16,7 +16,7 @@ function FaroeIslands() {
         capital="Tórshavn"
         largestCities="Tórshavn, Klaksvík, Runavík, Tvøroyri"
         lang="Faroese, Danish"
-        currencies="krDKK"
+        currencies="kr DKK"
         iso="fo"
         tld="fo"
         callingCode="298"

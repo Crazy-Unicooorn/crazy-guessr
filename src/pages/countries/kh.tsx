@@ -16,7 +16,7 @@ function Cambodia() {
         capital="Phnom Penh (ភ្នំពេញ)"
         largestCities="Phnom Penh, Siem Reap, Battambang, Sihanoukville, Poipet"
         lang="Khmer"
-        currencies="៛KHR, $USD"
+        currencies="៛KHR, $ USD"
         iso="kh"
         tld="kh"
         callingCode="855"

@@ -12,7 +12,7 @@ function Gibraltar() {
         coat={coat}
         coatAlt="Coat of Arms of Gibraltar"
       />
-      <CountrySummary lang="English, Spanish" currencies="£GIP" iso="gi" tld="gi" callingCode="350" drivingSide="R" />
+      <CountrySummary lang="English, Spanish" currencies="£ GIP" iso="gi" tld="gi" callingCode="350" drivingSide="R" />
     </>
   );
 }

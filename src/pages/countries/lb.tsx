@@ -16,7 +16,7 @@ function Lebanon() {
         capital="Beirut (بيروت)"
         largestCities="Beirut (بيروت), Tripoli (طرابلس), Sidon (صيدا)"
         lang="Arabic, French"
-        currencies="ل.لLBP"
+        currencies="ل.ل LBP"
         iso="lb"
         tld="lb"
         callingCode="961"

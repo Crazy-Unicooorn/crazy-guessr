@@ -16,7 +16,7 @@ function Italy() {
         capital="Rome"
         largestCities="Rome, Milan, Naples, Turin, Palermo"
         lang="Italian"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="it"
         tld="it"
         callingCode="39"

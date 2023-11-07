@@ -16,7 +16,7 @@ function Curaçao() {
         capital="Willemstad (Punda)"
         largestCities="Willemstad, Sint Michiel Liber, Barber, Dorp Soto, Lagun"
         lang="Dutch, Papiamento, English"
-        currencies="ƒANG"
+        currencies="ƒ ANG"
         iso="CW"
         tld="cw"
         callingCode="599"

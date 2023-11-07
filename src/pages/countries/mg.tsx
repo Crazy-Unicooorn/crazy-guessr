@@ -16,7 +16,7 @@ function Madagascar() {
         capital="Antananarivo"
         largestCities="Antananarivo, Toamasina, Antsirabe, Fianarantsoa, Mahajanga"
         lang="Malagasy, French"
-        currencies="ArMGA"
+        currencies="Ar MGA"
         iso="mg"
         tld="mg"
         callingCode="261"

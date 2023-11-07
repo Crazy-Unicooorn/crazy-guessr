@@ -16,7 +16,7 @@ function Spain() {
         capital="Madrid"
         largestCities="Madrid, Barcelona, Valencia"
         lang="Spanish"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="es"
         tld="es"
         callingCode="34"

@@ -16,7 +16,7 @@ function Austria() {
         capital="Vienna (Wien)"
         largestCities="Vienna"
         lang="Austrian German"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="AT"
         tld="at"
         callingCode="43"

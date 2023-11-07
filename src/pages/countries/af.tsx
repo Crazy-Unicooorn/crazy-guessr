@@ -15,7 +15,7 @@ function Afghanistan() {
       <CountrySummary
         capital="Kabul (کابل)"
         largestCities="Kabul"
-        lang="Pashto & Dari"
+        lang="Pashto, Dari"
         currencies="افغانی (AFN)"
         iso="AF"
         tld="af"

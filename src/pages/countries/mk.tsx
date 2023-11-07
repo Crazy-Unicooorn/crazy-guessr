@@ -16,7 +16,7 @@ function NorthMacedonia() {
         capital="Skopje (Скопје)"
         largestCities="Skopje, Bitola, Kumanovo, Prilep, Tetovo, Ohrid"
         lang="Macedonian, Albanian"
-        currencies="denMKD"
+        currencies="den MKD"
         iso="mk"
         tld="mk"
         callingCode="389"

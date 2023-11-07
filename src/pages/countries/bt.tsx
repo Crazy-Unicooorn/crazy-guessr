@@ -16,7 +16,7 @@ function Bhutan() {
         capital="Thimphu (ཐིམ་ཕུ་)"
         largestCities="Thimphu"
         lang="Dzongkha"
-        currencies="NuBTN & ₹INR"
+        currencies="Nu BTN & ₹ INR"
         iso="bt"
         tld="bt"
         callingCode="975"

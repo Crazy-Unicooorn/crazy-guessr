@@ -16,7 +16,7 @@ function Greenland() {
         capital="Nuuk"
         largestCities="Nuuk, Sisimiut, Ilulissat, Qaqortoq, Aasiaat"
         lang="Greenlandic, Danish"
-        currencies="krDKK"
+        currencies="kr DKK"
         iso="gl"
         tld="gl"
         callingCode="299"

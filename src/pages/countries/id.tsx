@@ -16,7 +16,7 @@ function Indonesia() {
         capital="Jakarta"
         largestCities="Jakarta, Surabaya, Bandung, Bekasi, Medan"
         lang="Indonesian"
-        currencies="RpIDR"
+        currencies="Rp IDR"
         iso="id"
         tld="id"
         callingCode="62"

@@ -16,7 +16,7 @@ function SriLanka() {
         capital="Sri Jayawardenepura Kotte (ශ්‍රී ජයවර්ධනපුර කෝට්ටේ)"
         largestCities="Colombo (කොළඹ), Gampaha (ගම්පහ), Kandy (මහනුවර)"
         lang="Sinhala, Tamil, English"
-        currencies="RsLKR"
+        currencies="Rs LKR"
         iso="lk"
         tld="lk | .ලංකා | .இலங்கை"
         callingCode="94"

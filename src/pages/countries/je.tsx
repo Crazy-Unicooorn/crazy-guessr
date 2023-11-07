@@ -16,7 +16,7 @@ function Jersey() {
         capital="St Helier (Saint Hélyi)"
         largestCities="St Helier, St Saviour, Le Hocq, St Lawrence, St Clement"
         lang="English, Norman, French"
-        currencies="£GBP, £JEP"
+        currencies="£ GBP, £ JEP"
         iso="je"
         tld="je"
         callingCode="44"

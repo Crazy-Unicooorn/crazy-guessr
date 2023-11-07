@@ -16,7 +16,7 @@ function Finland() {
         capital="Helsinki (Helsingfors)"
         largestCities="Helsinki, Espoo, Tampere"
         lang="Finnish, Swedish"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="fi"
         tld="fi"
         callingCode="358"

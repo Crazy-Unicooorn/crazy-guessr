@@ -14,7 +14,7 @@ function HongKong() {
       />
       <CountrySummary
         lang="English, Chinese, Cantonese"
-        currencies="$HKD"
+        currencies="$ HKD"
         iso="hk"
         tld="hk | .香港"
         callingCode="852"

@@ -16,7 +16,7 @@ function Argentina() {
         capital="Buenos Aires"
         largestCities="Buenos Aires"
         lang="Spanish"
-        currencies="$ARS"
+        currencies="$ ARS"
         iso="AR"
         tld="ar"
         callingCode={54}

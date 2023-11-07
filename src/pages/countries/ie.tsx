@@ -16,7 +16,7 @@ function Ireland() {
         capital="Dublin"
         largestCities="Dublin, Cork, Limerick, Galway, Waterford"
         lang="Irish, English"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="ie"
         tld="ie"
         callingCode="353"

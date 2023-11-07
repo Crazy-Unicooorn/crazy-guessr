@@ -17,7 +17,7 @@ function Canada() {
         capital="Ottawa"
         largestCities="Toronto, Montreal, Vancouver, Calgary, Edmonton, Quebec City"
         lang="English, French"
-        currencies="$CAD"
+        currencies="$ CAD"
         iso="ca"
         tld="ca"
         callingCode="1"

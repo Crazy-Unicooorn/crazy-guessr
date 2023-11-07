@@ -16,7 +16,7 @@ function Germany() {
         capital="Berlin"
         largestCities="Berlin, Hamburg, Munich, Cologne, Frankfurt"
         lang="German"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="DE"
         tld="de"
         callingCode="49"

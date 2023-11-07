@@ -16,7 +16,7 @@ function Mongolia() {
         capital="Ulaanbaatar (Улаанбаатар)"
         largestCities="Ulaanbaatar, Erdenet, Darkhan, Choibalsan, Khovd"
         lang="Mongolian"
-        currencies="₮MNT"
+        currencies="₮ MNT"
         iso="mn"
         tld="mn | .мон"
         callingCode="976"

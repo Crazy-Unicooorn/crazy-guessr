@@ -16,7 +16,7 @@ function Montenegro() {
         capital="Podgorica (Подгорица)"
         largestCities="Podgorica, Nikšić, Pljevlja, Bijelo Polje, Cetinje"
         lang="Montenegrin"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="me"
         tld="me"
         callingCode="382"

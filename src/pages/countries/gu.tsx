@@ -16,7 +16,7 @@ function Guam() {
         capital="Hagåtña"
         largestCities="Dededo, Yigo, Tamuning, Mangilao, Barrigada"
         lang="English, Chamoru"
-        currencies="$USD"
+        currencies="$ USD"
         iso="gu"
         tld="gu"
         callingCode="1-671"

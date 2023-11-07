@@ -16,7 +16,7 @@ function Croatia() {
         capital="Zagreb"
         largestCities="Zagreb, Split, Rijeka, Osijek, Zadar"
         lang="Croatian"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="hr"
         tld="hr"
         callingCode="385"

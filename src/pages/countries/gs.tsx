@@ -16,7 +16,7 @@ function SouthGeorgia() {
         capital="King Edward Point"
         largestCities="King Edward Point, Grytviken, Stromness, Leith Harbour, Husvik"
         lang="English"
-        currencies="£FKP"
+        currencies="£ FKP"
         iso="gs"
         tld="gs"
         callingCode="500"

@@ -16,7 +16,7 @@ function Bermuda() {
         capital="Hamilton"
         largestCities="Hamilton, St. George's, Somerset Village, Tucker's Town"
         lang="English"
-        currencies="$BMD"
+        currencies="$ BMD"
         iso="bm"
         tld="bm"
         callingCode="1-441"

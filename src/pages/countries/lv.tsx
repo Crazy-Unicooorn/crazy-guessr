@@ -16,7 +16,7 @@ function Latvia() {
         capital="Riga"
         largestCities="Riga, Daugavpils, Liepāja, Jelgava, Jūrmala"
         lang="Latvian"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="lv"
         tld="lv"
         callingCode="371"

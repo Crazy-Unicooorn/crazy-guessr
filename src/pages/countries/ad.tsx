@@ -16,7 +16,7 @@ function Andorra() {
         capital="Andorra la Vella"
         largestCities="Andorra la Vella"
         lang="Catalan"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="AD"
         tld="ad"
         callingCode={376}

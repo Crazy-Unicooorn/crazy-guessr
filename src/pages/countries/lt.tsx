@@ -16,7 +16,7 @@ function Lithuania() {
         capital="Vilnius (Vilniaus miestas)"
         largestCities="Vilnius, Kaunas, Klaipėda"
         lang="Lithuanian"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="lt"
         tld="lt"
         callingCode="370"

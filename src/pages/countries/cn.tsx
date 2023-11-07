@@ -16,7 +16,7 @@ function China() {
         capital="Beijing (北京)"
         largestCities="Shanghai, Beijing, Guangzhou, Shenzhen, Chengdu, Tianjin"
         lang="Standard Chinese"
-        currencies="¥CNY"
+        currencies="¥ CNY"
         iso="cn"
         tld="cn | .中国 | .中國"
         callingCode="86"

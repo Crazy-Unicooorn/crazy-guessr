@@ -16,7 +16,7 @@ function Belgium() {
         capital="Brussels (Bruxelles)"
         largestCities="Brussels"
         lang="Dutch, French, German"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="BE"
         tld="be"
         callingCode="32"

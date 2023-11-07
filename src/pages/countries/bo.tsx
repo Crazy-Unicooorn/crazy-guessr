@@ -16,7 +16,7 @@ function Bolivia() {
         capital="Sucre"
         largestCities="Santa Cruz de la Sierra, La Paz, Sucre"
         lang="Spanish, Quechua, Aymara, Guarani, ..."
-        currencies="BsBOB"
+        currencies="Bs BOB"
         iso="bo"
         tld="bo"
         callingCode="591"

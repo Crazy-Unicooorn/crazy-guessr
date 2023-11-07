@@ -16,7 +16,7 @@ function Greece() {
         capital="Athens (Αθήνα, Athína)"
         largestCities="Athens, Thessaloniki, Patras, Heraklion, Larissa"
         lang="Greek"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="gr"
         tld="gr | .ελ"
         callingCode="30"

@@ -16,7 +16,7 @@ function Estonia() {
         capital="Tallinn"
         largestCities="Tallinn, Tartu, Narva"
         lang="Estonian"
-        currencies="€EUR"
+        currencies="€ EUR"
         iso="ee"
         tld="ee"
         callingCode="372"

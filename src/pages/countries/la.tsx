@@ -16,7 +16,7 @@ function Laos() {
         capital="Vientiane (ວຽງຈັນ)"
         largestCities="Vientiane (ວຽງຈັນ), Pakse (ປາກເຊ), Savannakhet (ສະຫວັນນະເຂດ)"
         lang="Lao"
-        currencies="₭LAK"
+        currencies="₭ LAK"
         iso="la"
         tld="la"
         callingCode="856"
