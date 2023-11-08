@@ -104,12 +104,31 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
     setStartY(mouseEvent.clientY);
   }
 
-  function handleTouchStart(touchEvent: React.TouchEvent<SVGSVGElement>) {
-    touchEvent.preventDefault();
-    setIsDragging(true);
-    setStartX(touchEvent.touches[0].clientX);
-    setStartY(touchEvent.touches[0].clientY);
-  }
+  // function handleTouchStart(touchEvent: React.TouchEvent<SVGSVGElement>) {
+  //   touchEvent.preventDefault();
+  //   setIsDragging(true);
+  //   setStartX(touchEvent.touches[0].clientX);
+  //   setStartY(touchEvent.touches[0].clientY);
+  // }
+
+  useEffect(() => {
+    const svgElement = mapRef.current;
+
+    function handleTouchStart(touchEvent: TouchEvent) {
+      touchEvent.preventDefault();
+      setIsDragging(true);
+      setStartX(touchEvent.touches[0].clientX);
+      setStartY(touchEvent.touches[0].clientY);
+    }
+
+    if (svgElement) {
+      svgElement.addEventListener("touchstart", handleTouchStart, { passive: false });
+
+      return () => {
+        svgElement.removeEventListener("touchstart", handleTouchStart);
+      };
+    }
+  }, []);
 
   function handleMouseUp() {
     if (svg) {
@@ -196,12 +215,12 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
       version="1.1"
       style={{ cursor: "grab", borderRadius: 8 }}
       onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleMouseUp}
+      // onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
+      onTouchEnd={handleMouseUp}
     >
       <path
         className="oceanxx"
