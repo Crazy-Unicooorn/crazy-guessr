@@ -198,44 +198,63 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
   const MAX_VIEWBOX_HEIGHT = 1398;
   const VIEWBOX_PADDING_X = 30;
   const VIEWBOX_PADDING_Y = 61;
-  const ZOOM_FACTOR = 1.04;
+  const ZOOM_FACTOR = 1.01;
+
+  const getViewBoxValues = () => {
+    if (!svg) {
+      return { x: 0, y: 0, width: 0, height: 0 };
+    }
+    const viewBoxValues = svg.getAttribute("viewBox")!.split(" ").map(Number);
+    return {
+      x: viewBoxValues[0],
+      y: viewBoxValues[1],
+      width: viewBoxValues[2],
+      height: viewBoxValues[3],
+    };
+  };
+
+  const updateViewBox = (
+    newViewBoxX: number,
+    newViewBoxY: number,
+    newViewBoxWidth: number,
+    newViewBoxHeight: number
+  ) => {
+    const scaledViewBox = [newViewBoxX, newViewBoxY, newViewBoxWidth, newViewBoxHeight].join(" ");
+    if (!svg) {
+      return;
+    }
+    svg.setAttribute("viewBox", scaledViewBox);
+  };
 
   useGesture(
     {
       onDrag: (e) => {
-        if (!svg) {
+        if (!svg || (e.event instanceof PointerEvent && e.event.pointerType === "mouse")) {
           return;
         }
 
-        console.log("dragging");
-
-        const [viewBoxX, viewBoxY, viewBoxWidth, viewBoxHeight] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+        const { x, y, width, height } = getViewBoxValues();
 
         const clientX = e.offset[0];
         const clientY = e.offset[1];
+        // const { clientX } = e.event;
+        // const { clientY } = e.event;
 
-        // Limit the viewBox within specified boundaries
         const newViewBoxX = Math.max(
           -VIEWBOX_PADDING_X,
-          Math.min(
-            MAX_VIEWBOX_WIDTH - viewBoxWidth + VIEWBOX_PADDING_X,
-            viewBoxX - (clientX - startX) * (viewBoxWidth / svg.clientWidth)
-          )
+          Math.min(MAX_VIEWBOX_WIDTH - width + VIEWBOX_PADDING_X, x - (clientX - startX) * (width / svg.clientWidth))
         );
         const newViewBoxY = Math.max(
           -VIEWBOX_PADDING_Y,
           Math.min(
-            MAX_VIEWBOX_HEIGHT - viewBoxHeight + VIEWBOX_PADDING_Y,
-            viewBoxY - (clientY - startY) * (viewBoxHeight / svg.clientHeight)
+            MAX_VIEWBOX_HEIGHT - height + VIEWBOX_PADDING_Y,
+            y - (clientY - startY) * (height / svg.clientHeight)
           )
         );
 
-        // if (newViewBoxX !== viewBoxX || newViewBoxY !== viewBoxY) {
-        //   setPreventClick(true);
-        // }
-
-        const scaledViewBox = [newViewBoxX, newViewBoxY, viewBoxWidth, viewBoxHeight].join(" ");
-        svg.setAttribute("viewBox", scaledViewBox);
+        if (newViewBoxX !== x || newViewBoxY !== y) {
+          updateViewBox(newViewBoxX, newViewBoxY, width, height);
+        }
 
         setStartX(clientX);
         setStartY(clientY);
@@ -245,26 +264,24 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           return;
         }
 
-        console.log("pinching");
-
-        const [viewBoxX, viewBoxY, viewBoxWidth, viewBoxHeight] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+        const { x, y, width, height } = getViewBoxValues();
 
         const centerX = e.offset[0];
         const centerY = e.offset[1];
         const zoomDirection = e.direction[0] < 0 ? 1 : -1;
 
-        let newViewBoxWidth = viewBoxWidth;
-        let newViewBoxHeight = viewBoxHeight;
+        let newViewBoxWidth = width;
+        let newViewBoxHeight = height;
 
         if (zoomDirection < 0) {
-          if (viewBoxHeight < MIN_VIEWBOX_HEIGHT || viewBoxWidth < MIN_VIEWBOX_WIDTH) {
+          if (height < MIN_VIEWBOX_HEIGHT || width < MIN_VIEWBOX_WIDTH) {
             return;
           }
 
           newViewBoxWidth /= ZOOM_FACTOR;
           newViewBoxHeight /= ZOOM_FACTOR;
         } else if (zoomDirection > 0) {
-          if (viewBoxHeight >= MAX_VIEWBOX_HEIGHT || viewBoxWidth >= MAX_VIEWBOX_WIDTH) {
+          if (height >= MAX_VIEWBOX_HEIGHT || width >= MAX_VIEWBOX_WIDTH) {
             svg.setAttribute(
               "viewBox",
               `${-VIEWBOX_PADDING_X} ${VIEWBOX_PADDING_Y} ${MAX_VIEWBOX_WIDTH} ${MAX_VIEWBOX_HEIGHT}`
@@ -276,11 +293,10 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           newViewBoxHeight *= ZOOM_FACTOR;
         }
 
-        const newViewBoxX = viewBoxX - (newViewBoxWidth - viewBoxWidth) * (centerX / svg.clientWidth);
-        const newViewBoxY = viewBoxY - (newViewBoxHeight - viewBoxHeight) * (centerY / svg.clientHeight);
+        const newViewBoxX = x - (newViewBoxWidth - width) * (centerX / svg.clientWidth);
+        const newViewBoxY = y - (newViewBoxHeight - height) * (centerY / svg.clientHeight);
 
-        const scaledViewBox = [newViewBoxX, newViewBoxY, newViewBoxWidth, newViewBoxHeight].join(" ");
-        svg.setAttribute("viewBox", scaledViewBox);
+        updateViewBox(newViewBoxX, newViewBoxY, newViewBoxWidth, newViewBoxHeight);
       },
     },
     {
