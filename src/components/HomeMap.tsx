@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
+import { useGesture } from "@use-gesture/react";
 import TrekkerIcon from "../assets/icons/general/trekker";
 import RightDriveIcon from "../assets/icons/general/rightDrive";
 import LeftDriveIcon from "../assets/icons/general/leftDrive";
@@ -111,24 +112,24 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
   //   setStartY(touchEvent.touches[0].clientY);
   // }
 
-  useEffect(() => {
-    const svgElement = mapRef.current;
+  // useEffect(() => {
+  //   const svgElement = mapRef.current;
 
-    function handleTouchStart(touchEvent: TouchEvent) {
-      touchEvent.preventDefault();
-      setIsDragging(true);
-      setStartX(touchEvent.touches[0].clientX);
-      setStartY(touchEvent.touches[0].clientY);
-    }
+  //   function handleTouchStart(touchEvent: TouchEvent) {
+  //     touchEvent.preventDefault();
+  //     setIsDragging(true);
+  //     setStartX(touchEvent.touches[0].clientX);
+  //     setStartY(touchEvent.touches[0].clientY);
+  //   }
 
-    if (svgElement) {
-      svgElement.addEventListener("touchstart", handleTouchStart, { passive: false });
+  //   if (svgElement) {
+  //     svgElement.addEventListener("touchstart", handleTouchStart, { passive: false });
 
-      return () => {
-        svgElement.removeEventListener("touchstart", handleTouchStart);
-      };
-    }
-  }, []);
+  //     return () => {
+  //       svgElement.removeEventListener("touchstart", handleTouchStart);
+  //     };
+  //   }
+  // }, []);
 
   function handleMouseUp() {
     if (svg) {
@@ -191,6 +192,103 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
     }
   }
 
+  const MIN_VIEWBOX_WIDTH = 100;
+  const MAX_VIEWBOX_WIDTH = 2754;
+  const MIN_VIEWBOX_HEIGHT = 100;
+  const MAX_VIEWBOX_HEIGHT = 1398;
+  const VIEWBOX_PADDING_X = 30;
+  const VIEWBOX_PADDING_Y = 61;
+  const ZOOM_FACTOR = 1.04;
+
+  useGesture(
+    {
+      onDrag: (e) => {
+        if (!svg) {
+          return;
+        }
+
+        console.log("dragging");
+
+        const [viewBoxX, viewBoxY, viewBoxWidth, viewBoxHeight] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+
+        const clientX = e.offset[0];
+        const clientY = e.offset[1];
+
+        // Limit the viewBox within specified boundaries
+        const newViewBoxX = Math.max(
+          -VIEWBOX_PADDING_X,
+          Math.min(
+            MAX_VIEWBOX_WIDTH - viewBoxWidth + VIEWBOX_PADDING_X,
+            viewBoxX - (clientX - startX) * (viewBoxWidth / svg.clientWidth)
+          )
+        );
+        const newViewBoxY = Math.max(
+          -VIEWBOX_PADDING_Y,
+          Math.min(
+            MAX_VIEWBOX_HEIGHT - viewBoxHeight + VIEWBOX_PADDING_Y,
+            viewBoxY - (clientY - startY) * (viewBoxHeight / svg.clientHeight)
+          )
+        );
+
+        // if (newViewBoxX !== viewBoxX || newViewBoxY !== viewBoxY) {
+        //   setPreventClick(true);
+        // }
+
+        const scaledViewBox = [newViewBoxX, newViewBoxY, viewBoxWidth, viewBoxHeight].join(" ");
+        svg.setAttribute("viewBox", scaledViewBox);
+
+        setStartX(clientX);
+        setStartY(clientY);
+      },
+      onPinch: (e) => {
+        if (!svg) {
+          return;
+        }
+
+        console.log("pinching");
+
+        const [viewBoxX, viewBoxY, viewBoxWidth, viewBoxHeight] = svg.getAttribute("viewBox")!.split(" ").map(Number);
+
+        const centerX = e.offset[0];
+        const centerY = e.offset[1];
+        const zoomDirection = e.direction[0] < 0 ? 1 : -1;
+
+        let newViewBoxWidth = viewBoxWidth;
+        let newViewBoxHeight = viewBoxHeight;
+
+        if (zoomDirection < 0) {
+          if (viewBoxHeight < MIN_VIEWBOX_HEIGHT || viewBoxWidth < MIN_VIEWBOX_WIDTH) {
+            return;
+          }
+
+          newViewBoxWidth /= ZOOM_FACTOR;
+          newViewBoxHeight /= ZOOM_FACTOR;
+        } else if (zoomDirection > 0) {
+          if (viewBoxHeight >= MAX_VIEWBOX_HEIGHT || viewBoxWidth >= MAX_VIEWBOX_WIDTH) {
+            svg.setAttribute(
+              "viewBox",
+              `${-VIEWBOX_PADDING_X} ${VIEWBOX_PADDING_Y} ${MAX_VIEWBOX_WIDTH} ${MAX_VIEWBOX_HEIGHT}`
+            );
+            return;
+          }
+
+          newViewBoxWidth *= ZOOM_FACTOR;
+          newViewBoxHeight *= ZOOM_FACTOR;
+        }
+
+        const newViewBoxX = viewBoxX - (newViewBoxWidth - viewBoxWidth) * (centerX / svg.clientWidth);
+        const newViewBoxY = viewBoxY - (newViewBoxHeight - viewBoxHeight) * (centerY / svg.clientHeight);
+
+        const scaledViewBox = [newViewBoxX, newViewBoxY, newViewBoxWidth, newViewBoxHeight].join(" ");
+        svg.setAttribute("viewBox", scaledViewBox);
+      },
+    },
+    {
+      target: mapRef,
+      eventOptions: { passive: false },
+    }
+  );
+
   function handleMouseMove(mouseEvent: React.MouseEvent<SVGSVGElement>) {
     if (isDragging) {
       mouseEvent.preventDefault();
@@ -198,12 +296,12 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
     }
   }
 
-  function handleTouchMove(touchEvent: React.TouchEvent<SVGSVGElement>) {
-    if (isDragging) {
-      touchEvent.preventDefault();
-      panSVG(touchEvent);
-    }
-  }
+  // function handleTouchMove(touchEvent: React.TouchEvent<SVGSVGElement>) {
+  //   if (isDragging) {
+  //     // touchEvent.preventDefault();
+  //     panSVG(touchEvent);
+  //   }
+  // }
 
   return (
     <svg
@@ -213,14 +311,14 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
       width="100%"
       viewBox="-30 61 2754 1398"
       version="1.1"
-      style={{ cursor: "grab", borderRadius: 8 }}
+      style={{ cursor: "grab", borderRadius: 8, touchAction: "none" }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
       // onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleMouseUp}
+      // onTouchMove={handleTouchMove}
+      // onTouchEnd={handleMouseUp}
     >
       <path
         className="oceanxx"
