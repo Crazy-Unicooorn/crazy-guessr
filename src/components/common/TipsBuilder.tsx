@@ -26,6 +26,8 @@ export const Paragraph = styled.div`
   font-weight: 500;
   margin-top: 0.5rem;
 
+  width: 100%;
+
   &::selection {
     background-color: var(--background-color);
   }

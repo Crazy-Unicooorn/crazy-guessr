@@ -5532,22 +5532,38 @@ function HomeMap() {
   const colorNone = "white";
 
   return (
-    <MapContainer>
-      <Legend>
-        <LegendItem color={`${colorLHD}`} icon={<LeftDriveIcon size={24} />} text="Left Side Driving" />
-        <LegendItem color={`${colorRHD}`} icon={<RightDriveIcon size={24} />} text="Right Side Driving" />
-        <LegendItem color={`${colorTrekker}`} icon={<TrekkerIcon size={24} />} text="Trekkers only" />
-        <LegendItem color={`${colorUpcoming}`} icon={<UpcomingIcon size={24} />} text="Upcoming Streetview" />
-        <LegendItem color={`${colorNone}`} icon={<StopIcon size={24} />} text="No Streetview" />
-      </Legend>
-      <SVGMap
-        colorLHD={colorLHD}
-        colorRHD={colorRHD}
-        colorTrekker={colorTrekker}
-        colorNone={colorNone}
-        colorUpcoming={colorUpcoming}
-      />
-    </MapContainer>
+    <>
+      <h2
+        style={{
+          width: "100%",
+          textAlign: "left",
+          maxWidth: "100rem",
+          marginBottom: "-1rem",
+        }}
+      >
+        Click on a country to access its page. New tips added regularly, feel free to suggest on{" "}
+        <a href="https://github.com/Crazy-Unicooorn/crazy-guessr/issues" target="_blank" rel="noopener noreferrer">
+          Github
+        </a>
+        .
+      </h2>
+      <MapContainer>
+        <Legend>
+          <LegendItem color={`${colorLHD}`} icon={<LeftDriveIcon size={24} />} text="Left Side Driving" />
+          <LegendItem color={`${colorRHD}`} icon={<RightDriveIcon size={24} />} text="Right Side Driving" />
+          <LegendItem color={`${colorTrekker}`} icon={<TrekkerIcon size={24} />} text="Trekkers only" />
+          <LegendItem color={`${colorUpcoming}`} icon={<UpcomingIcon size={24} />} text="Upcoming Streetview" />
+          <LegendItem color={`${colorNone}`} icon={<StopIcon size={24} />} text="No Streetview" />
+        </Legend>
+        <SVGMap
+          colorLHD={colorLHD}
+          colorRHD={colorRHD}
+          colorTrekker={colorTrekker}
+          colorNone={colorNone}
+          colorUpcoming={colorUpcoming}
+        />
+      </MapContainer>
+    </>
   );
 }
 

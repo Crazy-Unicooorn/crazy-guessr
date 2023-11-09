@@ -84,7 +84,7 @@ const Back = styled.div`
   gap: 1rem;
   width: 100%;
   max-height: 100%;
-  min-height: 0;
+  min-height: 8rem;
   flex-grow: 1;
 `;
 
