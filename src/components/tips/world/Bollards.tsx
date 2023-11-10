@@ -662,7 +662,7 @@ import UnitedStates73 from "../../../assets/img/world/bollards/bollard_560.jpg";
 import Uruguay from "../../../assets/img/world/bollards/bollard_231.jpg";
 
 function BollardsWorld() {
-  const alt = "Bollards";
+  const alt = "Bollard";
   const style = { maxHeight: "100%", minHeight: "0", borderRadius: "0.5rem" };
 
   function img(src: string) {
