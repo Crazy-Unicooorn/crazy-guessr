@@ -99,9 +99,11 @@ const Feedback = styled.div`
 interface ModalProps {
   cards: Card[];
   displayFrontOnFrontSideOnly?: boolean;
+  btnText?: string;
+  shrinkBtn?: boolean;
 }
 
-function TrainingModal({ cards, displayFrontOnFrontSideOnly }: ModalProps) {
+function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn }: ModalProps) {
   const [displayModal, setDisplayModal] = useState(false);
   const [displayAnswer, setDisplayAnswer] = useState(false);
 
@@ -148,8 +150,8 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly }: ModalProps) {
   return (
     <>
       <Button
-        text="Training Cards"
-        collapseText
+        text={btnText}
+        collapseText={shrinkBtn}
         onClick={toggleModal}
         hasIconRight
         iconRight={<DeckIcon size={24} fill="#000" />}
@@ -260,6 +262,8 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly }: ModalProps) {
 
 TrainingModal.defaultProps = {
   displayFrontOnFrontSideOnly: false,
+  btnText: "Training Cards",
+  shrinkBtn: true,
 };
 
 export default TrainingModal;
