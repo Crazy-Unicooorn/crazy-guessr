@@ -197,6 +197,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                   style={{
                     display: "flex",
                     justifyContent: "center",
+                    alignItems: "center",
                     borderRadius: "8px",
                     border: "2px solid var(--pastel-pink, #DEA4C0)",
                     width: "100%",
