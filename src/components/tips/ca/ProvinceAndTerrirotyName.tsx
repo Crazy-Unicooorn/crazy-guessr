@@ -2,6 +2,7 @@ import Separator from "../../common/Separator";
 import { Tip, Head, Card } from "../../common/TipsBuilder";
 import TrainingModal from "../../common/TrainingModal";
 import image from "../../../assets/img/ca/Political_map_of_Canada.png";
+import image2 from "../../../assets/img/ca/caWorldAtlas.jpg";
 import ImageMagnifier from "../../common/ImageMagnifier";
 import emptyMap from "../../../assets/img/ca/ProvinceAndTerritory/empty.png";
 import alberta from "../../../assets/img/ca/ProvinceAndTerritory/alberta.png";
@@ -132,6 +133,7 @@ function ProvinceAndTerritoryName() {
         alt="Map of Canada with provinces and territories"
         style={{ backgroundColor: "var(--pastel-yellow)", maxWidth: "1000px" }}
       />
+      <ImageMagnifier src={image2} alt="Map of Canada with provinces and territories" />
     </Tip>
   );
 }

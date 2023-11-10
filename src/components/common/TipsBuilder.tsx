@@ -6,8 +6,8 @@ export const Tip = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 32px;
+  gap: 1rem;
+  margin-bottom: 2rem;
   width: 100%;
 `;
 
@@ -15,7 +15,7 @@ export const Head = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 `;
 
 export const Paragraph = styled.div`
