@@ -1275,13 +1275,13 @@ function BollardsWorld() {
     { front: img(AustraliaCocosIslands), back: "Cocos Islands (Australia)" },
     { front: img(ChristmasIsland), back: "Christmas Island (Australia)" },
     { front: img(ChristmasIsland2), back: "Christmas Island (Australia)" },
-    { front: img(NewZealand), back: "NewZealand" },
-    { front: img(NewZealand2), back: "NewZealand" },
-    { front: img(NewZealand3), back: "NewZealand" },
-    { front: img(NewZealand4), back: "NewZealand" },
-    { front: img(NewZealand5), back: "NewZealand" },
-    { front: img(NewZealand6), back: "NewZealand" },
-    { front: img(NewZealand7), back: "NewZealand" },
+    { front: img(NewZealand), back: "New Zealand" },
+    { front: img(NewZealand2), back: "New Zealand" },
+    { front: img(NewZealand3), back: "New Zealand" },
+    { front: img(NewZealand4), back: "New Zealand" },
+    { front: img(NewZealand5), back: "New Zealand" },
+    { front: img(NewZealand6), back: "New Zealand" },
+    { front: img(NewZealand7), back: "New Zealand" },
   ];
 
   const SouthAmericaCards: Card[] = [
