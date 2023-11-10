@@ -139,7 +139,7 @@ function WorldFlags() {
     { front: <img src={af} alt="Drapeau d'un pays" style={style} />, back: "Afghanistan" },
     { front: <img src={af2} alt="Drapeau d'un pays" style={style} />, back: "Afghanistan" },
     { front: <img src={al} alt="Drapeau d'un pays" style={style} />, back: "Albania" },
-    { front: <img src={aq} alt="Drapeau d'un pays" style={style} />, back: "Antarctica" },
+    { front: <img src={aq} alt="Drapeau d'un pays" style={style} />, back: "Antarctica (unofficial)" },
     { front: <img src={ar} alt="Drapeau d'un pays" style={style} />, back: "Argentina" },
     { front: <img src={as} alt="Drapeau d'un pays" style={style} />, back: "American Samoa" },
     { front: <img src={at} alt="Drapeau d'un pays" style={style} />, back: "Austria" },
