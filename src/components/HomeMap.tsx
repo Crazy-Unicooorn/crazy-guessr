@@ -198,7 +198,7 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
   const MAX_VIEWBOX_HEIGHT = 1398;
   const VIEWBOX_PADDING_X = 30;
   const VIEWBOX_PADDING_Y = 61;
-  const ZOOM_FACTOR = 1.01;
+  const ZOOM_FACTOR = 1.02;
 
   const getViewBoxValues = () => {
     if (!svg) {
