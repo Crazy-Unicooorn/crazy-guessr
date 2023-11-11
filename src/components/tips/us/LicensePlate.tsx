@@ -42,6 +42,7 @@ function LicensePlate() {
     align-items: center;
     gap: 1rem;
     height: 6rem;
+    max-height: 100%;
   `;
   const styleImage = { maxHeight: "100%", borderRadius: "0.5rem" };
   const cards: Card[] = [
