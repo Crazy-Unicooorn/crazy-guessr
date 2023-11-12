@@ -67,8 +67,9 @@ function LicensePlate() {
     gap: 1rem;
     max-height: 8rem;
     height: 100%;
+    width: 100%;
   `;
-  const styleImage = { height: "100%", borderRadius: "0.5rem" };
+  const styleImage = { maxHeight: "100%", minHeight: "0", maxWidth: "100%", minWidth: "0", borderRadius: "0.5rem" };
 
   function img(src: string) {
     return <img src={src} alt="A blurred license plate" style={styleImage} />;
