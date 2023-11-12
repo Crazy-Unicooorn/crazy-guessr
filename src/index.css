@@ -37,6 +37,8 @@ picture,
 video {
   display: block;
   max-width: 100%;
+  min-width: 0;
+  min-height: 0;
 }
 
 /* Changing the look of the scrollbar */
