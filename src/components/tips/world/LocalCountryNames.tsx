@@ -35,7 +35,7 @@ function LocalCountryNames() {
     { front: "Svizzera", back: "Switzerland (Italian)" },
     { front: "Svizra", back: "Switzerland (Romansh)" },
     // cl: "Chile",
-    { front: "Zhōngguó", back: "China" },
+    // { front: "Zhōngguó", back: "China" },
     { front: "中国", back: "China" },
     // co: "Colombia",
     // cr: "Costa Rica",

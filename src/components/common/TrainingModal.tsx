@@ -96,6 +96,12 @@ const Feedback = styled.div`
   align-self: stretch;
 `;
 
+interface RandomCard {
+  front: string | JSX.Element;
+  back: string | JSX.Element;
+  weight?: number | undefined;
+}
+
 interface ModalProps {
   cards: Card[];
   displayFrontOnFrontSideOnly?: boolean;
@@ -106,44 +112,61 @@ interface ModalProps {
 function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn }: ModalProps) {
   const [displayModal, setDisplayModal] = useState(false);
   const [displayAnswer, setDisplayAnswer] = useState(false);
-
   const [countCorrect, setCountCorrect] = useState(0);
   const [countTotal, setCountTotal] = useState(0);
+  const [randomCard, setRandomCard] = useState<Card>({ front: "Loading...", back: "Loading..." });
+  const [newCards, setNewCards] = useState<RandomCard[]>(cards.map((card) => ({ ...card, weight: 1 })));
 
-  const getRandomCard = useCallback(() => {
-    const randomIndex = Math.floor(Math.random() * cards.length);
-    return cards[randomIndex];
-  }, [cards]);
-
-  const [randomCard, setRandomCard] = useState(getRandomCard());
+  const pickRandomCard = useCallback(() => {
+    const totalWeight = newCards.reduce((acc, card) => acc + (card.weight || 1), 0);
+    const randomNum = Math.random() * totalWeight;
+    let weightSum = 0;
+    for (let i = 0; i < newCards.length; i += 1) {
+      weightSum += newCards[i].weight || 1;
+      if (randomNum <= weightSum) {
+        setRandomCard(newCards[i]);
+        // console.log(newCards[i].weight);
+        break;
+      }
+    }
+  }, [newCards]);
 
   useEffect(() => {
     if (displayModal) {
-      setRandomCard(getRandomCard());
+      pickRandomCard();
     }
-  }, [displayModal, countTotal, getRandomCard]);
+  }, [displayModal, countTotal, pickRandomCard]);
 
-  const toggleModal = () => {
-    setDisplayModal(!displayModal);
-  };
-
-  const toggleBack = () => {
-    setDisplayAnswer(!displayAnswer);
-  };
+  const toggleModal = () => setDisplayModal(!displayModal);
+  const toggleBack = () => setDisplayAnswer(!displayAnswer);
 
   const onClose = () => {
     setDisplayModal(false);
     setDisplayAnswer(false);
   };
 
+  function updateWeight(factor: number) {
+    setNewCards(
+      newCards.map((card) => {
+        if (card.front === randomCard.front && card.back === randomCard.back) {
+          const newWeight = card.weight ? card.weight * factor : factor;
+          return { ...card, weight: newWeight };
+        }
+        return card;
+      })
+    );
+  }
+
   const onCorrect = () => {
     setCountCorrect(countCorrect + 1);
     setCountTotal(countTotal + 1);
+    updateWeight(0.5);
     toggleBack();
   };
 
   const onWrong = () => {
     setCountTotal(countTotal + 1);
+    updateWeight(2);
     toggleBack();
   };
 
