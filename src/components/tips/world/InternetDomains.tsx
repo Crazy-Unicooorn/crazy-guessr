@@ -10,7 +10,7 @@ function InternetDomains() {
     { front: ".ae", back: "United Arab Emirates" },
     { front: ".af", back: "Afghanistan" },
     { front: ".al", back: "Albania" },
-    { front: ".aq", back: "Antarctica" },
+    // { front: ".aq", back: "Antarctica" },
     { front: ".ar", back: "Argentina" },
     { front: ".as", back: "American Samoa" },
     { front: ".at", back: "Austria" },
