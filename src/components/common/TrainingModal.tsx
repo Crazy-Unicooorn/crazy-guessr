@@ -125,7 +125,9 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
       weightSum += newCards[i].weight || 1;
       if (randomNum <= weightSum) {
         setRandomCard(newCards[i]);
-        // console.log(newCards[i].weight);
+        const chance = Number(((newCards[i].weight || 1) / totalWeight) * 100).toFixed(2);
+        // eslint-disable-next-line no-console
+        console.log(`This card had ${chance}% chance of being picked (weight: ${newCards[i].weight})`);
         break;
       }
     }

@@ -1,6 +1,7 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/fr/flagmap.png";
 import coat from "../../assets/img/fr/coat.svg";
+import PinpointPref from "../../components/tips/fr/PinpointPref";
 
 function France() {
   return (
@@ -22,6 +23,9 @@ function France() {
         callingCode="33"
         drivingSide="R"
       />
+      <div style={{ display: "none" }}>
+        <PinpointPref />
+      </div>
     </>
   );
 }
