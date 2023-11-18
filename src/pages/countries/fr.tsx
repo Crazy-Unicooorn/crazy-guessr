@@ -2,6 +2,7 @@ import PageHeader, { CountrySummary } from "../../components/common/PageBuilder"
 import flagmap from "../../assets/img/fr/flagmap.png";
 import coat from "../../assets/img/fr/coat.svg";
 import PinpointPref from "../../components/tips/fr/PinpointPref";
+import CityNamePatterns from "../../components/tips/fr/CityNamePatterns";
 
 function France() {
   return (
@@ -26,6 +27,7 @@ function France() {
       <div style={{ display: "none" }}>
         <PinpointPref />
       </div>
+      <CityNamePatterns />
     </>
   );
 }

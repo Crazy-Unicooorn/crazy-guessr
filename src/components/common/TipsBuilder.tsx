@@ -21,9 +21,10 @@ export const Head = styled.div`
 export const Paragraph = styled.div`
   background-color: var(--pastel-purple);
 
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 500;
+  line-height: 2rem;
   margin-top: 0.5rem;
 
   width: 100%;
