@@ -87,10 +87,18 @@ function Front({ map, city }: { map: string; city: string }) {
   const [top, setTop] = useState<number>(0);
   const [left, setLeft] = useState<number>(0);
 
-  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    let x: number;
+    let y: number;
+
+    if ("touches" in e) {
+      x = e.touches[0].clientX - rect.left;
+      y = e.touches[0].clientY - rect.top;
+    } else {
+      x = e.clientX - rect.left;
+      y = e.clientY - rect.top;
+    }
 
     setTop(y);
     setLeft(x);
@@ -110,6 +118,7 @@ function Front({ map, city }: { map: string; city: string }) {
     >
       <div
         onClick={handleClick}
+        onTouchStart={handleClick}
         style={{
           position: "relative",
           minHeight: "0",
