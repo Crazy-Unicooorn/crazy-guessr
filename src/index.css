@@ -27,7 +27,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  transition: all 0.27s ease-out;
+  /* transition: all 0.27s ease-out; */
   font-family: "Quicksand", sans-serif;
 }
 

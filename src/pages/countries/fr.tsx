@@ -24,7 +24,7 @@ function France() {
         callingCode="33"
         drivingSide="R"
       />
-      <div style={{ display: "none" }}>
+      <div style={{ display: "auto" }}>
         <PinpointPref />
       </div>
       <CityNamePatterns />

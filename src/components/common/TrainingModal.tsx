@@ -104,7 +104,7 @@ const Feedback = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.5rem;
   align-self: stretch;
 `;
 
@@ -261,8 +261,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
               <h2 className="singleline-text" style={{ flexGrow: 1 }}>
                 Training
               </h2>
-              <Stat>
-                {bestStreak}
+              <Stat title="Best streak of correct answers">
                 <animated.span style={currentStyle}>
                   <img
                     src={fire}
@@ -273,14 +272,15 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                     }}
                   />
                 </animated.span>
+                {bestStreak}
               </Stat>
-              <Stat>
-                {countCorrect}
+              <Stat title="Number of correct answers">
                 <CorrectIcon fill="green" size={24} />
+                {countCorrect}
               </Stat>
-              <Stat>
-                {countWrong}
+              <Stat title="Number of wrong answers">
                 <WrongIcon fill="red" size={24} />
+                {countWrong}
               </Stat>
               <Button
                 onClick={onClose}
