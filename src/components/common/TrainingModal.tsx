@@ -10,6 +10,7 @@ import CorrectIcon from "../../assets/icons/informational/correct";
 import WrongIcon from "../../assets/icons/informational/wrong";
 import { Card } from "./TipsBuilder";
 import useBoop from "../../hooks/use-boop";
+import StopIcon from "../../assets/icons/general/stop";
 
 const Overlay = styled.div`
   position: fixed;
@@ -110,7 +111,8 @@ const Feedback = styled.div`
 interface RandomCard {
   front: string | JSX.Element;
   back: string | JSX.Element;
-  weight?: number | undefined;
+  weight: number;
+  suspended: boolean;
 }
 
 interface ModalProps {
@@ -128,14 +130,15 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
   const [countWrong, setCountWrong] = useState(0);
   const [currentStreak, setCurrentStreak] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
+  const hue = Math.max(360 - bestStreak, 200);
   const [countTotal, setCountTotal] = useState(0);
 
   const [isAnimating, setIsAnimating] = useState(false);
   const [boopStreak, triggerBoopStreak] = useBoop({
-    scale: (bestStreak / 10) * 0.2 + 1.5,
+    scale: (bestStreak / 10) * 0.1 + 1.5,
     // rotation: (bestStreak / 10) * 5 + 1.5,
     timing: 200,
-    springConfig: { tension: 300, friction: 100 / Math.log(bestStreak ** 3 + 1) },
+    springConfig: { tension: 200, friction: 100 / Math.log(bestStreak ** 3 + 1) },
   }) as [never, () => void];
   const [currentStyle, setCurrentStyle] = useState<React.CSSProperties>(() => boopStreak);
 
@@ -153,19 +156,22 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
   }, [isAnimating, boopStreak]);
 
   const [randomCard, setRandomCard] = useState<Card>({ front: "Loading...", back: "Loading..." });
-  const [newCards, setNewCards] = useState<RandomCard[]>(cards.map((card) => ({ ...card, weight: 1 })));
+  const [newCards, setNewCards] = useState<RandomCard[]>(
+    cards.map((card) => ({ ...card, weight: 1, suspended: false }))
+  );
 
   const pickRandomCard = useCallback(() => {
-    const totalWeight = newCards.reduce((acc, card) => acc + (card.weight || 1), 0);
+    const activeCards = newCards.filter((card) => !card.suspended);
+    const totalWeight = activeCards.reduce((acc, card) => acc + (card.weight || 1), 0);
     const randomNum = Math.random() * totalWeight;
     let weightSum = 0;
-    for (let i = 0; i < newCards.length; i += 1) {
-      weightSum += newCards[i].weight || 1;
+    for (let i = 0; i < activeCards.length; i += 1) {
+      weightSum += activeCards[i].weight || 1;
       if (randomNum <= weightSum) {
-        setRandomCard(newCards[i]);
-        const chance = Number(((newCards[i].weight || 1) / totalWeight) * 100).toFixed(2);
+        setRandomCard(activeCards[i]);
+        const chance = Number(((activeCards[i].weight || 1) / totalWeight) * 100).toFixed(2);
         // eslint-disable-next-line no-console
-        console.log(`This card had ${chance}% chance of being picked (weight: ${newCards[i].weight})`);
+        console.log(`This card had ${chance}% chance of being picked (weight: ${activeCards[i].weight})`);
         break;
       }
     }
@@ -217,6 +223,19 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
     toggleBack();
   };
 
+  const onSuspend = () => {
+    setCountTotal(countTotal + 1);
+    setNewCards(
+      newCards.map((card) => {
+        if (card.front === randomCard.front && card.back === randomCard.back) {
+          return { ...card, suspended: true };
+        }
+        return card;
+      })
+    );
+    toggleBack();
+  };
+
   return (
     <>
       <Button
@@ -245,7 +264,14 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
               <Stat>
                 {bestStreak}
                 <animated.span style={currentStyle}>
-                  <img src={fire} alt="Icon of fire" style={{ width: "32px" }} />
+                  <img
+                    src={fire}
+                    alt="Icon of fire"
+                    style={{
+                      width: "32px",
+                      filter: `hue-rotate(${hue}deg)`,
+                    }}
+                  />
                 </animated.span>
               </Stat>
               <Stat>
@@ -268,6 +294,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                   timing: 500,
                   springConfig: { tension: 100, friction: 5 },
                 }}
+                title="Close"
               />
             </Heading>
             {(displayFrontOnFrontSideOnly && displayAnswer) || <Front>{randomCard.front}</Front>}
@@ -303,6 +330,19 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                       springConfig: { tension: 300, friction: 10 },
                     }}
                     style={{ width: "100%" }}
+                  />
+                  <Button
+                    onClick={onSuspend}
+                    text=""
+                    bgcolor="var(--pastel-black)"
+                    hasIconRight
+                    iconRight={<StopIcon fill="red" size={24} />}
+                    boop={{
+                      rotation: 180,
+                      timing: 200,
+                      springConfig: { tension: 100, friction: 5 },
+                    }}
+                    title="Suspend card"
                   />
                   <Button
                     onClick={onCorrect}

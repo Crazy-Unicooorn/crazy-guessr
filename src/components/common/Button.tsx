@@ -108,6 +108,7 @@ interface ButtonProps {
     };
     size?: number;
   };
+  title?: string;
 }
 
 function Button({
@@ -126,6 +127,7 @@ function Button({
   collapseText,
   onClick,
   boop = {},
+  title,
 }: ButtonProps) {
   const [styleHovering, triggerHovering] = useBoop(boop) as [never, () => void];
 
@@ -161,6 +163,7 @@ function Button({
             triggerHovering();
           }}
           style={style}
+          title={title}
         >
           <span className="front">
             {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
@@ -187,6 +190,7 @@ function Button({
             triggerHovering();
           }}
           style={style}
+          title={title}
         >
           <span className="front">
             {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
@@ -212,6 +216,7 @@ function Button({
       }}
       onClick={onClick}
       style={style}
+      title={title}
     >
       <span className="front">
         {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
@@ -253,6 +258,7 @@ Button.defaultProps = {
     },
     size: 24,
   },
+  title: "",
 };
 
 export default Button;
