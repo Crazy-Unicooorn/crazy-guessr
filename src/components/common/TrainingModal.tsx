@@ -1,10 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
 import { styled } from "styled-components";
+import { animated } from "react-spring";
 import Button from "./Button";
 import CloseIcon from "../../assets/icons/actions/close";
 import DeckIcon from "../../assets/icons/general/deck";
 import ArrowRight from "../../assets/icons/directional/arrow_right";
+import fire from "../../assets/icons/informational/fire2.png";
+import CorrectIcon from "../../assets/icons/informational/correct";
+import WrongIcon from "../../assets/icons/informational/wrong";
 import { Card } from "./TipsBuilder";
+import useBoop from "../../hooks/use-boop";
 
 const Overlay = styled.div`
   position: fixed;
@@ -63,8 +68,14 @@ const Heading = styled.div`
 
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
   align-self: stretch;
+`;
+
+const Stat = styled.h2`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 `;
 
 const Front = styled.h1`
@@ -92,7 +103,7 @@ const Feedback = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1rem;
   align-self: stretch;
 `;
 
@@ -112,8 +123,35 @@ interface ModalProps {
 function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn }: ModalProps) {
   const [displayModal, setDisplayModal] = useState(false);
   const [displayAnswer, setDisplayAnswer] = useState(false);
+
   const [countCorrect, setCountCorrect] = useState(0);
+  const [countWrong, setCountWrong] = useState(0);
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [bestStreak, setBestStreak] = useState(0);
   const [countTotal, setCountTotal] = useState(0);
+
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [boopStreak, triggerBoopStreak] = useBoop({
+    scale: (bestStreak / 10) * 0.2 + 1.5,
+    // rotation: (bestStreak / 10) * 5 + 1.5,
+    timing: 200,
+    springConfig: { tension: 300, friction: 100 / Math.log(bestStreak ** 3 + 1) },
+  }) as [never, () => void];
+  const [currentStyle, setCurrentStyle] = useState<React.CSSProperties>(() => boopStreak);
+
+  useEffect(() => {
+    if (!isAnimating) {
+      return;
+    }
+    const timeoutId = setTimeout(() => {
+      setIsAnimating(false);
+      setCurrentStyle(() => boopStreak);
+    }, 220);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [isAnimating, boopStreak]);
+
   const [randomCard, setRandomCard] = useState<Card>({ front: "Loading...", back: "Loading..." });
   const [newCards, setNewCards] = useState<RandomCard[]>(cards.map((card) => ({ ...card, weight: 1 })));
 
@@ -161,12 +199,19 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
 
   const onCorrect = () => {
     setCountCorrect(countCorrect + 1);
+    setCurrentStreak(currentStreak + 1);
+    if (currentStreak + 1 > bestStreak) {
+      setBestStreak(currentStreak + 1);
+      triggerBoopStreak();
+    }
     setCountTotal(countTotal + 1);
     updateWeight(0.5);
     toggleBack();
   };
 
   const onWrong = () => {
+    setCountWrong(countWrong + 1);
+    setCurrentStreak(0);
     setCountTotal(countTotal + 1);
     updateWeight(2);
     toggleBack();
@@ -195,11 +240,22 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
           <Modal>
             <Heading>
               <h2 className="singleline-text" style={{ flexGrow: 1 }}>
-                Recall the answer
+                Training
               </h2>
-              <h2>
-                <span style={{ color: "green" }}>{countCorrect}</span>/{countTotal}
-              </h2>
+              <Stat>
+                {bestStreak}
+                <animated.span style={currentStyle}>
+                  <img src={fire} alt="Icon of fire" style={{ width: "32px" }} />
+                </animated.span>
+              </Stat>
+              <Stat>
+                {countCorrect}
+                <CorrectIcon fill="green" size={24} />
+              </Stat>
+              <Stat>
+                {countWrong}
+                <WrongIcon fill="red" size={24} />
+              </Stat>
               <Button
                 onClick={onClose}
                 text=""
