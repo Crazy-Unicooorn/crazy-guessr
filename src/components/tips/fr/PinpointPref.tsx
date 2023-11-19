@@ -34,7 +34,7 @@ function PinpointPref() {
     { cityName: "Guéret", top: 50.757, left: 48.534 },
     { cityName: "Périgueux", top: 60.151, left: 41.254 },
     { cityName: "Besançon", top: 40.55, left: 74.819 },
-    { cityName: "Valence", top: 70.37, left: 42.344 },
+    { cityName: "Valence", top: 62.548, left: 67.664 },
     { cityName: "Évreux", top: 23.587, left: 44.003 },
     { cityName: "Chartres", top: 29.079, left: 46.129 },
     { cityName: "Quimper", top: 33.365, left: 10.782 },
