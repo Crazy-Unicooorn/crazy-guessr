@@ -135,10 +135,10 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
 
   const [isAnimating, setIsAnimating] = useState(false);
   const [boopStreak, triggerBoopStreak] = useBoop({
-    scale: (bestStreak / 10) * 0.1 + 1.5,
+    scale: Math.min((bestStreak / 10) * 0.05 + 1.2, 2),
     // rotation: (bestStreak / 10) * 5 + 1.5,
     timing: 200,
-    springConfig: { tension: 200, friction: 100 / Math.log(bestStreak ** 3 + 1) },
+    springConfig: { tension: 200, friction: Math.max(100 / Math.log(bestStreak ** 5 + 1), 0.1) },
   }) as [never, () => void];
   const [currentStyle, setCurrentStyle] = useState<React.CSSProperties>(() => boopStreak);
 
@@ -258,9 +258,6 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
           <Overlay onClick={onClose} />
           <Modal>
             <Heading>
-              <h2 className="singleline-text" style={{ flexGrow: 1 }}>
-                Training
-              </h2>
               <Stat title="Best streak of correct answers">
                 <animated.span style={currentStyle}>
                   <img
@@ -282,6 +279,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                 <WrongIcon fill="red" size={24} />
                 {countWrong}
               </Stat>
+              <div className="singleline-text" style={{ flexGrow: 1 }} />
               <Button
                 onClick={onClose}
                 text=""
@@ -320,6 +318,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                 </h1>
                 <Feedback>
                   <Button
+                    title="Makes the card more likely to appear again"
                     onClick={onWrong}
                     text="Wrong"
                     hasIconRight
@@ -342,9 +341,10 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                       timing: 200,
                       springConfig: { tension: 100, friction: 5 },
                     }}
-                    title="Suspend card"
+                    title="Suspend card (for the session)"
                   />
                   <Button
+                    title="Makes the card less likely to appear again"
                     onClick={onCorrect}
                     bgcolor="var(--pastel-green)"
                     text="Correct"
