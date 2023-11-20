@@ -8,7 +8,7 @@ import licensePlatesMap from "../../../assets/img/us/license-plates.png";
 import Alabama from "../../../assets/img/us/plates/Alabama.png";
 import Minnesota from "../../../assets/img/us/plates/Minnesota.jpg";
 import Mississippi1 from "../../../assets/img/us/plates/Mississippi1.jpg";
-import Mississippi2 from "../../../assets/img/us/plates/Mississippi2.jpg";
+import Mississippi2 from "../../../assets/img/us/plates/Mississippi.png";
 import Missouri1 from "../../../assets/img/us/plates/Missouri1.jpg";
 import Missouri2 from "../../../assets/img/us/plates/Missouri2.png";
 import Nevada from "../../../assets/img/us/plates/Nevada.jpg";
@@ -20,6 +20,7 @@ import NewMexico1 from "../../../assets/img/us/plates/NewMexico1.jpg";
 import NewMexico2 from "../../../assets/img/us/plates/NewMexico2.jpg";
 import NewMexico3 from "../../../assets/img/us/plates/NewMexico3.jpg";
 import NorthDakota from "../../../assets/img/us/plates/NorthDakota.jpg";
+import Pennsylvania from "../../../assets/img/us/plates/Pennsylvania.jpg";
 
 import Alabama1 from "../../../assets/img/us/plates/blurred/alabama1.jpg";
 import Alabama2 from "../../../assets/img/us/plates/blurred/alabama2.jpg";
@@ -27,6 +28,10 @@ import Alabama3 from "../../../assets/img/us/plates/blurred/alabama3.jpg";
 import Minnesota1 from "../../../assets/img/us/plates/blurred/Minnesota1.jpg";
 import MississippiBlurred1 from "../../../assets/img/us/plates/blurred/Mississippi1.jpg";
 import MississippiBlurred2 from "../../../assets/img/us/plates/blurred/Mississippi2.jpg";
+import MississippiBlurred3 from "../../../assets/img/us/plates/blurred/Mississippi3.jpg";
+import MississippiBlurred4 from "../../../assets/img/us/plates/blurred/Mississippi4.jpg";
+import MississippiBlurred5 from "../../../assets/img/us/plates/blurred/Mississippi5.jpg";
+import MississippiBlurred6 from "../../../assets/img/us/plates/blurred/Mississippi6.jpg";
 import MissouriBlurred1 from "../../../assets/img/us/plates/blurred/Missouri1.jpg";
 import MissouriBlurred2 from "../../../assets/img/us/plates/blurred/Missouri2.jpg";
 import Nevada1 from "../../../assets/img/us/plates/blurred/Nevada1.jpg";
@@ -57,6 +62,11 @@ import NorthDakotaBlurred2 from "../../../assets/img/us/plates/blurred/NorthDako
 import NorthDakotaBlurred3 from "../../../assets/img/us/plates/blurred/NorthDakota3.jpg";
 import NorthDakotaBlurred4 from "../../../assets/img/us/plates/blurred/NorthDakota4.jpg";
 import NorthDakotaBlurred5 from "../../../assets/img/us/plates/blurred/NorthDakota5.jpg";
+import PennsylvaniaBlurred1 from "../../../assets/img/us/plates/blurred/Pennsylvania1.jpg";
+import PennsylvaniaBlurred2 from "../../../assets/img/us/plates/blurred/Pennsylvania2.jpg";
+import PennsylvaniaBlurred3 from "../../../assets/img/us/plates/blurred/Pennsylvania3.jpg";
+import PennsylvaniaBlurred4 from "../../../assets/img/us/plates/blurred/Pennsylvania4.jpg";
+import PennsylvaniaBlurred5 from "../../../assets/img/us/plates/blurred/Pennsylvania5.jpg";
 
 function LicensePlate() {
   const StyleBack = styled.div`
@@ -130,6 +140,22 @@ function LicensePlate() {
     },
     {
       front: img(MississippiBlurred2),
+      back: <StyleBack>{img(Mississippi2)} Mississippi</StyleBack>,
+    },
+    {
+      front: img(MississippiBlurred3),
+      back: <StyleBack>{img(Mississippi2)} Mississippi</StyleBack>,
+    },
+    {
+      front: img(MississippiBlurred4),
+      back: <StyleBack>{img(Mississippi2)} Mississippi</StyleBack>,
+    },
+    {
+      front: img(MississippiBlurred5),
+      back: <StyleBack>{img(Mississippi2)} Mississippi</StyleBack>,
+    },
+    {
+      front: img(MississippiBlurred6),
       back: <StyleBack>{img(Mississippi2)} Mississippi</StyleBack>,
     },
     {
@@ -248,6 +274,26 @@ function LicensePlate() {
       back: <StyleBack>{img(Oklahoma)} Oklahoma</StyleBack>,
     },
     // { front: "Oregon", back: "Yes" },
+    {
+      front: img(PennsylvaniaBlurred1),
+      back: <StyleBack>{img(Pennsylvania)} Pennsylvania</StyleBack>,
+    },
+    {
+      front: img(PennsylvaniaBlurred2),
+      back: <StyleBack>{img(Pennsylvania)} Pennsylvania</StyleBack>,
+    },
+    {
+      front: img(PennsylvaniaBlurred3),
+      back: <StyleBack>{img(Pennsylvania)} Pennsylvania</StyleBack>,
+    },
+    {
+      front: img(PennsylvaniaBlurred4),
+      back: <StyleBack>{img(Pennsylvania)} Pennsylvania</StyleBack>,
+    },
+    {
+      front: img(PennsylvaniaBlurred5),
+      back: <StyleBack>{img(Pennsylvania)} Pennsylvania</StyleBack>,
+    },
     // { front: "Pennsylvania", back: "Yes" },
     // { front: "Rhode Island", back: "Yes" },
     // { front: "South Carolina", back: "Yes" },
