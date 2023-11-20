@@ -5,6 +5,8 @@ import { Tip, Head, MapButton, Card, Paragraph } from "../../common/TipsBuilder"
 import TrainingModal from "../../common/TrainingModal";
 import requiresFrontLicense2 from "../../../assets/img/us/requiresFrontLicensePlate2.png";
 import licensePlatesMap from "../../../assets/img/us/license-plates.png";
+
+// License plates
 import Alabama from "../../../assets/img/us/plates/Alabama.png";
 import Minnesota from "../../../assets/img/us/plates/Minnesota.jpg";
 import Mississippi1 from "../../../assets/img/us/plates/Mississippi1.jpg";
@@ -21,7 +23,10 @@ import NewMexico2 from "../../../assets/img/us/plates/NewMexico2.jpg";
 import NewMexico3 from "../../../assets/img/us/plates/NewMexico3.jpg";
 import NorthDakota from "../../../assets/img/us/plates/NorthDakota.jpg";
 import Pennsylvania from "../../../assets/img/us/plates/Pennsylvania.jpg";
+import Texas1 from "../../../assets/img/us/plates/Texas.png";
+import Texas2 from "../../../assets/img/us/plates/Texas2.jpg";
 
+// Blurred
 import Alabama1 from "../../../assets/img/us/plates/blurred/alabama1.jpg";
 import Alabama2 from "../../../assets/img/us/plates/blurred/alabama2.jpg";
 import Alabama3 from "../../../assets/img/us/plates/blurred/alabama3.jpg";
@@ -38,6 +43,7 @@ import Nevada1 from "../../../assets/img/us/plates/blurred/Nevada1.jpg";
 import Nevada2 from "../../../assets/img/us/plates/blurred/Nevada2.jpg";
 import Nevada3 from "../../../assets/img/us/plates/blurred/Nevada3.jpg";
 import Nevada4 from "../../../assets/img/us/plates/blurred/Nevada4.jpg";
+import Nevada5 from "../../../assets/img/us/plates/blurred/Nevada5.jpg";
 import Oklahoma1 from "../../../assets/img/us/plates/blurred/Oklahoma1.jpg";
 import Oklahoma2 from "../../../assets/img/us/plates/blurred/Oklahoma2.jpg";
 import Oklahoma3 from "../../../assets/img/us/plates/blurred/Oklahoma3.jpg";
@@ -67,6 +73,11 @@ import PennsylvaniaBlurred2 from "../../../assets/img/us/plates/blurred/Pennsylv
 import PennsylvaniaBlurred3 from "../../../assets/img/us/plates/blurred/Pennsylvania3.jpg";
 import PennsylvaniaBlurred4 from "../../../assets/img/us/plates/blurred/Pennsylvania4.jpg";
 import PennsylvaniaBlurred5 from "../../../assets/img/us/plates/blurred/Pennsylvania5.jpg";
+import TexasBlurred1 from "../../../assets/img/us/plates/blurred/Texas1.jpg";
+import TexasBlurred2 from "../../../assets/img/us/plates/blurred/Texas2.jpg";
+import TexasBlurred3 from "../../../assets/img/us/plates/blurred/Texas3.jpg";
+import TexasBlurred4 from "../../../assets/img/us/plates/blurred/Texas4.jpg";
+import TexasBlurred5 from "../../../assets/img/us/plates/blurred/Texas5.jpg";
 
 function LicensePlate() {
   const StyleBack = styled.div`
@@ -184,6 +195,10 @@ function LicensePlate() {
       front: img(Nevada4),
       back: <StyleBack>{img(Nevada)} Nevada</StyleBack>,
     },
+    {
+      front: img(Nevada5),
+      back: <StyleBack>{img(Nevada)} Nevada</StyleBack>,
+    },
     // { front: "New Hampshire", back: "Yes" },
     // { front: "New Jersey", back: "Yes" },
     {
@@ -299,7 +314,26 @@ function LicensePlate() {
     // { front: "South Carolina", back: "Yes" },
     // { front: "South Dakota", back: "Yes" },
     // { front: "Tennessee", back: "Yes" },
-    // { front: "Texas", back: "Yes" },
+    {
+      front: img(TexasBlurred1),
+      back: <StyleBack>{img(Texas2)} Texas</StyleBack>,
+    },
+    {
+      front: img(TexasBlurred2),
+      back: <StyleBack>{img(Texas1)} Texas</StyleBack>,
+    },
+    {
+      front: img(TexasBlurred3),
+      back: <StyleBack>{img(Texas2)} Texas</StyleBack>,
+    },
+    {
+      front: img(TexasBlurred4),
+      back: <StyleBack>{img(Texas1)} Texas</StyleBack>,
+    },
+    {
+      front: img(TexasBlurred5),
+      back: <StyleBack>{img(Texas1)} Texas</StyleBack>,
+    },
     // { front: "Utah", back: "Yes" },
     // { front: "Vermont", back: "Yes" },
     // { front: "Virginia", back: "Yes" },

@@ -5463,9 +5463,10 @@ interface LegendItemProps {
   color: string;
   icon: React.ReactNode;
   text: string;
+  title?: string;
 }
 
-function LegendItem({ color, icon, text }: LegendItemProps) {
+function LegendItem({ color, icon, text, title }: LegendItemProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -5498,6 +5499,7 @@ function LegendItem({ color, icon, text }: LegendItemProps) {
         backgroundColor: `${color}`,
         boxShadow: "var(--shadow-flat)",
       }}
+      title={title}
     >
       {icon}
       <span className="singleline-text">{text}</span>
@@ -5551,7 +5553,12 @@ function HomeMap() {
         <Legend>
           <LegendItem color={`${colorLHD}`} icon={<LeftDriveIcon size={24} />} text="Left Side Driving" />
           <LegendItem color={`${colorRHD}`} icon={<RightDriveIcon size={24} />} text="Right Side Driving" />
-          <LegendItem color={`${colorTrekker}`} icon={<TrekkerIcon size={24} />} text="Trekkers only" />
+          <LegendItem
+            color={`${colorTrekker}`}
+            icon={<TrekkerIcon size={24} />}
+            text="Trekkers only"
+            title="The Trekker is a backpack containing 15 separate cameras that allows for the collection of panoramic imagery in places cars can't go."
+          />
           <LegendItem color={`${colorUpcoming}`} icon={<UpcomingIcon size={24} />} text="Upcoming Streetview" />
           <LegendItem color={`${colorNone}`} icon={<StopIcon size={24} />} text="No Streetview" />
         </Legend>
