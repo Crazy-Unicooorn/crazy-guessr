@@ -3,7 +3,7 @@ import ImageMagnifier from "../../common/ImageMagnifier";
 import Separator from "../../common/Separator";
 import { Tip, Head, MapButton, Card, Paragraph } from "../../common/TipsBuilder";
 import TrainingModal from "../../common/TrainingModal";
-import requiresFrontLicense2 from "../../../assets/img/us/requiresFrontLicensePlate2.png";
+import requiresFrontLicense2 from "../../../assets/img/us/FrontLicensePlates.png";
 import licensePlatesMap from "../../../assets/img/us/license-plates.png";
 
 // License plates
@@ -25,6 +25,10 @@ import NorthDakota from "../../../assets/img/us/plates/NorthDakota.jpg";
 import Pennsylvania from "../../../assets/img/us/plates/Pennsylvania.jpg";
 import Texas1 from "../../../assets/img/us/plates/Texas.png";
 import Texas2 from "../../../assets/img/us/plates/Texas2.jpg";
+import Florida from "../../../assets/img/us/plates/Florida.jpg";
+import California from "../../../assets/img/us/plates/California1.jpg";
+import NY from "../../../assets/img/us/plates/NewYork1.jpg";
+import Arizona from "../../../assets/img/us/plates/Arizona.jpg";
 
 // Blurred
 import Alabama1 from "../../../assets/img/us/plates/blurred/alabama1.jpg";
@@ -78,6 +82,101 @@ import TexasBlurred2 from "../../../assets/img/us/plates/blurred/Texas2.jpg";
 import TexasBlurred3 from "../../../assets/img/us/plates/blurred/Texas3.jpg";
 import TexasBlurred4 from "../../../assets/img/us/plates/blurred/Texas4.jpg";
 import TexasBlurred5 from "../../../assets/img/us/plates/blurred/Texas5.jpg";
+import FloridaBlurred1 from "../../../assets/img/us/plates/blurred/Florida1.jpg";
+import FloridaBlurred2 from "../../../assets/img/us/plates/blurred/Florida2.jpg";
+import FloridaBlurred3 from "../../../assets/img/us/plates/blurred/Florida3.jpg";
+import FloridaBlurred4 from "../../../assets/img/us/plates/blurred/Florida4.jpg";
+import FloridaBlurred5 from "../../../assets/img/us/plates/blurred/Florida5.jpg";
+import CaliforniaBlurred1 from "../../../assets/img/us/plates/blurred/California1.jpg";
+import CaliforniaBlurred2 from "../../../assets/img/us/plates/blurred/California2.jpg";
+import CaliforniaBlurred3 from "../../../assets/img/us/plates/blurred/California3.jpg";
+import CaliforniaBlurred4 from "../../../assets/img/us/plates/blurred/California4.jpg";
+import CaliforniaBlurred5 from "../../../assets/img/us/plates/blurred/California5.jpg";
+import NewYorkBlurred1 from "../../../assets/img/us/plates/blurred/NewYork1.jpg";
+import NewYorkBlurred2 from "../../../assets/img/us/plates/blurred/NewYork2.jpg";
+import NewYorkBlurred3 from "../../../assets/img/us/plates/blurred/NewYork3.jpg";
+import NewYorkBlurred4 from "../../../assets/img/us/plates/blurred/NewYork4.jpg";
+import NewYorkBlurred5 from "../../../assets/img/us/plates/blurred/NewYork5.jpg";
+import ArizonaBlurred1 from "../../../assets/img/us/plates/blurred/Arizona1.jpg";
+import ArizonaBlurred2 from "../../../assets/img/us/plates/blurred/Arizona2.jpg";
+import ArizonaBlurred3 from "../../../assets/img/us/plates/blurred/Arizona3.jpg";
+import ArizonaBlurred4 from "../../../assets/img/us/plates/blurred/Arizona4.jpg";
+import ArizonaBlurred5 from "../../../assets/img/us/plates/blurred/Arizona5.jpg";
+
+function TrainingRequirements() {
+  const data: Card[] = [
+    { front: "Alabama", back: "No" },
+    { front: "Alaska", back: "No" },
+    { front: "Arizona", back: "No" },
+    { front: "Arkansas", back: "No" },
+    { front: "California", back: "Yes" },
+    { front: "Colorado", back: "Yes" },
+    { front: "Connecticut", back: "Yes" },
+    { front: "Delaware", back: "No" },
+    { front: "Florida", back: "No" },
+    { front: "Georgia", back: "No" },
+    { front: "Hawaii", back: "Yes" },
+    { front: "Idaho", back: "Yes" },
+    { front: "Illinois", back: "Yes" },
+    { front: "Indiana", back: "No" },
+    { front: "Iowa", back: "Yes" },
+    { front: "Kansas", back: "No" },
+    { front: "Kentucky", back: "No" },
+    { front: "Louisiana", back: "No" },
+    { front: "Maine", back: "Yes" },
+    { front: "Maryland", back: "Yes" },
+    { front: "Massachusetts", back: "Yes, with exceptions" },
+    { front: "Michigan", back: "No" },
+    { front: "Minnesota", back: "Yes" },
+    { front: "Mississippi", back: "No" },
+    { front: "Missouri", back: "Yes" },
+    { front: "Montana", back: "Yes, with exceptions" },
+    { front: "Nebraska", back: "Yes, with exceptions" },
+    { front: "Nevada", back: "Yes, with exceptions" },
+    { front: "New Hampshire", back: "Yes" },
+    { front: "New Jersey", back: "Yes" },
+    { front: "New Mexico", back: "No" },
+    { front: "New York", back: "Yes" },
+    { front: "North Carolina", back: "No" },
+    { front: "North Dakota", back: "Yes" },
+    { front: "Ohio", back: "No" },
+    { front: "Oklahoma", back: "No" },
+    { front: "Oregon", back: "Yes" },
+    { front: "Pennsylvania", back: "No" },
+    { front: "Rhode Island", back: "Yes" },
+    { front: "South Carolina", back: "No" },
+    { front: "South Dakota", back: "Yes, with exceptions" },
+    { front: "Tennessee", back: "No" },
+    { front: "Texas", back: "Yes" },
+    { front: "Utah", back: "Yes" },
+    { front: "Vermont", back: "Yes" },
+    { front: "Virginia", back: "Yes" },
+    { front: "Washington", back: "Yes" },
+    { front: "West Virginia", back: "No" },
+    { front: "Wisconsin", back: "Yes" },
+    { front: "Wyoming", back: "Yes, with exceptions" },
+    { front: "Washington D.C.", back: "Yes" },
+    { front: "Puerto Rico", back: "No" },
+    { front: "Guam", back: "Yes" },
+    { front: "U.S. Virgin Islands", back: "Yes" },
+    { front: "American Samoa", back: "Yes" },
+    { front: "Northern Mariana Islands", back: "Yes" },
+  ];
+
+  const cards: Card[] = data.map((card) => {
+    return {
+      ...card,
+      front: (
+        <div style={{ lineHeight: "3rem" }}>
+          Does <mark style={{ padding: "0 0.25rem", borderRadius: "0.25rem" }}>{card.front}</mark> require front license
+          plates?
+        </div>
+      ),
+    };
+  });
+
+  return <TrainingModal cards={cards} />;
+}
 
 function LicensePlate() {
   const StyleBack = styled.div`
@@ -110,13 +209,70 @@ function LicensePlate() {
       back: <StyleBack>{img(Alabama)} Alabama</StyleBack>,
     },
     // { front: "Alaska", back: "No" },
-    // { front: "Arizona", back: "Yes" },
+    {
+      front: img(ArizonaBlurred1),
+      back: <StyleBack>{img(Arizona)} Arizona</StyleBack>,
+    },
+    {
+      front: img(ArizonaBlurred2),
+      back: <StyleBack>{img(Arizona)} Arizona</StyleBack>,
+    },
+    {
+      front: img(ArizonaBlurred3),
+      back: <StyleBack>{img(Arizona)} Arizona</StyleBack>,
+    },
+    {
+      front: img(ArizonaBlurred4),
+      back: <StyleBack>{img(Arizona)} Arizona</StyleBack>,
+    },
+    {
+      front: img(ArizonaBlurred5),
+      back: <StyleBack>{img(Arizona)} Arizona</StyleBack>,
+    },
     // { front: "Arkansas", back: "Yes" },
-    // { front: "California", back: "Yes" },
+    {
+      front: img(CaliforniaBlurred1),
+      back: <StyleBack>{img(California)} California</StyleBack>,
+    },
+    {
+      front: img(CaliforniaBlurred2),
+      back: <StyleBack>{img(California)} California</StyleBack>,
+    },
+    {
+      front: img(CaliforniaBlurred3),
+      back: <StyleBack>{img(California)} California</StyleBack>,
+    },
+    {
+      front: img(CaliforniaBlurred4),
+      back: <StyleBack>{img(California)} California</StyleBack>,
+    },
+    {
+      front: img(CaliforniaBlurred5),
+      back: <StyleBack>{img(California)} California</StyleBack>,
+    },
     // { front: "Colorado", back: "Yes" },
     // { front: "Connecticut", back: "Yes" },
     // { front: "Delaware", back: "Yes" },
-    // { front: "Florida", back: "Yes" },
+    {
+      front: img(FloridaBlurred1),
+      back: <StyleBack>{img(Florida)} Florida</StyleBack>,
+    },
+    {
+      front: img(FloridaBlurred2),
+      back: <StyleBack>{img(Florida)} Florida</StyleBack>,
+    },
+    {
+      front: img(FloridaBlurred3),
+      back: <StyleBack>{img(Florida)} Florida</StyleBack>,
+    },
+    {
+      front: img(FloridaBlurred4),
+      back: <StyleBack>{img(Florida)} Florida</StyleBack>,
+    },
+    {
+      front: img(FloridaBlurred5),
+      back: <StyleBack>{img(Florida)} Florida</StyleBack>,
+    },
     // { front: "Georgia", back: "Yes" },
     // { front: "Hawaii", back: "No" },
     // { front: "Idaho", back: "No" },
@@ -249,7 +405,26 @@ function LicensePlate() {
       front: img(NewMexicoBlurred3B),
       back: <StyleBack> {img(NewMexico3)} New Mexico</StyleBack>,
     },
-    // { front: "New York", back: "Yes" },
+    {
+      front: img(NewYorkBlurred1),
+      back: <StyleBack> {img(NY)} New York</StyleBack>,
+    },
+    {
+      front: img(NewYorkBlurred2),
+      back: <StyleBack> {img(NY)} New York</StyleBack>,
+    },
+    {
+      front: img(NewYorkBlurred3),
+      back: <StyleBack> {img(NY)} New York</StyleBack>,
+    },
+    {
+      front: img(NewYorkBlurred4),
+      back: <StyleBack> {img(NY)} New York</StyleBack>,
+    },
+    {
+      front: img(NewYorkBlurred5),
+      back: <StyleBack> {img(NY)} New York</StyleBack>,
+    },
     // { front: "North Carolina", back: "Yes" },
     {
       front: img(NorthDakotaBlurred1),
@@ -360,10 +535,27 @@ function LicensePlate() {
       </Paragraph>
       <ImageMagnifier src={licensePlatesMap} alt="Map of license plates in each U.S. state" />
       <Paragraph>
-        In general, southern states do not require front license plates, while northern states do. However, there are
-        exceptions which are useful to know.
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          <p style={{ flexGrow: "1" }}>
+            In general, southern states do not require front license plates, while northern states do. However, there
+            are exceptions which are useful to know.
+          </p>
+          <TrainingRequirements />
+        </div>
       </Paragraph>
-      <ImageMagnifier src={requiresFrontLicense2} alt="Map of U.S. states that require front license plates" />
+      <ImageMagnifier
+        src={requiresFrontLicense2}
+        alt="Map of U.S. showing states that require front license plates"
+        style={{ maxWidth: "80rem" }}
+      />
     </Tip>
   );
 }
