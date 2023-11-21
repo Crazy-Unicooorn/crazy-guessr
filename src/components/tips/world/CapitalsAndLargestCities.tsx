@@ -1,11 +1,11 @@
 import ImageMagnifier from "../../common/ImageMagnifier";
 import Separator from "../../common/Separator";
-import { Card, Head, Tip } from "../../common/TipsBuilder";
+import { Card, Head, MapButton, Tip } from "../../common/TipsBuilder";
 import TrainingModal from "../../common/TrainingModal";
-import countryCallingCodeMap from "../../../assets/img/world/Country_calling_codes_map.png";
+import PoliticalWorld from "../../../assets/img/world/political_world.jpg";
 
-function WorldCallingCodes() {
-  const CallingCodes: Card[] = [
+function CapitalsAndLargestCities() {
+  const Data: Card[] = [
     { front: "1", back: "Canada & U.S.A." },
     { front: "1-340", back: "U.S. Virgin Islands" },
     { front: "1-441", back: "Bermuda" },
@@ -138,7 +138,7 @@ function WorldCallingCodes() {
     // { front: "", back: "Antarctica" },
   ];
 
-  const FinalCallingCodes = CallingCodes.map((card) => ({
+  const Cards = Data.map((card) => ({
     ...card,
     front: `+${card.front}`,
   }));
@@ -146,17 +146,14 @@ function WorldCallingCodes() {
   return (
     <Tip>
       <Head>
-        <h1 className="singleline-text">Calling Codes</h1>
+        <h1 className="singleline-text">Capitals and largest cities</h1>
         <Separator />
-        <TrainingModal cards={FinalCallingCodes} />
+        <TrainingModal cards={Cards} />
+        <MapButton url="https://www.geoguessr.com/maps/63780bc09136cfabb50dc375" />
       </Head>
-      <ImageMagnifier
-        src={countryCallingCodeMap}
-        alt="World map of calling codes"
-        style={{ backgroundColor: "#ecfbff" }}
-      />
+      <ImageMagnifier src={PoliticalWorld} alt="Political Map of the World, February 2021" />
     </Tip>
   );
 }
 
-export default WorldCallingCodes;
+export default CapitalsAndLargestCities;

@@ -305,11 +305,11 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                     justifyContent: "center",
                     alignItems: "center",
                     borderRadius: "8px",
-                    border: "2px solid var(--pastel-pink, #DEA4C0)",
+                    border: displayFrontOnFrontSideOnly ? "none" : "2px solid var(--pastel-green, #a1ddce)",
+                    padding: displayFrontOnFrontSideOnly ? "none" : "8px",
                     width: "100%",
                     maxHeight: "100%",
                     minHeight: "0",
-                    padding: "8px",
                     textAlign: "center",
                     flexGrow: 1,
                   }}

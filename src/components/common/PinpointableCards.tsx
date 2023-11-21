@@ -22,11 +22,9 @@ function Map({ map, country }: MapProps) {
       alt={`Map of ${country}`}
       style={{
         height: "100%",
-        // minHeight: "0",
         maxWidth: "100%",
-        // minWidth: "0",
-        aspectRatio: "1/1",
-        objectFit: "contain",
+        // aspectRatio: "1/1",
+        // objectFit: "contain",
         borderRadius: "0.5rem",
         display: "block",
         userSelect: "none",
@@ -112,6 +110,7 @@ function Front({ map, city }: { map: string; city: string }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        gap: "0.25rem",
         height: "100%",
         width: "100%",
       }}
