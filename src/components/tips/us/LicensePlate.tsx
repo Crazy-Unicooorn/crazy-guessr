@@ -29,6 +29,7 @@ import Florida from "../../../assets/img/us/plates/Florida.jpg";
 import California from "../../../assets/img/us/plates/California1.jpg";
 import NY from "../../../assets/img/us/plates/NewYork1.jpg";
 import Arizona from "../../../assets/img/us/plates/Arizona.jpg";
+import Washington from "../../../assets/img/us/plates/Washington.jpg";
 
 // Blurred
 import Alabama1 from "../../../assets/img/us/plates/blurred/alabama1.jpg";
@@ -102,6 +103,11 @@ import ArizonaBlurred2 from "../../../assets/img/us/plates/blurred/Arizona2.jpg"
 import ArizonaBlurred3 from "../../../assets/img/us/plates/blurred/Arizona3.jpg";
 import ArizonaBlurred4 from "../../../assets/img/us/plates/blurred/Arizona4.jpg";
 import ArizonaBlurred5 from "../../../assets/img/us/plates/blurred/Arizona5.jpg";
+import WashingtonBlurred1 from "../../../assets/img/us/plates/blurred/Washington1.jpg";
+import WashingtonBlurred2 from "../../../assets/img/us/plates/blurred/Washington2.jpg";
+import WashingtonBlurred3 from "../../../assets/img/us/plates/blurred/Washington3.jpg";
+import WashingtonBlurred4 from "../../../assets/img/us/plates/blurred/Washington4.jpg";
+import WashingtonBlurred5 from "../../../assets/img/us/plates/blurred/Washington5.jpg";
 
 function TrainingRequirements() {
   const data: Card[] = [
@@ -513,6 +519,26 @@ function LicensePlate() {
     // { front: "Vermont", back: "Yes" },
     // { front: "Virginia", back: "Yes" },
     // { front: "Washington", back: "Yes" },
+    {
+      front: img(WashingtonBlurred1),
+      back: <StyleBack>{img(Washington)} Washington</StyleBack>,
+    },
+    {
+      front: img(WashingtonBlurred2),
+      back: <StyleBack>{img(Washington)} Washington</StyleBack>,
+    },
+    {
+      front: img(WashingtonBlurred3),
+      back: <StyleBack>{img(Washington)} Washington</StyleBack>,
+    },
+    {
+      front: img(WashingtonBlurred4),
+      back: <StyleBack>{img(Washington)} Washington</StyleBack>,
+    },
+    {
+      front: img(WashingtonBlurred5),
+      back: <StyleBack>{img(Washington)} Washington</StyleBack>,
+    },
     // { front: "West Virginia", back: "Yes" },
     // { front: "Wisconsin", back: "Yes" },
     // { front: "Wyoming", back: "No" },
