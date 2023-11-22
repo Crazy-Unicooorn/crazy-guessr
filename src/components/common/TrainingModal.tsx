@@ -168,10 +168,11 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
     for (let i = 0; i < activeCards.length; i += 1) {
       weightSum += activeCards[i].weight || 1;
       if (randomNum <= weightSum) {
-        setRandomCard(activeCards[i]);
-        const chance = Number(((activeCards[i].weight || 1) / totalWeight) * 100).toFixed(2);
+        const selectedCard = { ...activeCards[i] };
+        setRandomCard(selectedCard);
+        const chance = Number(((selectedCard.weight || 1) / totalWeight) * 100).toFixed(2);
         // eslint-disable-next-line no-console
-        console.log(`This card had ${chance}% chance of being picked (weight: ${activeCards[i].weight})`);
+        console.log(`This card had ${chance}% chance of being picked (weight: ${selectedCard.weight})`);
         break;
       }
     }

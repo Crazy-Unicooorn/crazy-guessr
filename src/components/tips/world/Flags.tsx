@@ -133,7 +133,7 @@ import ImageMagnifier from "../../common/ImageMagnifier";
 
 function WorldFlags() {
   const style = { maxHeight: "16rem", borderRadius: "0.5rem" };
-  const WorldFlag: Card[] = [
+  const Data: Card[] = [
     { front: <img src={ad} alt="Drapeau d'un pays" style={style} />, back: "Andorra" },
     { front: <img src={ae} alt="Drapeau d'un pays" style={style} />, back: "United Arab Emirates" },
     { front: <img src={af} alt="Drapeau d'un pays" style={style} />, back: "Afghanistan" },
@@ -267,12 +267,13 @@ function WorldFlags() {
     // { front: <img src={xv} alt="Drapeau d'un pays" style={style} />, back: "Svalbard" },
     { front: <img src={za} alt="Drapeau d'un pays" style={style} />, back: "South Africa" },
   ];
+
   return (
     <Tip>
       <Head>
         <h1 className="singleline-text">Flags</h1>
         <Separator />
-        <TrainingModal cards={WorldFlag} />
+        <TrainingModal cards={Data} />
         <MapButton url="https://www.geoguessr.com/maps/61a1846aee665b00016680ce" />
       </Head>
       <ImageMagnifier src={flagmap} alt="Flag map of the world" style={{ backgroundColor: "var(--pastel-blue)" }} />
