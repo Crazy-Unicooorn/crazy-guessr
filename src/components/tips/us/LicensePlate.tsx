@@ -30,6 +30,7 @@ import California from "../../../assets/img/us/plates/California1.jpg";
 import NY from "../../../assets/img/us/plates/NewYork1.jpg";
 import Arizona from "../../../assets/img/us/plates/Arizona.jpg";
 import Washington from "../../../assets/img/us/plates/Washington.jpg";
+import Hawaii from "../../../assets/img/us/plates/Hawaii.jpg";
 
 // Blurred
 import Alabama1 from "../../../assets/img/us/plates/blurred/alabama1.jpg";
@@ -108,6 +109,11 @@ import WashingtonBlurred2 from "../../../assets/img/us/plates/blurred/Washington
 import WashingtonBlurred3 from "../../../assets/img/us/plates/blurred/Washington3.jpg";
 import WashingtonBlurred4 from "../../../assets/img/us/plates/blurred/Washington4.jpg";
 import WashingtonBlurred5 from "../../../assets/img/us/plates/blurred/Washington5.jpg";
+import HawaiiBlurred1 from "../../../assets/img/us/plates/blurred/Hawaii1.jpg";
+import HawaiiBlurred2 from "../../../assets/img/us/plates/blurred/Hawaii2.jpg";
+import HawaiiBlurred3 from "../../../assets/img/us/plates/blurred/Hawaii3.jpg";
+import HawaiiBlurred4 from "../../../assets/img/us/plates/blurred/Hawaii4.jpg";
+import HawaiiBlurred5 from "../../../assets/img/us/plates/blurred/Hawaii5.jpg";
 
 function TrainingRequirements() {
   const data: Card[] = [
@@ -280,7 +286,26 @@ function LicensePlate() {
       back: <StyleBack>{img(Florida)} Florida</StyleBack>,
     },
     // { front: "Georgia", back: "Yes" },
-    // { front: "Hawaii", back: "No" },
+    {
+      front: img(HawaiiBlurred1),
+      back: <StyleBack>{img(Hawaii)} Hawaii</StyleBack>,
+    },
+    {
+      front: img(HawaiiBlurred2),
+      back: <StyleBack>{img(Hawaii)} Hawaii</StyleBack>,
+    },
+    {
+      front: img(HawaiiBlurred3),
+      back: <StyleBack>{img(Hawaii)} Hawaii</StyleBack>,
+    },
+    {
+      front: img(HawaiiBlurred4),
+      back: <StyleBack>{img(Hawaii)} Hawaii</StyleBack>,
+    },
+    {
+      front: img(HawaiiBlurred5),
+      back: <StyleBack>{img(Hawaii)} Hawaii</StyleBack>,
+    },
     // { front: "Idaho", back: "No" },
     // { front: "Illinois", back: "Yes" },
     // { front: "Indiana", back: "Yes" },
