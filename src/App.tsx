@@ -157,7 +157,7 @@ const MainContent = styled.div`
 
 const Page = (props: { children: ReactNode; title: string }) => {
   useEffect(() => {
-    document.title = props.title || "";
+    document.title = `CG - ${props.title}`;
   }, [props.title]);
   return props.children;
 };
@@ -172,7 +172,7 @@ function App() {
             <Route
               path="/"
               element={
-                <Page title="HomePage">
+                <Page title="World">
                   <Home />
                 </Page>
               }

@@ -153,7 +153,7 @@ function Button({
 
   if (hasLink) {
     return (
-      <a href={externalLink} target="_blank" rel="noreferrer">
+      <a href={externalLink} target="_blank" rel="noreferrer" tabIndex={-1}>
         <StyledButton
           type="button"
           bgcolor={bgcolor}

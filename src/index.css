@@ -43,9 +43,9 @@ video {
 
 /* Changing the look of the scrollbar */
 *::-webkit-scrollbar {
-  width: 12px;
+  width: 0.5rem;
   @media (max-width: 640px) {
-    width: 4px;
+    width: 0.25rem;
   }
 }
 
@@ -56,7 +56,7 @@ video {
 
 *::-webkit-scrollbar-thumb {
   background: var(--dark-purple);
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 *::-webkit-scrollbar-thumb:hover {

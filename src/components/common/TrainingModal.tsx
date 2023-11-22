@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { styled } from "styled-components";
 import { animated } from "react-spring";
 import Button from "./Button";
@@ -236,6 +236,28 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
     toggleBack();
   };
 
+  const modifiedElements = useRef(new Set<Element>());
+
+  useEffect(() => {
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const modalOpen = document.getElementById("modal");
+
+    if (displayModal) {
+      const elements = document.querySelectorAll(focusableElements);
+      elements.forEach((el: Element) => {
+        if (!modalOpen?.contains(el)) {
+          el.setAttribute("tabindex", "-1");
+          modifiedElements.current.add(el);
+        }
+      });
+    } else {
+      modifiedElements.current.forEach((el: Element) => {
+        el.removeAttribute("tabindex");
+      });
+      modifiedElements.current.clear();
+    }
+  }, [displayModal]);
+
   return (
     <>
       <Button
@@ -254,7 +276,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
         }}
       />
       {displayModal && (
-        <ModalContainer>
+        <ModalContainer id="modal">
           <Overlay onClick={onClose} />
           <Modal>
             <Heading>

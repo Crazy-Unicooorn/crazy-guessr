@@ -319,6 +319,16 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
   //   }
   // }
 
+  useEffect(() => {
+    if (mapRef.current) {
+      const links = mapRef.current.querySelectorAll("a");
+      links.forEach((link) => {
+        // eslint-disable-next-line no-param-reassign
+        link.tabIndex = -1;
+      });
+    }
+  }, []);
+
   return (
     <svg
       ref={mapRef}
