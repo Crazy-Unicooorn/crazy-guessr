@@ -43,14 +43,19 @@ const LastUpdateText = styled.span`
   font-size: 12px;
   margin-left: 32px;
   white-space: pre-line;
+  line-height: 1.5;
 
   @media (max-width: 840px) {
     display: none;
   }
+
+  a {
+    color: white;
+  }
 `;
 
 function Header() {
-  const [lastUpdate, setLastUpdate] = useState("");
+  const [lastUpdate, setLastUpdate] = useState("Last update:\nloading...");
   const boopConfig = { scale: 1.1, timing: 200, springConfig: { tension: 100, friction: 5 } };
 
   useEffect(() => {
@@ -58,7 +63,7 @@ function Header() {
       .then((response) => response.json())
       .then((data) => {
         const date = new Date(data.pushed_at);
-        setLastUpdate(`updated\n ${date.toLocaleDateString()}`);
+        setLastUpdate(`Last update:\n ${date.toLocaleDateString()}`);
       });
   }, []);
 
@@ -104,7 +109,11 @@ function Header() {
         hasIconLeft
         iconLeft={<HeartIcon size={24} />}
       />
-      <LastUpdateText>{lastUpdate}</LastUpdateText>
+      <LastUpdateText>
+        <a href="https://github.com/Crazy-Unicooorn/crazy-guessr/releases" target="blank" rel="noreferrer">
+          {lastUpdate}
+        </a>
+      </LastUpdateText>
     </section>
   );
 }
