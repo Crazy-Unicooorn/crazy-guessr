@@ -3,6 +3,7 @@ import flagmap from "../../assets/img/fr/flagmap.png";
 import coat from "../../assets/img/fr/coat.svg";
 import PinpointPref from "../../components/tips/fr/PinpointPref";
 import CityNamePatterns from "../../components/tips/fr/CityNamePatterns";
+import PinpointSousPref from "../../components/tips/fr/PinpointSousPref";
 
 function France() {
   return (
@@ -25,6 +26,7 @@ function France() {
         drivingSide="R"
       />
       <PinpointPref />
+      <PinpointSousPref />
       <CityNamePatterns />
     </>
   );
