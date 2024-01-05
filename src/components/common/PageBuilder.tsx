@@ -136,40 +136,44 @@ export function CountrySummary({
 
   const finalISO = iso?.toUpperCase();
 
+  const iconStyle: React.CSSProperties = {
+    minWidth: "24px",
+  };
+
   return (
     <Summary>
       <SummaryItem>
-        <img src={flagIcon} alt="" />
+        <img src={flagIcon} alt="" style={iconStyle} />
         Capital
         <div style={data}>{capital}</div>
       </SummaryItem>
       <SummaryItem>
-        <img src={cityIcon} alt="" />
+        <img src={cityIcon} alt="" style={iconStyle} />
         Largest Cities
         <div style={data}>{largestCities}</div>
       </SummaryItem>
       <SummaryItem>
-        <img src={langIcon} alt="" />
+        <img src={langIcon} alt="" style={iconStyle} />
         Main Languages
         <div style={data}>{lang}</div>
       </SummaryItem>
       <SummaryItem>
-        <img src={currencyIcon} alt="" />
+        <img src={currencyIcon} alt="" style={iconStyle} />
         Currencies
         <div style={data}>{currencies}</div>
       </SummaryItem>
       <SummaryItem>
-        <img src={isoIcon} alt="" />
+        <img src={isoIcon} alt="" style={iconStyle} />
         ISO 3166 Code
         <div style={data}>{finalISO}</div>
       </SummaryItem>
       <SummaryItem>
-        <img src={internetIcon} alt="" />
+        <img src={internetIcon} alt="" style={iconStyle} />
         Internet TLD
         <div style={data}>.{tld}</div>
       </SummaryItem>
       <SummaryItem>
-        <img src={callIcon} alt="" />
+        <img src={callIcon} alt="" style={iconStyle} />
         Calling Code
         <div style={data}>+{callingCode}</div>
       </SummaryItem>
