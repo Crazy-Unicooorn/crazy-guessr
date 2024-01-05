@@ -5473,6 +5473,7 @@ interface LegendItemProps {
   color: string;
   icon: React.ReactNode;
   text: string;
+  // eslint-disable-next-line react/require-default-props
   title?: string;
 }
 
