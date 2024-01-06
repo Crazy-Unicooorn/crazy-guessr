@@ -79,6 +79,7 @@ function PinpointSousPref() {
     { cityName: "Alès", top: 70.217, left: 62.537 },
     { cityName: "Le Vigan", top: 71.503, left: 59.529 },
     { cityName: "Muret", top: 76.569, left: 45.1 },
+    { cityName: "Saint-Gaudens", top: 79.923, left: 41.287 },
     { cityName: "Condom", top: 71.833, left: 39.066 },
     { cityName: "Mirande", top: 76.05, left: 39.267 },
     { cityName: "Arcachon", top: 65.156, left: 29.311 },
@@ -187,6 +188,8 @@ function PinpointSousPref() {
     { cityName: "Mamers", top: 30.005, left: 39.047 },
     { cityName: "Albertville", top: 55.468, left: 77.168 },
     { cityName: "Saint-Jean-de-Maurienne", top: 59.27, left: 76.867 },
+    { cityName: "Bonneville", top: 51.63, left: 77.22 },
+    { cityName: "Saint-Julien-en-Genevois", top: 51.008, left: 75.216 },
     { cityName: "Thonon-les-Bains", top: 48.852, left: 77.72 },
     { cityName: "Dieppe", top: 15.032, left: 43.53 },
     { cityName: "Le Havre", top: 19.103, left: 37.393 },
@@ -243,7 +246,7 @@ function PinpointSousPref() {
       </Head>
       <Paragraph>
         <b>Sous-préfectures</b> are the second level of administrative divisions in France, below the prefectures. There
-        are 233 sous-préfectures in France. Although they are not necessarily the most populated cities in their
+        are 234 sous-préfectures in France. Although they are not necessarily the most populated cities in their
         respective départements, they are well indicated both on the map and on the street signs.
       </Paragraph>
       {/* <ImageMagnifier src={mapSousPrefs} alt="Map of France with sous-préfectures written" /> */}
