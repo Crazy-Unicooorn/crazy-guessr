@@ -62,7 +62,7 @@ function Header() {
     fetch("https://api.github.com/repos/Crazy-Unicooorn/crazy-guessr")
       .then((response) => response.json())
       .then((data) => {
-        const date = new Date(data.updated_at); // Try pushed_at if updated_at is not accurate. The idea is that pushed_at corresponds to updates of the repo while updated_at corresponds to updates of the website (GitHub pages).
+        const date = new Date(data.pushed_at); // updated_at is not accurate.
         setLastUpdate(`Last update:\n ${date.toLocaleDateString()}`);
       });
   }, []);
