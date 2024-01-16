@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { styled } from "styled-components";
+import { useGesture } from "@use-gesture/react";
+import Button from "./Button";
+import CloseIcon from "../../assets/icons/actions/close";
 
 const Container = styled.div`
   position: relative;
@@ -14,81 +17,133 @@ const Container = styled.div`
   }
 `;
 
-const Magnifier = styled.div`
-  width: 400px;
-  height: 400px;
-  max-width: calc(100vw / 2);
-  max-height: calc(100vh / 2);
-
-  border-radius: 0.25rem;
-  border: 2px solid #fff;
-`;
-
 interface MagnifierProps {
   src: string;
   alt: string;
   style?: React.CSSProperties;
 }
 
+const ModalContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  @media (min-height: 360px) {
+    top: calc(var(--header-height) / 2);
+  }
+`;
+
+const Modal = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 97%;
+  height: calc(97% - var(--header-height));
+
+  z-index: 9999;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1rem);
+  border-radius: 0.5rem;
+  border: 2px solid #999;
+
+  overflow: hidden;
+`;
+
 function ImageMagnifier({ src, alt, style }: MagnifierProps) {
+  const [showModal, setShowModal] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [showMagnifier, setShowMagnifier] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const imgRef = useRef<HTMLImageElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.preventDefault();
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+  useGesture(
+    {
+      onDrag: ({ event, offset: [dx, dy], dragging }) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (imgRef.current) {
+          imgRef.current.style.transform = `translate(${position.x + dx}px, ${position.y + dy}px) scale(2)`;
+          if (dragging) {
+            imgRef.current.style.cursor = "grabbing";
+          } else {
+            imgRef.current.style.cursor = "grab";
+          }
+        }
+      },
+      onPinch: ({ event, offset: [d] }) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (imgRef.current) {
+          imgRef.current.style.transform = `translate(${position.x}px, ${position.y}px) scale(${1 + d / 100})`;
+        }
+      },
+    },
+    {
+      target: imgRef,
+      eventOptions: { passive: false },
+    }
+  );
 
-    const x = ((e.pageX - left) / width) * 100;
-    const y = ((e.pageY - top) / height) * 100;
-    setPosition({ x, y });
-    setCursorPosition({ x: e.pageX - left, y: e.pageY - top });
-  };
-
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-
-    const x = ((e.touches[0].clientX - left) / width) * 100;
-    const y = ((e.touches[0].clientY - top) / height) * 100;
-    setPosition({ x, y });
-    setCursorPosition({ x: e.touches[0].clientX - left, y: e.touches[0].clientY - top });
+  const onClose = () => {
+    setShowModal(false);
+    setPosition({ x: 0, y: 0 });
   };
 
   return (
     <Container
-      onMouseDown={() => setShowMagnifier(true)}
-      onTouchStart={() => setShowMagnifier(true)}
-      onMouseUp={() => setShowMagnifier(false)}
-      onTouchEnd={() => setShowMagnifier(false)}
-      onMouseMove={handleMouseMove}
-      onTouchMove={handleTouchMove}
-      onMouseLeave={() => setShowMagnifier(false)}
+      onMouseDown={() => setShowModal(true)}
+      onTouchStart={() => setShowModal(true)}
       style={{
-        cursor: showMagnifier ? "crosshair" : "zoom-in",
+        cursor: showModal ? "default" : "zoom-in",
       }}
     >
       <img className="magnifier-img" src={src} alt={alt} style={style} loading="lazy" decoding="async" />
-      <div
-        style={{
-          position: "absolute",
-          left: cursorPosition.x - 200,
-          top: cursorPosition.y - 200,
-          zIndex: 9998,
-          pointerEvents: "none",
-          touchAction: "none",
-          display: showMagnifier ? "block" : "none",
-        }}
-      >
-        <Magnifier
-          style={{
-            ...style,
-            backgroundImage: showMagnifier ? `url(${src})` : "",
-            backgroundPosition: `${position.x}% ${position.y}%`,
-          }}
-        />
-      </div>
+
+      {showModal && (
+        <ModalContainer>
+          <Modal style={style}>
+            <img
+              ref={imgRef}
+              src={src}
+              alt={alt}
+              style={{
+                ...style,
+                maxWidth: "100%",
+                maxHeight: "100%",
+                cursor: "zoom-in",
+              }}
+              loading="lazy"
+              decoding="async"
+            />
+            <Button
+              onClick={onClose}
+              text=""
+              hasIconLeft
+              iconLeft={<CloseIcon size={24} fill="var(--pastel-pink)" />}
+              bgcolor="var(--pastel-black)"
+              boop={{
+                rotation: 180,
+                scale: 0.72,
+                timing: 500,
+                springConfig: { tension: 100, friction: 5 },
+              }}
+              title="Close"
+              style={{
+                position: "absolute",
+                top: "1rem",
+                right: "1rem",
+              }}
+            />
+          </Modal>
+        </ModalContainer>
+      )}
     </Container>
   );
 }
