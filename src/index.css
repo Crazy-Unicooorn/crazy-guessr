@@ -88,8 +88,15 @@ h1 {
 
 h2 {
   @media (max-width: 640px) {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
+}
+
+input {
+  font-size: 1.1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
 }
 
 .singleline-text {

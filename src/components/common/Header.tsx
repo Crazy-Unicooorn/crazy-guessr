@@ -4,8 +4,8 @@ import styled from "styled-components";
 import "./Header.css";
 import GithubIcon from "../../assets/icons/brands/github";
 import TwitchIcon from "../../assets/icons/brands/twitch";
-import HeartIcon from "../../assets/icons/general/heart";
 import Button from "./Button";
+import DonateButton from "../other/DonateButton";
 
 const BrandTextWrapper = styled.div`
   display: flex;
@@ -98,17 +98,7 @@ function Header() {
         hasIconLeft
         iconLeft={<GithubIcon size={24} />}
       />
-      <Button
-        hasLink
-        boop={boopConfig}
-        externalLink="https://ko-fi.com/crazy_unicorn"
-        text="Donate"
-        collapseText
-        bgcolor="var(--pastel-yellow, #f7edc3);"
-        shadow="light"
-        hasIconLeft
-        iconLeft={<HeartIcon size={24} />}
-      />
+      <DonateButton />
       <LastUpdateText>
         <a href="https://github.com/Crazy-Unicooorn/crazy-guessr/releases" target="blank" rel="noreferrer">
           {lastUpdate}
