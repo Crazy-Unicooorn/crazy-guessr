@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { styled } from "styled-components";
 import Button from "../common/Button";
 import HeartIcon from "../../assets/icons/general/heart";
@@ -97,9 +97,26 @@ function DonateButton() {
     setAmount(Number(e.target.value));
   }
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setDisplayModal(false);
-  };
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: { key: string }) => {
+      if (event.key === "Escape") {
+        if (!displayModal) return;
+        onClose();
+      }
+    };
+
+    // Add event listener
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Remove event listener on cleanup
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [displayModal, onClose]); // Dependency array ensures effect runs only if onClose changes
 
   return (
     <>
