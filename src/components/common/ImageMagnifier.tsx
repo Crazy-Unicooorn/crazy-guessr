@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { useGesture } from "@use-gesture/react";
 import Button from "./Button";
@@ -91,10 +91,27 @@ function ImageMagnifier({ src, alt, style }: MagnifierProps) {
     }
   );
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setShowModal(false);
     setPosition({ x: 0, y: 0 });
-  };
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: { key: string }) => {
+      if (event.key === "Escape") {
+        if (!showModal) return;
+        onClose();
+      }
+    };
+
+    // Add event listener
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Remove event listener on cleanup
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [showModal, onClose]); // Dependency array ensures effect runs only if onClose changes
 
   return (
     <Container

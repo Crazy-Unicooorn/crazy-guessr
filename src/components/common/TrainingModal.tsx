@@ -187,10 +187,10 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
   const toggleModal = () => setDisplayModal(!displayModal);
   const toggleBack = () => setDisplayAnswer(!displayAnswer);
 
-  const onClose = () => {
+  const onClose = useCallback(() => {
     setDisplayModal(false);
     setDisplayAnswer(false);
-  };
+  }, []);
 
   function updateWeight(factor: number) {
     setNewCards(
@@ -258,6 +258,23 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
       modifiedElements.current.clear();
     }
   }, [displayModal]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: { key: string }) => {
+      if (event.key === "Escape") {
+        if (!displayModal) return;
+        onClose();
+      }
+    };
+
+    // Add event listener
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Remove event listener on cleanup
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [displayModal, onClose]); // Dependency array ensures effect runs only if onClose changes
 
   return (
     <>
