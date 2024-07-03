@@ -77,10 +77,11 @@ function Header() {
       </Link>
       <Separator />
       <Button
+        text="Catch me live"
+        title="Catch me live on Twitch! I stream development and general knowledge training."
         hasLink
         boop={boopConfig}
         externalLink="https://www.twitch.tv/crazyquirkyunicorn"
-        text="Catch me live"
         collapseText
         bgcolor="#e1cdff"
         shadow="light"
@@ -88,10 +89,11 @@ function Header() {
         iconLeft={<TwitchIcon size={24} />}
       />
       <Button
+        text="Contribute"
+        title="Contribute to the project on GitHub!"
         hasLink
         boop={boopConfig}
         externalLink="https://github.com/Crazy-Unicooorn/crazy-guessr"
-        text="Contribute"
         collapseText
         bgcolor="var(--pastel-orange, #eccaaa);"
         shadow="light"

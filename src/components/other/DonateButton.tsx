@@ -122,6 +122,7 @@ function DonateButton() {
     <>
       <Button
         text="Donate"
+        title="Donate BTC to the author of this website."
         collapseText
         onClick={toggleModal}
         hasIconLeft
