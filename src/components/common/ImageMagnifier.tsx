@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { useGesture } from "@use-gesture/react";
+import { isMobile } from "react-device-detect";
 import Button from "./Button";
 import CloseIcon from "../../assets/icons/actions/close";
 
@@ -77,13 +78,6 @@ function ImageMagnifier({ src, alt, style }: MagnifierProps) {
           }
         }
       },
-      onPinch: ({ event, offset: [d] }) => {
-        event.preventDefault();
-        event.stopPropagation();
-        if (imgRef.current) {
-          imgRef.current.style.transform = `translate(${position.x}px, ${position.y}px) scale(${1 + d / 100})`;
-        }
-      },
     },
     {
       target: imgRef,
@@ -115,8 +109,7 @@ function ImageMagnifier({ src, alt, style }: MagnifierProps) {
 
   return (
     <Container
-      onMouseDown={() => setShowModal(true)}
-      onTouchStart={() => setShowModal(true)}
+      onMouseDown={() => !isMobile && setShowModal(true)}
       style={{
         cursor: showModal ? "default" : "zoom-in",
       }}

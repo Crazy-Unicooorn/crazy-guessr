@@ -602,11 +602,7 @@ function LicensePlate() {
           <TrainingRequirements />
         </div>
       </Paragraph>
-      <ImageMagnifier
-        src={requiresFrontLicense2}
-        alt="Map of U.S. showing states that require front license plates"
-        style={{ maxWidth: "80rem" }}
-      />
+      <ImageMagnifier src={requiresFrontLicense2} alt="Map of U.S. showing states that require front license plates" />
     </Tip>
   );
 }
