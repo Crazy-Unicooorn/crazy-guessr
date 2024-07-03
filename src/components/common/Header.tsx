@@ -16,7 +16,7 @@ const BrandTextWrapper = styled.div`
 `;
 
 const BrandTextCrazy = styled.span`
-  color: var(--pastel-green, #ade1d4);
+  color: white;
   font-family: Quicksand;
   font-size: 24px;
   font-style: normal;
@@ -25,7 +25,7 @@ const BrandTextCrazy = styled.span`
 `;
 
 const BrandTextGuessr = styled.span`
-  color: var(--pastel-pink, #dea4c0);
+  color: var(--purple-300);
   font-family: Quicksand;
   font-size: 24px;
   font-style: normal;

@@ -91,6 +91,7 @@ interface ButtonProps {
   hasIconRight?: boolean;
   iconRight?: React.ReactNode;
   text?: string;
+  textColor?: string;
   bgcolor?: string;
   shadow?: "light" | "dark";
   style?: React.CSSProperties;
@@ -122,6 +123,7 @@ function Button({
   hasIconRight,
   iconRight,
   bgcolor,
+  textColor,
   shadow,
   style,
   collapseText,
@@ -168,7 +170,7 @@ function Button({
           <span className="front">
             {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
             {hasText && (
-              <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left" }}>
+              <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left", color: textColor }}>
                 {text}
               </TextComponent>
             )}
@@ -195,7 +197,7 @@ function Button({
           <span className="front">
             {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
             {hasText && (
-              <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left" }}>
+              <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left", color: textColor }}>
                 {text}
               </TextComponent>
             )}
@@ -221,7 +223,7 @@ function Button({
       <span className="front">
         {hasIconLeft && <animated.span style={currentStyle}>{iconLeft}</animated.span>}
         {hasText && (
-          <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left" }}>
+          <TextComponent className="singleline-text" style={{ flexGrow: 1, textAlign: "left", color: textColor }}>
             {text}
           </TextComponent>
         )}
@@ -238,6 +240,7 @@ Button.defaultProps = {
   externalLink: "",
   text: "Default Text",
   bgcolor: "var(--pastel-purple)",
+  textColor: "black",
   shadow: "dark",
   style: {},
   hasIconLeft: false,

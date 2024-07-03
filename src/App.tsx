@@ -157,7 +157,7 @@ const MainContent = styled.div`
 
 const Page = (props: { children: ReactNode; title: string }) => {
   useEffect(() => {
-    document.title = `CG - ${props.title}`;
+    document.title = `CG | ${props.title}`;
   }, [props.title]);
   return props.children;
 };

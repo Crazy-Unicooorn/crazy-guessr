@@ -143,7 +143,7 @@ function ImageMagnifier({ src, alt, style }: MagnifierProps) {
               onClick={onClose}
               text=""
               hasIconLeft
-              iconLeft={<CloseIcon size={24} fill="var(--pastel-pink)" />}
+              iconLeft={<CloseIcon size={24} fill="var(--purple-300)" />}
               bgcolor="var(--pastel-black)"
               boop={{
                 rotation: 180,

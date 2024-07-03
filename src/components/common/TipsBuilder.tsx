@@ -19,7 +19,8 @@ export const Head = styled.div`
 `;
 
 export const Paragraph = styled.div`
-  background-color: var(--pastel-purple);
+  background-color: var(--purple-100);
+  box-shadow: var(--shadow-flat);
 
   padding: 1rem;
   border-radius: 0.5rem;
@@ -28,10 +29,6 @@ export const Paragraph = styled.div`
   margin-top: 0.5rem;
 
   width: 100%;
-
-  &::selection {
-    background-color: var(--background-color);
-  }
 `;
 
 export interface Card {
@@ -45,9 +42,10 @@ export function MapButton({ url }: { url: string }) {
       text="GeoGuessr Map"
       hasLink
       externalLink={url}
-      bgcolor="var(--pastel-green)"
+      bgcolor="var(--purple-300)"
+      textColor="var(--purple-950)"
       hasIconRight
-      iconRight={<LocationIcon size={24} />}
+      iconRight={<LocationIcon size={24} fill="var(--purple-950)" />}
       collapseText
       boop={{
         y: -4,

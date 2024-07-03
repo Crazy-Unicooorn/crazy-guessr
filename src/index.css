@@ -5,16 +5,23 @@
   --mobile-width: 640px;
   --elevation-5: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
   --shadow-flat: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  --dark-purple: rgba(56, 47, 91, 0.9);
-  --background-color: #d8dbfa;
   --pastel-pink: #dea4c0;
   --pastel-orange: #ebbf96;
   --pastel-yellow: #f7edc3;
   --pastel-green: #a1ddce;
-  --pastel-blue: #798ad1;
   --pastel-purple: #c09fcc;
   --pastel-black: #323844;
-  --pastel-white: #f6e6ee;
+  --purple-50: #f1f1fc;
+	--purple-100: #e5e7fa;
+	--purple-200: #d0d2f5;
+	--purple-300: #b3b5ee;
+	--purple-400: #9894e5;
+	--purple-500: #867ada;
+	--purple-600: #7560cb;
+	--purple-700: #6550b2;
+	--purple-800: #524390;
+	--purple-900: #453b74;
+	--purple-950: #382f5b;
 }
 
 *,
@@ -52,26 +59,26 @@ video {
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--background-color);
+  background: var(--purple-100);
   margin: calc(var(--header-height) + 4px) 0 4px 0;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--dark-purple);
+  background: var(--purple-950);
   border-radius: 0.5rem;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: var(--pastel-purple);
+  background: var(--purple-400);
   cursor: pointer;
 }
 
 *::selection {
-  background-color: #b399f0;
+  background-color: var(--purple-300);
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--purple-50);
 }
 
 a {

@@ -271,12 +271,12 @@ function WorldFlags() {
   return (
     <Tip>
       <Head>
-        <h1 className="singleline-text">Flags</h1>
+        <h1 className="singleline-text">National Flags</h1>
         <Separator />
         <TrainingModal cards={Data} />
         <MapButton url="https://www.geoguessr.com/maps/61a1846aee665b00016680ce" />
       </Head>
-      <ImageMagnifier src={flagmap} alt="Flag map of the world" style={{ backgroundColor: "var(--pastel-blue)" }} />
+      <ImageMagnifier src={flagmap} alt="Flag map of the world" style={{ backgroundColor: "var(--purple-200)" }} />
     </Tip>
   );
 }

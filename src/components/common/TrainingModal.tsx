@@ -10,7 +10,9 @@ import CorrectIcon from "../../assets/icons/informational/correct";
 import WrongIcon from "../../assets/icons/informational/wrong";
 import { Card } from "./TipsBuilder";
 import useBoop from "../../hooks/use-boop";
-import StopIcon from "../../assets/icons/general/stop";
+import HappyIcon from "../../assets/icons/general/happy.svg";
+import SadIcon from "../../assets/icons/general/sad.svg";
+import DeleteIcon from "../../assets/icons/actions/delete_forever";
 
 const Overlay = styled.div`
   position: fixed;
@@ -57,7 +59,7 @@ const Modal = styled.div`
   // overflow: hidden;
 
   border-radius: 8px;
-  background: var(--pastel-white);
+  background: var(--purple-100);
 
   position: relative;
 
@@ -283,8 +285,9 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
         collapseText={shrinkBtn}
         onClick={toggleModal}
         hasIconRight
-        iconRight={<DeckIcon size={24} fill="#000" />}
-        bgcolor="var(--pastel-pink)"
+        iconRight={<DeckIcon size={24} fill="#fff" />}
+        bgcolor="var(--purple-700)"
+        textColor="white"
         boop={{
           x: 4,
           y: -4,
@@ -324,7 +327,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                 onClick={onClose}
                 text=""
                 hasIconLeft
-                iconLeft={<CloseIcon size={24} fill="var(--pastel-pink)" />}
+                iconLeft={<CloseIcon size={24} fill="var(--purple-300)" />}
                 bgcolor="var(--pastel-black)"
                 boop={{
                   rotation: 180,
@@ -345,7 +348,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                     justifyContent: "center",
                     alignItems: "center",
                     borderRadius: "8px",
-                    border: displayFrontOnFrontSideOnly ? "none" : "2px solid var(--pastel-green, #a1ddce)",
+                    border: displayFrontOnFrontSideOnly ? "none" : "2px solid var(--purple-400)",
                     padding: displayFrontOnFrontSideOnly ? "none" : "8px",
                     width: "100%",
                     maxHeight: "100%",
@@ -358,28 +361,29 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                 </h1>
                 <Feedback>
                   <Button
+                    text="Wrong"
                     title="Makes the card more likely to appear again"
                     onClick={onWrong}
-                    text="Wrong"
+                    bgcolor="Salmon"
                     hasIconRight
-                    iconRight={<ArrowRight fill="black" size={24} />}
+                    iconRight={<img src={SadIcon} alt="Sad Icon" />}
                     boop={{
-                      x: 8,
+                      scale: 1.2,
                       timing: 200,
-                      springConfig: { tension: 300, friction: 10 },
+                      springConfig: { tension: 100, friction: 5 },
                     }}
                     style={{ width: "100%" }}
                   />
                   <Button
                     onClick={onSuspend}
                     text=""
-                    bgcolor="var(--pastel-black)"
+                    bgcolor="var(--purple-300)"
                     hasIconRight
-                    iconRight={<StopIcon fill="red" size={24} />}
+                    iconRight={<DeleteIcon fill="black" />}
                     boop={{
-                      rotation: 180,
+                      y: -8,
                       timing: 200,
-                      springConfig: { tension: 100, friction: 5 },
+                      springConfig: { tension: 300, friction: 10 },
                     }}
                     title="Suspend card (for the session)"
                   />
@@ -389,11 +393,11 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                     bgcolor="var(--pastel-green)"
                     text="Correct"
                     hasIconRight
-                    iconRight={<ArrowRight fill="black" size={24} />}
+                    iconRight={<img src={HappyIcon} alt="Happy Icon" />}
                     boop={{
-                      x: 8,
+                      scale: 1.2,
                       timing: 200,
-                      springConfig: { tension: 300, friction: 10 },
+                      springConfig: { tension: 100, friction: 5 },
                     }}
                     style={{ width: "100%" }}
                   />
@@ -402,11 +406,12 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
             )}
             {!displayAnswer && (
               <Button
-                onClick={toggleBack}
-                bgcolor="var(--pastel-pink)"
                 text="Reveal the answer"
+                onClick={toggleBack}
+                bgcolor="var(--purple-700)"
+                textColor="white"
                 hasIconRight
-                iconRight={<ArrowRight fill="black" size={24} />}
+                iconRight={<ArrowRight fill="white" size={24} />}
                 boop={{
                   x: 8,
                   timing: 200,

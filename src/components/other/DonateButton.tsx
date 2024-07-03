@@ -51,7 +51,7 @@ const Modal = styled.div`
   // overflow: hidden;
 
   border-radius: 8px;
-  background: var(--pastel-white);
+  background: var(--purple-100);
   color: #000000;
 
   position: fixed;
@@ -141,7 +141,7 @@ function DonateButton() {
                 onClick={onClose}
                 text=""
                 hasIconLeft
-                iconLeft={<CloseIcon size={24} fill="var(--pastel-pink)" />}
+                iconLeft={<CloseIcon size={24} fill="var(--purple-400)" />}
                 bgcolor="var(--pastel-black)"
                 boop={{
                   rotation: 180,
