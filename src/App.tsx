@@ -105,7 +105,7 @@ import Reunion from "./pages/countries/re";
 import Netherlands from "./pages/countries/nl";
 import Lebanon from "./pages/countries/lb";
 import Montenegro from "./pages/countries/me";
-import Swaziland from "./pages/countries/sz";
+import Eswatini from "./pages/countries/sz";
 import Vanuatu from "./pages/countries/vu";
 import FalklandIslands from "./pages/countries/fk";
 import SouthGeorgia from "./pages/countries/gs";
@@ -1076,8 +1076,8 @@ function App() {
             <Route
               path="sz"
               element={
-                <Page title="Swaziland">
-                  <Swaziland />
+                <Page title="Eswatini">
+                  <Eswatini />
                 </Page>
               }
             />

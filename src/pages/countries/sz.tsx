@@ -2,15 +2,15 @@ import PageHeader, { CountrySummary } from "../../components/common/PageBuilder"
 import flagmap from "../../assets/img/sz/flagmap.png";
 import coat from "../../assets/img/sz/coat.svg";
 
-function Swaziland() {
+function Eswatini() {
   return (
     <>
       <PageHeader
         flagmap={flagmap}
-        flagAlt="Swaziland shaped flag"
-        title="Swaziland (Eswatini)"
+        flagAlt="Eswatini shaped flag"
+        title="Eswatini (Swaziland)"
         coat={coat}
-        coatAlt="Coat of Arms of Swaziland"
+        coatAlt="Coat of Arms of Eswatini"
       />
       <CountrySummary
         capital="Mbabane (executive), Lobamba (legislative)"
@@ -26,4 +26,4 @@ function Swaziland() {
   );
 }
 
-export default Swaziland;
+export default Eswatini;
