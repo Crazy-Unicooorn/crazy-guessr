@@ -28,3 +28,102 @@ Anyone is free to contribute, coding knowledge is not required.
 ## [Andorra](https://crazy-unicooorn.github.io/crazy-guessr/#/ad)
 
 ## [United Arab Emirates](https://crazy-unicooorn.github.io/crazy-guessr/#/ae)
+
+## [Afghanistan](https://crazy-unicooorn.github.io/crazy-guessr/#/af)
+
+## [Albania](https://crazy-unicooorn.github.io/crazy-guessr/#/al)
+
+## [Antarctica](https://crazy-unicooorn.github.io/crazy-guessr/#/aq)
+
+## [Argentina](https://crazy-unicooorn.github.io/crazy-guessr/#/ar)
+
+## [American Samoa](https://crazy-unicooorn.github.io/crazy-guessr/#/as)
+
+## [Austria](https://crazy-unicooorn.github.io/crazy-guessr/#/at)
+
+## [Australia](https://crazy-unicooorn.github.io/crazy-guessr/#/au)
+
+## [Bangladesh](https://crazy-unicooorn.github.io/crazy-guessr/#/bd)
+
+## [Belgium](https://crazy-unicooorn.github.io/crazy-guessr/#/be)
+
+## [Bulgaria](https://crazy-unicooorn.github.io/crazy-guessr/#/bg)
+
+## [Bermuda](https://crazy-unicooorn.github.io/crazy-guessr/#/bm)
+
+## [Bolivia](https://crazy-unicooorn.github.io/crazy-guessr/#/bo)
+
+## [Brazil](https://crazy-unicooorn.github.io/crazy-guessr/#/br)
+
+## [Bhutan](https://crazy-unicooorn.github.io/crazy-guessr/#/bt)
+
+## [Botswana](https://crazy-unicooorn.github.io/crazy-guessr/#/bw)
+
+## [Belarus](https://crazy-unicooorn.github.io/crazy-guessr/#/by)
+
+## [Canada](https://crazy-unicooorn.github.io/crazy-guessr/#/ca)
+- Provinces and Territories
+
+## [Switzerland](https://crazy-unicooorn.github.io/crazy-guessr/#/ch)
+
+## [Chile](https://crazy-unicooorn.github.io/crazy-guessr/#/cl)
+
+## [China](https://crazy-unicooorn.github.io/crazy-guessr/#/cn)
+
+## [Colombia](https://crazy-unicooorn.github.io/crazy-guessr/#/co)
+
+## [Costa Rica](https://crazy-unicooorn.github.io/crazy-guessr/#/cr)
+
+## [Curacao](https://crazy-unicooorn.github.io/crazy-guessr/#/cw)
+
+## [Czech Republic](https://crazy-unicooorn.github.io/crazy-guessr/#/cz)
+
+## [Germany](https://crazy-unicooorn.github.io/crazy-guessr/#/de)
+
+## [Denmark](https://crazy-unicooorn.github.io/crazy-guessr/#/dk)
+
+## [Dominican Republic](https://crazy-unicooorn.github.io/crazy-guessr/#/do)
+
+## [Ecuador](https://crazy-unicooorn.github.io/crazy-guessr/#/ec)
+
+## [Estonia](https://crazy-unicooorn.github.io/crazy-guessr/#/ee)
+
+## [Egypt](https://crazy-unicooorn.github.io/crazy-guessr/#/eg)
+
+## [Spain](https://crazy-unicooorn.github.io/crazy-guessr/#/es)
+
+## [Finland](https://crazy-unicooorn.github.io/crazy-guessr/#/fi)
+
+## [Falkland Islands](https://crazy-unicooorn.github.io/crazy-guessr/#/fk)
+
+<!-- FO -->
+## [Faroe Islands](https://crazy-unicooorn.github.io/crazy-guessr/#/fo)
+
+## [France](https://crazy-unicooorn.github.io/crazy-guessr/#/fr)
+- Préfectures
+- Sous-préfectures
+
+## [Ghana](https://crazy-unicooorn.github.io/crazy-guessr/#/gh)
+
+## [Gibraltar](https://crazy-unicooorn.github.io/crazy-guessr/#/gi)
+
+## [Greenland](https://crazy-unicooorn.github.io/crazy-guessr/#/gl)
+
+## [Greece](https://crazy-unicooorn.github.io/crazy-guessr/#/gr)
+
+## [South Georgia and the South Sandwich Islands](https://crazy-unicooorn.github.io/crazy-guessr/#/gs)
+
+## [Guatemala](https://crazy-unicooorn.github.io/crazy-guessr/#/gt)
+
+## [Guam](https://crazy-unicooorn.github.io/crazy-guessr/#/gu)
+
+## [Hong Kong](https://crazy-unicooorn.github.io/crazy-guessr/#/hk)
+
+## [Croatia](https://crazy-unicooorn.github.io/crazy-guessr/#/hr)
+
+## [Hungary](https://crazy-unicooorn.github.io/crazy-guessr/#/hu)
+
+## [Indonesia](https://crazy-unicooorn.github.io/crazy-guessr/#/id)
+
+## [Ireland](https://crazy-unicooorn.github.io/crazy-guessr/#/ie)
+
