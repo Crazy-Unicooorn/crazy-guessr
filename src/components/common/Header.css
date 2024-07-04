@@ -2,7 +2,7 @@
   display: flex;
   height: var(--header-height);
   width: 100vw;
-  padding: 16px;
+  padding: 1rem;
   align-items: center;
   gap: 8px;
 
@@ -19,8 +19,8 @@
   color: white;
 
   @media (max-height: 640px) {
-    padding: 8px;
-    height: calc(var(--header-height) - 16px);
+    padding: 0.5rem;
+    height: calc(var(--header-height) - 8px);
     /* display: none; */
   }
 }
