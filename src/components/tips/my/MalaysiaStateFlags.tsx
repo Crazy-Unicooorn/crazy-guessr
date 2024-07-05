@@ -4,26 +4,42 @@ import TrainingModal from "../../common/TrainingModal";
 import StateMap from "../../../assets/img/my/malaysia-map-provinces.jpg";
 import ImageMagnifier from "../../common/ImageMagnifier";
 
-const PATH_TO_MY_STATE_FLAGS = "src/assets/img/my/StateFlags/";
+import Johor from "../../../assets/img/my/StateFlags/Johor.png";
+import Kedah from "../../../assets/img/my/StateFlags/Kedah.png";
+import Kelantan from "../../../assets/img/my/StateFlags/Kelantan.png";
+import Kuala_Lumpur from "../../../assets/img/my/StateFlags/Kuala_Lumpur.png";
+import Labuan from "../../../assets/img/my/StateFlags/Labuan.png";
+import Malacca from "../../../assets/img/my/StateFlags/Malacca.png";
+import Negeri_Sembilan from "../../../assets/img/my/StateFlags/Negeri_Sembilan.png";
+import Pahang from "../../../assets/img/my/StateFlags/Pahang.png";
+import Penang from "../../../assets/img/my/StateFlags/Penang.png";
+import Perak from "../../../assets/img/my/StateFlags/Perak.png";
+import Perlis from "../../../assets/img/my/StateFlags/Perlis.png";
+import Putrajaya from "../../../assets/img/my/StateFlags/Putrajaya.png";
+import Sabah from "../../../assets/img/my/StateFlags/Sabah.png";
+import Sarawak from "../../../assets/img/my/StateFlags/Sarawak.png";
+import Selangor from "../../../assets/img/my/StateFlags/Selangor.png";
+import Terengganu from "../../../assets/img/my/StateFlags/Terengganu.png";
+import Federal_Territories from "../../../assets/img/my/StateFlags/the_Federal_Territories_of_Malaysia.png";
 
 const myStateFlags = {
-  Johor: `${PATH_TO_MY_STATE_FLAGS}Johor.png`,
-  Kedah: `${PATH_TO_MY_STATE_FLAGS}Kedah.png`,
-  Kelantan: `${PATH_TO_MY_STATE_FLAGS}Kelantan.png`,
-  "Kuala Lumpur": `${PATH_TO_MY_STATE_FLAGS}Kuala_Lumpur.png`,
-  Labuan: `${PATH_TO_MY_STATE_FLAGS}Labuan.png`,
-  Malacca: `${PATH_TO_MY_STATE_FLAGS}Malacca.png`,
-  "Negeri Sembilan": `${PATH_TO_MY_STATE_FLAGS}Negeri_Sembilan.png`,
-  Pahang: `${PATH_TO_MY_STATE_FLAGS}Pahang.png`,
-  Penang: `${PATH_TO_MY_STATE_FLAGS}Penang.png`,
-  Perak: `${PATH_TO_MY_STATE_FLAGS}Perak.png`,
-  Perlis: `${PATH_TO_MY_STATE_FLAGS}Perlis.png`,
-  Putrajaya: `${PATH_TO_MY_STATE_FLAGS}Putrajaya.png`,
-  Sabah: `${PATH_TO_MY_STATE_FLAGS}Sabah.png`,
-  Sarawak: `${PATH_TO_MY_STATE_FLAGS}Sarawak.png`,
-  Selangor: `${PATH_TO_MY_STATE_FLAGS}Selangor.png`,
-  Terengganu: `${PATH_TO_MY_STATE_FLAGS}Terengganu.png`,
-  "Federal Territories": `${PATH_TO_MY_STATE_FLAGS}the_Federal_Territories_of_Malaysia.png`,
+  Johor,
+  Kedah,
+  Kelantan,
+  "Kuala Lumpur": Kuala_Lumpur,
+  Labuan,
+  Malacca,
+  "Negeri Sembilan": Negeri_Sembilan,
+  Pahang,
+  Penang,
+  Perak,
+  Perlis,
+  Putrajaya,
+  Sabah,
+  Sarawak,
+  Selangor,
+  Terengganu,
+  "Federal Territories": Federal_Territories,
 };
 
 function MalaysiaStateFlags() {
