@@ -1,6 +1,6 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { styled } from "styled-components";
-import { ReactNode, useEffect } from "react";
+import { lazy, ReactNode, Suspense, useEffect } from "react";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Header from "./components/common/Header";
@@ -16,7 +16,7 @@ import Botswana from "./pages/countries/bw";
 import Kenya from "./pages/countries/ke";
 import Jordan from "./pages/countries/jo";
 import Indonesia from "./pages/countries/id";
-import UnitedArabEmirates from "./pages/countries/ae";
+// import UnitedArabEmirates from "./pages/countries/ae";
 import Brazil from "./pages/countries/br";
 import Mali from "./pages/countries/ml";
 import Italy from "./pages/countries/it";
@@ -115,7 +115,7 @@ import Luxembourg from "./pages/countries/lu";
 import FaroeIslands from "./pages/countries/fo";
 import USVirginIslands from "./pages/countries/vi";
 import Curaçao from "./pages/countries/cw";
-import Andorra from "./pages/countries/ad";
+// import Andorra from "./pages/countries/ad";
 import NothernMarianaIslands from "./pages/countries/mp";
 import BritishIdianOceanTerritory from "./pages/countries/io";
 import Malta from "./pages/countries/mt";
@@ -163,6 +163,15 @@ const Page = (props: { children: ReactNode; title: string }) => {
   return props.children;
 };
 
+const arrayPages = [
+  { path: "ad", title: "Andorra", component: () => import("./pages/countries/ad") },
+  { path: "ae", title: "United Arab Emirates", component: () => import("./pages/countries/ae") },
+];
+
+function Loading() {
+  return <div>Loading...</div>;
+}
+
 function App() {
   return (
     <>
@@ -170,6 +179,22 @@ function App() {
       <ContentContainer>
         <MainContent>
           <Routes>
+            {arrayPages.map((page) => {
+              const Component = lazy(page.component);
+              return (
+                <Route
+                  key={page.path}
+                  path={page.path}
+                  element={
+                    <Suspense fallback={<Loading />}>
+                      <Page title={page.title}>
+                        <Component />
+                      </Page>
+                    </Suspense>
+                  }
+                />
+              );
+            })}
             <Route
               path="/"
               element={
@@ -186,7 +211,7 @@ function App() {
                 </Page>
               }
             />
-            <Route
+            {/* <Route
               path="ad"
               element={
                 <Page title="Andorra">
@@ -201,7 +226,7 @@ function App() {
                   <UnitedArabEmirates />
                 </Page>
               }
-            />
+            /> */}
             <Route
               path="af"
               element={
