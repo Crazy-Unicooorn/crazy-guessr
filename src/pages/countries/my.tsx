@@ -1,6 +1,7 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/my/flagmap.png";
 import coat from "../../assets/img/my/coat.svg";
+import MalaysiaStateFlags from "../../components/tips/my/MalaysiaStateFlags";
 
 function Malaysia() {
   return (
@@ -22,6 +23,7 @@ function Malaysia() {
         callingCode="60"
         drivingSide="L"
       />
+      <MalaysiaStateFlags />
     </>
   );
 }
