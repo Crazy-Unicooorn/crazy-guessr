@@ -3,7 +3,7 @@ function Footer() {
     <div>
       Looking for more tips?{" "}
       <a href="https://github.com/Crazy-Unicooorn/crazy-guessr/issues" target="_blank" rel="noopener noreferrer">
-        Suggest your own on Github!
+        Suggest on Github!
       </a>
     </div>
   );
