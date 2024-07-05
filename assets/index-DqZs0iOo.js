@@ -228,6 +228,8 @@ box-shadow: var(--elevation-5);
   align-items: center;
   gap: 1rem;
   align-self: stretch;
+
+  min-height: 3rem;
 `,H9=$.h2`
   display: flex;
   align-items: center;
@@ -238,7 +240,7 @@ box-shadow: var(--elevation-5);
   align-items: center;
   width: 100%;
   min-height: 0;
-  // height: 100%;
+  height: 100%;
   flex-grow: 9999;
 `,Tf=$.div`
   display: flex;
@@ -251,10 +253,11 @@ box-shadow: var(--elevation-5);
   flex-grow: 1;
 `,Kf=$.div`
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   gap: 0.5rem;
   align-self: stretch;
+  min-height: 3rem;
 `;function F1({cards:e,displayFrontOnFrontSideOnly:a,btnText:s,shrinkBtn:n}){const[r,i]=M.useState(!1),[o,l]=M.useState(!1),[d,c]=M.useState(0),[A,p]=M.useState(0),[u,E]=M.useState(0),[m,j]=M.useState(0),y=Math.max(360-m,200),[x,f]=M.useState(0),[h,I]=M.useState(!1),[C,R]=tl({scale:Math.min(m/10*.05+1.2,2),timing:200,springConfig:{tension:200,friction:Math.max(100/Math.log(m**5+1),.1)}}),[Q,U]=M.useState(()=>C);M.useEffect(()=>{if(!h)return;const F=setTimeout(()=>{I(!1),U(()=>C)},220);return()=>{clearTimeout(F)}},[h,C]);const[V,K]=M.useState({front:"Loading...",back:"Loading..."}),[Z,C1]=M.useState(e.map(F=>({...F,weight:1,suspended:!1}))),g=M.useCallback(()=>{const F=Z.filter(c1=>!c1.suspended),a1=F.reduce((c1,S1)=>c1+(S1.weight||1),0),p1=Math.random()*a1;let b1=0;for(let c1=0;c1<F.length;c1+=1)if(b1+=F[c1].weight||1,p1<=b1){const S1={...F[c1]};K(S1);const _2=Number((S1.weight||1)/a1*100).toFixed(2);console.log(`This card had ${_2}% chance of being picked (weight: ${S1.weight})`);break}},[Z]);M.useEffect(()=>{r&&g()},[r,x,g]);const i1=()=>i(!r),g1=()=>l(!o),e1=M.useCallback(()=>{i(!1),l(!1)},[]);function s1(F){C1(Z.map(a1=>{if(a1.front===V.front&&a1.back===V.back){const p1=a1.weight?a1.weight*F:F;return{...a1,weight:p1}}return a1}))}const D=()=>{c(d+1),E(u+1),u+1>m&&(j(u+1),R()),f(x+1),s1(.5),g1()},N=()=>{p(A+1),E(0),f(x+1),s1(2),g1()},T=()=>{f(x+1),C1(Z.map(F=>F.front===V.front&&F.back===V.back?{...F,suspended:!0}:F)),g1()},L=M.useRef(new Set);return M.useEffect(()=>{const F='button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',a1=document.getElementById("modal");r?document.querySelectorAll(F).forEach(b1=>{a1!=null&&a1.contains(b1)||(b1.setAttribute("tabindex","-1"),L.current.add(b1))}):(L.current.forEach(p1=>{p1.removeAttribute("tabindex")}),L.current.clear())},[r]),M.useEffect(()=>{const F=a1=>{if(a1.key==="Escape"){if(!r)return;e1()}};return window.addEventListener("keydown",F),()=>{window.removeEventListener("keydown",F)}},[r,e1]),t.jsxs(t.Fragment,{children:[t.jsx(Z1,{text:s,collapseText:n,onClick:i1,hasIconRight:!0,iconRight:t.jsx(sl,{size:24,fill:"#fff"}),bgcolor:"var(--purple-700)",textColor:"white",boop:{x:4,y:-4,rotation:-27,timing:200,springConfig:{tension:100,friction:5}}}),r&&t.jsxs(Of,{id:"modal",children:[t.jsx(Nf,{onClick:e1}),t.jsxs(Pf,{children:[t.jsxs(Ff,{children:[t.jsxs(H9,{title:"Best streak of correct answers",children:[t.jsx(Z3.span,{style:Q,children:t.jsx("img",{src:zf,alt:"Icon of fire",style:{width:"32px",filter:`hue-rotate(${y}deg)`}})}),m]}),t.jsxs(H9,{title:"Number of correct answers",children:[t.jsx(nl,{fill:"green",size:24}),d]}),t.jsxs(H9,{title:"Number of wrong answers",children:[t.jsx(rl,{fill:"red",size:24}),A]}),t.jsx("div",{className:"singleline-text",style:{flexGrow:1}}),t.jsx(Z1,{onClick:e1,text:"",hasIconLeft:!0,iconLeft:t.jsx(n9,{size:24,fill:"var(--purple-300)"}),bgcolor:"var(--pastel-black)",boop:{rotation:180,scale:.72,timing:500,springConfig:{tension:100,friction:5}},title:"Close"})]}),a&&o||t.jsx(Vf,{children:V.front}),o&&t.jsxs(Tf,{children:[t.jsx("h1",{id:"back",style:{display:"flex",justifyContent:"center",alignItems:"center",borderRadius:"8px",border:a?"none":"2px solid var(--purple-400)",padding:a?"none":"8px",width:"100%",maxHeight:"100%",minHeight:"0",textAlign:"center",flexGrow:1},children:V.back}),t.jsxs(Kf,{children:[t.jsx(Z1,{text:"Wrong",title:"Makes the card more likely to appear again",onClick:N,bgcolor:"Salmon",hasIconRight:!0,iconRight:t.jsx("img",{src:Uf,alt:"Sad Icon"}),boop:{scale:1.2,timing:200,springConfig:{tension:100,friction:5}},style:{width:"100%"}}),t.jsx(Z1,{onClick:T,text:"",bgcolor:"var(--purple-300)",hasIconRight:!0,iconRight:t.jsx(il,{fill:"black"}),boop:{y:-8,timing:200,springConfig:{tension:300,friction:10}},title:"Suspend card (for the session)"}),t.jsx(Z1,{title:"Makes the card less likely to appear again",onClick:D,bgcolor:"var(--pastel-green)",text:"Correct",hasIconRight:!0,iconRight:t.jsx("img",{src:Df,alt:"Happy Icon"}),boop:{scale:1.2,timing:200,springConfig:{tension:100,friction:5}},style:{width:"100%"}})]})]}),!o&&t.jsx(Z1,{text:"Reveal the answer",onClick:g1,bgcolor:"var(--purple-700)",textColor:"white",hasIconRight:!0,iconRight:t.jsx(Ot,{fill:"white",size:24}),boop:{x:8,timing:200,springConfig:{tension:300,friction:10}},style:{width:"100%"}})]})]})]})}F1.defaultProps={displayFrontOnFrontSideOnly:!1,btnText:"Training Cards",shrinkBtn:!0};const a3=$.div`
   flex-grow: 1;
   height: 2px;
