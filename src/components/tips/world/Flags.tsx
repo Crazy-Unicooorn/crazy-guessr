@@ -66,6 +66,7 @@ import ke from "../../../assets/img/ke/flag.png";
 import kg from "../../../assets/img/kg/flag.png";
 import kh from "../../../assets/img/kh/flag.png";
 import kr from "../../../assets/img/kr/flag.png";
+import kz from "../../../assets/img/kz/flag.svg";
 import la from "../../../assets/img/la/flag.png";
 import lb from "../../../assets/img/lb/flag.png";
 import lk from "../../../assets/img/lk/flag.png";
@@ -202,6 +203,7 @@ function WorldFlags() {
     { front: <img src={kg} alt="Drapeau d'un pays" style={style} />, back: "Kyrgyzstan" },
     { front: <img src={kh} alt="Drapeau d'un pays" style={style} />, back: "Cambodia" },
     { front: <img src={kr} alt="Drapeau d'un pays" style={style} />, back: "South Korea" },
+    { front: <img src={kz} alt="Drapeau d'un pays" style={style} />, back: "Kazakhstan" },
     { front: <img src={la} alt="Drapeau d'un pays" style={style} />, back: "Laos" },
     { front: <img src={lb} alt="Drapeau d'un pays" style={style} />, back: "Lebanon" },
     { front: <img src={lk} alt="Drapeau d'un pays" style={style} />, back: "Sri Lanka" },

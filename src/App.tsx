@@ -131,6 +131,7 @@ import IsleOfMan from "./pages/countries/im";
 import Guam from "./pages/countries/gu";
 import Singapore from "./pages/countries/sg";
 import Footer from "./components/common/Footer";
+import Kazakhstan from "./pages/countries/kz";
 
 const ContentContainer = styled.div`
   position: fixed;
@@ -694,6 +695,14 @@ function App() {
               element={
                 <Page title="South Korea">
                   <SouthKorea />
+                </Page>
+              }
+            />
+            <Route
+              path="kz"
+              element={
+                <Page title="Kazakhstan">
+                  <Kazakhstan />
                 </Page>
               }
             />

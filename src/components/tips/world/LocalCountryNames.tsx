@@ -99,6 +99,7 @@ function LocalCountryNames() {
     { front: "កម្ពុជា", back: "Cambodia" },
     { front: "한국", back: "South Korea" },
     // 남한: "South Korea",
+    { front: "Қазақстан", back: "Kazakhstan" },
     { front: "ປະເທດລາວ", back: "Laos" },
     { front: "لبنان", back: "Lebanon (Arabic)" },
     { front: "Liban", back: "Lebanon (French)" },

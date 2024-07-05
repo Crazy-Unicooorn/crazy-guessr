@@ -108,7 +108,7 @@ function WorldCallingCodes() {
     { front: "65", back: "Singapore" },
     { front: "66", back: "Thailand" },
     { front: "678", back: "Vanuatu" },
-    { front: "7", back: "Russia" },
+    { front: "7", back: "Russia / Kazakhstan" },
     { front: "81", back: "Japan" },
     { front: "82", back: "South Korea" },
     { front: "84", back: "Vietnam" },

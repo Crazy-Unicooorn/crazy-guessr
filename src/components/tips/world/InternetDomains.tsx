@@ -82,6 +82,8 @@ function InternetDomains() {
     { front: ".kh", back: "Cambodia" },
     { front: ".kr", back: "South Korea" },
     { front: ".한국", back: "South Korea" },
+    { front: ".kz", back: "Kazakhstan" },
+    { front: ".қаз", back: "Kazakhstan" },
     { front: ".la", back: "Laos" },
     { front: ".lb", back: "Lebanon" },
     { front: ".lk", back: "Sri Lanka" },
