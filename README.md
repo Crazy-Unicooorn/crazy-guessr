@@ -15,10 +15,10 @@ Anyone is free to contribute, coding knowledge is not required.
 - [Create an issue](https://github.com/Crazy-Unicooorn/crazy-guessr/issues) if you would like to see your tips included, make a suggestion, upload maps, or report a bug.
 - [Create a pull request](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls) if you know how to code and would like to improve the code.
 
-
 # Index of Training Cards available
 
 ## [World](https://crazy-unicooorn.github.io/crazy-guessr/#/)
+
 - National Flags
 - Internet Domains
 - Calling Codes
@@ -62,6 +62,7 @@ Anyone is free to contribute, coding knowledge is not required.
 ## [Belarus](https://crazy-unicooorn.github.io/crazy-guessr/#/by)
 
 ## [Canada](https://crazy-unicooorn.github.io/crazy-guessr/#/ca)
+
 - Provinces and Territories
 
 ## [Switzerland](https://crazy-unicooorn.github.io/crazy-guessr/#/ch)
@@ -97,9 +98,11 @@ Anyone is free to contribute, coding knowledge is not required.
 ## [Falkland Islands](https://crazy-unicooorn.github.io/crazy-guessr/#/fk)
 
 <!-- FO -->
+
 ## [Faroe Islands](https://crazy-unicooorn.github.io/crazy-guessr/#/fo)
 
 ## [France](https://crazy-unicooorn.github.io/crazy-guessr/#/fr)
+
 - Préfectures
 - Sous-préfectures
 
@@ -155,6 +158,8 @@ Anyone is free to contribute, coding knowledge is not required.
 
 ## [South Korea](https://crazy-unicooorn.github.io/crazy-guessr/#/kr)
 
+## [Kazakhstan](https://crazy-unicooorn.github.io/crazy-guessr/#/kz)
+
 ## [Laos](https://crazy-unicooorn.github.io/crazy-guessr/#/la)
 
 ## [Lebanon](https://crazy-unicooorn.github.io/crazy-guessr/#/lb)
@@ -192,6 +197,8 @@ Anyone is free to contribute, coding knowledge is not required.
 ## [Mexico](https://crazy-unicooorn.github.io/crazy-guessr/#/mx)
 
 ## [Malaysia](https://crazy-unicooorn.github.io/crazy-guessr/#/my)
+
+- Flags of States and Federal Territories
 
 ## [Namibia](https://crazy-unicooorn.github.io/crazy-guessr/#/na)
 
@@ -268,6 +275,7 @@ Anyone is free to contribute, coding knowledge is not required.
 ## [United Kingdom](https://crazy-unicooorn.github.io/crazy-guessr/#/uk)
 
 ## [United States](https://crazy-unicooorn.github.io/crazy-guessr/#/us)
+
 - Blurred License Plates
 
 ## [Uruguay](https://crazy-unicooorn.github.io/crazy-guessr/#/uy)
