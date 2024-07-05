@@ -1,6 +1,6 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { styled } from "styled-components";
-import { lazy, ReactNode, Suspense, useEffect } from "react";
+import { ComponentType, lazy, ReactNode, Suspense, useEffect } from "react";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Header from "./components/common/Header";
@@ -36,11 +36,21 @@ const Page = (props: { children: ReactNode; title: string }) => {
   return props.children;
 };
 
+const pageModules = import.meta.glob("./pages/countries/*.tsx") as Record<
+  string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  () => Promise<{ default: ComponentType<any> }>
+>;
+
 const createPage = (path: string, title: string) => {
+  const component = pageModules[`./pages/countries/${path}.tsx`];
+  if (!component) {
+    throw new Error(`Component for path ${path} not found`);
+  }
   return {
     path,
     title,
-    component: () => import(`./pages/countries/${path}` /* @vite-ignore */),
+    component,
   };
 };
 
@@ -161,14 +171,14 @@ const arrayPages = [
   createPage("mp", "Nothern Mariana Islands"),
   createPage("io", "British Idian Ocean Territory"),
   createPage("mt", "Malta"),
-  createPage("pm", "Saint Pierre and Miquelon"),
+  createPage("pm", "Saint Pierre And Miquelon"),
   createPage("je", "Jersey"),
-  createPage("sm", "San Marino"),
+  createPage("sm", "SanMarino"),
   createPage("bm", "Bermuda"),
   createPage("gi", "Gibraltar"),
-  createPage("pn", "Pitcairn Islands"),
+  createPage("pn", "PitcairnIslands"),
   createPage("mc", "Monaco"),
-  createPage("im", "Isle of Man"),
+  createPage("im", "IsleOfMan"),
   createPage("gu", "Guam"),
   createPage("sg", "Singapore"),
   createPage("kz", "Kazakhstan"),
