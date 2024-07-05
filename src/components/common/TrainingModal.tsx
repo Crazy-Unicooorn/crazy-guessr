@@ -73,6 +73,8 @@ const Heading = styled.div`
   align-items: center;
   gap: 1rem;
   align-self: stretch;
+
+  min-height: 3rem;
 `;
 
 const Stat = styled.h2`
@@ -87,7 +89,7 @@ const Front = styled.h1`
   align-items: center;
   width: 100%;
   min-height: 0;
-  // height: 100%;
+  height: 100%;
   flex-grow: 9999;
 `;
 
@@ -104,10 +106,11 @@ const Back = styled.div`
 
 const Feedback = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   gap: 0.5rem;
   align-self: stretch;
+  min-height: 3rem;
 `;
 
 interface RandomCard {
