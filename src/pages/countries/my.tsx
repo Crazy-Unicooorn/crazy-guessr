@@ -16,7 +16,7 @@ function Malaysia() {
         capital="Kuala Lumpur"
         largestCities="Kuala Lumpur, George Town, Ipoh, Shah Alam, Petaling Jaya"
         lang="Malay"
-        currencies="MYR"
+        currencies="MYR | RM"
         iso="my"
         tld="my"
         callingCode="60"
