@@ -17,8 +17,8 @@ function Philippines() {
         largestCities="Quezon City (Lungsod Quezon), Manila (Maynilà), Caloocan (Kalookan), Davao City (Dabaw), Budta (Cotabato City)"
         lang="Filipino, English"
         currencies="₱ PHP"
-        iso="nl"
-        tld="nl"
+        iso="ph"
+        tld="ph"
         callingCode="63"
         drivingSide="R"
       />
