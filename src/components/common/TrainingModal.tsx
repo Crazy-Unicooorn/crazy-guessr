@@ -365,7 +365,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                 <Feedback>
                   <Button
                     text="Wrong"
-                    title="Makes the card more likely to appear again"
+                    title="Make the card more likely to appear again"
                     onClick={onWrong}
                     bgcolor="Salmon"
                     hasIconRight
@@ -388,10 +388,10 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                       timing: 200,
                       springConfig: { tension: 300, friction: 10 },
                     }}
-                    title="Suspend card (for the session)"
+                    title="Suspend the card (for the session)"
                   />
                   <Button
-                    title="Makes the card less likely to appear again"
+                    title="Make the card less likely to appear again"
                     onClick={onCorrect}
                     bgcolor="var(--pastel-green)"
                     text="Correct"
