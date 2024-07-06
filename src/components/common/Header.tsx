@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "./Header.css";
@@ -6,6 +6,7 @@ import GithubIcon from "../../assets/icons/brands/github";
 import TwitchIcon from "../../assets/icons/brands/twitch";
 import Button from "./Button";
 import DonateButton from "../other/DonateButton";
+import logo from "../../assets/icons/brands/cg_logo.svg";
 
 const BrandTextWrapper = styled.div`
   display: flex;
@@ -57,6 +58,13 @@ const LastUpdateText = styled.span`
 function Header() {
   const [lastUpdate, setLastUpdate] = useState("Last update:\nloading...");
   const boopConfig = { scale: 1.1, timing: 200, springConfig: { tension: 100, friction: 5 } };
+  const brandBoxStyle: CSSProperties = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    textDecoration: `none`,
+    gap: "0.5rem",
+  };
 
   useEffect(() => {
     fetch("https://api.github.com/repos/Crazy-Unicooorn/crazy-guessr")
@@ -69,7 +77,8 @@ function Header() {
 
   return (
     <section className="header">
-      <Link to="/" style={{ textDecoration: `none` }}>
+      <Link to="/" style={brandBoxStyle}>
+        <img src={logo} alt="Logo" />
         <BrandTextWrapper>
           <BrandTextCrazy>Crazy&apos;</BrandTextCrazy>
           <BrandTextGuessr>Guessr</BrandTextGuessr>
