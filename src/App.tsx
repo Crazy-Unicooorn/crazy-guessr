@@ -1,6 +1,6 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { styled } from "styled-components";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Header from "./components/common/Header";
@@ -164,10 +164,18 @@ const Page = (props: { children: ReactNode; title: string }) => {
 };
 
 function App() {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const handleScrollToTop = () => {
+    if (contentRef.current) {
+      contentRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <Header />
-      <ContentContainer>
+      <Header onClick={handleScrollToTop} />
+      <ContentContainer ref={contentRef}>
         <MainContent>
           <Routes>
             <Route

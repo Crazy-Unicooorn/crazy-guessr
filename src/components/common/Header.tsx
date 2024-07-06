@@ -55,7 +55,11 @@ const LastUpdateText = styled.span`
   }
 `;
 
-function Header() {
+interface HeaderProps {
+  onClick: () => void;
+}
+
+function Header({ onClick }: HeaderProps) {
   const [lastUpdate, setLastUpdate] = useState("Last update:\nloading...");
   const boopConfig = { scale: 1.1, timing: 200, springConfig: { tension: 100, friction: 5 } };
   const brandBoxStyle: CSSProperties = {
@@ -77,7 +81,7 @@ function Header() {
 
   return (
     <section className="header">
-      <Link to="/" style={brandBoxStyle}>
+      <Link to="/" style={brandBoxStyle} onClick={onClick}>
         <img src={logo} alt="Logo" />
         <BrandTextWrapper>
           <BrandTextCrazy>Crazy&apos;</BrandTextCrazy>
