@@ -1,6 +1,6 @@
 import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
-import flagmap from "../../assets/img/ec/flagmap.png";
-import coat from "../../assets/img/ec/coat.svg";
+import flagmap from "../../assets/img/gl/flagmap.png";
+import coat from "../../assets/img/gl/coat.svg";
 
 function Greenland() {
   return (
