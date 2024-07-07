@@ -136,7 +136,7 @@ function Front({ map, city }: { map: string; city: string }) {
         />
         <Map map={map} country="France" />
       </div>
-      <span>
+      <span style={{ minHeight: "0" }}>
         Where is <mark style={{ padding: "0 0.25rem", borderRadius: "0.25rem" }}>{city}</mark>?
       </span>
     </div>

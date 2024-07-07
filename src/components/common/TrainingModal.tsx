@@ -99,6 +99,7 @@ const Back = styled.div`
   align-items: center;
   gap: 1rem;
   width: 100%;
+  height: 100%;
   max-height: 100%;
   min-height: 8rem;
   flex-grow: 1;

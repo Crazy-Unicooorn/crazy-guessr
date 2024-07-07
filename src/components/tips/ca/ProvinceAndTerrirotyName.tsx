@@ -92,7 +92,7 @@ function ProvinceAndTerritoryName() {
           }}
         >
           <img src={emptyMap} alt="Map of Canada with provinces and territories" style={styleImage} />
-          <span>
+          <span style={{ minHeight: "0" }}>
             Where is{" "}
             <mark
               style={{

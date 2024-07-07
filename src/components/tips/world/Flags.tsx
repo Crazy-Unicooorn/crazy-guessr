@@ -134,7 +134,7 @@ import za from "../../../assets/img/za/flag.png";
 import ImageMagnifier from "../../common/ImageMagnifier";
 
 function WorldFlags() {
-  const style = { maxHeight: "16rem", borderRadius: "0.5rem" };
+  const style = { borderRadius: "0.5rem", maxHeight: "100%" };
   const alt = "Flag of a streetviewed country";
   const Data: Card[] = [
     { front: <img src={ad} alt={alt} style={style} />, back: "Andorra" },
