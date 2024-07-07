@@ -239,7 +239,7 @@ Button.defaultProps = {
   hasLink: false,
   externalLink: "",
   text: "Default Text",
-  bgcolor: "var(--pastel-purple)",
+  bgcolor: "var(--purple-700)",
   textColor: "black",
   shadow: "dark",
   style: {},
