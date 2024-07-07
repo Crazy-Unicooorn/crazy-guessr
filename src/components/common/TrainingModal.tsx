@@ -279,7 +279,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [displayModal, onClose]); // Dependency array ensures effect runs only if onClose changes
+  }, [displayModal, onClose]);
 
   return (
     <>
@@ -420,7 +420,7 @@ function TrainingModal({ cards, displayFrontOnFrontSideOnly, btnText, shrinkBtn 
                   timing: 200,
                   springConfig: { tension: 300, friction: 10 },
                 }}
-                style={{ width: "100%" }}
+                style={{ width: "100%", minHeight: "3rem" }}
               />
             )}
           </Modal>
