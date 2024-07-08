@@ -16,6 +16,13 @@ export const Head = styled.div`
   width: 100%;
   align-items: center;
   gap: 0.5rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(241, 241, 252, 0.8);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 `;
 
 export const Paragraph = styled.div`

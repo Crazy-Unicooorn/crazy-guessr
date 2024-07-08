@@ -149,6 +149,7 @@ const ContentContainer = styled.div`
   }
 `;
 
+// column-reverse could solve modal issue, but it would require ordering all components in reverse
 const MainContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -172,11 +173,27 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    const mainContent = document.querySelector("#mainContent");
+    if (mainContent) {
+      const { children } = mainContent;
+      Array.from(children).forEach((child, index) => {
+        // Assert that child is an HTMLElement
+        if (child.firstChild instanceof HTMLElement) {
+          // eslint-disable-next-line no-param-reassign
+          child.firstChild.style.zIndex = `${children.length - index}`;
+          // eslint-disable-next-line no-param-reassign
+          child.firstChild.style.scrollSnapAlign = "start";
+        }
+      });
+    }
+  }, []);
+
   return (
     <>
       <Header onClick={handleScrollToTop} />
       <ContentContainer ref={contentRef}>
-        <MainContent>
+        <MainContent id="mainContent">
           <Routes>
             <Route
               path="/"
