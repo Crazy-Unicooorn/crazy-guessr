@@ -4542,7 +4542,7 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
       <Link to="/lb">
         <g
           id="lb"
-          fill={colorTrekker}
+          fill={colorRHD}
           onMouseOver={() => handleHover("lb", true)}
           onMouseOut={() => handleHover("lb", false)}
           onClick={(event) => {
