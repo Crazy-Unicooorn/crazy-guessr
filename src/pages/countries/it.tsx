@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/it/flagmap.png";
 import coat from "../../assets/img/it/coat.svg";
 
 function Italy() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Italy shaped flag"
         title="Italy (Italia)"

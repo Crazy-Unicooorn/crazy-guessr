@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/je/flagmap.png";
 import coat from "../../assets/img/je/coat.svg";
 
 function Jersey() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Jersey shaped flag"
         title="Jersey (Jèrriais)"

@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/ru/flagmap.png";
 import coat from "../../assets/img/ru/coat.svg";
 
 function Russia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Russia shaped flag"
         title="Russia (Россия)"

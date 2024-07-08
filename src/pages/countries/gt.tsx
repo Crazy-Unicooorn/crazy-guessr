@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/gt/flagmap.png";
 import coat from "../../assets/img/gt/coat.svg";
 
 function Guatemala() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Guatemala shaped flag"
         title="Guatemala"

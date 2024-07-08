@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/fo/flagmap.png";
 import coat from "../../assets/img/fo/coat.svg";
 
 function FaroeIslands() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Faroe Islands shaped flag"
         title="Faroe Islands (Føroyar)"

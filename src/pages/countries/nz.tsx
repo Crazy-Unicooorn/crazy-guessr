@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/nz/flagmap.png";
 import coat from "../../assets/img/nz/coat.svg";
 
 function NewZealand() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="New Zealand shaped flag"
         title="New Zealand (Aotearoa)"

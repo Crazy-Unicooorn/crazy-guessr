@@ -32,7 +32,7 @@ const PageTitle = styled.h1`
   }
 `;
 
-function PageHeader({
+function CountryHeader({
   flagmap,
   flagAlt,
   title,
@@ -80,7 +80,7 @@ function PageHeader({
   );
 }
 
-export default PageHeader;
+export default CountryHeader;
 
 const SummaryItem = styled.div`
   display: flex;

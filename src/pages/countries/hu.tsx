@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/hu/flagmap.png";
 import coat from "../../assets/img/hu/coat.svg";
 
 function Hungary() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Hungary shaped flag"
         title="Hungary (Magyarország)"

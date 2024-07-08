@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/kz/flagmap.png";
 import coat from "../../assets/img/kz/coat.svg";
 
 function Kazakhstan() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Kazakhstan shaped flag"
         title="Kazakhstan (Қазақстан)"

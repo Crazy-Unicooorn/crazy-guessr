@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/gu/flagmap.png";
 import coat from "../../assets/img/gu/coat.svg";
 
 function Guam() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Guam shaped flag"
         title="Guam (Guåhan)"

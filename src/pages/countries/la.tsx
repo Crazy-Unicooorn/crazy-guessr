@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/la/flagmap.png";
 import coat from "../../assets/img/la/coat.svg";
 
 function Laos() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Laos shaped flag"
         title="Laos (ສປປລາວ)"

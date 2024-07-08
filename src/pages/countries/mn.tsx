@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/mn/flagmap.png";
 import coat from "../../assets/img/mn/coat.svg";
 
 function Mongolia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Mongolia shaped flag"
         title="Mongolia (Монгол улс)"

@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/gl/flagmap.png";
 import coat from "../../assets/img/gl/coat.svg";
 
 function Greenland() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Greenland shaped flag"
         title="Greenland (Kalaallit Nunaat)"

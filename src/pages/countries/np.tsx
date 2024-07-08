@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/np/flagmap.png";
 import coat from "../../assets/img/np/coat.svg";
 
 function Nepal() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Nepal shaped flag"
         title="Nepal (नेपाल)"

@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/kg/flagmap.png";
 import coat from "../../assets/img/kg/coat.png";
 
 function Kyrgyzstan() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Kyrgyzstan shaped flag"
         title="Kyrgyzstan (Кыргызстан)"

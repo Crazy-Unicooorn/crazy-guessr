@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flamap from "../../assets/img/af/flagmap.png";
 import coat from "../../assets/img/af/coat.svg";
 
 function Afghanistan() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flamap}
         flagAlt="Afghanistan shaped flag"
         title="Afghanistan (افغانستان)"

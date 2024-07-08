@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/cr/flagmap.png";
 import coat from "../../assets/img/cr/coat.svg";
 
 function CostaRica() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Costa Rica shaped flag"
         title="Costa Rica"

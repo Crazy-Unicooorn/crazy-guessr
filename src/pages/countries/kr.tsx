@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/kr/flagmap.png";
 import coat from "../../assets/img/kr/coat.svg";
 
 function SouthKorea() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="South Korea shaped flag"
         title="South Korea (대한민국)"

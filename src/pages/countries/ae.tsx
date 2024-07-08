@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flamap from "../../assets/img/ae/flagmap.png";
 import coat from "../../assets/img/ae/coat.svg";
 
 function UnitedArabEmirates() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flamap}
         flagAlt="U.A.E. shaped flag"
         title="United Arab Emirates (الإمارات العربية المتحدة)"

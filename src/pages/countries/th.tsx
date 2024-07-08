@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/th/flagmap.png";
 import coat from "../../assets/img/th/coat.svg";
 
 function Thailand() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Thailand shaped flag"
         title="Thailand (ประเทศไทย)"

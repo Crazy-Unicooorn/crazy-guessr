@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/vu/flagmap.png";
 import coat from "../../assets/img/vu/coat.svg";
 
 function Vanuatu() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Vanuatu shaped flag"
         title="Vanuatu"

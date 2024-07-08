@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/cw/flagmap.png";
 import coat from "../../assets/img/cw/coat.svg";
 
 function Curaçao() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Curaçao shaped flag"
         title="Curaçao (Kòrsou)"

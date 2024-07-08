@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/bo/flagmap.png";
 import coat from "../../assets/img/bo/coat.svg";
 
 function Bolivia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Bolivia shaped flag"
         title="Bolivia"

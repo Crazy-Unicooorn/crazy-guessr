@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/as/flagmap.png";
 import coat from "../../assets/img/as/coat.svg";
 
 function AmericanSamoa() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="American Samoa shaped flag"
         title="American Samoa"

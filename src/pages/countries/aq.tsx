@@ -1,10 +1,10 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flag from "../../assets/img/aq/flag.png";
 
 function Antarctica() {
   return (
     <>
-      <PageHeader flagmap={flag} flagAlt="Flag of Antarctica" title="Antarctica" coat="" coatAlt="" />
+      <CountryHeader flagmap={flag} flagAlt="Flag of Antarctica" title="Antarctica" coat="" coatAlt="" />
       <CountrySummary tld="aq" />
     </>
   );

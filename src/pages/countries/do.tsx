@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/do/flagmap.png";
 import coat from "../../assets/img/do/coat.svg";
 
 function DominicanRepublic() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Dominican Republic shaped flag"
         title="Dominican Republic (República Dominicana)"

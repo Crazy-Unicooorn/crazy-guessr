@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/xv/flagmap.png";
 import coat from "../../assets/img/xv/coat.svg";
 
 function Svalbard() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Svalbard shaped flag"
         title="Svalbard"

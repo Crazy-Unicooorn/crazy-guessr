@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flamap from "../../assets/img/al/flagmap.png";
 import coat from "../../assets/img/al/coat.svg";
 
 function Albania() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flamap}
         flagAlt="Albania shaped flag"
         title="Albania (Shqipëria)"

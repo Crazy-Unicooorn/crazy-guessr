@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/pm/flagmap.png";
 import coat from "../../assets/img/pm/coat.svg";
 
 function SaintPierreAndMiquelon() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Saint Pierre And Miquelon shaped flag"
         title="Saint Pierre And Miquelon"

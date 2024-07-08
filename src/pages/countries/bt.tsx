@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/bt/flagmap.png";
 import coat from "../../assets/img/bt/coat.svg";
 
 function Bhutan() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Bhutan shaped flag"
         title="Bhutan (འབྲུག་ཡུལ་)"

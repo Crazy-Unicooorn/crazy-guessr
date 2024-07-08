@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/pk/flagmap.png";
 import coat from "../../assets/img/pk/coat.svg";
 
 function Pakistan() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Pakistan shaped flag"
         title="Pakistan (پَاکِسْتَان)"

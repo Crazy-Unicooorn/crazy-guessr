@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/rw/flagmap.png";
 import coat from "../../assets/img/rw/coat.svg";
 
 function Rwanda() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Rwanda shaped flag"
         title="Rwanda"

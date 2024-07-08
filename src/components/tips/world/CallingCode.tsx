@@ -23,6 +23,7 @@ function WorldCallingCodes() {
     { front: "223", back: "Mali" },
     { front: "233", back: "Ghana" },
     { front: "234", back: "Nigeria" },
+    { front: "239", back: "São Tomé and Príncipe" },
     { front: "246", back: "British Indian Ocean Territory" },
     { front: "250", back: "Rwanda" },
     { front: "254", back: "Kenya" },

@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/lb/flagmap.png";
 import coat from "../../assets/img/lb/coat.svg";
 
 function Lebanon() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Lebanon shaped flag"
         title="Lebanon (لبنان)"

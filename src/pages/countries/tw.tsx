@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/tw/flagmap.png";
 import coat from "../../assets/img/tw/coat.svg";
 
 function Taiwan() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Taiwan shaped flag"
         title="Taiwan (臺灣 / 台湾)"

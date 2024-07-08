@@ -4909,13 +4909,26 @@ function SVGMap({ colorLHD, colorRHD, colorTrekker, colorUpcoming, colorNone }: 
           <circle cx="1245.14" cy="231.957" r="6" className="circlexx fo" />
         </g>
       </Link>
-      <g id="st" fill={colorNone}>
-        <g className="landxx coastxx st">
-          <path d="M1327.03 746.35c.31-.489.34-.992.1-1.512-.6.418-.63 1.032-.1 1.512" />
-          <path d="M1320.34 759.379c.68-.37 1.4-.951 1.64-1.723.12-.4.1-1.731-.69-1.523-1.73.479-1.15 2.004-.95 3.246" />
+      <Link to="st">
+        <g
+          id="st"
+          fill={colorRHD}
+          onMouseOver={() => handleHover("st", true)}
+          onMouseOut={() => handleHover("st", false)}
+          onClick={(event) => {
+            if (preventClick) {
+              event.preventDefault();
+            }
+          }}
+        >
+          <title>São Tomé and Príncipe</title>
+          <g className="landxx coastxx st">
+            <path d="M1327.03 746.35c.31-.489.34-.992.1-1.512-.6.418-.63 1.032-.1 1.512" />
+            <path d="M1320.34 759.379c.68-.37 1.4-.951 1.64-1.723.12-.4.1-1.731-.69-1.523-1.73.479-1.15 2.004-.95 3.246" />
+          </g>
+          <circle cx="1323.02" cy="751.576" r="6" className="circlexx st" />
         </g>
-        <circle cx="1323.02" cy="751.576" r="6" className="circlexx st" />
-      </g>
+      </Link>
       <Link to="/vi">
         <g
           id="vi"

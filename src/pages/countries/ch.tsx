@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/ch/flagmap.png";
 import coat from "../../assets/img/ch/coat.svg";
 
 function Switzerland() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Switzerland shaped flag"
         title="Switzerland (Schweiz)"

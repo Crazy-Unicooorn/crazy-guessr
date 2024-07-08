@@ -132,6 +132,7 @@ import Guam from "./pages/countries/gu";
 import Singapore from "./pages/countries/sg";
 import Footer from "./components/common/Footer";
 import Kazakhstan from "./pages/countries/kz";
+import SaoTomeAndPrincipe from "./pages/countries/st";
 
 const ContentContainer = styled.div`
   position: fixed;
@@ -285,6 +286,7 @@ const arrayPages = [
   createPage("/sk", "Slovakia", <Slovakia />),
   createPage("/sm", "San Marino", <SanMarino />),
   createPage("/sn", "Senegal", <Senegal />),
+  createPage("/st", "Sao Tome and Principe", <SaoTomeAndPrincipe />),
   createPage("/sy", "Syria", <Syria />),
   createPage("/sz", "Eswatini", <Eswatini />),
   createPage("/th", "Thailand", <Thailand />),

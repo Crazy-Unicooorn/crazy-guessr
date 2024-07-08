@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/tn/flagmap.png";
 import coat from "../../assets/img/tn/coat.svg";
 
 function Tunisia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Tunisia shaped flag"
         title="Tunisia (تونس)"

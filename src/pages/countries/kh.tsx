@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/kh/flagmap.png";
 import coat from "../../assets/img/kh/coat.svg";
 
 function Cambodia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Cambodia shaped flag"
         title="Cambodia (កម្ពុជា)"

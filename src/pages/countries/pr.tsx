@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/pr/flagmap.png";
 import coat from "../../assets/img/pr/coat.svg";
 
 function PuertoRico() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Puerto Rico shaped flag"
         title="Puerto Rico"

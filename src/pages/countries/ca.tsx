@@ -1,4 +1,4 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/ca/flagmap.png";
 import coat from "../../assets/img/ca/coat.svg";
 import ProvinceAndTerritoryName from "../../components/tips/ca/ProvinceAndTerrirotyName";
@@ -6,7 +6,7 @@ import ProvinceAndTerritoryName from "../../components/tips/ca/ProvinceAndTerrir
 function Canada() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Canada shaped flag"
         title="Canada"

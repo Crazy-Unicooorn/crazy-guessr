@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/vi/flagmap.png";
 import coat from "../../assets/img/vi/coat.svg";
 
 function USVirginIslands() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="United States Virgin Islands shaped flag"
         title="United States Virgin Islands"

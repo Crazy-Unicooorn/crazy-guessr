@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/fi/flagmap.png";
 import coat from "../../assets/img/fi/coat.svg";
 
 function Finland() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Finland shaped flag"
         title="Finland (Suomi)"

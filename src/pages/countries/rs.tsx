@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/rs/flagmap.png";
 import coat from "../../assets/img/rs/coat.svg";
 
 function Serbia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Serbia shaped flag"
         title="Serbia (Србија)"

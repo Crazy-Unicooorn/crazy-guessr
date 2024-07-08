@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/za/flagmap.png";
 import coat from "../../assets/img/za/coat.svg";
 
 function SouthAfrica() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="South Africa shaped flag"
         title="South Africa (Suid-Afrika)"

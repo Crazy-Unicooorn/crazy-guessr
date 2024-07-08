@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/mk/flagmap.png";
 import coat from "../../assets/img/mk/coat.svg";
 
 function NorthMacedonia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="North Macedonia shaped flag"
         title="North Macedonia (Република Северна Македонија)"

@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/sy/flagmap.png";
 import coat from "../../assets/img/sy/coat.svg";
 
 function Syria() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Syria shaped flag"
         title="Syria (سوريا)"

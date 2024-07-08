@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/lt/flagmap.png";
 import coat from "../../assets/img/lt/coat.svg";
 
 function Lithuania() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Lithuania shaped flag"
         title="Lithuania (Lietuva)"

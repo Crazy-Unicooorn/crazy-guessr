@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/uk/flagmap.png";
 import coat from "../../assets/img/uk/coat.png";
 
 function UnitedKingdom() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="United Kingdom shaped flag"
         title="United Kingdom"

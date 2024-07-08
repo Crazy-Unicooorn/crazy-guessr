@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/sz/flagmap.png";
 import coat from "../../assets/img/sz/coat.svg";
 
 function Eswatini() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Eswatini shaped flag"
         title="Eswatini (Swaziland)"

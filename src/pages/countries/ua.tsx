@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/ua/flagmap.png";
 import coat from "../../assets/img/ua/coat.svg";
 
 function Ukraine() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Ukraine shaped flag"
         title="Ukraine (Україна)"

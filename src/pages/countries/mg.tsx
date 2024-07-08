@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/mg/flagmap.png";
 import coat from "../../assets/img/mg/coat.svg";
 
 function Madagascar() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Madagascar shaped flag"
         title="Madagascar (Repoblikan'i Madagasikara)"

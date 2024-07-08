@@ -1,12 +1,12 @@
 import LicensePlate from "../../components/tips/us/LicensePlate";
 import flagmap from "../../assets/img/us/flagmap.png";
 import coat from "../../assets/img/us/coat.svg";
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 
 function UnitedStates() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="U.S. shaped flag"
         title="United States of America"

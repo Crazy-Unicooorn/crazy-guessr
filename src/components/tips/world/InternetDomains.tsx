@@ -139,6 +139,7 @@ function InternetDomains() {
     { front: ".sk", back: "Slovakia" },
     { front: ".sm", back: "San Marino" },
     { front: ".sn", back: "Senegal" },
+    { front: ".st", back: "São Tomé and Príncipe" },
     { front: ".sy", back: "Syria" },
     { front: "سوريا.", back: "Syria" },
     { front: ".sz", back: "Eswatini / Swaziland" },

@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/lu/flagmap.png";
 import coat from "../../assets/img/lu/coat.svg";
 
 function Luxembourg() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Luxembourg shaped flag"
         title="Luxembourg"

@@ -254,6 +254,8 @@ Anyone is free to contribute, coding knowledge is not required.
 
 ## [Senegal](https://crazy-unicooorn.github.io/crazy-guessr/#/sn)
 
+## [São Tomé and Príncipe](https://crazy-unicooorn.github.io/crazy-guessr/#/st)
+
 ## [Syria](https://crazy-unicooorn.github.io/crazy-guessr/#/sy)
 
 ## [Eswatini](https://crazy-unicooorn.github.io/crazy-guessr/#/sz)

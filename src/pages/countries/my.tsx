@@ -1,4 +1,4 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/my/flagmap.png";
 import coat from "../../assets/img/my/coat.svg";
 import MalaysiaStateFlags from "../../components/tips/my/MalaysiaStateFlags";
@@ -6,7 +6,7 @@ import MalaysiaStateFlags from "../../components/tips/my/MalaysiaStateFlags";
 function Malaysia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Malaysia shaped flag"
         title="Malaysia"

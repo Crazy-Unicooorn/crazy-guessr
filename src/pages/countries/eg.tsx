@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/eg/flagmap.png";
 import coat from "../../assets/img/eg/coat.svg";
 
 function Egypt() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Egypt shaped flag"
         title="Egypt (مصر)"

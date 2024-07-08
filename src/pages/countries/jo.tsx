@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/jo/flagmap.png";
 import coat from "../../assets/img/jo/coat.svg";
 
 function Jordan() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Jordan shaped flag"
         title="Jordan (الأردن)"

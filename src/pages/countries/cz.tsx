@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/cz/flagmap.png";
 import coat from "../../assets/img/cz/coat.svg";
 
 function CzechRepublic() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Czech Republic shaped flag"
         title="Czech Republic"

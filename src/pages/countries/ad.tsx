@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flamap from "../../assets/img/ad/flagmap.png";
 import coat from "../../assets/img/ad/coat.svg";
 
 function Andorra() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flamap}
         flagAlt="Andorra shaped flag"
         title="Andorra"

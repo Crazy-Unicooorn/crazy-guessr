@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/gr/flagmap.png";
 import coat from "../../assets/img/gr/coat.svg";
 
 function Greece() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Greece shaped flag"
         title="Greece (Ελληνική Δημοκρατία)"

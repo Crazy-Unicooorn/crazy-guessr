@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/is/flagmap.png";
 import coat from "../../assets/img/is/coat.svg";
 
 function Iceland() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Iceland shaped flag"
         title="Iceland (Ísland)"

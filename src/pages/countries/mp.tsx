@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/mp/flagmap.png";
 import coat from "../../assets/img/mp/coat.svg";
 
 function NorthernMarianaIslands() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Northern Mariana Islands shaped flag"
         title="Northern Mariana Islands"

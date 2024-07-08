@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/hk/flagmap.png";
 import coat from "../../assets/img/hk/coat.svg";
 
 function HongKong() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Hong Kong shaped flag"
         title="Hong Kong (香港)"

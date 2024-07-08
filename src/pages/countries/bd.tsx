@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/bd/flagmap.png";
 import coat from "../../assets/img/bd/coat.svg";
 
 function Bangladesh() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Bangladesh shaped flag"
         title="Bangladesh (বাংলাদেশ)"

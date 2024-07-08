@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/bg/flagmap.png";
 import coat from "../../assets/img/bg/coat.svg";
 
 function Bulgaria() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Bulgaria shaped flag"
         title="Bulgaria (България)"

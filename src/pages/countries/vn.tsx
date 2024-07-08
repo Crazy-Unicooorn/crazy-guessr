@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/vn/flagmap.png";
 import coat from "../../assets/img/vn/coat.svg";
 
 function Vietnam() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Vietnam shaped flag"
         title="Vietnam (Việt Nam)"

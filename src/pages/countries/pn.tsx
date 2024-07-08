@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/pn/flagmap.png";
 import coat from "../../assets/img/pn/coat.svg";
 
 function PitcairnIslands() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Pitcairn Islands shaped flag"
         title="Pitcairn Islands (Pitkern Ailen)"

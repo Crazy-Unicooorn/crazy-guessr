@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/nl/flagmap.png";
 import coat from "../../assets/img/nl/coat.svg";
 
 function Netherlands() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Netherlands shaped flag"
         title="Netherlands"

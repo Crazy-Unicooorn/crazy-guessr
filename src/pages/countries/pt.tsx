@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/pt/flagmap.png";
 import coat from "../../assets/img/pt/coat.svg";
 
 function Portugal() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Portugal shaped flag"
         title="Portugal (Portuguesa)"

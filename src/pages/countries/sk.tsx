@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/sk/flagmap.png";
 import coat from "../../assets/img/sk/coat.svg";
 
 function Slovakia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Slovakia shaped flag"
         title="Slovakia (Slovensko)"

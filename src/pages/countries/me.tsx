@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/me/flagmap.png";
 import coat from "../../assets/img/me/coat.svg";
 
 function Montenegro() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Montenegro shaped flag"
         title="Montenegro (Црна Гора)"

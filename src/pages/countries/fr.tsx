@@ -1,4 +1,4 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/fr/flagmap.png";
 import coat from "../../assets/img/fr/coat.svg";
 import PinpointPref from "../../components/tips/fr/PinpointPref";
@@ -8,7 +8,7 @@ import PinpointSousPref from "../../components/tips/fr/PinpointSousPref";
 function France() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="France shaped flag"
         title="France"

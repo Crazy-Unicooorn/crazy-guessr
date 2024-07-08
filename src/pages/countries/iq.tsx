@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/iq/flagmap.png";
 import coat from "../../assets/img/iq/coat.svg";
 
 function Iraq() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Iraq shaped flag"
         title="Iraq (العراق)"

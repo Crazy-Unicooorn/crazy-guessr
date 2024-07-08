@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/tr/flagmap.png";
 import coat from "../../assets/img/tr/coat.svg";
 
 function Turkey() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Turkey shaped flag"
         title="Turkey (Türkiye)"

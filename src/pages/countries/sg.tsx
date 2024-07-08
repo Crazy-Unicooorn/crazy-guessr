@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/sg/flagmap.png";
 import coat from "../../assets/img/sg/coat.svg";
 
 function Singapore() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Singapore shaped flag"
         title="Singapore (新加坡 / சிங்கப்பூர்)"

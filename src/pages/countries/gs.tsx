@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/ec/flagmap.png";
 import coat from "../../assets/img/ec/coat.svg";
 
 function SouthGeorgia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="South Georgia and the South Sandwich Islands shaped flag"
         title="South Georgia and the South Sandwich Islands"

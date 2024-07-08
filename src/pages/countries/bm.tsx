@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/bm/flagmap.png";
 import coat from "../../assets/img/bm/coat.svg";
 
 function Bermuda() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Bermuda shaped flag"
         title="Bermuda"

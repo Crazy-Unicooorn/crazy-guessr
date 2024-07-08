@@ -115,6 +115,7 @@ import si from "../../../assets/img/si/flag.png";
 import sk from "../../../assets/img/sk/flag.png";
 import sm from "../../../assets/img/sm/flag.png";
 import sn from "../../../assets/img/sn/flag.png";
+import st from "../../../assets/img/st/flag.svg";
 import sy from "../../../assets/img/sy/flag.png";
 import sz from "../../../assets/img/sz/flag.png";
 import th from "../../../assets/img/th/flag.png";
@@ -253,6 +254,7 @@ const arrayFlags = [
   createCard(sk, "Slovakia"),
   createCard(sm, "San Marino"),
   createCard(sn, "Senegal"),
+  createCard(st, "São Tomé and Príncipe"),
   createCard(sy, "Syria"),
   createCard(sz, "Eswatini"),
   createCard(th, "Thailand"),

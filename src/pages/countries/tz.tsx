@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/tz/flagmap.png";
 import coat from "../../assets/img/tz/coat.svg";
 
 function Tanzania() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Tanzania shaped flag"
         title="Tanzania"

@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/de/flagmap.png";
 import coat from "../../assets/img/de/coat.svg";
 
 function Germany() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Germany shaped flag"
         title="Germany (Deutschland)"

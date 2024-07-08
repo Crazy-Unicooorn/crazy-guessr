@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/im/flagmap.png";
 import coat from "../../assets/img/im/coat.svg";
 
 function IsleOfMan() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Isle Of Man shaped flag"
         title="Isle Of Man (Ellan Vannin)"

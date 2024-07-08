@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/by/flagmap.png";
 import coat from "../../assets/img/by/coat.svg";
 
 function Belarus() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Belarus shaped flag"
         title="Belarus (Беларусь)"

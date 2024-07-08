@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/ee/flagmap.png";
 import coat from "../../assets/img/ee/coat.svg";
 
 function Estonia() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Estonia shaped flag"
         title="Estonia (Eesti)"

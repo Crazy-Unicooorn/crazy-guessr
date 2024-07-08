@@ -1,11 +1,11 @@
-import PageHeader, { CountrySummary } from "../../components/common/PageBuilder";
+import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/se/flagmap.png";
 import coat from "../../assets/img/se/coat.svg";
 
 function Sweden() {
   return (
     <>
-      <PageHeader
+      <CountryHeader
         flagmap={flagmap}
         flagAlt="Sweden shaped flag"
         title="Sweden (Sverige)"
