@@ -1135,7 +1135,7 @@ function BollardsWorld() {
     { front: img(Canada4), back: "Canada" },
     { front: img(Canada5), back: "Canada" },
     { front: img(Canada6), back: "Canada" },
-    { front: img(Canada7), back: "Canada" },
+    { front: img(Canada7), back: "Alberta (Canada)" },
     { front: img(Canada8), back: "Canada" },
     { front: img(Canada9), back: "Canada" },
     { front: img(Canada10), back: "Canada" },
