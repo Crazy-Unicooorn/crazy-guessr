@@ -164,6 +164,146 @@ const Page = (props: { children: ReactNode; title: string }) => {
   return props.children;
 };
 
+const createPage = (path: string, title: string, component: ReactNode) => (
+  <Route path={path} element={<Page title={title}>{component}</Page>} />
+);
+
+const arrayPages = [
+  createPage("/", "World", <Home />),
+  createPage("*", "404 · Not Found", <NotFound />),
+  createPage("/ad", "Andorra", <Andorra />),
+  createPage("/ae", "United Arab Emirates", <UnitedArabEmirates />),
+  createPage("/af", "Afghanistan", <Afghanistan />),
+  createPage("/al", "Albania", <Albania />),
+  createPage("/aq", "Antarctica", <Antarctica />),
+  createPage("/ar", "Argentina", <Argentina />),
+  createPage("/as", "American Samoa", <AmericanSamoa />),
+  createPage("/at", "Austria", <Austria />),
+  createPage("/au", "Australia", <Australia />),
+  createPage("/bd", "Bangladesh", <Bangladesh />),
+  createPage("/be", "Belgium", <Belgium />),
+  createPage("/bg", "Bulgaria", <Bulgaria />),
+  createPage("/bm", "Bermuda", <Bermuda />),
+  createPage("/bo", "Bolivia", <Bolivia />),
+  createPage("/br", "Brazil", <Brazil />),
+  createPage("/bt", "Bhutan", <Bhutan />),
+  createPage("/bw", "Botswana", <Botswana />),
+  createPage("/by", "Belarus", <Belarus />),
+  createPage("/ca", "Canada", <Canada />),
+  createPage("/ch", "Switzerland", <Switzerland />),
+  createPage("/cl", "Chile", <Chile />),
+  createPage("/cn", "China", <China />),
+  createPage("/co", "Colombia", <Colombia />),
+  createPage("/cr", "Costa Rica", <CostaRica />),
+  createPage("/cw", "Curaçao", <Curaçao />),
+  createPage("/cz", "Czech Republic", <CzechRepublic />),
+  createPage("/de", "Germany", <Germany />),
+  createPage("/dk", "Denmark", <Denmark />),
+  createPage("/do", "Dominican Republic", <DominicanRepublic />),
+  createPage("/ec", "Ecuador", <Ecuador />),
+  createPage("/ee", "Estonia", <Estonia />),
+  createPage("/eg", "Egypt", <Egypt />),
+  createPage("/es", "Spain", <Spain />),
+  createPage("/fi", "Finland", <Finland />),
+  createPage("/fk", "Falkland Islands", <FalklandIslands />),
+  createPage("/fo", "Faroe Islands", <FaroeIslands />),
+  createPage("/fr", "France", <France />),
+  createPage("/uk", "United Kingdom", <UnitedKingdom />),
+  createPage("/gh", "Ghana", <Ghana />),
+  createPage("/gi", "Gibraltar", <Gibraltar />),
+  createPage("/gl", "Greenland", <Greenland />),
+  createPage("/gr", "Greece", <Greece />),
+  createPage("/gs", "South Georgia", <SouthGeorgia />),
+  createPage("/gt", "Guatemala", <Guatemala />),
+  createPage("/gu", "Guam", <Guam />),
+  createPage("/hk", "HongKong", <HongKong />),
+  createPage("/hr", "Croatia", <Croatia />),
+  createPage("/hu", "Hungary", <Hungary />),
+  createPage("/id", "Indonesia", <Indonesia />),
+  createPage("/ie", "Ireland", <Ireland />),
+  createPage("/il", "Israel", <Israel />),
+  createPage("/im", "Isle of Man", <IsleOfMan />),
+  createPage("/in", "India", <India />),
+  createPage("/io", "British Indian Ocean Territory", <BritishIdianOceanTerritory />),
+  createPage("/iq", "Iraq", <Iraq />),
+  createPage("/is", "Iceland", <Iceland />),
+  createPage("/it", "Italy", <Italy />),
+  createPage("/je", "Jersey", <Jersey />),
+  createPage("/jo", "Jordan", <Jordan />),
+  createPage("/jp", "Japan", <Japan />),
+  createPage("/ke", "Kenya", <Kenya />),
+  createPage("/kg", "Kyrgyzstan", <Kyrgyzstan />),
+  createPage("/kh", "Cambodia", <Cambodia />),
+  createPage("/kr", "South Korea", <SouthKorea />),
+  createPage("/kz", "Kazakhstan", <Kazakhstan />),
+  createPage("/la", "Laos", <Laos />),
+  createPage("/lb", "Lebanon", <Lebanon />),
+  createPage("/lk", "Sri Lanka", <SriLanka />),
+  createPage("/ls", "Lesotho", <Lesotho />),
+  createPage("/lt", "Lithuania", <Lithuania />),
+  createPage("/lu", "Luxembourg", <Luxembourg />),
+  createPage("/lv", "Latvia", <Latvia />),
+  createPage("/ma", "Morocco", <Madagascar />),
+  createPage("/mc", "Monaco", <Monaco />),
+  createPage("/me", "Montenegro", <Montenegro />),
+  createPage("/mg", "Madagascar", <Madagascar />),
+  createPage("/mk", "North Macedonia", <NorthMacedonia />),
+  createPage("/ml", "Mali", <Mali />),
+  createPage("/mn", "Mongolia", <Mongolia />),
+  createPage("/mo", "Macau", <Macau />),
+  createPage("/mp", "Northern Mariana Islands", <NothernMarianaIslands />),
+  createPage("/mq", "Martinique", <Martinique />),
+  createPage("/mt", "Malta", <Malta />),
+  createPage("/mu", "Mauritius", <Madagascar />),
+  createPage("/mv", "Maldives", <Madagascar />),
+  createPage("/mx", "Mexico", <Mexico />),
+  createPage("/my", "Malaysia", <Malaysia />),
+  createPage("/na", "Namibia", <Namibia />),
+  createPage("/ng", "Nigeria", <Nigeria />),
+  createPage("/nl", "Netherlands", <Netherlands />),
+  createPage("/no", "Norway", <Norway />),
+  createPage("/np", "Nepal", <Nepal />),
+  createPage("/nz", "New Zealand", <NewZealand />),
+  createPage("/pa", "Panama", <Panama />),
+  createPage("/pe", "Peru", <Peru />),
+  createPage("/ph", "Philippines", <Philippines />),
+  createPage("/pk", "Pakistan", <Pakistan />),
+  createPage("/pl", "Poland", <Poland />),
+  createPage("/pm", "Saint Pierre and Miquelon", <SaintPierreAndMiquelon />),
+  createPage("/pn", "Pitcairn Islands", <PitcairnIslands />),
+  createPage("/pr", "Puerto Rico", <PuertoRico />),
+  createPage("/pt", "Portugal", <Portugal />),
+  createPage("/qa", "Qatar", <Qatar />),
+  createPage("/re", "Reunion", <Reunion />),
+  createPage("/ro", "Romania", <Romania />),
+  createPage("/rs", "Serbia", <Serbia />),
+  createPage("/rw", "Rwanda", <Rwanda />),
+  createPage("/ru", "Russia", <Russia />),
+  createPage("/se", "Sweden", <Sweden />),
+  createPage("/sg", "Singapore", <Singapore />),
+  createPage("/si", "Slovenia", <Slovenia />),
+  createPage("/sk", "Slovakia", <Slovakia />),
+  createPage("/sm", "San Marino", <SanMarino />),
+  createPage("/sn", "Senegal", <Senegal />),
+  createPage("/sy", "Syria", <Syria />),
+  createPage("/sz", "Eswatini", <Eswatini />),
+  createPage("/th", "Thailand", <Thailand />),
+  createPage("/tn", "Tunisia", <Tunisia />),
+  createPage("/tr", "Turkey", <Turkey />),
+  createPage("/tw", "Taiwan", <Taiwan />),
+  createPage("/tz", "Tanzania", <Tanzania />),
+  createPage("/ua", "Ukraine", <Ukraine />),
+  createPage("/ug", "Uganda", <Uganda />),
+  createPage("/us", "United States", <UnitedStates />),
+  createPage("/uy", "Uruguay", <Uruguay />),
+  createPage("/va", "Vatican City", <Madagascar />),
+  createPage("/vi", "US Virgin Islands", <USVirginIslands />),
+  createPage("/vn", "Vietnam", <Vietnam />),
+  createPage("/vu", "Vanuatu", <Vanuatu />),
+  createPage("/xv", "Svalbard", <Svalbard />),
+  createPage("/za", "South Africa", <SouthAfrica />),
+];
+
 function App() {
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -196,1040 +336,7 @@ function App() {
       <Header onClick={handleScrollToTop} />
       <ContentContainer ref={contentRef}>
         <MainContent id="mainContent">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Page title="World">
-                  <Home />
-                </Page>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <Page title="Not Found">
-                  <NotFound />
-                </Page>
-              }
-            />
-            <Route
-              path="ad"
-              element={
-                <Page title="Andorra">
-                  <Andorra />
-                </Page>
-              }
-            />
-            <Route
-              path="ae"
-              element={
-                <Page title="United Arab Emirates">
-                  <UnitedArabEmirates />
-                </Page>
-              }
-            />
-            <Route
-              path="af"
-              element={
-                <Page title="Afghanistan">
-                  <Afghanistan />
-                </Page>
-              }
-            />
-            <Route
-              path="al"
-              element={
-                <Page title="Albania">
-                  <Albania />
-                </Page>
-              }
-            />
-            <Route
-              path="aq"
-              element={
-                <Page title="Antarctica">
-                  <Antarctica />
-                </Page>
-              }
-            />
-            <Route
-              path="ar"
-              element={
-                <Page title="Argentina">
-                  <Argentina />
-                </Page>
-              }
-            />
-            <Route
-              path="as"
-              element={
-                <Page title="American Samoa">
-                  <AmericanSamoa />
-                </Page>
-              }
-            />
-            <Route
-              path="at"
-              element={
-                <Page title="Austria">
-                  <Austria />
-                </Page>
-              }
-            />
-            <Route
-              path="au"
-              element={
-                <Page title="Australia">
-                  <Australia />
-                </Page>
-              }
-            />
-            <Route
-              path="bd"
-              element={
-                <Page title="Bangladesh">
-                  <Bangladesh />
-                </Page>
-              }
-            />
-            <Route
-              path="be"
-              element={
-                <Page title="Belgium">
-                  <Belgium />
-                </Page>
-              }
-            />
-            <Route
-              path="bg"
-              element={
-                <Page title="Bulgaria">
-                  <Bulgaria />
-                </Page>
-              }
-            />
-            <Route
-              path="bm"
-              element={
-                <Page title="Bermuda">
-                  <Bermuda />
-                </Page>
-              }
-            />
-            <Route
-              path="bo"
-              element={
-                <Page title="Bolivia">
-                  <Bolivia />
-                </Page>
-              }
-            />
-            <Route
-              path="br"
-              element={
-                <Page title="Brazil">
-                  <Brazil />
-                </Page>
-              }
-            />
-            <Route
-              path="bt"
-              element={
-                <Page title="Bhutan">
-                  <Bhutan />
-                </Page>
-              }
-            />
-            <Route
-              path="bw"
-              element={
-                <Page title="Botswana">
-                  <Botswana />
-                </Page>
-              }
-            />
-            <Route
-              path="by"
-              element={
-                <Page title="Belarus">
-                  <Belarus />
-                </Page>
-              }
-            />
-            <Route
-              path="ca"
-              element={
-                <Page title="Canada">
-                  <Canada />
-                </Page>
-              }
-            />
-            <Route
-              path="ch"
-              element={
-                <Page title="Switzerland">
-                  <Switzerland />
-                </Page>
-              }
-            />
-            <Route
-              path="cl"
-              element={
-                <Page title="Chile">
-                  <Chile />
-                </Page>
-              }
-            />
-            <Route
-              path="cn"
-              element={
-                <Page title="China">
-                  <China />
-                </Page>
-              }
-            />
-            <Route
-              path="co"
-              element={
-                <Page title="Colombia">
-                  <Colombia />
-                </Page>
-              }
-            />
-            <Route
-              path="cr"
-              element={
-                <Page title="Costa Rica">
-                  <CostaRica />
-                </Page>
-              }
-            />
-            <Route
-              path="cw"
-              element={
-                <Page title="Curaçao">
-                  <Curaçao />
-                </Page>
-              }
-            />
-            <Route
-              path="cz"
-              element={
-                <Page title="Czech Republic">
-                  <CzechRepublic />
-                </Page>
-              }
-            />
-            <Route
-              path="de"
-              element={
-                <Page title="Germany">
-                  <Germany />
-                </Page>
-              }
-            />
-            <Route
-              path="dk"
-              element={
-                <Page title="Denmark">
-                  <Denmark />
-                </Page>
-              }
-            />
-            <Route
-              path="do"
-              element={
-                <Page title="Dominican Republic">
-                  <DominicanRepublic />
-                </Page>
-              }
-            />
-            <Route
-              path="ec"
-              element={
-                <Page title="Ecuador">
-                  <Ecuador />
-                </Page>
-              }
-            />
-            <Route
-              path="ee"
-              element={
-                <Page title="Estonia">
-                  <Estonia />
-                </Page>
-              }
-            />
-            <Route
-              path="eg"
-              element={
-                <Page title="Egypt">
-                  <Egypt />
-                </Page>
-              }
-            />
-            <Route
-              path="es"
-              element={
-                <Page title="Spain">
-                  <Spain />
-                </Page>
-              }
-            />
-            <Route
-              path="fi"
-              element={
-                <Page title="Finland">
-                  <Finland />
-                </Page>
-              }
-            />
-            <Route
-              path="fk"
-              element={
-                <Page title="Falkland Islands">
-                  <FalklandIslands />
-                </Page>
-              }
-            />
-            <Route
-              path="fo"
-              element={
-                <Page title="Faroe Islands">
-                  <FaroeIslands />
-                </Page>
-              }
-            />
-            <Route
-              path="fr"
-              element={
-                <Page title="France">
-                  <France />
-                </Page>
-              }
-            />
-            <Route
-              path="uk"
-              element={
-                <Page title="United Kingdom">
-                  <UnitedKingdom />
-                </Page>
-              }
-            />
-            <Route
-              path="gh"
-              element={
-                <Page title="Ghana">
-                  <Ghana />
-                </Page>
-              }
-            />
-            <Route
-              path="gi"
-              element={
-                <Page title="Gibraltar">
-                  <Gibraltar />
-                </Page>
-              }
-            />
-            <Route
-              path="gl"
-              element={
-                <Page title="Greenland">
-                  <Greenland />
-                </Page>
-              }
-            />
-            <Route
-              path="gr"
-              element={
-                <Page title="Greece">
-                  <Greece />
-                </Page>
-              }
-            />
-            <Route
-              path="gs"
-              element={
-                <Page title="South Georgia">
-                  <SouthGeorgia />
-                </Page>
-              }
-            />
-            <Route
-              path="gt"
-              element={
-                <Page title="Guatemala">
-                  <Guatemala />
-                </Page>
-              }
-            />
-            <Route
-              path="gu"
-              element={
-                <Page title="Guam">
-                  <Guam />
-                </Page>
-              }
-            />
-            <Route
-              path="hk"
-              element={
-                <Page title="HongKong">
-                  <HongKong />
-                </Page>
-              }
-            />
-            <Route
-              path="hr"
-              element={
-                <Page title="Croatia">
-                  <Croatia />
-                </Page>
-              }
-            />
-            <Route
-              path="hu"
-              element={
-                <Page title="Hungary">
-                  <Hungary />
-                </Page>
-              }
-            />
-            <Route
-              path="id"
-              element={
-                <Page title="Indonesia">
-                  <Indonesia />
-                </Page>
-              }
-            />
-            <Route
-              path="ie"
-              element={
-                <Page title="Ireland">
-                  <Ireland />
-                </Page>
-              }
-            />
-            <Route
-              path="il"
-              element={
-                <Page title="Israel">
-                  <Israel />
-                </Page>
-              }
-            />
-            <Route
-              path="im"
-              element={
-                <Page title="Isle Of Man">
-                  <IsleOfMan />
-                </Page>
-              }
-            />
-            <Route
-              path="in"
-              element={
-                <Page title="India">
-                  <India />
-                </Page>
-              }
-            />
-            <Route
-              path="io"
-              element={
-                <Page title="British Idian Ocean Territory">
-                  <BritishIdianOceanTerritory />
-                </Page>
-              }
-            />
-            <Route
-              path="iq"
-              element={
-                <Page title="Iraq">
-                  <Iraq />
-                </Page>
-              }
-            />
-            <Route
-              path="is"
-              element={
-                <Page title="Iceland">
-                  <Iceland />
-                </Page>
-              }
-            />
-            <Route
-              path="it"
-              element={
-                <Page title="Italy">
-                  <Italy />
-                </Page>
-              }
-            />
-            <Route
-              path="je"
-              element={
-                <Page title="Jersey">
-                  <Jersey />
-                </Page>
-              }
-            />
-            <Route
-              path="jo"
-              element={
-                <Page title="Jordan">
-                  <Jordan />
-                </Page>
-              }
-            />
-            <Route
-              path="jp"
-              element={
-                <Page title="Japan">
-                  <Japan />
-                </Page>
-              }
-            />
-            <Route
-              path="ke"
-              element={
-                <Page title="Kenya">
-                  <Kenya />
-                </Page>
-              }
-            />
-            <Route
-              path="kg"
-              element={
-                <Page title="Kyrgyzstan">
-                  <Kyrgyzstan />
-                </Page>
-              }
-            />
-            <Route
-              path="kh"
-              element={
-                <Page title="Cambodia">
-                  <Cambodia />
-                </Page>
-              }
-            />
-            <Route
-              path="kr"
-              element={
-                <Page title="South Korea">
-                  <SouthKorea />
-                </Page>
-              }
-            />
-            <Route
-              path="kz"
-              element={
-                <Page title="Kazakhstan">
-                  <Kazakhstan />
-                </Page>
-              }
-            />
-            <Route
-              path="la"
-              element={
-                <Page title="Laos">
-                  <Laos />
-                </Page>
-              }
-            />
-            <Route
-              path="lb"
-              element={
-                <Page title="Lebanon">
-                  <Lebanon />
-                </Page>
-              }
-            />
-            <Route
-              path="lk"
-              element={
-                <Page title="Sri Lanka">
-                  <SriLanka />
-                </Page>
-              }
-            />
-            <Route
-              path="ls"
-              element={
-                <Page title="Lesotho">
-                  <Lesotho />
-                </Page>
-              }
-            />
-            <Route
-              path="lt"
-              element={
-                <Page title="Lithuania">
-                  <Lithuania />
-                </Page>
-              }
-            />
-            <Route
-              path="lu"
-              element={
-                <Page title="Luxembourg">
-                  <Luxembourg />
-                </Page>
-              }
-            />
-            <Route
-              path="lv"
-              element={
-                <Page title="Latvia">
-                  <Latvia />
-                </Page>
-              }
-            />
-            <Route
-              path="mc"
-              element={
-                <Page title="Monaco">
-                  <Monaco />
-                </Page>
-              }
-            />
-            <Route
-              path="mg"
-              element={
-                <Page title="Madagascar">
-                  <Madagascar />
-                </Page>
-              }
-            />
-            <Route
-              path="me"
-              element={
-                <Page title="Montenegro">
-                  <Montenegro />
-                </Page>
-              }
-            />
-            <Route
-              path="mk"
-              element={
-                <Page title="North Macedonia">
-                  <NorthMacedonia />
-                </Page>
-              }
-            />
-            <Route
-              path="ml"
-              element={
-                <Page title="Mali">
-                  <Mali />
-                </Page>
-              }
-            />
-            <Route
-              path="mn"
-              element={
-                <Page title="Mongolia">
-                  <Mongolia />
-                </Page>
-              }
-            />
-            <Route
-              path="mo"
-              element={
-                <Page title="Macau">
-                  <Macau />
-                </Page>
-              }
-            />
-            <Route
-              path="mp"
-              element={
-                <Page title="Nothern Mariana Islands">
-                  <NothernMarianaIslands />
-                </Page>
-              }
-            />
-            <Route
-              path="mq"
-              element={
-                <Page title="Martinique">
-                  <Martinique />
-                </Page>
-              }
-            />
-            <Route
-              path="mt"
-              element={
-                <Page title="Malta">
-                  <Malta />
-                </Page>
-              }
-            />
-            <Route
-              path="mx"
-              element={
-                <Page title="Mexico">
-                  <Mexico />
-                </Page>
-              }
-            />
-            <Route
-              path="my"
-              element={
-                <Page title="Malaysia">
-                  <Malaysia />
-                </Page>
-              }
-            />
-            <Route
-              path="na"
-              element={
-                <Page title="Namibia">
-                  <Namibia />
-                </Page>
-              }
-            />
-            <Route
-              path="ng"
-              element={
-                <Page title="Nigeria">
-                  <Nigeria />
-                </Page>
-              }
-            />
-            <Route
-              path="nl"
-              element={
-                <Page title="Netherlands">
-                  <Netherlands />
-                </Page>
-              }
-            />
-            <Route
-              path="no"
-              element={
-                <Page title="Norway">
-                  <Norway />
-                </Page>
-              }
-            />
-            <Route
-              path="np"
-              element={
-                <Page title="Nepal">
-                  <Nepal />
-                </Page>
-              }
-            />
-            <Route
-              path="nz"
-              element={
-                <Page title="New Zealand">
-                  <NewZealand />
-                </Page>
-              }
-            />
-            <Route
-              path="pa"
-              element={
-                <Page title="Panama">
-                  <Panama />
-                </Page>
-              }
-            />
-            <Route
-              path="pe"
-              element={
-                <Page title="Peru">
-                  <Peru />
-                </Page>
-              }
-            />
-            <Route
-              path="ph"
-              element={
-                <Page title="Philippines">
-                  <Philippines />
-                </Page>
-              }
-            />
-            <Route
-              path="pk"
-              element={
-                <Page title="Pakistan">
-                  <Pakistan />
-                </Page>
-              }
-            />
-            <Route
-              path="pl"
-              element={
-                <Page title="Poland">
-                  <Poland />
-                </Page>
-              }
-            />
-            <Route
-              path="pm"
-              element={
-                <Page title="Saint Pierre And Miquelon">
-                  <SaintPierreAndMiquelon />
-                </Page>
-              }
-            />
-            <Route
-              path="pn"
-              element={
-                <Page title="Pitcairn Islands">
-                  <PitcairnIslands />
-                </Page>
-              }
-            />
-            <Route
-              path="pr"
-              element={
-                <Page title="Puerto Rico">
-                  <PuertoRico />
-                </Page>
-              }
-            />
-            <Route
-              path="pt"
-              element={
-                <Page title="Portugal">
-                  <Portugal />
-                </Page>
-              }
-            />
-            <Route
-              path="qa"
-              element={
-                <Page title="Qatar">
-                  <Qatar />
-                </Page>
-              }
-            />
-            <Route
-              path="re"
-              element={
-                <Page title="Reunion">
-                  <Reunion />
-                </Page>
-              }
-            />
-            <Route
-              path="ro"
-              element={
-                <Page title="Romania">
-                  <Romania />
-                </Page>
-              }
-            />
-            <Route
-              path="rs"
-              element={
-                <Page title="Serbia">
-                  <Serbia />
-                </Page>
-              }
-            />
-            <Route
-              path="ru"
-              element={
-                <Page title="Russia">
-                  <Russia />
-                </Page>
-              }
-            />
-            <Route
-              path="rw"
-              element={
-                <Page title="Rwanda">
-                  <Rwanda />
-                </Page>
-              }
-            />
-            <Route
-              path="se"
-              element={
-                <Page title="Sweden">
-                  <Sweden />
-                </Page>
-              }
-            />
-            <Route
-              path="sg"
-              element={
-                <Page title="Singapore">
-                  <Singapore />
-                </Page>
-              }
-            />
-            <Route
-              path="si"
-              element={
-                <Page title="Slovenia">
-                  <Slovenia />
-                </Page>
-              }
-            />
-            <Route
-              path="sk"
-              element={
-                <Page title="Slovakia">
-                  <Slovakia />
-                </Page>
-              }
-            />
-            <Route
-              path="sm"
-              element={
-                <Page title="San Marino">
-                  <SanMarino />
-                </Page>
-              }
-            />
-            <Route
-              path="sn"
-              element={
-                <Page title="Senegal">
-                  <Senegal />
-                </Page>
-              }
-            />
-            <Route
-              path="sy"
-              element={
-                <Page title="Syria">
-                  <Syria />
-                </Page>
-              }
-            />
-            <Route
-              path="sz"
-              element={
-                <Page title="Eswatini">
-                  <Eswatini />
-                </Page>
-              }
-            />
-            <Route
-              path="th"
-              element={
-                <Page title="Thailand">
-                  <Thailand />
-                </Page>
-              }
-            />
-            <Route
-              path="tn"
-              element={
-                <Page title="Tunisia">
-                  <Tunisia />
-                </Page>
-              }
-            />
-            <Route
-              path="tr"
-              element={
-                <Page title="Turkey">
-                  <Turkey />
-                </Page>
-              }
-            />
-            <Route
-              path="tw"
-              element={
-                <Page title="Taiwan">
-                  <Taiwan />
-                </Page>
-              }
-            />
-            <Route
-              path="tz"
-              element={
-                <Page title="Tanzania">
-                  <Tanzania />
-                </Page>
-              }
-            />
-            <Route
-              path="ua"
-              element={
-                <Page title="Ukraine">
-                  <Ukraine />
-                </Page>
-              }
-            />
-            <Route
-              path="ug"
-              element={
-                <Page title="Uganda">
-                  <Uganda />
-                </Page>
-              }
-            />
-            <Route
-              path="us"
-              element={
-                <Page title="United States">
-                  <UnitedStates />
-                </Page>
-              }
-            />
-            <Route
-              path="uy"
-              element={
-                <Page title="Uruguay">
-                  <Uruguay />
-                </Page>
-              }
-            />
-            <Route
-              path="vi"
-              element={
-                <Page title="U.S. Virgin Islands">
-                  <USVirginIslands />
-                </Page>
-              }
-            />
-            <Route
-              path="vn"
-              element={
-                <Page title="Vietnam">
-                  <Vietnam />
-                </Page>
-              }
-            />
-            <Route
-              path="vu"
-              element={
-                <Page title="Vanuatu">
-                  <Vanuatu />
-                </Page>
-              }
-            />
-            <Route
-              path="xv"
-              element={
-                <Page title="Svalbard">
-                  <Svalbard />
-                </Page>
-              }
-            />
-            <Route
-              path="za"
-              element={
-                <Page title="South Africa">
-                  <SouthAfrica />
-                </Page>
-              }
-            />
-          </Routes>
+          <Routes>{arrayPages}</Routes>
           <Footer />
         </MainContent>
       </ContentContainer>
