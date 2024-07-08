@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
 import { ReactNode, useEffect, useRef } from "react";
 import Home from "./pages/Home";
@@ -173,6 +173,8 @@ function App() {
     }
   };
 
+  const location = useLocation();
+
   useEffect(() => {
     const mainContent = document.querySelector("#mainContent");
     if (mainContent) {
@@ -187,7 +189,7 @@ function App() {
         }
       });
     }
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>
