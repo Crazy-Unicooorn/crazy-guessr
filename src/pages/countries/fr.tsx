@@ -4,6 +4,7 @@ import coat from "../../assets/img/fr/coat.svg";
 import PinpointPref from "../../components/tips/fr/PinpointPref";
 import CityNamePatterns from "../../components/tips/fr/CityNamePatterns";
 import PinpointSousPref from "../../components/tips/fr/PinpointSousPref";
+import AreaCodesFR from "../../components/tips/fr/AreaCodes";
 
 function France() {
   return (
@@ -25,6 +26,7 @@ function France() {
         callingCode="33"
         drivingSide="R"
       />
+      <AreaCodesFR />
       <PinpointPref />
       <PinpointSousPref />
       <CityNamePatterns />
