@@ -103,6 +103,7 @@ Anyone is free to contribute, coding knowledge is not required.
 
 ## [France](https://crazy-unicooorn.github.io/crazy-guessr/#/fr)
 
+- Area Codes
 - Préfectures
 - Sous-préfectures
 
