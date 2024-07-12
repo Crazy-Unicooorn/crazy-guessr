@@ -1888,8 +1888,8 @@ function AreaCodesJP() {
       </Head>
       <Paragraph>
         <em>
-          The training set is very complete with {cards.length} area codes. Just try to retrieve the prefecture first,
-          it&apos;s always written at the end!
+          The training set is very complete with {cards.length} area codes. It is enough to just recall the prefecture
+          as a first exercice, which is always written at the end!
         </em>
         <br />
         <br />
