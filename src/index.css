@@ -112,3 +112,7 @@ input {
   text-overflow: ellipsis;
   /* flex: 1; */
 }
+
+li {
+  list-style-position: inside;
+}

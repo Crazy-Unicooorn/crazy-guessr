@@ -151,6 +151,8 @@ Anyone is free to contribute, coding knowledge is not required.
 
 ## [Japan](https://crazy-unicooorn.github.io/crazy-guessr/#/jp)
 
+- Prefectures
+
 ## [Kenya](https://crazy-unicooorn.github.io/crazy-guessr/#/ke)
 
 ## [Kyrgyzstan](https://crazy-unicooorn.github.io/crazy-guessr/#/kg)

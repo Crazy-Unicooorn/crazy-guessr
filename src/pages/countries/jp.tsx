@@ -1,6 +1,7 @@
 import CountryHeader, { CountrySummary } from "../../components/common/PageBuilder";
 import flagmap from "../../assets/img/jp/flagmap.png";
 import coat from "../../assets/img/jp/coat.svg";
+import PrefecturesJP from "../../components/tips/jp/prefectures";
 
 function Japan() {
   return (
@@ -14,7 +15,7 @@ function Japan() {
       />
       <CountrySummary
         capital="Tokyo (東京都)"
-        largestCities="Tokyo, Yokohama, Osaka, Nagoya, Sapporo"
+        largestCities="Tokyo (東京都), Yokohama (横浜市), Osaka (大阪市), Nagoya (名古屋市), Sapporo (札幌市)"
         lang="Japanese"
         currencies="¥ JPY"
         iso="jp"
@@ -22,6 +23,7 @@ function Japan() {
         callingCode="81"
         drivingSide="L"
       />
+      <PrefecturesJP />
     </>
   );
 }
