@@ -63,7 +63,11 @@ function KanjiPrefectures() {
         <TrainingModal cards={cards} />
         <MapButton url="https://www.geoguessr.com/maps/63ed81746c30242786232048/play" />
       </Head>
-      <ImageMagnifier src={KanjiMap} alt="Map of Japan with prefectures written in Kanji" />
+      <ImageMagnifier
+        src={KanjiMap}
+        alt="Map of Japan with prefectures written in Kanji"
+        style={{ backgroundColor: "var(--purple-200)" }}
+      />
     </Tip>
   );
 }
