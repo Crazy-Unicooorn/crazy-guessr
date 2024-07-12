@@ -151,7 +151,8 @@ Anyone is free to contribute, coding knowledge is not required.
 
 ## [Japan](https://crazy-unicooorn.github.io/crazy-guessr/#/jp)
 
-- Prefectures
+- Locate Prefectures
+- Read Kanji Prefectures
 - Area Codes
 
 ## [Kenya](https://crazy-unicooorn.github.io/crazy-guessr/#/ke)

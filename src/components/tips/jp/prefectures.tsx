@@ -144,7 +144,7 @@ function PrefecturesJP() {
   return (
     <Tip>
       <Head>
-        <h1>Prefectures</h1>
+        <h1>Locate Prefectures</h1>
         <Separator />
         <TrainingModal cards={cards} displayFrontOnFrontSideOnly />
       </Head>
