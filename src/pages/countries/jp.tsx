@@ -2,6 +2,7 @@ import CountryHeader, { CountrySummary } from "../../components/common/PageBuild
 import flagmap from "../../assets/img/jp/flagmap.png";
 import coat from "../../assets/img/jp/coat.svg";
 import PrefecturesJP from "../../components/tips/jp/prefectures";
+import AreaCodesJP from "../../components/tips/jp/AreaCodes";
 
 function Japan() {
   return (
@@ -24,6 +25,7 @@ function Japan() {
         drivingSide="L"
       />
       <PrefecturesJP />
+      <AreaCodesJP />
     </>
   );
 }
