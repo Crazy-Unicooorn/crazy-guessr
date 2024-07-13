@@ -1,57 +1,57 @@
 import Separator from "../../common/Separator";
-import { Card, Head, MapButton, Tip } from "../../common/TipsBuilder";
+import { Card, Head, MapButton, Paragraph, Tip } from "../../common/TipsBuilder";
 import KanjiMap from "../../../assets/img/jp/prefectures/kanji_map.svg";
 import ImageMagnifier from "../../common/ImageMagnifier";
 import TrainingModal from "../../common/TrainingModal";
 
 const cards: Card[] = [
   { front: "北海道", back: "Hokkaido" },
-  { front: "青森県", back: "Aomori" },
-  { front: "岩手県", back: "Iwate" },
-  { front: "宮城県", back: "Miyagi" },
-  { front: "秋田県", back: "Akita" },
-  { front: "山形県", back: "Yamagata" },
-  { front: "福島県", back: "Fukushima" },
-  { front: "茨城県", back: "Ibaraki" },
-  { front: "栃木県", back: "Tochigi" },
-  { front: "群馬県", back: "Gunma" },
-  { front: "埼玉県", back: "Saitama" },
-  { front: "千葉県", back: "Chiba" },
-  { front: "東京都", back: "Tokyo" },
-  { front: "神奈川県", back: "Kanagawa" },
-  { front: "新潟県", back: "Niigata" },
-  { front: "富山県", back: "Toyama" },
-  { front: "石川県", back: "Ishikawa" },
-  { front: "福井県", back: "Fukui" },
-  { front: "山梨県", back: "Yamanashi" },
-  { front: "長野県", back: "Nagano" },
-  { front: "岐阜県", back: "Gifu" },
-  { front: "静岡県", back: "Shizuoka" },
-  { front: "愛知県", back: "Aichi" },
-  { front: "三重県", back: "Mie" },
-  { front: "滋賀県", back: "Shiga" },
-  { front: "京都府", back: "Kyoto" },
-  { front: "大阪府", back: "Osaka" },
-  { front: "兵庫県", back: "Hyogo" },
-  { front: "奈良県", back: "Nara" },
-  { front: "和歌山県", back: "Wakayama" },
-  { front: "鳥取県", back: "Tottori" },
-  { front: "島根県", back: "Shimane" },
-  { front: "岡山県", back: "Okayama" },
-  { front: "広島県", back: "Hiroshima" },
-  { front: "山口県", back: "Yamaguchi" },
-  { front: "徳島県", back: "Tokushima" },
-  { front: "香川県", back: "Kagawa" },
-  { front: "愛媛県", back: "Ehime" },
-  { front: "高知県", back: "Kochi" },
-  { front: "福岡県", back: "Fukuoka" },
-  { front: "佐賀県", back: "Saga" },
-  { front: "長崎県", back: "Nagasaki" },
-  { front: "熊本県", back: "Kumamoto" },
-  { front: "大分県", back: "Oita" },
-  { front: "宮崎県", back: "Miyazaki" },
-  { front: "鹿児島県", back: "Kagoshima" },
-  { front: "沖縄県", back: "Okinawa" },
+  { front: "青森", back: "Aomori" },
+  { front: "岩手", back: "Iwate" },
+  { front: "宮城", back: "Miyagi" },
+  { front: "秋田", back: "Akita" },
+  { front: "山形", back: "Yamagata" },
+  { front: "福島", back: "Fukushima" },
+  { front: "茨城", back: "Ibaraki" },
+  { front: "栃木", back: "Tochigi" },
+  { front: "群馬", back: "Gunma" },
+  { front: "埼玉", back: "Saitama" },
+  { front: "千葉", back: "Chiba" },
+  { front: "東京", back: "Tōkyō" },
+  { front: "神奈川", back: "Kanagawa" },
+  { front: "新潟", back: "Niigata" },
+  { front: "富山", back: "Toyama" },
+  { front: "石川", back: "Ishikawa" },
+  { front: "福井", back: "Fukui" },
+  { front: "山梨", back: "Yamanashi" },
+  { front: "長野", back: "Nagano" },
+  { front: "岐阜", back: "Gifu" },
+  { front: "静岡", back: "Shizuoka" },
+  { front: "愛知", back: "Aichi" },
+  { front: "三重", back: "Mie" },
+  { front: "滋賀", back: "Shiga" },
+  { front: "京都", back: "Kyōto" },
+  { front: "大阪", back: "Ōsaka" },
+  { front: "兵庫", back: "Hyōgo" },
+  { front: "奈良", back: "Nara" },
+  { front: "和歌山", back: "Wakayama" },
+  { front: "鳥取", back: "Tottori" },
+  { front: "島根", back: "Shimane" },
+  { front: "岡山", back: "Okayama" },
+  { front: "広島", back: "Hiroshima" },
+  { front: "山口", back: "Yamaguchi" },
+  { front: "徳島", back: "Tokushima" },
+  { front: "香川", back: "Kagawa" },
+  { front: "愛媛", back: "Ehime" },
+  { front: "高知", back: "Kōchi" },
+  { front: "福岡", back: "Fukuoka" },
+  { front: "佐賀", back: "Saga" },
+  { front: "長崎", back: "Nagasaki" },
+  { front: "熊本", back: "Kumamoto" },
+  { front: "大分", back: "Ōita" },
+  { front: "宮崎", back: "Miyazaki" },
+  { front: "鹿児島", back: "Kagoshima" },
+  { front: "沖縄", back: "Okinawa" },
 ];
 
 function KanjiPrefectures() {
@@ -63,6 +63,25 @@ function KanjiPrefectures() {
         <TrainingModal cards={cards} />
         <MapButton url="https://www.geoguessr.com/maps/63ed81746c30242786232048/play" />
       </Head>
+      <Paragraph>
+        <h3>Kanjis making up the prefectures by number of occurences</h3>
+        <ul>
+          <li>山 (yama) - 6</li>
+          <li>島 (shima) - 5</li>
+          <li>川 (kawa) - 3</li>
+          <li>福 (Fuku) - 3</li>
+          <li>岡 (oka) - 3</li>
+          <li>京 (kyō) - 2</li>
+          <li>知 (chi) - 2</li>
+          <li>大 (Ō) - 2</li>
+          <li>宮 (Miya) - 2</li>
+          <li>崎 (saki) - 2</li>
+          <li>奈 (na) - 2</li>
+          <li>長 (Naga) - 2</li>
+          <li>賀 (ga) - 2</li>
+          <li>...</li>
+        </ul>
+      </Paragraph>
       <ImageMagnifier
         src={KanjiMap}
         alt="Map of Japan with prefectures written in Kanji"
