@@ -55,7 +55,21 @@ import okinawa from "../../../assets/img/jp/prefectures/okinawa.svg";
 const styleImage = { maxHeight: "100%", minHeight: "0", borderRadius: "0.5rem" };
 
 function createBack(prefecture: string, image: string) {
-  return <img src={image} alt={`Map of ${prefecture}`} style={styleImage} />;
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <img src={image} alt={`Map of ${prefecture}`} style={styleImage} />
+      {prefecture}
+    </div>
+  );
 }
 
 const data = [
