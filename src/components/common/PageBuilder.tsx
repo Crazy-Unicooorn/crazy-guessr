@@ -74,7 +74,9 @@ function CountryHeader({
   return (
     <PageTitle>
       <img src={flagmap} alt={flagAlt} style={isSmallScreen || isMobile ? styleImgMobile : styleImg} />
-      <div>{title}</div>
+      <div style={{ width: "100%", textAlign: "center", whiteSpace: "normal", padding: "0 1rem", maxWidth: "640px" }}>
+        {title}
+      </div>
       <img src={coat} alt={coatAlt} style={isSmallScreen || isMobile ? styleImgMobile : styleImg} />
     </PageTitle>
   );
