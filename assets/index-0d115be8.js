@@ -453,7 +453,7 @@ loading...`),n={scale:1.1,timing:200,springConfig:{tension:100,friction:5}},r={d
   @media (max-width: 640px) {
     font-size: 1.75rem;
   }
-`;function w({flagmap:t,flagAlt:a,title:s,coat:n,coatAlt:r}){const[i,o]=y.useState(!1),[c,u]=y.useState(!1);y.useEffect(()=>{const g=()=>{u(window.innerWidth<=640)};return window.addEventListener("resize",g),()=>{window.removeEventListener("resize",g)}},[]),y.useEffect(()=>{o(window.screen.width<=640||window.innerWidth<=640)},[]);const l={maxHeight:"12rem"},f={maxHeight:"4rem"};return e.jsxs(uD,{children:[e.jsx("img",{src:t,alt:a,style:c||i?f:l}),e.jsx("div",{children:s}),e.jsx("img",{src:n,alt:r,style:c||i?f:l})]})}const j3=X.div`
+`;function w({flagmap:t,flagAlt:a,title:s,coat:n,coatAlt:r}){const[i,o]=y.useState(!1),[c,u]=y.useState(!1);y.useEffect(()=>{const g=()=>{u(window.innerWidth<=640)};return window.addEventListener("resize",g),()=>{window.removeEventListener("resize",g)}},[]),y.useEffect(()=>{o(window.screen.width<=640||window.innerWidth<=640)},[]);const l={maxHeight:"12rem"},f={maxHeight:"4rem"};return e.jsxs(uD,{children:[e.jsx("img",{src:t,alt:a,style:c||i?f:l}),e.jsx("div",{style:{width:"100%",textAlign:"center",whiteSpace:"normal",padding:"0 1rem",maxWidth:"640px"},children:s}),e.jsx("img",{src:n,alt:r,style:c||i?f:l})]})}const j3=X.div`
   display: flex;
   max-width: 100%;
   // width: 100%;
