@@ -81,6 +81,18 @@ body {
   background-color: var(--purple-50);
 }
 
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/src/assets/img/textures/8x8\ Dark\ pat.png");
+  opacity: 0.05; /* Adjust the opacity as needed */
+  z-index: -1;
+}
+
 a {
   text-decoration: underline;
 }
