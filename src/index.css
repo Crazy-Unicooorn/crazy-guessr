@@ -88,7 +88,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("/src/assets/img/textures/8x8\ Dark\ pat.png");
+  background-image: url("/src/assets/img/textures/texture.png");
   opacity: 0.05; /* Adjust the opacity as needed */
   z-index: -1;
 }
