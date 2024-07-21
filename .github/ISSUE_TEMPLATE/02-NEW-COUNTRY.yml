@@ -1,0 +1,74 @@
+name: 🌍 New Country
+description: A country is featured in GeoGuessr but missing here? Let us know!
+title: "[World] Add INSERT_COUNTRY_HERE"
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before you continue:
+        - Search through the [issues](https://github.com/Crazy-Unicooorn/crazy-guessr/issues?q=is%3Aissue) and [pull requests](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls?q=is%3Apr) for what you're about to ask for.
+        - Verify that the country you want to add is not already in the [list of countries](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#index-of-training-cards-available).
+        - Check for street view availability.
+        - If you want to discuss a topic at length, you can use the [discussion](https://github.com/Crazy-Unicooorn/crazy-guessr/discussions) section.
+
+  - type: input
+    id: country
+    attributes:
+      label: 🌍 Country Name
+      description: Name of the country you want to add
+      placeholder: |
+        example: France
+    validations:
+      required: true
+
+  - type: dropdown
+    id: street-view
+    attributes:
+      label: 🏞️ Street View Availability
+      description: How is the street view availability in the country?
+      options:
+        - Normal coverage (purple and orange on the home map)
+        - Trekkers only (green on the home map)
+        - Upcoming street view (yellow on the home map)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: ➕ Additional Information
+      description: Give us some additional information on the country like links, screenshots, etc.
+      placeholder: Here is a link for reference…
+
+  - type: textarea
+    id: to-do
+    attributes:
+      label: 📝 To-Do
+      description: This is a list of tasks that need to be done to add the country, you don't need to fill this out
+      value: |
+        - [ ] Create folders in `src/assets/img/` and `src/components/tips/` with the country ISO code
+        - [ ] Create a new .tsx file in `src/pages/` with the country ISO code
+        - [ ] Reference that page in `src/App.tsx`
+        - [ ] Color the country on the map in `src/components/other/HomeMap.tsx` and add a click event + tooltip
+        - [ ] Add the country to the index in README.md
+        - [ ] Add the country information to every world training sets in `src/components/tips/world/`
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: Please check the following before submitting your country request
+      options:
+        - label: I have searched through the existing issues and pull requests and confirmed that this is not a duplicate
+          required: true
+        - label: I have verified that the country is not already in the [list of countries](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#index-of-training-cards-available)
+          required: true
+        - label: I have checked for street view availability
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        Thank you for contributing to the project! 🎉

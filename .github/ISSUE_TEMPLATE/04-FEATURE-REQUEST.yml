@@ -1,6 +1,6 @@
 name: 🌟 Feature Request
 description: Request a new feature to improve the project
-title: "[Feature Request]: "
+title: "[Feature Request] "
 labels: [enhancement]
 body:
   - type: markdown

@@ -1,0 +1,80 @@
+name: 🃏🎴 Training Set Request
+description: Tell us about a new training set that you would like to see included
+title: "[Training] "
+labels: [enhancement, training cards]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before you continue:
+        - Search through the [issues](https://github.com/Crazy-Unicooorn/crazy-guessr/issues?q=is%3Aissue) and [pull requests](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls?q=is%3Apr) for what you're about to ask for.
+        - If you want to discuss a topic at length, you can use the [discussion](https://github.com/Crazy-Unicooorn/crazy-guessr/discussions) section.
+        - Please open one request per training set. You can always link between issues if they are related.
+
+  - type: input
+    id: page
+    attributes:
+      label: 🌍 Country or Region
+      description: What country or region does this training set cover?
+      placeholder: |
+        example: World | France | Continental Malaysia…
+    validations:
+      required: true
+
+  - type: input
+    id: title
+    attributes:
+      label: 📌 Title
+      description: How would you name the training set you want to add? (optional)
+      placeholder: |
+        example: Area Codes
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Description
+      description: What is the training set about? What will the user learn? How will it help them in GeoGuessr?
+      placeholder: |
+        example: This training set will help users learn the area codes of…
+    validations:
+      required: true
+
+  - type: input
+    id: geoguessr-map
+    attributes:
+      label: 🧭 Geoguessr Map
+      description: What is a map that can be used to further memorize the information? (optional)
+      placeholder: |
+        example: https://www.geoguessr.com/maps/62a44b22040f04bd36e8a914
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: ➕ Additional Information
+      description: Give us some additional information on the training set request like links, screenshots, data, etc.
+      placeholder: Here is a map of… Here is a wiki page of…
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: Please check the following before submitting your training set request
+      options:
+        - label: I have searched through the existing issues and pull requests and confirmed that this is not a duplicate
+          required: true
+        - label: I have verified that the training set is not already in the [list of training sets](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#index-of-training-cards-available)
+          required: true
+        - label: I acknowledge that this training set is valuable and will help GeoGuessr players
+          required: true
+        - label: I have opened one request per training set. In case of multiple requests I will open a new issue for each
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        Thank you for contributing to the project! 🎉
