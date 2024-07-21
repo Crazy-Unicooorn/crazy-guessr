@@ -4,7 +4,7 @@
 
 It takes a new approach by offering **Training Cards** games and linking to practice maps for each tip section.
 
-This is to make the learning process as optimal as can be.
+This is to make the learning process as optimal as it can be.
 
 _The project is hosted on Github Pages, which is a free service for static websites. This means that we are trying to keep the website simple and easy to use. We will not include features that would require a server, such as leaderboards._
 
