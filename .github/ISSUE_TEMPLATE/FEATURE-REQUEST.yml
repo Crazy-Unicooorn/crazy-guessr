@@ -8,7 +8,7 @@ body:
       value: |
         ## Before you continue:
         - Search through the [issues](https://github.com/Crazy-Unicooorn/crazy-guessr/issues?q=is%3Aissue) and [pull requests](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls?q=is%3Apr) for what you're about to ask for.
-        - If you want to discuss a topic at length, you can use the [discussion](https://github.com/Crazy-Unicooorn/crazy-guessr/discussions) section
+        - If you want to discuss a topic at length, you can use the [discussion](https://github.com/Crazy-Unicooorn/crazy-guessr/discussions) section.
         - Please open one feature request per feature. You can always link between issues if they are related.
 
   - type: textarea
@@ -51,4 +51,4 @@ body:
     attributes:
       value: |
         ---
-        If you'd like to see this feature implemented, add a 👍 reaction to this post.
+        Thank you for contributing to the project! 🎉

@@ -1,0 +1,105 @@
+name: 🐛 Bug Report
+description: Report a bug in the project
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before you continue:
+        - Search through the [issues](https://github.com/Crazy-Unicooorn/crazy-guessr/issues?q=is%3Aissue) and [pull requests](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls?q=is%3Apr) for what you're about to ask for.
+        - If you want to discuss a topic at length, you can use the [discussion](https://github.com/Crazy-Unicooorn/crazy-guessr/discussions) section.
+        - Please open one bug report per bug. You can always link between issues if they are related.
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: 📱 Device
+      description: On which device(s) did you encounter the bug?
+      multiple: true
+      options:
+        - Desktop
+        - Mobile
+        - Tablet
+        - Other (please specify)
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: 🌐 Browser
+      description: In which browser(s) did you encounter the bug?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Opera
+        - Arc
+        - Brave
+        - Other (please specify)
+  
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: 🚀 Expected Behavior
+      description: What is the expected behavior? What is the scenario where this bug occurs?
+      placeholder: I expected…
+    validations:
+      required: true
+  
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: 🐛 Actual Behavior
+      description: What is the actual behavior?
+      placeholder: Instead, I saw…
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: 🔄 Steps to Reproduce
+      description: What are the steps to reproduce the bug?
+      placeholder: |
+        1. First…
+        2. Then…
+        3. Finally…
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 🧩 Context
+      description: If some context is required, describe it here
+      placeholder: When I was…
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: ➕ Additional Information
+      description: Give us some additional information on the bug report like links, screenshots, etc.
+      placeholder: Here is a screenshot of…
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Acknowledgements
+      description: Please check the following before submitting your bug report
+      options:
+        - label: I have searched through the existing issues and pull requests and confirmed that this is not a duplicate
+          required: true
+        - label: I have opened one bug report per bug. In case of multiple bugs I will open a new issue for each
+          required: true
+  
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        Thank you for taking the time to report a bug! 🐞
