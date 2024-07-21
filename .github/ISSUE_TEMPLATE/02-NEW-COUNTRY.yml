@@ -11,6 +11,7 @@ body:
         - Verify that the country you want to add is not already in the [list of countries](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#index-of-training-cards-available).
         - Check for street view availability.
         - If you want to discuss a topic at length, you can use the [discussion](https://github.com/Crazy-Unicooorn/crazy-guessr/discussions) section.
+        ---
 
   - type: input
     id: country

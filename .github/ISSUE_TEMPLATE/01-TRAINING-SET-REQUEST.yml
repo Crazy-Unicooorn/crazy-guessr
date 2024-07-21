@@ -1,6 +1,5 @@
-name: 🃏🎴 Training Set Request
-description: Tell us about a new training set that you would like to see included
-title: "[Training] "
+name: 🎴 Training Set Request
+description: Request a new training set to help GeoGuessr players
 labels: [enhancement, training cards]
 body:
   - type: markdown
@@ -10,6 +9,7 @@ body:
         - Search through the [issues](https://github.com/Crazy-Unicooorn/crazy-guessr/issues?q=is%3Aissue) and [pull requests](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls?q=is%3Apr) for what you're about to ask for.
         - If you want to discuss a topic at length, you can use the [discussion](https://github.com/Crazy-Unicooorn/crazy-guessr/discussions) section.
         - Please open one request per training set. You can always link between issues if they are related.
+        ---
 
   - type: input
     id: page
