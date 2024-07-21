@@ -3,6 +3,13 @@ description: Request a new feature for the project
 title: "[Feature Request]: "
 labels: [enhancement]
 body:
+  - type: input
+    id: feature-request-title
+    attributes:
+      label: Feature Request Title
+      description: A clear and concise title for the feature request
+      placeholder: Add a title for the feature request
+      required: true
   - type: markdown
     attributes:
       value: |
@@ -18,3 +25,4 @@ body:
         
         **Additional context**
         Add any other context or screenshots about the feature request here.
+      required: true
