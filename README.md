@@ -1,6 +1,6 @@
 # CrazyGuessr
 
-[CrazyGuessr](https://crazy-unicooorn.github.io/crazy-guessr/) is a set of tips and tools to help you get better at [GeoGuessr](https://geoguessr.com/). <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Compass.png" alt="Compass" width="24" height="24" />
+[CrazyGuessr](https://crazy-unicooorn.github.io/crazy-guessr/) is a set of tips and tools to help you get better at [GeoGuessr](https://geoguessr.com/) <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Compass.png" alt="Compass" width="16" height="16" />
 
 It takes a new approach by offering **Training Cards** games and linking to practice maps for each tip section.
 
