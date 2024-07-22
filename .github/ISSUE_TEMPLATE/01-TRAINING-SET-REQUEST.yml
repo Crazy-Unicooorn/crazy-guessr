@@ -66,7 +66,7 @@ body:
       options:
         - label: I have searched through the existing issues and pull requests and confirmed that this is not a duplicate
           required: true
-        - label: I have verified that the training set is not already in the [list of training sets](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#index-of-training-cards-available)
+        - label: I have verified that the training set is not already in the [list of training sets](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#-index-of-training-cards-available)
           required: true
         - label: I acknowledge that this training set is valuable and will help GeoGuessr players
           required: true

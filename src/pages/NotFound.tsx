@@ -14,7 +14,15 @@ const CTA = styled.div`
 function NotFound() {
   return (
     <>
-      <h1>404 · Page not found 🤔</h1>
+      <h1>
+        404 · Page not found{" "}
+        <img
+          src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Thinking%20Face.png"
+          alt="Thinking Face"
+          width="50"
+          height="50"
+        />
+      </h1>
       <CTA>
         <Button
           text="Back to Home"
@@ -34,7 +42,7 @@ function NotFound() {
           bgcolor="var(--purple-300)"
           boop={{ x: 4, y: -4, springConfig: { tension: 300, friction: 10 } }}
           hasLink
-          externalLink="https://github.com/Crazy-Unicooorn/crazy-guessr?tab=readme-ov-file#index-of-training-cards-available"
+          externalLink="https://github.com/Crazy-Unicooorn/crazy-guessr?tab=readme-ov-file#-index-of-training-cards-available"
           collapseText
         />
       </CTA>

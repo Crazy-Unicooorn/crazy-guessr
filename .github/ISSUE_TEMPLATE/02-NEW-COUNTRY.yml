@@ -8,7 +8,7 @@ body:
       value: |
         ## Before you continue:
         - Search through the [issues](https://github.com/Crazy-Unicooorn/crazy-guessr/issues?q=is%3Aissue) and [pull requests](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls?q=is%3Apr) for what you're about to ask for.
-        - Verify that the country you want to add is not already in the [list of countries](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#index-of-training-cards-available).
+        - Verify that the country you want to add is not already in the [list of countries](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#-index-of-training-cards-available).
         - Check for street view availability.
         - If you want to discuss a topic at length, you can use the [discussion](https://github.com/Crazy-Unicooorn/crazy-guessr/discussions) section.
         ---
@@ -63,7 +63,7 @@ body:
       options:
         - label: I have searched through the existing issues and pull requests and confirmed that this is not a duplicate
           required: true
-        - label: I have verified that the country is not already in the [list of countries](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#index-of-training-cards-available)
+        - label: I have verified that the country is not already in the [list of countries](https://github.com/Crazy-Unicooorn/crazy-guessr/tree/2024.07.09?tab=readme-ov-file#-index-of-training-cards-available)
           required: true
         - label: I have checked for street view availability
           required: true
