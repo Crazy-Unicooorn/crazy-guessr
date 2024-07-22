@@ -1,4 +1,4 @@
-# CrazyGuessr <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Compass.png" alt="Compass" width="24" height="24" />
+# CrazyGuessr <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Compass.png" alt="Compass" width="32" height="32" />
 
 [CrazyGuessr](https://crazy-unicooorn.github.io/crazy-guessr/) is a set of tips and tools to help you get better at [GeoGuessr](https://geoguessr.com/).
 
@@ -15,7 +15,7 @@ Anyone is free to contribute, coding knowledge is not required.
 - [Create an issue](https://github.com/Crazy-Unicooorn/crazy-guessr/issues) if you would like to see your tips included, make a suggestion, upload maps, or report a bug.
 - [Create a pull request](https://github.com/Crazy-Unicooorn/crazy-guessr/pulls) if you know how to code and would like to improve the code.
 
-# Index of Training Cards available <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="24" height="24" />
+# Index of Training Cards available <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Brain.png" alt="Brain" width="32" height="32" />
 
 ## [World](https://crazy-unicooorn.github.io/crazy-guessr/#/)
 
