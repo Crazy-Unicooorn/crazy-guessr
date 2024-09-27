@@ -171,7 +171,7 @@ function DonateButton() {
               style={{ width: "100%" }}
             />
             <Button
-              text="Pay with bitcoin"
+              text="Proceed to bitcoin payment"
               // eslint-disable-next-line react/jsx-no-bind
               onClick={payWithBitcoin}
               style={{ width: "100%" }}
