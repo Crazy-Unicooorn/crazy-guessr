@@ -23,6 +23,8 @@ export const Head = styled.div`
   background-color: rgba(241, 241, 252, 0.8);
   padding: 0.5rem;
   border-radius: 0.5rem;
+
+  white-space: nowrap;
 `;
 
 export const Paragraph = styled.div`
