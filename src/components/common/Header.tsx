@@ -7,6 +7,7 @@ import TwitchIcon from "../../assets/icons/brands/twitch";
 import Button from "./Button";
 import DonateButton from "../other/DonateButton";
 import logo from "../../assets/icons/brands/cg_logo.svg";
+import RandomFact from "../other/RandomFact";
 
 const BrandTextWrapper = styled.div`
   display: flex;
@@ -60,6 +61,21 @@ interface HeaderProps {
 }
 
 function Header({ onClick }: HeaderProps) {
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1200);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1200);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const [lastUpdate, setLastUpdate] = useState("Last update:\nloading...");
   const boopConfig = { scale: 1.1, timing: 200, springConfig: { tension: 100, friction: 5 } };
   const brandBoxStyle: CSSProperties = {
@@ -88,7 +104,7 @@ function Header({ onClick }: HeaderProps) {
           <BrandTextGuessr>Guessr</BrandTextGuessr>
         </BrandTextWrapper>
       </Link>
-      <Separator />
+      {isSmallScreen ? <Separator /> : <RandomFact />}
       <Button
         text="Catch me live"
         title="Catch me live on Twitch! I stream development and general knowledge training."
