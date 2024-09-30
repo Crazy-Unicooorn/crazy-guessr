@@ -22,23 +22,23 @@ const Recall: React.FC<RecallProps> = ({ children }) => {
 
   // Effect to handle the one-minute timeout
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsBlurred(false);
-      setIsBlinking(false); // Stop blinking when revealed
-    }, 60000); // 60 seconds
+    const timer = setTimeout(
+      () => {
+        setIsBlurred(false);
+        setIsBlinking(false);
+      },
+      2 * 60 * 1000 // 2 minutes
+    );
 
     // Cleanup function to clear the timer
     return () => clearTimeout(timer);
-  }, []);
+  }, [isHovered]);
 
   // Effect to determine if the text should be blurred
   useEffect(() => {
     if (isHovered) {
       setIsBlurred(false);
-      setIsBlinking(false); // Stop blinking when hovered
-    } else {
-      setIsBlurred(true);
-      setIsBlinking(true); // Start blinking again if not hovered
+      setIsBlinking(false);
     }
   }, [isHovered]);
 

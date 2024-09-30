@@ -400,16 +400,38 @@ const facts = [
     <strong>8 stripes</strong>.
   </span>,
   <span>
-    In <Recall>Austria</Recall>, pedestrian signs feature <strong>two horizontal dashed lines</strong> instead of zebra
-    stripes.
-  </span>,
-  <span>
     In <Recall>Austria</Recall>, some road signs are mounted with <strong>four metal clips</strong>, a detail unique
     within Central Europe.
   </span>,
   <span>
     In <Recall>Austria</Recall>, one-way traffic signs say &apos;<strong>EINBAHN</strong>&apos;, unlike in{" "}
     <Recall>Germany</Recall>, where they read &apos;<strong>Einbahnstraße</strong>&apos;.
+  </span>,
+  <span>
+    Dry rock walls made of <strong>volcanic rocks</strong> are very common in the <Recall>Azores</Recall>.
+  </span>,
+  <span>
+    Licence plates in <Recall>Belgium</Recall> use <strong>red text</strong> with a blue strip on the left, making them
+    recognizable even through the blur.
+  </span>,
+  <span>
+    Street name signs in <strong>Belgium</strong> often have the town or city name written.
+  </span>,
+  <span>
+    The letter “Ъ” is only found in <Recall>Bulgarian</Recall> and <strong>Russian</strong>, but is fairly uncommon in{" "}
+    <strong>Russian</strong>.
+  </span>,
+  <span>
+    In <Recall>Bulgaria</Recall>, pedestrian signs have <strong>four stripes</strong>. Unlike other Eastern or Central
+    European pedestrian signs.
+  </span>,
+  <span>
+    <strong>Karlovačko</strong> and <strong>Ožujsko</strong> are common beer brands, with ads seen throughout{" "}
+    <Recall>Croatia</Recall>.
+  </span>,
+  <span>
+    <strong>Konzum</strong> and <strong>Plodine</strong> are supermarket chains unique to <Recall>Croatia</Recall>,
+    mainly found in larger cities.
   </span>,
 
   <span>
