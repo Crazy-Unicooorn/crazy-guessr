@@ -22,14 +22,6 @@ const facts = [
     Roads labeled with &apos;<strong>MR</strong>&apos; are unique to <Recall>Eswatini</Recall>.
   </span>,
   <span>
-    {" "}
-    <strong>
-      Taxis in <Recall>Ghana</Recall>
-    </strong>{" "}
-    are easily recognized by their multicoloured body panels, with the fenders and quarter panels always in{" "}
-    <strong>orange-yellow</strong>.{" "}
-  </span>,
-  <span>
     <Recall>Ghana</Recall> often displays patriotic colours from its national flag—<strong>red, yellow, green</strong>,
     and sometimes the <strong>black star</strong>.
   </span>,
@@ -41,10 +33,6 @@ const facts = [
   <span>
     The mobile network brand <strong>Safaricom</strong> is unique to <Recall>Kenya</Recall>, with locations in almost
     every city.
-  </span>,
-  <span>
-    The characteristic <Recall>Lesotho</Recall> mountains are bare, treeless, often tabletop-shaped, with recognizable
-    horizontal rocky ridgelines, making them a key identifier of the country.
   </span>,
   <span>
     <Recall>Nigeria</Recall> uses short license plates that often appear slightly <strong>green</strong> through the
@@ -64,9 +52,6 @@ const facts = [
   <span>
     As a former French colony, <strong>Senegal</strong> features French infrastructure, with <strong>French</strong> as
     the most common language.
-  </span>,
-  <span>
-    In <Recall>Senegal</Recall>, yellow-orange taxis with <strong>black fenders</strong> are commonly seen.
   </span>,
   <span>
     <Recall>South Africa</Recall> has 11 official languages, including <strong>English</strong>,{" "}
@@ -273,10 +258,6 @@ const facts = [
     <strong>Tall, square yellow road stones</strong> are unique to the <Recall>Philippines</Recall>.
   </span>,
   <span>
-    Tuk-tuks, also known as tricycles, are extremely common in the <strong>Philippines</strong> and often outnumber
-    typical cars in many areas.
-  </span>,
-  <span>
     The <strong>Filipino</strong> language features many loanwords from <strong>Spanish</strong>, reflecting the
     country’s history, which can help identify the <strong>Philippines</strong>.
   </span>,
@@ -316,10 +297,7 @@ const facts = [
     which do not reach all the way down.
   </span>,
   <span>
-    In <strong>South Korea</strong>, most utility poles have a tapered “spike” on top.
-  </span>,
-  <span>
-    In <strong>South Korea</strong>, pedestrian crossings are often yellow and white.
+    In <strong>South Korea</strong>, pedestrian crossings are often painted yellow and white on the road.
   </span>,
   <span>
     In <Recall>Sri Lanka</Recall>, <strong>Sinhalese</strong> is the most common language, featuring a curvy, rounded
@@ -328,10 +306,6 @@ const facts = [
   <span>
     In <Recall>Sri Lanka</Recall>, you can see <strong>Tamil</strong> in certain regions. It&apos;s also found in the
     Indian state of Tamil Nadu. ශ්‍රී ලංකාවේ සාදරයෙන් පිළිගනිමු
-  </span>,
-  <span>
-    <Recall>Sri Lanka</Recall> features unique <strong>“holey poles”</strong> with large{" "}
-    <strong>see-through holes in the lower half</strong>. Other types can also be found.
   </span>,
   <span>
     <Recall>Sri Lanka</Recall> has unique short, wide stone bollards with a tapered shape, featuring a{" "}
@@ -433,38 +407,72 @@ const facts = [
     <strong>Konzum</strong> and <strong>Plodine</strong> are supermarket chains unique to <Recall>Croatia</Recall>,
     mainly found in larger cities.
   </span>,
-
   <span>
-    <Recall>Estonian</Recall> is the only Baltic language with the letters <strong>Ä, Ö, Ü,</strong> and{" "}
+    Bollards in <Recall>Czechia</Recall> and <Recall>Slovakia</Recall> are unique, featuring{" "}
+    <strong>double orange reflectors</strong> on the front and a single white reflector on the back. Blue and red
+    variants also exist.
+  </span>,
+  <span>
+    <strong>Ů</strong> is unique to <Recall>Czechia</Recall>.
+  </span>,
+  <span>
+    <strong>Ŕ</strong> is unique to <Recall>Slovakia</Recall>. Make sure not to confuse it with <strong>Ř</strong>,
+    which is found in <Recall>Czechia</Recall>.
+  </span>,
+  <span>
+    <strong>Ľ</strong> and <strong>Ĺ</strong> are unique to <Recall>Slovakia</Recall>.
+  </span>,
+  <span>
+    In Europe, <strong>Ě</strong> is almost unique to <Recall>Czechia</Recall>.
+  </span>,
+  <span>
+    <strong>Czechia</strong> uses <strong>arrow-shaped directional signs</strong> with a filled-in tip, making them
+    recognizable from behind.
+  </span>,
+  <span>
+    <Recall>Denmark</Recall> has unique direction signs, low to the ground and <strong>framed by pipes</strong>.
+  </span>,
+  <span>
+    In <Recall>Denmark</Recall>, most street names end in &quot;<strong>vej</strong>&quot;, meaning &quot;street&quot;.
+  </span>,
+  <span>
+    A <strong>circular</strong> signpost with the <strong>pipe frame bent around the sign</strong> is unique to{" "}
+    <Recall>Denmark</Recall>.
+  </span>,
+  <span>
+    Among the Baltics, only <Recall>Estonia</Recall> features the vowels <strong>Ä, Ö, Ü,</strong> and{" "}
     <strong>Õ</strong>.
   </span>,
   <span>
     The words &apos;<strong>tänav</strong>&apos; for street and &apos;<strong>tee</strong>&apos; for road are exclusive
-    to <Recall>Estonian</Recall>, with &apos;<strong>tn</strong>&apos; often used as an abbreviation.
+    to <Recall>Estonia</Recall>, with &apos;<strong>tn</strong>&apos; often used as an abbreviation.
   </span>,
   <span>
-    <Recall>Latvian</Recall> pedestrian signs stand out in Europe with their five stripes and unusually long-legged
-    figure.
+    <strong>Finnish</strong> and <strong>Estonian</strong> feature many long words and <strong>double vowels</strong>.
   </span>,
   <span>
-    <Recall>Latvian</Recall> bus stop signs uniquely depict buses with five windows, unlike anywhere else in the
-    Baltics.
+    In <Recall>Finland</Recall>, most street names end in &quot;<strong>tie</strong>&quot; or &quot;
+    <strong>katu</strong>&quot; (&quot;road&quot; and &quot;street&quot;).
   </span>,
   <span>
-    The <Recall>Latvian</Recall> word for street, &apos;<strong>iela</strong>&apos;, is unique to{" "}
-    <Recall>Latvian</Recall>.
+    <Recall>Finland</Recall> is the only Nordic country where traffic signs with a red border feature a{" "}
+    <strong>thin yellow stroke</strong> along the edge.
   </span>,
   <span>
-    <strong>Riga&apos;s</strong> historic downtown is uniquely defined by majestic{" "}
-    <strong>art nouveau architecture</strong>, unmatched in <strong>Latvia</strong> and the Baltics.
+    <strong>K-Market</strong> and <strong>S-Market</strong> are only found in <Recall>Finland</Recall>.{" "}
+    <strong>K-Market</strong> may also appear as <strong>K-Supermarket</strong> or <strong>K-Citymarket</strong>.
+  </span>,
+
+  <span>
+    The word for street, &apos;<strong>iela</strong>&apos;, is unique to <Recall>Latvia</Recall>.
   </span>,
   <span>
-    Among the Baltic languages, only <Recall>Lithuanian</Recall> features the vowels <strong>Ą Ę Į Ų</strong> and the
-    letter <strong>Ė</strong> with a single dot.
+    Among the Baltics, only <Recall>Lithuania</Recall> features the vowels <strong>Ą Ę Į Ų</strong> and the letter{" "}
+    <strong>Ė</strong> with a single dot.
   </span>,
   <span>
-    The <Recall>Lithuanian</Recall> word for street, &apos;<strong>gatvė</strong>,&apos; is almost entirely unique and
-    often abbreviated as &apos;<strong>g</strong>&apos; on signs and Google Maps.
+    In <Recall>Lithuania</Recall>, the word for street &apos;<strong>gatvė</strong>,&apos; is almost entirely unique and
+    often abbreviated as &apos;<strong>g</strong>&apos;.
   </span>,
 ];
 
