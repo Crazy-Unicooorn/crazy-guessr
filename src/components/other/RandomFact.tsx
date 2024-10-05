@@ -462,6 +462,36 @@ const facts = [
     <strong>K-Market</strong> and <strong>S-Market</strong> are only found in <Recall>Finland</Recall>.{" "}
     <strong>K-Market</strong> may also appear as <strong>K-Supermarket</strong> or <strong>K-Citymarket</strong>.
   </span>,
+  <span>
+    The French word for street is <strong>“rue”</strong>.
+  </span>,
+  <span>
+    The <strong>French bollard</strong> is highly recognizable: a round white post with a pointed top and a{" "}
+    <strong>red</strong> or grey <strong>reflector band circling it</strong>.
+  </span>,
+  <span>
+    Small <strong>blue rectangular plates</strong> on utility poles are unique to <Recall>France</Recall>. They are
+    common on wooden and metallic poles.
+  </span>,
+  <span>
+    Small <strong>yellow signs</strong> displaying the road number, typically starting with a <strong>“D”</strong>, are
+    unique to <Recall>France</Recall> and often found on top of directional or town entry signs.
+  </span>,
+  <span>
+    <strong>Germany</strong> has a wide variety of sign backs, black or dark grey ones are common but rare elsewhere in{" "}
+    <strong>Europe</strong>.
+  </span>,
+  <span>
+    The alphabet with unique letters like Δ Ω Λ Θ and Φ is exclusive to <Recall>Greece</Recall>. You might be familiar
+    with some of them, used for scientific abbreviations.
+  </span>,
+  <span>
+    <strong>Miniature churches</strong>, placed on small pedestals, are unique to <Recall>Greece</Recall> and often
+    found along its roads.
+  </span>,
+  <span>
+    In <Recall>Greece</Recall>, the word for street is &apos;<strong>ΟΔΟΣ</strong>&apos;.
+  </span>,
 
   <span>
     The word for street, &apos;<strong>iela</strong>&apos;, is unique to <Recall>Latvia</Recall>.
