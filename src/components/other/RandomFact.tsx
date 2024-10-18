@@ -478,10 +478,6 @@ const facts = [
     unique to <Recall>France</Recall> and often found on top of directional or town entry signs.
   </span>,
   <span>
-    <strong>Germany</strong> has a wide variety of sign backs, black or dark grey ones are common but rare elsewhere in{" "}
-    <strong>Europe</strong>.
-  </span>,
-  <span>
     The alphabet with unique letters like Δ Ω Λ Θ and Φ is exclusive to <Recall>Greece</Recall>. You might be familiar
     with some of them, used for scientific abbreviations.
   </span>,
@@ -492,7 +488,47 @@ const facts = [
   <span>
     In <Recall>Greece</Recall>, the word for street is &apos;<strong>ΟΔΟΣ</strong>&apos;.
   </span>,
-
+  <span>
+    The letters <strong>Ő</strong> and <strong>Ű</strong>, with double acute accents, are unique to{" "}
+    <Recall>Hungary</Recall>,
+  </span>,
+  <span>
+    The words for street, &apos;<strong>utca</strong>&apos; and &apos;<strong>út</strong>&apos;, are unique to{" "}
+    <Recall>Hungary</Recall>.
+  </span>,
+  <span>
+    In <strong>Hungary</strong>, signs are typically bolted to the post with four bolts in a tall rectangular pattern,
+    uncommon in other Eastern European countries.
+  </span>,
+  <span>
+    <Recall>Iceland</Recall> features unique <strong>yellow bollards with a white reflector</strong>
+  </span>,
+  <span>
+    <Recall>Iceland</Recall> is the only European country that uses{" "}
+    <strong>pedestrian signs with a yellow background</strong>.
+  </span>,
+  <span>
+    The letters <strong>Þ</strong> and <strong>þ</strong> are unique to <Recall>Iceland</Recall>.
+  </span>,
+  <span>
+    In <strong>Ireland</strong>, it is very common to see <strong>yellow outside dashes</strong> on the roads.
+  </span>,
+  <span>
+    In <Recall>Italy</Recall>, <strong>licence plates</strong> have <strong>blue strips</strong> on both sides. The{" "}
+    <strong>front plate</strong> is also distinctly shorter, making it unique.
+  </span>,
+  <span>
+    In <Recall>Italy</Recall> and <Recall>Albania</Recall>, bollards are <strong>triangular</strong> in shape, white
+    with a <strong>black top</strong>, and feature a red front and a white rear reflector.
+  </span>,
+  <span>
+    In Italy, you will find the municipality name at the top of &apos;no parking&apos;-signs with the text{" "}
+    <strong>passo carrabile</strong>
+  </span>,
+  <span>
+    <Recall>Isle of Man</Recall> uses white front licence plates with yellow rears, featuring a{" "}
+    <strong>red strip</strong> on the left.
+  </span>,
   <span>
     The word for street, &apos;<strong>iela</strong>&apos;, is unique to <Recall>Latvia</Recall>.
   </span>,
@@ -501,8 +537,15 @@ const facts = [
     <strong>Ė</strong> with a single dot.
   </span>,
   <span>
+    Road signs in <Recall>Liechtenstein</Recall> commonly have a <strong>round, grey metal border</strong> around them.
+  </span>,
+  <span>
     In <Recall>Lithuania</Recall>, the word for street &apos;<strong>gatvė</strong>,&apos; is almost entirely unique and
     often abbreviated as &apos;<strong>g</strong>&apos;.
+  </span>,
+  <span>
+    <Recall>Luxembourg</Recall> has unique direction signs, <strong>completely surrounded by a frame</strong>, also seen
+    on a lot of other road infrastructure.
   </span>,
 ];
 
