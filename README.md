@@ -6,7 +6,8 @@ It takes a new approach by offering **Training Cards** games and linking to prac
 
 This is to make the learning process as optimal as it can be.
 
-_The project is hosted on Github Pages, which is a free service for static websites. This means that we are trying to keep the website simple and easy to use. We will not include features that would require a server, such as leaderboards._
+> [!NOTE]
+> The project is hosted on Github Pages, which is a free service for static websites. This means that we are trying to keep the website simple and easy to use. We will not include features that would require a server, such as leaderboards.
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Folded%20Hands.png" alt="Folded Hands" width="24" height="24" /> Contributing
 
